@@ -1,0 +1,169 @@
+{% extends 'base_app.html' %}
+
+{% block content %}
+    <h1>Résultats</h1>
+    <h2>Paramètres entrés</h2>
+    <table>
+        <tr><th>Date minimale : </th><td>{{ parametres.dateMin | default_if_none:"1900 01" }}</td></tr>
+        <tr><th>Date maximale : </th><td>{{ parametres.dateMax | default_if_none:"Aujourd'hui" }}</td></tr>
+        <tr><th>Type de Juridiction : </th><td>{{ parametres.type_juridiction | default_if_none:"Toutes" }}</td></tr>
+        <tr><th>Juridiction : </th><td>{{ parametres.juridiction | default_if_none:"Toutes" }}</td></tr>
+        <tr>
+            <th>Mots-clés : </th>
+            <td>{% for mot in parametres.motsCles %}{{ mot }}, {% endfor %}</td>
+        </tr>
+    </table>
+    <br><br>
+    <h2>Résultats statistiques</h2>
+    <!--img style="width:100%" src="https://support.minitab.com/fr-fr/minitab/19/media/generated-content/images/capahist_curves_cable.png"-->
+    {% if jugements %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <div id="container" class="mx-auto" style="width: 25%;">
+        <canvas id="pieChart"></canvas>
+    </div>
+    <script>
+        var config = {
+        type: 'pie',
+        data: {
+            datasets: [{
+                data: {{ graph_pie.data|safe }},
+                backgroundColor: ["#6e1e78", "#a1006b"],
+                hoverOffset: 8
+            }],
+            labels: {{ graph_pie.labels|safe }}
+        },
+        options: {
+            responsive: true
+        }
+        };
+    
+        var ctx = document.getElementById('pieChart').getContext('2d');
+        var pieChart = new Chart(ctx, config);
+    </script>
+    <br>
+    <div id="container" style="width: 100%;">
+        <canvas id="barChart"></canvas>
+    </div>
+    <script>
+        var config = {
+        type: 'bar',
+        data: {
+            datasets: [{
+            data: {{ graph_gain.data | safe }},
+            backgroundColor: [
+                '#6e1e78', '#a1006b', '#CD0037'
+            ],
+            label: 'Nombre de jugements'
+            }],
+            labels: {{ graph_gain.labels | safe }}
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                title: {
+                    text: "Répartition des gains",
+                    display: true
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        color: "rgba(0,0,0,0)"
+                    },
+                    type: "linear"
+                },
+                y: {
+                    grid: {
+                        color: "rgba(0,0,0,0)"
+                    }
+                }
+            }
+        }
+        };
+    
+        var ctx = document.getElementById('barChart').getContext('2d');
+        var barChart = new Chart(ctx, config);
+    </script>
+    <br><br>
+    <div class="row">
+        <div id="accordion1" class="accordions col-4">
+            <div class="accordion">
+                <div class="accordion-head" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <h3 class="accordion-title mb-0">Statistiques avancées</h3>
+                    <button type="button" class="accordion-toggle">
+                        <i class="icons-arrow-down icons-size-x75" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion1">
+                    <div class="accordion-body">
+                        <table class="table">
+                            <tr><th>Moyenne : </th><td>{{ stats.moyenne | floatformat:2 }} €</td></tr>
+                            <tr><th>Médiane : </th><td>{{ stats.mediane | floatformat:2 }} €</td></tr>
+                            <tr><th>Ecart-type : </th><td>{{ stats.ecart_type | floatformat:2 }} €</td></tr>
+                            <tr><th>Minimum : </th><td>{{ stats.minimum | floatformat:2 }} €</td></tr>
+                            <tr><th>Maximum : </th><td>{{ stats.maximum | floatformat:2 }} €</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="accordion2" class="accordions col-8">
+            <div class="accordion">
+                <div class="accordion-head" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <h3 class="accordion-title mb-0">Fichiers trouvés</h3>
+                    <button type="button" class="accordion-toggle">
+                        <i class="icons-arrow-down icons-size-x75" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion2">
+                    <div class="accordion-body">
+                        <table class="table">
+                            {% for jugement in jugements %}
+                                <tr>
+                                    <td><a href="/media/{{ jugement.file }}" target="_blank">{{ jugement }}</td>
+                                    <td>
+                                        {% if jugement.gain >= 0 %}
+                                        <b style="color:green">{{ jugement.gain }}</b>
+                                        {% else %}
+                                        <b style="color:red">{{ jugement.gain }}</b>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--div>
+        <h2 class="text-info2">Statistiques</h2>
+        <ul class="list-group">
+            <li class="list-group-item"><b>Moyenne:</b> {{ moyenne }}€</li>
+     k      <li class="list-group-item"><b>Médiane:</b> {{ mediane }}€</li>
+            <li class="list-group-item"><b>Ecart-type:</b> {{ ecart_type }}€</li>
+            <li class="list-group-item"><b>Minimum:</b> {{ minimum }}€</li>
+            <li class="list-group-item"><b>Maximum:</b> {{ maximum }}€</li>
+        </ul>
+    </div>
+    <br>
+    <div>
+        <h2 class="text-info2">Résultats de la prédiction</h2>
+    </div>
+    <div>
+        <h2 class="text-info2">Fichier utilisés</h2>
+        <ul class="list-group">
+            {% for jugement in jugements %}
+                <li class="list-group-item"><a href="/media/{{ jugement.file }}" target="_blank">{{ jugement.file_name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div-->
+    <br><br>
+    <h2 class="text-info2">Prédiction</h2>
+    {% else %}
+    <p class="text-danger">Aucun jugement ne correspond à votre recherche</p>
+    {% endif %}
+{% endblock %}

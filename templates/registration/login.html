@@ -1,0 +1,40 @@
+{% extends "base_generic.html" %}
+
+{% block content %} 
+
+  <h1>Connexion</h1>
+  <p>Renseignez vos identifiants pour accéder à l'application.</p>
+  {% if form.errors %}
+    <p class="text-danger">Nom d'utilisateur ou mot de passe incorrect, essayez encore !</p>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p class="text-danger">Votre compte n'a pas accès à cette page. 
+          Pour y accéder, merci de vous connecter avec un autre compte.</p>
+    {% endif %}
+  {% endif %}
+
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <table>
+      <tr>
+        <td>{{ form.username.label_tag }}</td>
+        <td>{{ form.username }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.password.label_tag }}</td>
+        <td>{{ form.password }}</td>
+      </tr>
+    </table>
+    <br>
+    <input type="submit" value="Se connecter" class="btn btn-primary" />
+    <input type="hidden" name="next" value="{{ next }}" />
+  </form>
+
+  {# Assumes you setup the password_reset view in your URLconf #}
+  <br>
+  <p> Vous n'avez pas encore de compte ? Contactez <a href="/app/infos/responsable/">le responsable</a>.</p>
+  <!--p><a href="{% url 'password_reset' %}">Mot de passe oublié</a></p-->
+
+{% endblock %}

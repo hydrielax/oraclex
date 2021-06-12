@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- compatibilité IE 11 -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width">
+
+        <script type='text/javascript' src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'sncf/bootstrap-sncf.min.js' %}"></script>
+        
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'sncf/bootstrap-sncf.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+        {% block head %}
+        <title>Oraclex</title>
+        {% endblock %}
+
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-md navbar-dark container">
+                <a class='navbar-brand' href="{% url 'app:recherche' %}">
+                    <span>ORACLEX</span>
+                </a>
+                {% block navbar %}
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="navbar-nav">
+                    </div>
+                </div>
+                <div style="width:100%;"></div>
+                <a class="nav" href='https://www.sncf.com/fr' target="_blank" title="Site SNCF">
+                    <img src="{% static 'images/logo_sncf.png' %}" alt="Logo SNCF" />
+                </a>
+                <a class="nav" href='https://www.ec-nantes.fr/' target="_blank" title="Site de Centrale Nantes">
+                    <img src="{% static 'images/logo_ecn.png' %}" alt="Logo Centrale Nantes" />
+                </a>
+                {% endblock %}
+            </nav>
+        </header>
+        
+        <main class="container">
+        {% block content %}
+        {% endblock %}
+        </main>
+
+        <br><br><br>
+        <footer class="fixed-bottom">
+            <div class="container">
+                <p>
+                    Application conçue par les élèves du groupes P2E46 de Centrale Nantes. 
+                    {% if request.user.groups.all.0.name == "Développeurs" %}
+                        <a href="/admin">Page d'administration</a>
+                    {% endif %}
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>
