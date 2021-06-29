@@ -3,5 +3,5 @@ from . import views
 
 app_name = 'predict'
 urlpatterns = [
-    #path('', views.recherche, name='index'),
+    path('', views.prediction, name='index'),
 ]

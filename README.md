@@ -25,11 +25,10 @@ Oraclex est un projet de gestion, d'analyse, et de prédiction de décisions de 
 4. Créez un environnement virtuel nommé **oraclex_env** avec la commande `$ mkvirtualenv oraclex_env`. Vous devrez voir apparaître `(oraclex_env)` au début de vos lignes de commande ensuite (si ce n'est pas le cas, tapez `$ workon oraclex_env`)
 5. Placez-vous dans le dossier `oraclex` avec la commande `cd` si besoin
 6. Installez les dépendances : `$ pip3 install -r requirements.txt`
-Pour toutes les commandes :`py -3` au lieu de `python3` pour Windows.
 7. Créez la base de données : `$ python3 manage.py migrate` 
-s'il y a encore des modules non importés. Ajoutez le path d'accès par cette commande:`export PYTHONPATH="${PYTHONPATH}:/path/to/your/project/"` ( `set PYTHONPATH=%PYTHONPATH%;C:\path\to\your\project\` ou `set export PYTHONPATH="${PYTHONPATH}:/path/to/your/project/` pour windows )
-puis fermez le terminal et réessayez
-Ou faites un import absolu (import dans la cmd du système)
+    > NB : Sous Windows, remplacez partout `python3` par `py -3`
+
+    > En cas d'erreur de modules non importés : ajoutez le path d'accès avec la commande `export PYTHONPATH="${PYTHONPATH}:/path/to/your/project/"` (`set PYTHONPATH=%PYTHONPATH%;C:\path\to\your\project\` ou `set export PYTHONPATH="${PYTHONPATH}:/path/to/your/project/` pour Windows) puis fermez le terminal et réessayez, ou bien faites un import absolu (en dehors de l'environnement virtuel)
 8. Remplissez la BDD avec les données de base :
     ```python
     $ python3 manage.py shell

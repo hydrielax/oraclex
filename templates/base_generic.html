@@ -52,10 +52,13 @@
         <footer class="fixed-bottom">
             <div class="container">
                 <p>
-                    Application conçue par les élèves du groupes P2E46 de Centrale Nantes. 
+                    © OraclexTeam
                     {% if request.user.groups.all.0.name == "Développeurs" %}
-                        <a href="/admin">Page d'administration</a>
+                    ⋅ <a href="/admin">Page d'administration</a>
                     {% endif %}
+                    ⋅ <a href="{% url 'home:infos' %}">Informations</a>
+                    ⋅ <a href="#">Mentions Légales</a>
+                    ⋅ <a href="#">Politique de Confidentialité</a>
                 </p>
             </div>
         </footer>

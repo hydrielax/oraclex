@@ -3,8 +3,8 @@
 {% load static %} 
 
 {% url 'search:index' as recherche_url %}
+{% url 'predict:index' as predict_url %}
 {% url 'add_file:index' as ajouts_url %}
-{% url 'home:infos' as infos_url %}
 
 {% block head %}
     <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
@@ -23,13 +23,13 @@
                 <div></div>
                 <span>Recherche</span>                        
             </a>
+            <a class='nav-menu nav-link {% if request.path == predict_url or request.path == home_url %}active{%endif%}' href="{% url 'predict:index' %}">
+                <div></div>
+                <span>Prédiction</span>                        
+            </a>
             <a class='nav-menu nav-link {% if request.path == ajouts_url %}active{%endif%}' href="{% url 'add_file:index' %}">
                 <div></div>
                 <span>Ajout de fichier</span>                        
-            </a>
-            <a class='nav-menu nav-link {% if request.path == infos_url %}active{%endif%}' href="{% url 'home:infos' %}">
-                <div></div>
-                <span>Informations</span>                        
             </a>
             <div class="nav-menu nav-link">
                 <div></div>                        
