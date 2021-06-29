@@ -1,4 +1,0 @@
-django
-django-floppyforms
-pdf2image
-pytesseract

@@ -1,0 +1,50 @@
+{% extends 'base_generic.html' %}
+
+{% load static %} 
+
+{% url 'search:index' as recherche_url %}
+{% url 'add_file:index' as ajouts_url %}
+{% url 'home:infos' as infos_url %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+    <title>Oraclex</title>
+{% endblock %}
+
+
+{% block navbar %}
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav" style="width:100%;">
+            <a class='nav-menu nav-link {% if request.path == recherche_url or request.path == home_url %}active{%endif%}' href="{% url 'search:index' %}">
+                <div></div>
+                <span>Recherche</span>                        
+            </a>
+            <a class='nav-menu nav-link {% if request.path == ajouts_url %}active{%endif%}' href="{% url 'add_file:index' %}">
+                <div></div>
+                <span>Ajout de fichier</span>                        
+            </a>
+            <a class='nav-menu nav-link {% if request.path == infos_url %}active{%endif%}' href="{% url 'home:infos' %}">
+                <div></div>
+                <span>Informations</span>                        
+            </a>
+            <div class="nav-menu nav-link">
+                <div></div>                        
+            </div>
+            <div style="width:100%;"></div>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span>{{ request.user.first_name}} {{ request.user.last_name }}</span>
+                <i class="icons-menu-account" style="margin-left: 10px;" aria-hidden="true"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                <li><a class="dropdown-item" href=''>Modifier mon profil</a></li>
+                <li><a class="dropdown-item" href=''>Ajouter un utilisateur</a></li>
+                <li><a class="dropdown-item" href="{% url 'account:logout' %}">Me déconnecter</a></li>
+            </ul> 
+        </div>
+    </div>
+{% endblock %}
+        

@@ -1,7 +1,7 @@
-"""mysite URL Configuration
+"""oraclex URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.0/topics/http/urls/
+    https://docs.djangoproject.com/en/3.2/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -20,11 +20,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls, name='admin'),
-    #path('', include(('recherche.urls', 'recherche'), namespace='recherche')),
-    #path('fichiers/', include(('fichiers.urls', 'fichiers'), namespace='fichiers')),
-    #path('administration/', include(('administration.urls','adminsitration'), namespace='administration'))
-    path('app/', include(('app.urls', 'app'), namespace='app')),
-    path('', RedirectView.as_view(url='/app/', permanent=True)),
-    path('accounts/', include('django.contrib.auth.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('admin/', admin.site.urls),
+    path('accueil/', include('apps.home.urls', namespace='home')),
+    path('recherche/', include('apps.search.urls', namespace='search')),
+    path('prediction/', include('apps.predict.urls', namespace='predict')),
+    path('ajout/', include('apps.add_file.urls', namespace='add_file')),
+    path('account/', include('apps.account.urls', namespace='account')),
+    path('', RedirectView.as_view(url='recherche/', permanent=True)),
+]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

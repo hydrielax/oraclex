@@ -1,0 +1,41 @@
+{% extends 'base_app.html' %}
+
+{% block content %}
+    <h1>Informations</h1>
+    <h2>Reponsable du site</h2>
+    <ul>
+        <li><strong>{{ respo.prenom }} {{ respo.nom }}</strong></li>
+        <li>Téléphone : <a href='tel:{{ respo.telephone }}'>{{ respo.telephone }}</a></li>
+        <li>Email : <a href='mailto:{{ respo.mail }}'>{{ respo.mail }}</a></li>
+    </ul>
+    <br>
+    
+    <h2>État de la base de données</h2>
+    <ul>
+        <li>Nombre total de Jugements enregistrés : <strong class='text-primary'>{{ num_jugements }}</strong></li>
+        <li>Nombre de Jugements lisibles : <strong class='text-success'>{{ num_lisibles }}</strong></li>
+        <li>Nombre de Jugements illisibles : <strong class='text-danger'>{{ num_illisibles }}</strong></li>
+    </ul>
+    <br>
+    
+    <h2>Fichiers illisibles à remplacer</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Fichier</th>
+                <th>Date d'import</th>
+                <th>Modifier</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for jugement in bad_files %}
+            <tr>
+                <td><a href="/media/{{ jugement.file }}" target="_blank">{{ jugement }}</a></td>
+                <td>{{ jugement.date_import }} </td>
+                <td><a href="{% url 'add_file:index' %}">Remplacer</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
