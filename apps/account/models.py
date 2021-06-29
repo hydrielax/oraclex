@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from apps.search.models import *
 
 class Profil(models.Model):
     '''Extension de la classe user, pour remplacer la classe Reponsable à terme.'''
