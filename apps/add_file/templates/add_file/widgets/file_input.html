@@ -1,7 +1,7 @@
-<label for="{{ widget.id }}" class="btn btn-primary">{{ widget.text }}</label>
+<button class="btn btn-primary" onclick="document.getElementById('{{ widget.id }}').click()">{{ widget.text }}</button>
 <input type="{{ widget.type }}"
-       class="file_input"
        id="{{ widget.id }}"
+       style="display:none"
        name="{{ widget.name }}"
         {% if widget.value != None %}
             value="{{ widget.value|stringformat:'s' }}"
