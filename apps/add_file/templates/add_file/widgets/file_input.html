@@ -1,0 +1,8 @@
+<label for="{{ widget.id }}" class="btn btn-primary">{{ widget.button_text }}</label>
+<input type="{{ widget.type }}"
+       class="file_input"
+       id="{{ widget.id }}"
+       name="{{ widget.name }}"
+        {% if widget.value != None %}
+            value="{{ widget.value|stringformat:'s' }}"
+        {% endif %}{% include "django/forms/widgets/attrs.html" %}>

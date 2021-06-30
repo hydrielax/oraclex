@@ -1,8 +1,10 @@
 from django import forms
+from .widgets import SimpleFileInput
 
 
 class AjoutForm(forms.Form):
-    fichiers = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True, 'upload_to' : 'jugements'}))
+    parameters = {'button_text': "Sélectionner", 'id': 'ajout', 'multiple': True, 'upload_to': 'jugements'}
+    fichiers = forms.FileField(widget=SimpleFileInput(attrs=parameters))
 
 
 class RecapFichier(forms.Form):

@@ -54,6 +54,9 @@ main > div.container {
     padding-bottom: 2.5rem;   /* Height of the footer */
 }
 
+.file_input {
+    display: none;
+}
 
 /* BARRE DE NAVIGATION */
 /* ------------------- */
