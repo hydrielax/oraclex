@@ -5,4 +5,5 @@ app_name = 'search'
 urlpatterns = [
     path('', views.recherche, name='index'),
     path('resultats/', views.resultat, name='results'),
+    path('fichiers_illisibles', views.unreadables, name='unreadables'),
 ]

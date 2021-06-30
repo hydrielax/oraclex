@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from .forms import RequeteForm
-from .models import Jugement, Juridiction, MotCle, Responsable, TypeJuridiction, GroupeMotCle
+from .models import Jugement, MotCle, GroupeMotCle
 from .recherche import *
 
 
@@ -118,3 +118,18 @@ def resultat(request):
         'graph_gain': graph_gain,
         'graph_pie': graph_pie
     })
+
+
+
+
+@login_required
+def unreadables(request):
+    '''Génère la liste des Fichiers Illsibles.'''
+
+    # fichiers illisibles
+    bad_files = Jugement.objects.filter(lisible = False).all()
+
+    context = {
+        'bad_files': bad_files,
+    }
+    return render(request, 'search/unreadables.html', context)
