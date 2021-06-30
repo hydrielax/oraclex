@@ -11,5 +11,5 @@ class SimpleFileInput(FileInput):
 
     def get_context(self, name, value, attrs):
         context = super().get_context(name, value, attrs)
-        context['widget'].update({'text': self.text, 'id': attrs['id']})
+        context['widget'].update({'text': self.text})
         return context

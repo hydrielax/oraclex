@@ -1,6 +1,6 @@
-<button class="btn btn-primary" onclick="document.getElementById('{{ widget.id }}').click()">{{ widget.text }}</button>
+<button class="btn btn-primary" onclick="document.getElementById('{{ widget.attrs.id }}').click()">{{ widget.text }}</button>
 <input type="{{ widget.type }}"
-       id="{{ widget.id }}"
+       id="{{ widget.attrs.id }}"
        style="display:none"
        name="{{ widget.name }}"
         {% if widget.value != None %}
