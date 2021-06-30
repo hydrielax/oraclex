@@ -22,45 +22,45 @@
     </head>
 
     <body>
-        <header>
-            <nav class="navbar navbar-expand-md navbar-dark container">
-                <a class='navbar-brand' href="{% url 'search:index' %}">
-                    <span>ORACLEX</span>
-                </a>
-                {% block navbar %}
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <div class="navbar-nav">
+        <main>
+            <header>
+                <nav class="navbar navbar-expand-md navbar-dark container">
+                    <a class='navbar-brand' href="{% url 'home:home' %}">
+                        <span>ORACLEX</span>
+                    </a>
+                    {% block navbar %}
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="navbar-nav">
+                        </div>
                     </div>
-                </div>
-                <div style="width:100%;"></div>
-                <a class="nav" href='https://www.sncf.com/fr' target="_blank" title="Site SNCF">
-                    <img src="{% static 'images/logo_sncf.png' %}" alt="Logo SNCF" />
-                </a>
-                <a class="nav" href='https://www.ec-nantes.fr/' target="_blank" title="Site de Centrale Nantes">
-                    <img src="{% static 'images/logo_ecn.png' %}" alt="Logo Centrale Nantes" />
-                </a>
-                {% endblock %}
-            </nav>
-        </header>
-        
-        <main class="container">
-        {% block content %}
-        {% endblock %}
-        </main>
-
-        <br><br><br>
-        <footer class="fixed-bottom">
+                    <div style="width:100%;"></div>
+                    <a class="nav" href='https://www.sncf.com/fr' target="_blank" title="Site SNCF">
+                        <img src="{% static 'images/logo_sncf.png' %}" alt="Logo SNCF" />
+                    </a>
+                    <a class="nav" href='https://www.ec-nantes.fr/' target="_blank" title="Site de Centrale Nantes">
+                        <img src="{% static 'images/logo_ecn.png' %}" alt="Logo Centrale Nantes" />
+                    </a>
+                    {% endblock %}
+                </nav>
+            </header>
+            
             <div class="container">
-                <p>
-                    © OraclexTeam
-                    {% if request.user.groups.all.0.name == "Développeurs" %}
-                    ⋅ <a href="/admin">Page d'administration</a>
-                    {% endif %}
-                    ⋅ <a href="{% url 'home:infos' %}">Informations</a>
-                    ⋅ <a href="#">Mentions Légales</a>
-                    ⋅ <a href="#">Politique de Confidentialité</a>
-                </p>
+            {% block content %}
+            {% endblock %}
             </div>
-        </footer>
+
+            <footer>
+                <div class="container">
+                    <p>
+                        © OraclexTeam
+                        {% if request.user.groups.all.0.name == "Développeurs" %}
+                        ⋅ <a href="/admin">Page d'administration</a>
+                        {% endif %}
+                        ⋅ <a href="{% url 'home:legal_mentions' %}">Mentions Légales</a>
+                        ⋅ <a href="{% url 'home:politics' %}">Politique de Confidentialité</a>
+                    </p>
+                </div>
+            </footer>
+        </main>
     </body>
 </html>

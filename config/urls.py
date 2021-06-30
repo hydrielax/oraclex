@@ -21,12 +21,11 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accueil/', include('apps.home.urls', namespace='home')),
+    path('', include('apps.home.urls', namespace='home')),
     path('recherche/', include('apps.search.urls', namespace='search')),
     path('prediction/', include('apps.predict.urls', namespace='predict')),
     path('ajout/', include('apps.add_file.urls', namespace='add_file')),
     path('account/', include('apps.account.urls', namespace='account')),
-    path('', RedirectView.as_view(url='recherche/', permanent=False)),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

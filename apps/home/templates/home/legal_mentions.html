@@ -1,0 +1,31 @@
+{% extends 'base_app.html' %}
+
+{% block content %}
+<h1>Mentions légales</h1>
+
+<h2>Identité du site</h2>
+<ul>
+    <li>Nom du site : Oraclex</li>
+    <li>Directeur·rice de publication : {{ respo.name }}</li>
+</ul>
+
+<h2>Hébergement</h2>
+<p>Ce site n'est actuellement pas hébergé.</p>
+
+<h2>Entreprise</h2>
+<p>Ce site est développé pour la SNCF, entreprise...</p>
+
+<h2>Conception</h2>
+<p>
+    Ce site a été conçu par Alexis DELAGE, Théodore RADU, Anass AL AMMIRI, 
+    Karim CHAKROUN, Giovana LONGATTI BAPTISTA, Samy HAFFOUDHI et 
+    François MICHELON, étudiant·e·s de <a href="https://www.ec-nantes.fr" target="_blank">
+    Centrale Nantes</a>, dans le cadre d'un Projet Entreprise puis d'un stage.<br/>
+    Contact : <a href="mailto:alexidelage@gmail.com">alexidelage@gmail.com</a>
+</p>
+
+<h2>Propriété intellectuelle</h2>
+<p>Ce site et tout son contenu sont la propriété de SNCF. Toute réutilisation, 
+partielle ou totale, du contenu de ce site doit être soumise à l'acceptation
+préalable de l'entreprise.</p>
+{% endblock %}

@@ -1,0 +1,112 @@
+{% extends 'base_app.html' %}
+
+{% block content %}
+<style>
+    a.edito-packshot {
+        transition: background-color 0.2s ease;
+        --choice: var(--blue);
+    }
+    a.edito-packshot.big {
+        border: 2px solid var(--choice) ;
+    }
+    a.edito-packshot h2 {
+        color: var(--choice);
+    }
+    a.edito-packshot:hover {
+        color: var(--white);
+        background-color: var(--choice);
+    }
+    a.edito-packshot:hover h2 {
+        color: var(--white);
+    }
+</style>
+
+<h1>Bienvenue sur Oraclex !</h1>
+<p>
+    Oraclex est un logiciel web vous permettant de consulter et utiliser 
+    toutes les décisions de justice archivées de la SNCF. Pour commencer, 
+    choisissez un outil ci-dessous !
+</p>
+<br>
+<h3>Outils principaux</h3>
+<br>
+<div class="row">
+    <div class="col-12 col-sm-6 col-md-4 d-md-flex gb-4">
+        <a class="d-flex flex-column flex-fluid edito-packshot gx-3 gy-3 gy-md-4 gx-md-4 rounded big" href="{% url 'search:index' %}" style="--choice: var(--purple)">
+            <div class="d-flex flex-column flex-fluid">
+                <h2>Recherche</h2>
+                <p class="d-none d-sm-flex">Recherchez des décisions de justice à partir de mots-clés, dates, villes...</p>
+            </div>
+        </a>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 d-md-flex gb-4">
+        <a class="d-flex flex-column flex-fluid edito-packshot gx-3 gy-3 gy-md-4 gx-md-4 rounded big" href="{% url 'predict:index' %}" style="--choice: var(--pink)">
+            <div class="d-flex flex-column flex-fluid">
+                <h2>Prédiction</h2>
+                <p class="d-none d-sm-flex">Laissez l'Intelligence Artificielle prédire une décision à partir d'une liste de mots-clés !</p>
+            </div>
+        </a>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 d-md-flex gb-4">
+        <a class="d-flex flex-column flex-fluid edito-packshot gx-3 gy-3 gy-md-4 gx-md-4 rounded big" href="{% url 'add_file:index' %}" style="--choice: var(--red)">
+            <div class="d-flex flex-column flex-fluid">
+                <h2>Ajout de fichiers</h2>
+                <p class="d-none d-sm-flex">Un procès vient de se terminer ? Ajoutez la décision de justice à la base de données !</p>
+            </div>
+        </a>
+    </div>
+</div>
+<br>
+<h3>Actions supplémentaires disponibles </h3>
+<br>
+
+<div class="row">
+    <div class="col-6 col-sm-4 col-md-3 d-flex gb-4">
+        <a class="flex-fluid edito-packshot gx-3 gy-2 rounded" href="{% url 'home:infos' %}">
+            <table style="height:100%; width:100%;"><tbody><tr>
+                <td class="text-center align-middle">Consulter les fichiers illisibles</td>
+            </tr></tbody></table>
+        </a>
+    </div>
+    <div class="col-6 col-sm-4 col-md-3 d-flex gb-4">
+        <a class="flex-fluid edito-packshot gx-3 gy-2 rounded" href="{% url 'search:index' %}">
+            <table style="height:100%; width:100%;"><tbody><tr>
+                <td class="text-center align-middle">Modifier mon compte</td>
+            </tr></tbody></table>
+        </a>
+    </div>
+    <div class="col-6 col-sm-4 col-md-3 d-flex gb-4">
+        <a class="flex-fluid edito-packshot gx-3 gy-2 rounded" href="{% url 'search:index' %}">
+            <table style="height:100%; width:100%;"><tbody><tr>
+                <td class="text-center align-middle">Ajouter un utilisateur</td>
+            </tr></tbody></table>
+        </a>
+    </div>
+</div>
+<br>
+<br>
+
+<div class="row">
+    <div class="col-12 col-sm-6 gb-4">
+        <h3>État de la base de données</h3>
+        <ul>
+            <li>Nombre total de décisions : <strong class='text-primary'>{{ stats_bdd.total }}</strong></li>
+            <li>Nombre de décisions lisibles : <strong class='text-success'>{{ stats_bdd.lisible }}</strong></li>
+            <li>Nombre de décisions illisibles : <strong class='text-danger'>{{ stats_bdd.illisible }}</strong></li>
+        </ul>
+    </div>
+    <div class="col-12 col-sm-6 gb-4">
+        <h3>Reponsable du site</h3>
+        {% if respo %}
+            <ul>
+                <li><strong>{{ respo.prenom }} {{ respo.nom }}</strong></li>
+                <li>Téléphone : <a href='tel:{{ respo.telephone }}'>{{ respo.telephone }}</a></li>
+                <li>Email : <a href='mailto:{{ respo.mail }}'>{{ respo.mail }}</a></li>
+            </ul>
+        {% else %}
+            <p><i>Aucun responsable n'a été défini.</i></p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

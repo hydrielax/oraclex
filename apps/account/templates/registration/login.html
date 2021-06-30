@@ -34,7 +34,7 @@
 
   {# Assumes you setup the password_reset view in your URLconf #}
   <br>
-  <p> Vous n'avez pas encore de compte ? Contactez <a href="/app/infos/responsable/">le responsable</a>.</p>
+  <p> Vous n'avez pas encore de compte ? <a href="{% url "home:respo" %}">Contactez le responsable.</a></p>
   <!--p><a href="{% url 'account:password_reset' %}">Mot de passe oublié</a></p-->
 
 {% endblock %}

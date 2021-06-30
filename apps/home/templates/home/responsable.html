@@ -1,12 +1,17 @@
 {% extends 'base_generic.html' %}
 
 {% block content %}
-    <h1>Reponsable</h1>
-    <p>Un problème ? Contactez le responsable actuel du site :</p>
-    <ul>
-        <li><strong>{{ respo.prenom }} {{ respo.nom }}</strong> : <a href='mailto:{{ respo.mail }}'>{{ respo.mail }}</a></li>
-    </ul>
+    <h1>Contact</h1>
+    {% if respo %}
+        <p>Un problème ? Contactez le responsable actuel du site :</p>
+        <ul>
+            <li><strong>{{ respo.prenom }} {{ respo.nom }}</strong> : <a href='mailto:{{ respo.mail }}'>{{ respo.mail }}</a></li>
+        </ul>
+        <br>
+    {% else %}
+        <p><i>Désolé, aucun responsable n'est enregistré pour l'instant.</i></p>
+    {% endif %}
     <br>
-    <p>Retour à la page de <a href="{% url 'account:login' %}">connexion</a></p>
+    <p>Retour à la page de <a href="{% url 'account:login' %}">connexion</a>.</p>
 
 {% endblock %}

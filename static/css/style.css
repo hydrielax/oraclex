@@ -9,10 +9,54 @@ body {
     background-color: var(--blanc);
 }
 
+
+h1
+{
+	font-weight: bold;
+	margin-bottom: 1.5rem;
+}
+
+h2,h3 {
+    margin-bottom: 1rem;
+}
+/*
+select {
+    width: unset;
+    padding-right: calc(2*1.1875rem + 1.22rem)
+}*/
+
+hr {
+    color: var(--light);
+    margin-top: 3rem;
+}
+
+/* PIED DE PAGE EN BAS */
+/* ------------------- */
+
+html, body {
+    margin:0;
+    padding:0;
+    height:100%;
+}
+
+main {
+    min-height:100%;
+    position:relative;
+}
+
 header {
     background: linear-gradient(to right, #832567, #dc1018);
     padding-bottom: 3px;
 }
+
+main > div.container {
+    padding-top: 2rem;
+    padding-bottom: 2.5rem;   /* Height of the footer */
+}
+
+
+/* BARRE DE NAVIGATION */
+/* ------------------- */
 
 .navbar-dark .navbar-toggler {
     border-color: rgba(255,255,255,0.3);
@@ -52,7 +96,7 @@ nav a.nav-menu.nav-link:hover span {
         padding:0;
         margin:0;
         display: flex;
-        transition: width 0.5s 0s;
+        transition: width 0.4s 0s;
     }
 
     nav .nav-menu.nav-link span {
@@ -100,28 +144,15 @@ nav .navbar-brand span {
     font-size: 1.55rem;
 }
 
-
-main {
-    margin: 2rem;
-}
-
-h1
-{
-	font-weight: bold;
-	margin-bottom: 1.5rem;
-}
-
-h2 {
-    margin-bottom: 1rem;
-}
-/*
-select {
-    width: unset;
-    padding-right: calc(2*1.1875rem + 1.22rem)
-}*/
+/* PIED DE PAGE */
+/* ------------ */
 
 footer {
     background-color: var(--light);
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:2.5rem;   /* Height of the footer */
 }
 
 footer p {
