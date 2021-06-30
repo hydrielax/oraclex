@@ -3,7 +3,7 @@ from .widgets import SimpleFileInput
 
 
 class AjoutForm(forms.Form):
-    parameters = {'button_text': "Sélectionner", 'id': 'ajout', 'multiple': True, 'upload_to': 'jugements'}
+    parameters = {'text': "Sélectionner", 'id': 'ajout_jugements', 'multiple': True, 'upload_to': 'jugements'}
     fichiers = forms.FileField(widget=SimpleFileInput(attrs=parameters))
 
 
