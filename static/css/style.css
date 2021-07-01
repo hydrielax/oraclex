@@ -30,6 +30,9 @@ hr {
     margin-top: 3rem;
 }
 
+.error, .errornote, .errorlist {
+    color: var(--danger);
+}
 /* PIED DE PAGE EN BAS */
 /* ------------------- */
 
@@ -49,6 +52,11 @@ header {
     padding-bottom: 3px;
 }
 
+.container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
 main > div.container {
     padding-top: 2rem;
     padding-bottom: 2.5rem;   /* Height of the footer */
@@ -66,7 +74,7 @@ nav a.nav-menu.nav-link:hover span {
 
 @media screen and (min-width: 768px) {
     .navbar {
-        padding: 0 20px;
+        padding: 0 2rem;
         flex-flow: row nowrap;
         height: 4rem;
     }
