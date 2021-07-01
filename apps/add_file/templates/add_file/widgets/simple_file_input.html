@@ -1,0 +1,8 @@
+<button class="btn btn-primary" onclick="document.getElementById('{{ widget.attrs.id }}').click()">
+    {{ widget.text }}
+</button>
+<input type="{{ widget.type }}"
+       name="{{ widget.name }}"
+       style="display:none"
+       onchange="document.getElementById('{{ widget.form.id }}').submit()"
+      {% include "django/forms/widgets/attrs.html" %}>

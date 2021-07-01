@@ -5,14 +5,12 @@
 {% block content %}
     <h1>Ajout de fichiers</h1>
 
-    <h2>Étape 1 : Sélection des fichiers</h2>
-    <form method="POST" enctype="multipart/form-data">{% csrf_token %}
-        {{ ajout.as_p }}
-        <button class="btn btn-primary" type="submit">Importer</button>
+    <form id="{{ selection.id }}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ selection.as_p }}
     </form>
 
-    <br><br>
-    <h2>Étape 2 : Validation des fichiers</h2>
+    {% if tableau %}
     <table class="table">
         <thead>
             <tr>
@@ -38,4 +36,5 @@
         </tbody>
     </table>
     <button class="btn btn-primary" type="submit">Valider</button>
+    {% endif %}
 {% endblock %}
