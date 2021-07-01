@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Éditer mon profil -{% endblock %}
+
+{% block content %}
+<h1>Éditer mon profil</h1>
+<h2>Informations générales</h2>
+<form method='POST' enctype="multipart/form-data" action='{% url "account:edit-profile" user.username %}'>
+    {% csrf_token %}
+    <table><tbody>{{ form.as_table }}</tbody></table>
+    <button class="btn btn-primary">Modifier</button>
+</form>
+<br /><br>
+<h2>Changer le mot de passe</h2>
+<form method='POST' action='{% url "account:edit-profile" user.username %}'>
+    {% csrf_token %}
+    {{ password_form.as_p }}
+    <button class="btn btn-primary">Modifier</button>
+</form>
+<br />
+{% endblock %}
