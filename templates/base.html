@@ -1,0 +1,103 @@
+{% load static %}
+
+{% url 'search:index' as recherche_url %}
+{% url 'predict:index' as predict_url %}
+{% url 'add_file:index' as ajouts_url %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- compatibilité IE 11 -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width">
+
+        <script type='text/javascript' src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script type='text/javascript' src="{% static 'sncf/bootstrap-sncf.min.js' %}"></script>
+        
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'sncf/bootstrap-sncf.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        
+        <link rel="shortcut icon" href='{% static "/images/logo.svg" %}'>
+
+        <title>{% block title %}{% endblock %} Oraclex</title>
+
+    </head>
+
+    <body>
+        <main>
+            <header>
+                <nav class="navbar navbar-expand-md navbar-dark container">
+                    <a class='navbar-brand' href="{% url 'home:home' %}">
+                        <span>ORACLEX</span>
+                    </a>
+                    {% if request.user.is_authenticated %}
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <div class="navbar-nav" style="width:100%;">
+                                <a class='nav-menu nav-link {% if request.path == recherche_url or request.path == home_url %}active{%endif%}' href="{% url 'search:index' %}">
+                                    <div></div>
+                                    <span>Recherche</span>                        
+                                </a>
+                                <a class='nav-menu nav-link {% if request.path == predict_url or request.path == home_url %}active{%endif%}' href="{% url 'predict:index' %}">
+                                    <div></div>
+                                    <span>Prédiction</span>                        
+                                </a>
+                                <a class='nav-menu nav-link {% if request.path == ajouts_url %}active{%endif%}' href="{% url 'add_file:index' %}">
+                                    <div></div>
+                                    <span>Ajout de fichiers</span>                        
+                                </a>
+                                <div class="nav-menu nav-link">
+                                    <div></div>                        
+                                </div>
+                                <div style="width:100%;"></div>
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span>{{ request.user.first_name}} {{ request.user.last_name }}</span>
+                                    <i class="icons-menu-account" style="margin-left: 10px;" aria-hidden="true"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                    <li><a class="dropdown-item" href=''>Modifier mon profil</a></li>
+                                    <li><a class="dropdown-item" href=''>Ajouter un utilisateur</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'account:logout' %}">Me déconnecter</a></li>
+                                </ul> 
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <div class="navbar-nav">
+                            </div>
+                        </div>
+                        <div style="width:100%;"></div>
+                        <a class="nav" href='https://www.sncf.com/fr' target="_blank" title="Site SNCF">
+                            <img src="{% static 'images/logo_sncf.png' %}" alt="Logo SNCF" />
+                        </a>
+                        <a class="nav" href='https://www.ec-nantes.fr/' target="_blank" title="Site de Centrale Nantes">
+                            <img src="{% static 'images/logo_ecn.png' %}" alt="Logo Centrale Nantes" />
+                        </a>
+                    {% endif %}
+                </nav>
+            </header>
+            
+            <div class="container">
+            {% block content %}
+            {% endblock %}
+            </div>
+
+            <footer>
+                <div class="container">
+                    <p>
+                        © OraclexTeam
+                        {% if request.user.groups.all.0.name == "Développeurs" %}
+                        ⋅ <a href="/admin">Page d'administration</a>
+                        {% endif %}
+                        ⋅ <a href="{% url 'home:legal_mentions' %}">Mentions Légales</a>
+                        ⋅ <a href="{% url 'home:politics' %}">Politique de Confidentialité</a>
+                    </p>
+                </div>
+            </footer>
+        </main>
+    </body>
+</html>

@@ -104,7 +104,7 @@ class Jugement(models.Model):
 
 class Responsable(models.Model):
     '''Classe avec une seule instance, représentant le responsable en cours du site.
-       À supprimer une fois que la classe Profil sera mise en place (avec une session par utilisateur,
+       À supprimer une fois que la classe Agent sera mise en place (avec une session par utilisateur,
        et une page pour modifier ses données.'''
     
     prenom = models.CharField('Prénom', max_length=50)

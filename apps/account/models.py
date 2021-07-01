@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class Profil(models.Model):
+class Agent(models.Model):
     '''Extension de la classe user, pour remplacer la classe Reponsable à terme.'''
     
     user = models.OneToOneField(User, on_delete=models.CASCADE)
