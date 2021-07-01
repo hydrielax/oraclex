@@ -22,7 +22,7 @@ def ajouts(request):
             tableau[-1].gain = j.gain
 
         context = {
-          'tableau' : tableau,
+          'tableau': tableau,
           'ajout': ajout,
         }
     else:

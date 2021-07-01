@@ -1,0 +1,8 @@
+<button class="btn btn-primary" onclick="document.getElementById('{{ widget.attrs.id }}').click()">{{ widget.text }}</button>
+<input type="{{ widget.type }}"
+       id="{{ widget.attrs.id }}"
+       style="display:none"
+       name="{{ widget.name }}"
+        {% if widget.value != None %}
+            value="{{ widget.value|stringformat:'s' }}"
+        {% endif %}{% include "django/forms/widgets/attrs.html" %}>
