@@ -6,6 +6,7 @@
     <h1>Fichiers illisibles</h1>
     <p>Liste des fichiers de décisions de justice considérés comme illisibles, à remplacer.</p>
     <br>
+    {% if bad_files %}
     <table class="table">
         <thead>
             <tr>
@@ -24,5 +25,5 @@
             {% endfor %}
         </tbody>
     </table>
-
+    {% endif %}
 {% endblock %}

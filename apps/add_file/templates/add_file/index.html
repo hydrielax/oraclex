@@ -3,11 +3,16 @@
 {% block title %}Ajout de fichiers -{% endblock %}
 
 {% block content %}
-    <h1>Ajout de fichiers</h1>
-
+    <style>
+        .centered {
+            display: flex;
+            align-items: center;
+        }
+    </style>
     <form id="{{ selection.id }}" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ selection.as_p }}
+    <h1 class="centered">
+        Ajout de fichiers &nbsp; {% csrf_token %} {{ selection }}
+    </h1>
     </form>
 
     {% if tableau %}
@@ -35,6 +40,7 @@
             {% endfor %}
         </tbody>
     </table>
-    <button class="btn btn-primary" type="submit">Valider</button>
+    <button class="btn btn-outline-success" type="submit">Valider</button>
+    <button class="btn btn-danger" type="reset">Annuler</button>
     {% endif %}
 {% endblock %}

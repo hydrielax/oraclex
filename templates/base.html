@@ -38,15 +38,15 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <div class="navbar-nav" style="width:100%;">
-                                <a class='nav-menu nav-link {% if request.path == recherche_url or request.path == home_url %}active{%endif%}' href="{% url 'search:index' %}">
+                                <a class='nav-menu nav-link {% if request.path == recherche_url or request.path == home_url %}current{%endif%}' href="{% url 'search:index' %}">
                                     <div></div>
                                     <span>Recherche</span>                        
                                 </a>
-                                <a class='nav-menu nav-link {% if request.path == predict_url or request.path == home_url %}active{%endif%}' href="{% url 'predict:index' %}">
+                                <a class='nav-menu nav-link {% if request.path == predict_url or request.path == home_url %}current{%endif%}' href="{% url 'predict:index' %}">
                                     <div></div>
                                     <span>Prédiction</span>                        
                                 </a>
-                                <a class='nav-menu nav-link {% if request.path == ajouts_url %}active{%endif%}' href="{% url 'add_file:index' %}">
+                                <a class='nav-menu nav-link {% if request.path == ajouts_url %}current{%endif%}' href="{% url 'add_file:index' %}">
                                     <div></div>
                                     <span>Ajout de fichiers</span>                        
                                 </a>
