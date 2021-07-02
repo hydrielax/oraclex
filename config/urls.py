@@ -25,6 +25,7 @@ urlpatterns = [
     path('recherche/', include('apps.search.urls', namespace='search')),
     path('prediction/', include('apps.predict.urls', namespace='predict')),
     path('ajout/', include('apps.add_file.urls', namespace='add_file')),
+    path('account/', include('django.contrib.auth.urls')),
     path('account/', include('apps.account.urls', namespace='account')),
 ]
 

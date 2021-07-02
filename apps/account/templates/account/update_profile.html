@@ -9,14 +9,10 @@
 <form method='POST' enctype="multipart/form-data" action='{% url "account:edit-profile" user.username %}'>
     {% csrf_token %}
     <table><tbody>{{ form.as_table }}</tbody></table>
-    <button class="btn btn-primary">Modifier</button>
+    <br>
+    <button type="submit" class="btn btn-primary">Valider</button>
 </form>
-<br /><br>
-<h2>Changer le mot de passe</h2>
-<form method='POST' action='{% url "account:edit-profile" user.username %}'>
-    {% csrf_token %}
-    {{ password_form.as_p }}
-    <button class="btn btn-primary">Modifier</button>
-</form>
+<br />
+<a href="{% url 'password_change' %}">Changer mon mot de passe</a>
 <br />
 {% endblock %}

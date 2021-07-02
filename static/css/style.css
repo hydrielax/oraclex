@@ -1,14 +1,6 @@
 body {
-    --violet: #6E1E78;
-    --prune: #A1006B;
-    --prune-clair: #f5e5f0;
-    --framboise: #cd0037;
-    --gris-clair: #e6e5e5;
-    --gris-sombre: #5e6064;
-    --blanc: #ffffff;
-    background-color: var(--blanc);
+    background-color: var(--white);
 }
-
 
 h1
 {
@@ -19,12 +11,6 @@ h1
 h2,h3 {
     margin-bottom: 1rem;
 }
-/*
-select {
-    width: unset;
-    padding-right: calc(2*1.1875rem + 1.22rem)
-}*/
-
 hr {
     color: var(--light);
     margin-top: 3rem;
@@ -94,7 +80,7 @@ nav a.nav-menu.nav-link:hover span {
     }
 
     nav .nav-menu.nav-link div {
-        background-color: var(--blanc);
+        background-color: var(--white);
         transform: skew(-20deg);
         width: 15px;
         height: 100%;
@@ -123,7 +109,7 @@ nav a.nav-menu.nav-link:hover span {
     }
 
     nav a.nav-menu.nav-link:hover span {
-        color: var(--prune);
+        color: var(--pink);
     }
 }
 
@@ -133,7 +119,7 @@ nav img {
 }
 
 nav .nav-menu.nav-link span {
-    color: var(--blanc);
+    color: var(--white);
     font-size: 1.05rem;
 }
 
@@ -154,7 +140,7 @@ nav .navbar-brand {
 
 nav .navbar-brand span {
     font-weight: bold;
-    color: #ffffff;
+    color: var(--white);
     padding-right: 10px;
     font-size: 1.55rem;
 }
@@ -174,5 +160,5 @@ footer p {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     margin: 0;
-    color: var(--gris-sombre);
+    color: var(--gray-dark);
 }
