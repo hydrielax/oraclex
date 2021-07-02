@@ -3,11 +3,12 @@
 {% block content %}
 <style>
     a.edito-packshot {
-        transition: color 0.2s, background-color 0.2s;
+        transition: background-color 0.2s ease;
         --choice: var(--blue);
     }
     a.edito-packshot:hover {
-        color: var(--choice);
+        background-color: var(--choice);
+        color: var(--white);
     }
     a.edito-packshot.big {
         border: 2px solid var(--choice) ;
@@ -16,10 +17,9 @@
     }
     a.edito-packshot.big:hover {
         background-color: var(--white);
-        color: var(--choice);
+        color: var(--dark);
     }
     a.edito-packshot.big h2 {
-        transition: color 0.2s;
         color: var(--white);
     }
     a.edito-packshot.big:hover h2 {

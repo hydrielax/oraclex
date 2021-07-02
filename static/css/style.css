@@ -33,6 +33,8 @@ hr {
 .error, .errornote, .errorlist {
     color: var(--danger);
 }
+
+
 /* PIED DE PAGE EN BAS */
 /* ------------------- */
 
@@ -135,6 +137,7 @@ nav .nav-menu.nav-link span {
     font-size: 1.05rem;
 }
 
+/*
 nav a.nav-menu.nav-link.current span {
     color: var(--prune);
 }
@@ -142,6 +145,7 @@ nav a.nav-menu.nav-link.current span {
 nav a.nav-menu.nav-link.current div {
     width: calc(100% + 1px);
 }
+*/
 
 
 nav .navbar-brand {
