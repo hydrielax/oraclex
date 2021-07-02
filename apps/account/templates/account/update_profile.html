@@ -6,9 +6,42 @@
 {% block content %}
 <h1>Éditer mon profil</h1>
 <h2>Informations générales</h2>
+
+<form method='POST' enctype="multipart/form-data" action='{% url "account:edit-profile" user.username %}'>
+    <div class="form-group">
+        <label for="{{ form.username.id_for_label }}">{{ form.username.label_tag }}</label>
+        <div class="form-control-container ">
+            {{ form.username }}
+            <span class="form-control-state"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="textarea1">Example textarea</label>
+        <div class="form-control-container">
+            <textarea class="form-control " id="textarea1" placeholder="Example textarea" ZgotmplZ></textarea>
+            <span class="form-control-state"></span>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
 <form method='POST' enctype="multipart/form-data" action='{% url "account:edit-profile" user.username %}'>
     {% csrf_token %}
-    <table><tbody>{{ form.as_table }}</tbody></table>
+    <table>
+        <tbody>
+            <tr>
+                <th>{{ form.username.label_tag }}</th>
+                <td>{{ form.username }}
+                    {% for error in form.username.errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                    {% endfor %}
+                </td>
+            </tr>
+            {{ form.as_table }}
+        </tbody>
+    </table>
     <br>
     <button type="submit" class="btn btn-primary">Valider</button>
 </form>

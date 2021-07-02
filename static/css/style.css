@@ -105,7 +105,7 @@ nav a.nav-menu.nav-link:hover span {
     }
 
     nav a.nav-menu.nav-link:hover div {
-        width: calc(100% + 1px);
+        width: calc(100% + 10px);
     }
 
     nav a.nav-menu.nav-link:hover span {
