@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Agent(models.Model):
     '''Extension de la classe user, pour remplacer la classe Reponsable à terme.'''
     
