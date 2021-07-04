@@ -82,7 +82,7 @@ nav a.nav-menu.nav-link:hover span {
     nav .nav-menu.nav-link div {
         background-color: var(--white);
         transform: skew(-20deg);
-        width: 15px;
+        width: 1rem;
         height: 100%;
         position: absolute;
         z-index: 0;
@@ -105,7 +105,7 @@ nav a.nav-menu.nav-link:hover span {
     }
 
     nav a.nav-menu.nav-link:hover div {
-        width: calc(100% + 10px);
+        width: calc(100% + 0.1rem);
     }
 
     nav a.nav-menu.nav-link:hover span {
@@ -123,16 +123,13 @@ nav .nav-menu.nav-link span {
     font-size: 1.05rem;
 }
 
-/*
-nav a.nav-menu.nav-link.current span {
-    color: var(--prune);
+/*nav a.nav-menu.nav-link.current span {
+    color: var(--pink);
 }
 
 nav a.nav-menu.nav-link.current div {
-    width: calc(100% + 1px);
-}
-*/
-
+    width: calc(100% + 0.1rem);
+}*/
 
 nav .navbar-brand {
     padding-top: 11px;

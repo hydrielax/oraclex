@@ -40,15 +40,15 @@
                             <div class="navbar-nav" style="width:100%;">
                                 <a class='nav-menu nav-link {% if request.path == recherche_url or request.path == home_url %}current{%endif%}' href="{% url 'search:index' %}">
                                     <div></div>
-                                    <span>Recherche</span>                        
+                                    <span>Recherche</span>
                                 </a>
                                 <a class='nav-menu nav-link {% if request.path == predict_url or request.path == home_url %}current{%endif%}' href="{% url 'predict:index' %}">
                                     <div></div>
-                                    <span>Prédiction</span>                        
+                                    <span>Prédiction</span>
                                 </a>
                                 <a class='nav-menu nav-link {% if request.path == ajouts_url %}current{%endif%}' href="{% url 'add_file:index' %}">
                                     <div></div>
-                                    <span>Ajout de fichiers</span>                        
+                                    <span>Ajout de fichiers</span>
                                 </a>
                                 <div class="nav-menu nav-link">
                                     <div></div>                        

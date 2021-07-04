@@ -4,25 +4,18 @@
 <style>
     a.edito-packshot {
         transition: background-color 0.2s ease;
-        --choice: var(--blue);
-    }
-    a.edito-packshot:hover {
-        background-color: var(--choice);
-        color: var(--white);
-    }
-    a.edito-packshot.big {
         border: 2px solid var(--choice) ;
         background-color: var(--choice);
         color: var(--white);
     }
-    a.edito-packshot.big:hover {
+    a.edito-packshot:hover {
         background-color: var(--white);
         color: var(--dark);
     }
-    a.edito-packshot.big h2 {
+    a.edito-packshot h2 {
         color: var(--white);
     }
-    a.edito-packshot.big:hover h2 {
+    a.edito-packshot:hover h2 {
         color: var(--choice);
     }
 </style>
@@ -68,28 +61,28 @@
 
 <div class="row">
     <div class="col-6 col-sm-4 col-md-3 d-flex gb-4">
-        <a class="flex-fluid edito-packshot gx-3 gy-2 rounded" href="{% url 'search:unreadables' %}">
+        <a class="flex-fluid btn-light gx-3 gy-2 rounded" href="{% url 'search:unreadables' %}">
             <table style="height:100%; width:100%;"><tbody><tr>
                 <td class="text-center align-middle">Consulter les fichiers illisibles</td>
             </tr></tbody></table>
         </a>
     </div>
     <div class="col-6 col-sm-4 col-md-3 d-flex gb-4">
-        <a class="flex-fluid edito-packshot gx-3 gy-2 rounded" href="">
+        <a class="flex-fluid btn-light gx-3 gy-2 rounded" href="">
             <table style="height:100%; width:100%;"><tbody><tr>
                 <td class="text-center align-middle">Changer le responsable du site</td>
             </tr></tbody></table>
         </a>
     </div>
     <div class="col-6 col-sm-4 col-md-3 d-flex gb-4">
-        <a class="flex-fluid edito-packshot gx-3 gy-2 rounded" href="{% url 'account:edit-profile' user.username %}">
+        <a class="flex-fluid btn-light gx-3 gy-2 rounded" href="{% url 'account:edit-profile' user.username %}">
             <table style="height:100%; width:100%;"><tbody><tr>
                 <td class="text-center align-middle">Modifier mon compte</td>
             </tr></tbody></table>
         </a>
     </div>
     <div class="col-6 col-sm-4 col-md-3 d-flex gb-4">
-        <a class="flex-fluid edito-packshot gx-3 gy-2 rounded" href="">
+        <a class="flex-fluid btn-light gx-3 gy-2 rounded" href="">
             <table style="height:100%; width:100%;"><tbody><tr>
                 <td class="text-center align-middle">Ajouter un utilisateur</td>
             </tr></tbody></table>

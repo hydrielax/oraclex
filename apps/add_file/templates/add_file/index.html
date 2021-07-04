@@ -4,43 +4,30 @@
 
 {% block content %}
     <style>
-        .centered {
-            display: flex;
-            align-items: center;
+        .table {
+            margin-bottom: 1.5rem;
+        }
+        .btn-outline-gray {
+            background-color: var(--white);
+            color: var(--dark);
+            border-color: #d9d9d9;
+        }
+        form {
+            margin-bottom: 2rem;
         }
     </style>
-    <form id="{{ selection.id }}" method="POST" enctype="multipart/form-data">
-    <h1 class="centered">
-        Ajout de fichiers &nbsp; {% csrf_token %} {{ selection }}
-    </h1>
-    </form>
 
-    {% if tableau %}
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nom</th>
-                <th>Lisible</th>
-                <th>Date</th>
-                <th>Juridiction</th>
-                <th>Somme gagnée</th>
-                <th>Conserver</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for ligne in tableau %}
-            <tr>
-                <td>{{ ligne.filename }}</td>
-                <td>{{ ligne.lisible }}</td>
-                <td>{{ ligne.date_jugement }}</td>
-                <td>{{ ligne.juridiction }}</td>
-                <td>{{ ligne.gain }}</td>
-                <td>{{ ligne.conserver }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <button class="btn btn-outline-success" type="submit">Valider</button>
-    <button class="btn btn-danger" type="reset">Annuler</button>
-    {% endif %}
+    <h1>
+        Ajout de fichiers
+    </h1>
+
+    {{ tableau }}
+
+    <form id="{{ selection.id }}" action="/ajout/" method="POST" enctype="multipart/form-data">
+        {% csrf_token %} {{ selection }}
+        {% if tableau %}
+        <button class="btn btn-light btn-outline-gray" onclick="window.location.href='/ajout'">Annuler</button>
+        <button class="btn btn-outline-success" type="button">Valider</button>
+        {% endif %}
+    </form>
 {% endblock %}
