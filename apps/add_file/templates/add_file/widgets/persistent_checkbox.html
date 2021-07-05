@@ -1,0 +1,3 @@
+<input type="checkbox"
+       onchange="window.{{ widget.attrs.id }} = this.checked;"
+       ${ typeof window.{{ widget.attrs.id }} == 'undefined' || window.{{ widget.attrs.id }} ? 'checked' : '' }>

@@ -1,5 +1,5 @@
 from django import forms
-from .widgets import SimpleFileInput
+from .widgets import SimpleFileInput, PersistentCheckbox
 from apps.search.models import Jugement
 from django.utils.safestring import mark_safe
 
@@ -17,10 +17,12 @@ class ChoixFichiers(forms.Form):
 
 class InfosJugement(forms.Form):
 
-    def __init__(self, fichier, **kwargs):
-        super().__init__(**kwargs)
+    conserver = forms.BooleanField(widget=PersistentCheckbox())
+
+    def __init__(self, fichier, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.jugement = Jugement.create(fichier)
-        self.conserver = forms.BooleanField()
+        self.conserver = self.fields['conserver']
 
     def __str__(self):
         js = "{{name:'{}', ".format(self.jugement.file.name)
@@ -28,7 +30,7 @@ class InfosJugement(forms.Form):
         js += "date:'{}', ".format(self.jugement.date_jugement)
         js += "juridiction:'{}', ".format(self.jugement.juridiction)
         js += "gain:'{}', ".format(self.jugement.gain)
-        js += "conserver:'{}'}}".format('<input type="checkbox" checked>')
+        js += "conserver:`{}`}}".format(self.conserver.widget.render('conserver', True))
         return mark_safe(js)
 
 
