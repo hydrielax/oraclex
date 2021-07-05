@@ -2,7 +2,6 @@ from django import forms
 from django.forms import ModelForm, Form
 from django.contrib.auth.models import User
 from .models import Agent
-from apps.search.fields import ListTextWidget
 
 class UserForm(ModelForm):
     class Meta:
@@ -30,6 +29,6 @@ class RespoForm(Form):
     respo = forms.ModelChoiceField(
         queryset=Agent.objects.all(),
         label="Choisir un responsable",
-        widget=ListTextWidget(attrs={'class': 'form-control', 'placeholder': 'Tapez le nom d\'un utilisateur'}),
+        widget=forms.Select(attrs={'class': 'form-control', 'placeholder': 'Tapez le nom d\'un utilisateur'}),
         required=False
     )

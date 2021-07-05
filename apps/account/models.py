@@ -9,6 +9,10 @@ class Agent(models.Model):
     telephone = models.CharField('Téléphone', max_length=17, null=True, blank=True)
     responsable = models.BooleanField(default=False, help_text='Vrai si le responsable est actuellement en charge.')
     
-    def __str__(self):
+    @property
+    def name(self):
         return f'{self.user.first_name} {self.user.last_name}'
+    
+    def __str__(self):
+        return self.name
 

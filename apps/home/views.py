@@ -1,13 +1,14 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from apps.search.models import Jugement, Responsable
+from apps.search.models import Jugement
+from apps.account.models import Agent
 
 @login_required
 def home(request):
     '''Affiche la page d'accueil'''
 
     # responsable
-    respo = Responsable.objects.filter(id=1)
+    respo = Agent.objects.filter(responsable=True)
     if respo: respo = respo[0]
 
     # stats bdd
@@ -32,7 +33,7 @@ def responsable(request):
     '''Affiche le responsable de l'application en cours, même lorsqu'on
     n'est pas connecté.'''
     
-    respos = Responsable.objects.all()
+    respos = Agent.objects.filter(responsable=True)
     if respos: 
         respo = respos[0]
     else:
@@ -44,7 +45,7 @@ def responsable(request):
 def legal_mentions(request):
     '''Affiche les mentions légales'''
 
-    respos = Responsable.objects.all()
+    respos = Agent.objects.filter(responsable=True)
     if respos: 
         respo = respos[0]
     else:

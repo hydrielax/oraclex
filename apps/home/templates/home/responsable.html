@@ -7,7 +7,7 @@
     {% if respo %}
         <p>Un problème ? Contactez le responsable actuel du site :</p>
         <ul>
-            <li><strong>{{ respo.prenom }} {{ respo.nom }}</strong> : <a href='mailto:{{ respo.mail }}'>{{ respo.mail }}</a></li>
+            <li><strong>{{ respo.name }}</strong> : <a href='mailto:{{ respo.user.email }}'>{{ respo.user.email }}</a></li>
         </ul>
         <br>
     {% else %}

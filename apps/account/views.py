@@ -23,8 +23,8 @@ def EditProfile(request, username):
         if user_form.is_valid() and agent_form.is_valid():
             user_form.save()
             agent_form.save()
-            url = reverse("account:edit-profile", kwargs={'username': username})
-            return HttpResponseRedirect(url)
+            #url = reverse("account:edit-profile", kwargs={'username': username})
+            #return HttpResponseRedirect(url)
 
     else:
         user_form = UserForm(instance=my_user)
@@ -38,25 +38,33 @@ def EditProfile(request, username):
 def ChangeResponsable(request):
     '''Vue pour changer le responsable'''
 
+    context = {}
+    respo_actuel = Agent.objects.filter(responsable=True)
+    if respo_actuel:
+        respo_actuel = respo_actuel[0]
+    else:
+        respo_actuel = None
+
     if request.method == 'POST':
         #affichage de la page
-        respo_form = RespoForm(request.POST)
+        respo_form = RespoForm(request.POST, initial={'respo': respo_actuel})
         #validation du formulaire
         if respo_form.is_valid():
-            respo = respo_form.cleaned_date['respo']
-            respo.responsable = True
-            respo.save()
+            print('valider')
+            context['form_complete'] = True
+            respo = respo_form.cleaned_data['respo']
+            if respo:
+                respo.responsable = True
+                respo.save()
             for user in Agent.objects.all():
                 if user != respo and user.responsable:
                     user.responsable = False
                     user.save()
-            url = reverse("account:edit-respo")
-            return HttpResponseRedirect(url)
 
     else:
-        respo_form = RespoForm()
+        respo_form = RespoForm(initial={'respo': respo_actuel})
     
-    context = {'respo_form': respo_form}
+    context['respo_form'] = respo_form
     
     return render(request, 'account/update_respo.html', context)
 
