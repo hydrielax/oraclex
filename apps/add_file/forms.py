@@ -1,7 +1,7 @@
 from django import forms
 from .widgets import SimpleFileInput
 from apps.search.models import Jugement
-from django.utils.html import format_html
+from django.utils.safestring import mark_safe
 
 
 class ChoixFichiers(forms.Form):
@@ -22,33 +22,20 @@ class InfosJugement(forms.Form):
         self.jugement = Jugement.create(fichier)
         self.conserver = forms.BooleanField()
 
+    def __str__(self):
+        js = "{{name:'{}', ".format(self.jugement.file.name)
+        js += "lisible:'{}', ".format(self.jugement.lisible)
+        js += "date:'{}', ".format(self.jugement.date_jugement)
+        js += "juridiction:'{}', ".format(self.jugement.juridiction)
+        js += "gain:'{}', ".format(self.jugement.gain)
+        js += "conserver:'{}'}}".format('<input type="checkbox" checked>')
+        return mark_safe(js)
+
 
 class TableauJugements(list):
 
-    fields = ('nom', 'lisible', 'date_jugement', 'juridiction', 'gain')
-
-    def sort(self, field, reverse):
-        super().sort(key=lambda ligne: str(getattr(ligne.jugement, field)).lower(), reverse=reverse)
-
-    def render(self, request):
-        sort_field = request.GET.get('sort', 'nom')
-        sort_reverse = request.GET.get('rv', 'n') == 'y'
-        self.sort(sort_field, sort_reverse)
-        html = ''
-        if self:
-            html += "<table class='table'><thead><tr>"
-            for fld in self.fields:
-                head = "<th><a href='?sort={field}&rv={rev}'>{name}{arrow}</a></th>"
-                html += head.format(field=fld, rev='n' if sort_reverse else 'y',
-                                    name=Jugement._meta.get_field(fld).verbose_name,
-                                    arrow=(" &uarr;" if sort_reverse else " &darr;") if sort_field == fld else '')
-            html += "<th><a href='javascript:void(0);'>Conserver</a></th>"
-            html += "</tr></thead><tbody>"
-            for lign in self:
-                html += "<tr>"
-                for fld in self.fields:
-                    html += "<td>{}</td>".format(getattr(lign.jugement, fld))
-                html += "<td>{}</td>".format(lign.conserver.widget.render('conserver', False))
-                html += "</tr>"
-            html += "</tbody></table>"
-        return format_html(html)
+    def __str__(self):
+        js = "[{name:'Nom du fichier', lisible:'Lisible', date:'Date du jugement', " \
+             "juridiction:'Juridiction', gain:'Somme gangée', conserver:'Conserver'}"
+        js += "".join(", " + str(infos) for infos in self) + "]"
+        return mark_safe(js)

@@ -69,11 +69,10 @@ class Juridiction(models.Model):
         return self.nom
 
 
-
 class Jugement(models.Model):
     '''Objet représentant un acte de jugement.'''
     file = models.FileField('Fichier', upload_to='jugements')
-    nom = models.CharField('Nom du fichier', max_length=200, help_text='Nom du fichier')
+    #nom = models.CharField('Nom du fichier', max_length=200, help_text='Nom du fichier')
     lisible = models.BooleanField('Lisible',help_text="Vrai si le fichier est lisible par l'ordinateur.")
     decision = models.CharField('Décision', max_length=1, choices=(('F', 'Favorable'), ('D', 'Défavorable'), ('M', 'Mixte')), null=True, blank=True, help_text='Décision de justice')
     date_jugement = models.DateField('Date du jugement', null=True, blank=True, help_text='Date du jugement')
@@ -82,7 +81,7 @@ class Jugement(models.Model):
     juridiction = models.ForeignKey(TypeJuridiction, verbose_name='Juridiction', on_delete=models.SET_NULL, null=True, blank=True, help_text='Cour ou Conseil du jugement')
     mots_cle = models.ManyToManyField(MotCle, verbose_name='Mot-Clé', help_text='Mots-clé présents dans le Jugement', blank=True)
     #gain = models.DecimalField(max_digits='10', decimal_places='2', help_text='Somme gagnée lors du procès (négative si perdu)', null=True, blank=True)
-    gain = models.FloatField('Somme gangée', help_text='Somme gagnée lors du procès (négative si perdu)', null=True, blank=True)
+    gain = models.FloatField('Somme gagnée', help_text='Somme gagnée lors du procès (négative si perdu)', null=True, blank=True)
 
     class Meta:
         ordering = ['-date_jugement']
@@ -95,7 +94,7 @@ class Jugement(models.Model):
     
     @classmethod
     def create(cls, f):
-        jugement = cls(file=f, nom=f.name, lisible=random.choice([True, False]))
+        jugement = cls(file=f, lisible=random.choice([True, False]))
         return jugement
 
 

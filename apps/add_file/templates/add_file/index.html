@@ -21,12 +21,37 @@
         Ajout de fichiers
     </h1>
 
-    {{ tableau }}
+    {% if tableau %}
+    <table class="table" id="tableau">
+        <script>
+            var r = 1;
+            function display_table(sort_field) {
+                var table = {{ tableau }};
+                var html = "<thead><tr>";
+                for (const [field, name] of Object.entries(table[0])) {
+                    html += `<th><a href="javascript:display_table('${field}');">${name}</a></th>`;
+                } html += "</tr></thead>";
+                table.shift();
+                table.sort((r1, r2) => r1[sort_field].toLowerCase() > r2[sort_field].toLowerCase() ? r : -r);
+                r = -r;
+                html += "<tbody>";
+                for(const row of table) {
+                    html += "<tr>";
+                    for (const value of Object.values(row)) {
+                        html += `<td>${value}</td>`;
+                    } html += "</tr>";
+                } html += "</tbody>";
+                document.getElementById("tableau").innerHTML = html;
+            }
+        display_table('name');
+        </script>
+    </table>
+    {% endif %}
 
-    <form id="{{ selection.id }}" action="/ajout/" method="POST" enctype="multipart/form-data">
+    <form id="{{ selection.id }}" method="POST" enctype="multipart/form-data">
         {% csrf_token %} {{ selection }}
         {% if tableau %}
-        <button class="btn btn-light btn-outline-gray" onclick="window.location.href='/ajout'">Annuler</button>
+        <button class="btn btn-light btn-outline-gray" onclick="window.location.href=''">Annuler</button>
         <button class="btn btn-outline-success" type="button">Valider</button>
         {% endif %}
     </form>
