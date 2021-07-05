@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Prédiction -{% endblock %}
+
+{% block content %}
+    <h1>Résultats de la prédiction</h1>
+    <h2>Paramètres entrés</h2>
+    <table>
+        <tr><th>Type de Juridiction : </th><td>{{ parametres.type_juridiction | default_if_none:"Toutes" }}</td></tr>
+        <tr>
+            <th>Mots-clés : </th>
+            <td>{% for mot in parametres.motsCles %}{{ mot }}, {% endfor %}</td>
+        </tr>
+    </table>
+    <br><br>
+    <h2>Résultats :</h2>
+    
+    <br>
+    
+    {% else %}
+    <p class="text-danger">Aucun jugement ne correspond à votre recherche</p>
+    {% endif %}
+{% endblock %}
