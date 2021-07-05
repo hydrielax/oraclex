@@ -30,7 +30,7 @@ class InfosJugement(forms.Form):
         js += "date:'{}', ".format(self.jugement.date_jugement)
         js += "juridiction:'{}', ".format(self.jugement.juridiction)
         js += "gain:'{}', ".format(self.jugement.gain)
-        js += "conserver:`{}`}}".format(self.conserver.widget.render('conserver', True))
+        js += "conserver:`{}`}}".format(self.conserver.widget.render('checkbox', True))
         return mark_safe(js)
 
 
