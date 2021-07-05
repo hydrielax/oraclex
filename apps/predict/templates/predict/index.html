@@ -1,9 +1,171 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}Prédiction -{% endblock %}
 
 {% block content %}
     <h1>Prédiction</h1>
+    <h2>Paramètres de la prédiction</h2>
+    <form method="POST">{% csrf_token %}
+       
+        
+        <!-- mot-clés: recherche en tapant les mots-clés -->
+        <div class="fieldWrapper form-group">
+            {{ form.motsCles_textInput.label_tag }}
+            <!-- -->
+          
+
+            <!-- -->
+            <div class="form-control-container has-left-icon">
+                {{ form.motsCles_textInput }}
+                <span class="form-control-state"></span>
+                <span class="form-control-icon">
+                    <i class="icons-search"></i>
+                    
+                </span>
+           
+            
+
+            </div>
+            {% for error in form.motsCles_textInput.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+            {% endfor %}
+        </div>
+<!-- mots-clés : recherche avec liste complète non triée -->
+<!-- mots-clés : recherche avec liste complète non triée -->
+<!-- mots-clés : recherche avec liste complète non triée -->
+<!-- mots-clés : recherche avec liste complète non triée -->
+ 
+ 
+        <!-- mots-clés : recherche avec liste complète non triée -->
+        <!--div class="fieldWrapper form-group">
+            {{ form.motsCles.label_tag }}
+            <div class="select-improved" data-component="select-multiple">
+                <div class="select-control">
+                    <div class="input-group" data-role="select-toggle">
+                        <div class="form-control">
+                            <div class="custom-control custom-checkbox">
+                                <label data-role="placeholder" class="custom-control-label font-weight-medium">Sélectionnez des mots-clés</label>
+                            </div>
+                        </div>
+                        {{ form.motsCles }}
+                        <div class="input-group-append input-group-last">
+                            <button class="btn btn-primary btn-only-icon" data-role="btn" type="button" aria-expanded="false" aria-controls="multiselecttoggle">
+                                <i class="icons-arrow-down icons-size-x75" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="multiselecttoggle" class="select-menu" data-role="menu">
+                        <div class="select-group" data-role="group" data-id="0" role="list">
+                            {% for motcle in liste_sans_groupe %}
+                                <div class="select-menu-item" role="listitem">
+                                    <div class="custom-control custom-checkbox">
+                                        <button type="button" data-role="value" data-target="{{ motcle.id }}" role="checkbox" aria-checked="false" class="custom-control-label w-100 text-left font-weight-medium">{{ motcle.nom }}</button>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div-->
+        <!-- mots-clés : champ par défaut -->
+        <!--div class="fieldWrapper form-group">
+            {{ form.motsCles }}
+        </div-->
+        <!-- mot-clés : liste triée par groupe -->
 
 
+        <div class="fieldWrapper form-group">
+            {{ form.motsCles.label_tag }}
+            <div class="select-improved" data-component="select-multiple">
+                <div class="select-control">
+                    <div class="input-group" data-role="select-toggle">
+                        <div class="form-control">
+                            <div class="custom-control custom-checkbox">
+                                <label data-role="placeholder" class="custom-control-label font-weight-medium">Tous les mots-clés</label>
+                            </div>
+                        </div>
+                        {{ form.motsCles }}
+                        <div class="input-group-append input-group-last">
+                            <button class="btn btn-primary btn-only-icon" data-role="btn" type="button" aria-expanded="false" aria-controls="multiselecttoggle2">
+                                <i class="icons-arrow-down icons-size-x75" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="multiselecttoggle2" class="select-menu" data-role="menu" role="list">
+                        <div class="select-group" data-role="group" data-id="-1" role="list">
+                            {% for motcle in liste_sans_groupe %}
+                            <div class="select-menu-item" role="listitem">
+                                <div class="custom-control custom-checkbox">
+                                    <button type="button" data-role="value" data-target="{{ motcle.id }}" role="checkbox" aria-checked="false" class="custom-control-label w-100 text-left font-weight-medium">{{ motcle.nom}}</button>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% for groupe in liste %}
+                        <div class="select-group" data-role="group" data-id="{{ groupe.id }}" role="listitem">
+                            <div class="select-group-head">
+                                <div class="custom-control custom-checkbox w-100">
+                                    <button type="button" data-role="counter" class="custom-control-label font-weight-bold w-100 text-left text-uppercase">{{ groupe.nom }}</button>
+                                </div>     
+                            </div>
+                            <div class="select-group-content" role="list">
+                                {% for motcle in groupe.mots_cles %}
+                                <div class="select-menu-item" role="listitem">
+                                    <div class="custom-control custom-checkbox">
+                                        <button type="button" data-role="value" data-target="{{ motcle.id }}" role="checkbox" aria-checked="false" class="custom-control-label w-100 text-left font-weight-medium">{{ motcle.nom }}</button>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div> <br>
+                <div class="row">
+            <div class="col">
+                <div class="fieldWrapper form-group"> 
+                    {{ form.type_juridiction.label_tag }}
+                    {{ form.type_juridiction }}
+                </div>
+            </div>
+            
+        </div> 
+        <button type="submit" class="btn btn-primary"><span>Prédire</span> <img src= "{% static 'images/logo white.svg' %}" class='icon' alt ='Icon oeil'></button>
+        <!--button type="submit" class="btn btn-outline-primary" disabled><span>Prévoir</span> <i class="icons-share" aria-hidden="true"></i></button-->
+        <br><br><br>
+
+        <label for="select3">Recherche - Mieux</label>
+<div class="select-improved" data-component="select-exclusive">
+  <div class="select-control">
+    <div class="input-group" data-role="select-toggle">
+      <div class="form-control is-placeholder  d-flex align-items-center" data-role="placeholder">Mission Impossible</div>
+      <select class="sr-only" id="select3" data-role="input" tabindex="-1" aria-hidden="true">
+        <option selected disabled hidden>Mission Impossible </option>
+      </select>
+      <div class="input-group-append input-group-last">
+        <button class="btn btn-primary btn-only-icon " data-role="btn" type="button">
+          <i class="icons-arrow-down icons-size-x75" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+    <div class="select-menu" data-role="menu">
+      <div class="d-flex flex-column flex-sm-row" data-role="add">
+        <div class="form-control-container w-100 has-left-icon">
+          <input type="" class="form-control form-control-sm" id="inputIcon3" placeholder="Recherche" >
+          <span class="form-control-state"></span>
+          <span class="form-control-icon"><i class="icons-search" aria-hidden="true"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <br><br><br>
+    </form>
+    
 {% endblock %}

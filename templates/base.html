@@ -17,11 +17,14 @@
         
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
         <link rel="stylesheet" href="{% static 'sncf/bootstrap-sncf.min.css' %}">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1">
         
         <link rel="shortcut icon" href='{% static "/images/logo.svg" %}'>
 
         <title>{% block title %}{% endblock %} Oraclex</title>
+        
+
+
 
     </head>
 
@@ -55,16 +58,16 @@
                                 </div>
                                 <div style="width:100%;"></div>
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    {% if user.first_name and user.last_name %}
-                                        <span>{{ user.first_name}} {{ user.last_name }}</span>
+                                    {% if user.agent %}
+                                        <span>{{ user.agent }}</span>
                                     {% else %}
-                                        <span>{{ user.get_username }}</span>
+                                        <span>Pirate !</span>
                                     {% endif %}
                                     <i class="icons-menu-account" style="margin-left: 10px;" aria-hidden="true"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-right" role="menu">
                                     <li><a class="dropdown-item" href="{% url 'account:edit-profile' user.username %}"%>Modifier mon profil</a></li>
-                                    <li><a class="dropdown-item" href=''>Ajouter un utilisateur</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'account:add-user' %}">Ajouter un utilisateur</a></li>
                                     <li><a class="dropdown-item" href="{% url 'logout' %}">Me déconnecter</a></li>
                                 </ul> 
                             </div>

@@ -1,0 +1,736 @@
+{\rtf1\ansi\deff0
+{\fonttbl{\f0\fmodern Courier;}{\f1\froman Times New Roman;}{\f2\fswiss Arial;}{\f3\fswiss Verdana;}{\f4\froman Ming(for ISO10646) {\*\falt &#32048;&#26126;&#39636,MingLiU_HKSCS};}{\f5\froman Arial Unicode MS;}}
+{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}
+{\stylesheet{\fs20 \snext0 Normal;}}
+{\*\listtable
+
+{\list\listtemplate100001\listsimple
+{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1{
+\leveltext\'061. -  ;}{\levelnumbers;}\f1 \fs20 \cf \b0 \i0 \ul0 \li1200\fi-600\jclisttab\tx1200}
+{\listname ;}\listid-20001}
+{\list\listtemplate100002\listsimple
+{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1{
+\leveltext\'062. -  ;}{\levelnumbers;}\f1 \fs20 \cf \b0 \i0 \ul0 \li1200\fi-600\jclisttab\tx1200}
+{\listname ;}\listid-20002}
+{\list\listtemplate100003\listsimple
+{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1{
+\leveltext\'063. -  ;}{\levelnumbers;}\f1 \fs20 \cf \b0 \i0 \ul0 \li1200\fi-600\jclisttab\tx1200}
+{\listname ;}\listid-20003}
+{\list\listtemplate100004\listsimple
+{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1{
+\leveltext\'064. -  ;}{\levelnumbers;}\f1 \fs20 \cf \b0 \i0 \ul0 \li1200\fi-600\jclisttab\tx1200}
+{\listname ;}\listid-20004}
+{\list\listtemplate100005\listsimple
+{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1{
+\leveltext\'065. -  ;}{\levelnumbers;}\f1 \fs20 \cf \b0 \i0 \ul0 \li1200\fi-600\jclisttab\tx1200}
+{\listname ;}\listid-20005}
+{\list\listtemplate100006\listsimple
+{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1{
+\leveltext\'066. -  ;}{\levelnumbers;}\f1 \fs20 \cf \b0 \i0 \ul0 \li1200\fi-600\jclisttab\tx1200}
+{\listname ;}\listid-20006}
+{\list\listtemplate100007\listsimple
+{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1{
+\leveltext\'067. -  ;}{\levelnumbers;}\f1 \fs20 \cf \b0 \i0 \ul0 \li1200\fi-600\jclisttab\tx1200}
+{\listname ;}\listid-20007}
+{\list\listtemplate100008\listsimple
+{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1{
+\leveltext\'068. -  ;}{\levelnumbers;}\f1 \fs20 \cf \b0 \i0 \ul0 \li1200\fi-600\jclisttab\tx1200}
+{\listname ;}\listid-20008}
+{\list\listtemplate100009\listsimple
+{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1{
+\leveltext\'069. -  ;}{\levelnumbers;}\f1 \fs20 \cf \b0 \i0 \ul0 \li1200\fi-600\jclisttab\tx1200}
+{\listname ;}\listid-20009}
+{\list\listtemplate100010\listsimple
+{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1{
+\leveltext\'0710. -  ;}{\levelnumbers;}\f1 \fs20 \cf \b0 \i0 \ul0 \li1200\fi-600\jclisttab\tx1200}
+{\listname ;}\listid-20010}
+{\list\listtemplate100011\listsimple
+{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1{
+\leveltext\'02- ;}{\levelnumbers;}\f1 \fs20 \cf \b0 \i0 \ul0 \li1440\fi-600\jclisttab\tx1440}
+{\listname ;}\listid-20011}
+{\list\listtemplate100012\listsimple
+{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1{
+\leveltext\'02- ;}{\levelnumbers;}\f1 \fs20 \cf \b0 \i0 \ul0 \li1200\fi-600\jclisttab\tx1200}
+{\listname ;}\listid-20012}
+{\list\listtemplate100013\listsimple
+{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1{
+\leveltext\'02- ;}{\levelnumbers;}\f1 \fs20 \cf \b0 \i0 \ul0 \li1560\fi-600\jclisttab\tx1560}
+{\listname ;}\listid-20013}}
+{\*\listoverridetable
+{\listoverride\listid-20001\listoverridecount0\ls1}
+{\listoverride\listid-20002\listoverridecount0\ls2}
+{\listoverride\listid-20003\listoverridecount0\ls3}
+{\listoverride\listid-20004\listoverridecount0\ls4}
+{\listoverride\listid-20005\listoverridecount0\ls5}
+{\listoverride\listid-20006\listoverridecount0\ls6}
+{\listoverride\listid-20007\listoverridecount0\ls7}
+{\listoverride\listid-20008\listoverridecount0\ls8}
+{\listoverride\listid-20009\listoverridecount0\ls9}
+{\listoverride\listid-20010\listoverridecount0\ls10}
+{\listoverride\listid-20011\listoverridecount0\ls11}
+{\listoverride\listid-20012\listoverridecount0\ls12}
+{\listoverride\listid-20013\listoverridecount0\ls13}}
+\margl1297\margr1296\margt1728\margb1296\widowctrl\sectd\marglsxn1296 \f0 \fs20 
+{\*\LXNComment 2862:194096336}\pgnstarts1 \pgnrestart {
+\header \pard \fs20 \f1 Page \chpgn \qr 
+\par }
+\sect \sectd \marglsxn1296\sbknone \f1 {
+\header \pard \fs20 \f1 Page \chpgn \qr 
+\par \pard \f1 \fs20 \hyphpar0 \qc 
+\par }{\*\bkmkstart DOC_ID_0}{\*\bkmkend DOC_ID_0}{\*\bkmkstart DOC_ID_0_0}{\*\bkmkend DOC_ID_0_0}\pard 
+\par \f1 \fs20 \cf \b0 \i0 \ul0 \pard \hyphpar0 \ql \li0\ri0 \sb0 \fi0 Document 1 de 1
+\par \pard 
+\par \pard \hyphpar0 \ql \li0\ri0 \sb0 \fi0 JurisClasseur Travail Trait\'e9
+\par \pard 
+\par \pard \ql \li0\ri0 \sb0 \fi0 Cote : 04,2009
+\par \pard 
+\par \pard \qr \li0\ri0 \sb0 \fi0 Date de fra\'eecheur : 01 Mars 2009
+\par \pard 
+\par \b \i0 \ul0 \fs28 \pard \qc \li0\ri0 \sb0 \fi0 Fasc.  30-5 :   RUPTURE CONVENTIONNELLE\fs20 
+\par \pard 
+\par \pard 
+\par \b0 \i0 \ul0 \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 Jean-Philippe Tricoit
+\par \pard \ql \li0\ri0 \sb120 \fi0 Ma\'eetre de conf\'e9rences \'e0 l'Universit\'e9 d'Angers\b0 \i0 \ul0 
+\par \pard 
+\par \fs24 \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 Points-cl\'e9s\fs20 \b0 \i0 \ul0 
+\par \pard 
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 1. -  \tab}\pard \ql \li1200\fi-600 \ri0 \jclisttab\tx1200 \widctlpar\faauto\adjustright\itap0\ls1\ilvl0 \sb0 S'inspirant de l'ANI du 11 janvier 2008, la loi du 25 juin 2008 a cr\'e9\'e9 un nouveau mode de rupture du contrat de travail \'e0 dur\'e9e ind\'e9termin\'e9e : la rupture conventionnelle. R\'e9gi par les articles L. 1237-11 et suivants du Code du travail c'est un \b \i0 \ul0 mode de rupture autonome et distinct\b0 \i0 \ul0  de la transaction et de la rupture amiable (V. n\'b0 1 \'e0 7).
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 2. -  \tab}\pard \ql \li1200\fi-600 \ri0 \jclisttab\tx1200 \widctlpar\faauto\adjustright\itap0\ls2\ilvl0 \sb0 La rupture conventionnelle concerne exclusivement les \b \i0 \ul0 contrats de travail \'e0 dur\'e9e ind\'e9termin\'e9e\b0 \i0 \ul0  et ne s'applique donc ni aux contrats de travail \'e0 dur\'e9e d\'e9termin\'e9e, ni ruptures de contrats de travail r\'e9sultant des accords collectifs de gestion pr\'e9visionnelle des emplois et des comp\'e9tences (GPEC) ou de plans de sauvegarde de l'emploi (V. n\'b0 8 \'e0 14).
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 3. -  \tab}\pard \ql \li1200\fi-600 \ri0 \jclisttab\tx1200 \widctlpar\faauto\adjustright\itap0\ls3\ilvl0 \sb0 Les \b \i0 \ul0 salari\'e9s prot\'e9g\'e9s\b0 \i0 \ul0  b\'e9n\'e9ficient \'e9galement des dispositions relatives \'e0 la rupture conventionnelle. Cependant, dans ce cas, la demande d'autorisation est soumise \'e0 l'inspecteur du travail (V. n\'b0 10 et n\'b0 17).
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 4. -  \tab}\pard \ql \li1200\fi-600 \ri0 \jclisttab\tx1200 \widctlpar\faauto\adjustright\itap0\ls4\ilvl0 \sb0 Au cours d'un ou plusieurs entretiens, le salari\'e9 et l'employeur, \'e9ventuellement assist\'e9s, conviennent du principe d'une rupture conventionnelle de la relation de travail et \b \i0 \ul0 \'e9laborent une convention qui en pr\'e9cise les modalit\'e9s. Cette convention de rupture doit faire l'objet d'un \'e9crit, \'eatre sign\'e9e et doit comporter la date de rupture du contrat\b0 \i0 \ul0  (V. n\'b0 21 \'e0 49).
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 5. -  \tab}\pard \ql \li1200\fi-600 \ri0 \jclisttab\tx1200 \widctlpar\faauto\adjustright\itap0\ls5\ilvl0 \sb0 Les parties au contrat b\'e9n\'e9ficient d'un \b \i0 \ul0 droit de r\'e9tractation\b0 \i0 \ul0  pendant un d\'e9lai de 15 jours calendaires \'e0 compter de la signature de la convention de rupture (V. n\'b0 44 \'e0 50).
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 6. -  \tab}\pard \ql \li1200\fi-600 \ri0 \jclisttab\tx1200 \widctlpar\faauto\adjustright\itap0\ls6\ilvl0 \sb0 La validit\'e9 de la convention est subordonn\'e9e \'e0 son \b \i0 \ul0 homologation\b0 \i0 \ul0  par le DDTEFP qui proc\'e8de \'e0 son instruction (V. n\'b0 51 \'e0 53).
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 7. -  \tab}\pard \ql \li1200\fi-600 \ri0 \jclisttab\tx1200 \widctlpar\faauto\adjustright\itap0\ls7\ilvl0 \sb0 Le \b \i0 \ul0 DDTEFP\b0 \i0 \ul0  exerce un contr\'f4le de recevabilit\'e9, puis un contr\'f4le de validit\'e9 de la demande d'homologation. Il dispose d'un d\'e9lai de 15 jours ouvrables pour proc\'e9der \'e0 l'instruction du dossier (V. n\'b0 54 \'e0 72).
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 8. -  \tab}\pard \ql \li1200\fi-600 \ri0 \jclisttab\tx1200 \widctlpar\faauto\adjustright\itap0\ls8\ilvl0 \sb0 Le DDTEFP peut rendre une d\'e9cision explicite en homologuant ou en refusant d'homologuer la convention de rupture. Il peut \'e9galement rendre une d\'e9cision implicite (V. n\'b0 73 \'e0 81).
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 9. -  \tab}\pard \ql \li1200\fi-600 \ri0 \jclisttab\tx1200 \widctlpar\faauto\adjustright\itap0\ls9\ilvl0 \sb0 Tout \b \i0 \ul0 litige\b0 \i0 \ul0  concernant la convention, l'homologation ou le refus d'homologation rel\'e8ve de la \b \i0 \ul0 comp\'e9tence du conseil des prud'hommes\b0 \i0 \ul0 , \'e0 l'exclusion de tout autre recours contentieux ou administratif (V. n\'b0 82 \'e0 87).
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 10. -  \tab}\pard \ql \li1200\fi-600 \ri0 \jclisttab\tx1200 \widctlpar\faauto\adjustright\itap0\ls10\ilvl0 \sb0 Le salari\'e9 b\'e9n\'e9ficie des \b \i0 \ul0 allocations de ch\'f4mage\b0 \i0 \ul0  et a droit au versement d'une \b \i0 \ul0 indemnit\'e9 sp\'e9cifique de rupture conventionnelle\b0 \i0 \ul0  soumise \'e0 un r\'e9gime social et fiscal particulier (V. n\'b0 91).
+\par \pard 
+\par \fs24 \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 Sommaire analytique\fs20 \b0 \i0 \ul0 
+\par \pard 
+\par \fs24 \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 Introduction\fs20 \b0 \i0 \ul0 
+\par \pard 
+\par \fs24 \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 I. - Champ d'application\fs20 \b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 1\'b0 Relations contractuelles vis\'e9es\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 2\'b0 Relations contractuelles exclues\b0 \i0 \ul0 
+\par \pard 
+\par \fs24 \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 II. - Mise en oeuvre\fs20 \b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 A. - D\'e9roulement de la proc\'e9dure\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 1\'b0 Initiative\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 2\'b0 Entretien\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 a) D\'e9roulement\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 b) Assistance des parties\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 B. - \'c9laboration de la convention de rupture\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 1\'b0 Conditions de forme\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 a) Existence d'un \'e9crit\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 b) Signature\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 c) Date de la rupture du contrat de travail\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 2\'b0 R\'e9tractation de l'une des parties\b0 \i0 \ul0 
+\par \pard 
+\par \fs24 \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 III. - Homologation de la convention de rupture\fs20 \b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 A. - Demande\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 1\'b0 Envoi\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 a) Droit commun\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 b) Salari\'e9 prot\'e9g\'e9\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 2\'b0 R\'e9ception\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 B. - Instruction\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 1\'b0 Autorit\'e9 comp\'e9tente\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 2\'b0 D\'e9lai\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 3\'b0 Nature\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 a) Instruction du DDTEFP\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 b) Salari\'e9 prot\'e9g\'e9\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 C. - D\'e9cision de l'autorit\'e9 administrative comp\'e9tente\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 1\'b0 Droit commun\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 2\'b0 Salari\'e9 prot\'e9g\'e9\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 D. - Voies de recours\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 1\'b0 Droit commun\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 2\'b0 Salari\'e9 prot\'e9g\'e9\b0 \i0 \ul0 
+\par \pard 
+\par \fs24 \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 IV. - Effets\fs20 \b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 A. - Effets communs \'e0 l'\'e9gard des parties\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 B. - Effets \'e0 l'\'e9gard du salari\'e9\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 1\'b0 Allocations de ch\'f4mage\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 2\'b0 Indemnit\'e9 sp\'e9cifique de rupture conventionnelle\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 a) Modalit\'e9s de calcul\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 b) R\'e9gime fiscal\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 C. - Effets \'e0 l'\'e9gard de l'employeur\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 1\'b0 R\'e9gime social\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 a) Exon\'e9rations de pr\'e9l\'e8vements sociaux\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 b) Soumission aux pr\'e9l\'e8vements sociaux\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 2\'b0 D\'e9claration aux organismes sociaux des ruptures conventionnelles des salari\'e9s de 55 ans et plus\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 3\'b0 D\'e9claration des indemnit\'e9s de rupture conventionnelle du mandataire social\b0 \i0 \ul0 
+\par \pard 
+\par \fs24 \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 Bibliographie\fs20 \b0 \i0 \ul0 
+\par \pard 
+\par \fs24 \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 Introduction\fs20 \b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 1. -  \b0 \i0 \ul0  \b \i0 \ul0 ANI du 11 janvier 2008 - \b0 \i0 \ul0 La cr\'e9ation du m\'e9canisme de rupture conventionnelle est le fruit de la transposition, par la loi n\'b0 2008-596 du 25 juin 2008 \b0 \i \ul0 (Journal Officiel 26 Juin 2008 ; JCP S 2008, 1391)\b0 \i0 \ul0 , de certaines dispositions contenues dans l'Accord National Interprofessionnel (ANI) du 11 janvier 2008, notamment l'article 12 de celui-ci \b0 \i \ul0 (V. not. Dr. soc. 2008, n\'b0 sp\'e9cial)\b0 \i0 \ul0  sign\'e9 par trois organisations patronales (MEDEF, CGPME et UPA) et quatre organisations syndicales (CGT-FO, CFE-CGC, CFTC et CFDT, \'e0 l'exception de la CGT).
+\par \pard \ql \li0\ri0 \sb120 \fi0 L'ANI a \'e9t\'e9 \'e9tendu par un arr\'eat\'e9 du 23 juillet 2008 \b0 \i \ul0 (A. 23 juill. 2008 : Journal Officiel 25 Juillet 2008, JCP S 2008, act. 451)\b0 \i0 \ul0 . Cette extension a pour effet de rendre opposable \'e0 tous les employeurs et salari\'e9s les clauses de cet accord pour lesquelles une transcription l\'e9gislative ou r\'e9glementaire n'\'e9tait pas n\'e9cessaire.
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 2. -  \b0 \i0 \ul0  \b \i0 \ul0 Fondements textuels - \b0 \i0 \ul0 Les dispositions r\'e9gissant le r\'e9gime juridique de la rupture conventionnelle sont situ\'e9es aux articles L. 1237-11 et suivants, ainsi que R. 1237-3 de ce code. Ins\'e9r\'e9e au Chapitre VII ("Autres cas de rupture") du Titre III ("Rupture du contrat \'e0 dur\'e9e ind\'e9termin\'e9e") du Livre II ("Le contrat de travail") de la Partie I du Code du travail, la section III est consacr\'e9e \'e0 la rupture conventionnelle.
+\par \pard \ql \li0\ri0 \sb120 \fi0 Par ailleurs, ce dispositif l\'e9gal est compl\'e9t\'e9 par un \b \i \ul0 arr\'eat\'e9\b0 \i0 \ul0  du 18 juillet 2008 qui fixent les mod\'e8les de la demande d'homologation d'une rupture conventionnelle de contrat de travail \'e0 dur\'e9e ind\'e9termin\'e9e \b0 \i \ul0 (Journal Officiel 19 Juillet 2008)\b0 \i0 \ul0 .
+\par \pard \ql \li0\ri0 \sb120 \fi0 Un autre arr\'eat\'e9 du 28 juillet 2008 \b0 \i \ul0 (Journal Officiel 6 Aout 2008 ; JCP S 2008, 1431. - A. Louvet, La rupture conventionnelle du contrat \'e0 dur\'e9e ind\'e9termin\'e9e d'un salari\'e9 prot\'e9g\'e9 : JCP S 2008, 1645, p. 22)\b0 \i0 \ul0  a modifi\'e9 le mod\'e8le de rupture conventionnelle applicable pour les \b \i \ul0 salari\'e9s prot\'e9g\'e9s\b0 \i0 \ul0  qui pr\'e9voyait par erreur l'homologation par le DDTEFP et non pas l'autorisation de la rupture par l'inspection du travail.
+\par \pard \ql \li0\ri0 \sb120 \fi0 Enfin, les dispositions du Code du travail ont fait l'objet d'une \b \i \ul0 circulaire\b0 \i0 \ul0  du 22 juillet 2008 \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008 relative \'e0 l'examen de la demande d'homologation d'une rupture conventionnelle de contrat de travail \'e0 dur\'e9e ind\'e9termin\'e9e : JCP S 2008, act. 427 et 1431)\b0 \i0 \ul0  compl\'e9t\'e9e par la circulaire DGT n\'b0 2009-04 du 17 mars 2009.
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 3. -  \b0 \i0 \ul0  \b \i0 \ul0 Modifications apport\'e9es au droit du travail - \b0 \i0 \ul0 Ce nouvel instrument, cr\'e9\'e9 dans l'optique de privil\'e9gier et de s\'e9curiser les solutions n\'e9goci\'e9es \'e0 l'occasion des ruptures de contrat, constitue une \'e9volution notable du droit du travail \b0 \i \ul0 (F. Taquet, Br\'e8ves r\'e9flexions sur la rupture conventionnelle du contrat de travail : JCP E 2008, 1921)\b0 \i0 \ul0  et du droit de la rupture du contrat de travail \b0 \i \ul0 (V. J.-Y. Frouin, Les ruptures \'e0 l'initiative du salari\'e9 et le droit de la rupture du contrat de travail : JCP S 2008, 1407, n\'b0 22 et sp\'e9c. 24)\b0 \i0 \ul0 .
+\par \pard \ql \li0\ri0 \sb120 \fi0 Sur l'introduction de ce nouveau m\'e9canisme dans les relations de travail, les avis sont partag\'e9s. On peut tout d'abord consid\'e9rer la rupture conventionnelle comme une formidable mani\'e8re de contourner le droit du licenciement \b0 \i \ul0 (E. Dock\'e8s, Un accord donnant, donnant, donnant, donnant... : Dr. soc. 2008, p. 283. - T. Grumbach, Un premier jugement sur la rupture conventionnelle : Semaine sociale Lamy 10 nov. 2008, p. 12. - J. P\'e9lissier, Modernisation de la rupture du contrat de travail : RJS 2008, p. 682)\b0 \i0 \ul0 . Toutefois, on admettra que l'institution de la rupture conventionnelle mettra fin, dans une certaine mesure, aux pratiques frauduleuses masquant des d\'e9missions d\'e9guis\'e9es \b0 \i \ul0 (Fr. Favennec-H\'e9ry, La rupture conventionnelle du contrat de travail, mesure phare de l'accord : Dr. soc. 2008, p. 314. - Fr. Taquet, Br\'e8ves r\'e9flexions sur la rupture conventionnelle du contrat de travail : JCP E 2008, 1921)\b0 \i0 \ul0 . Plus largement, la rupture conventionnelle est - comme tout mode alternatif de r\'e8glement des conflits - une troisi\'e8me voie \'e0 suivre dans la mesure o\'f9 la rupture conventionnelle est exclusive de la d\'e9mission et du licenciement \b0 \i \ul0 (C. trav., art. L. 1237-11, al. 2)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 4. -  \b0 \i0 \ul0  \b \i0 \ul0 Modes l\'e9gaux de rupture d'un commun accord - \b0 \i0 \ul0 Les m\'e9canismes de rupture d'un commun accord pr\'e9vus par le Code du travail recouvrent de nombreuses hypoth\'e8ses. Ainsi, la rupture d'un commun accord peut avoir lieu d'un commun accord dans le cadre d'un contrat \'e0 dur\'e9e d\'e9termin\'e9e (\b0 \i \ul0 C. trav., art. L. 1243-1\b0 \i0 \ul0 , en cas de rupture anticip\'e9e, c'est-\'e0-dire avant que le terme ne soit \'e9chu), ou d'un contrat d'apprentissage \b0 \i \ul0 (C. trav., art. L. 6221-1)\b0 \i0 \ul0 .
+\par \pard \ql \li0\ri0 \sb120 \fi0 De m\'eame, sous certaines conditions, plusieurs dispositifs l\'e9gaux pr\'e9sument l'existence d'une rupture d'un commun accord entre l'employeur et le salari\'e9. Tel est le cas lorsque le salari\'e9 adh\'e8re \'e0 une convention de reclassement personnalis\'e9 \b0 \i \ul0 (C. trav., art. L. 1233-67)\b0 \i0 \ul0  ou lorsqu'il accepte une proposition de cong\'e9 de mobilit\'e9 \b0 \i \ul0 (C. trav., art. L. 1233-80)\b0 \i0 \ul0 . L'existence du proc\'e9d\'e9 de rupture conventionnelle ne remet pas en cause ces diff\'e9rentes dispositions.
+\par \pard \ql \li0\ri0 \sb120 \fi0 La circulaire du 22 juillet 2008 s'oriente en ce sens en affirmant que \b0 \i \ul0 "la proc\'e9dure de rupture conventionnelle organis\'e9e par la loi n\'b0 2008-596 du 25 juin 2008 ne vise pas les ruptures amiables auxquelles s'appliquent d'autres garanties pr\'e9vues par la loi et le droit conventionnel"\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 5. -  \b0 \i0 \ul0  \b \i0 \ul0 Modes conventionnels de rupture du contrat de travail - \b0 \i0 \ul0 En dehors des cas o\'f9 le l\'e9gislateur pr\'e9voit express\'e9ment la possibilit\'e9 de rompre d'un commun accord, les parties au contrat de travail peuvent encore recourir \'e0 une \b \i \ul0 transaction\b0 \i0 \ul0  ou \'e0 une \b \i \ul0 rupture amiable\b0 \i0 \ul0  du contrat de travail sur la base du droit commun des contrats, avec tous les risques que cela comporte \b0 \i \ul0 (V. J. P\'e9lissier, Le recours \'e0 la n\'e9gociation individuelle : les accords de rupture des contrats de travail : Dr. soc. 1987, p. 479. - S. Chassagnard-Pinet, P.-Y. Verkindt, La rupture conventionnelle du contrat de travail : JCP S 2008, I 1365, n\'b0 6 \'e0 7)\b0 \i0 \ul0 .
+\par \pard \ql \li0\ri0 \sb120 \fi0 \'c0 l'avenir, hormis dans un contexte \'e9conomique pr\'e9cis - c'est-\'e0-dire lorsque la rupture conventionnelle n'est pas permise \b0 \i \ul0 (V. infra n\'b0 11 et 14)\b0 \i0 \ul0 , la transaction et la rupture amiable seront certainement moins sollicit\'e9es avec l'av\'e8nement de la rupture conventionnelle.
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 6. -  \b0 \i0 \ul0  \b \i0 \ul0 Rupture conventionnelle et transaction - \b0 \i0 \ul0 Selon l'article 2044 du Code civil, la transaction est le contrat \b0 \i \ul0 "par lequel les parties terminent une contestation n\'e9e ou pr\'e9viennent une contestation \'e0 na\'eetre"\b0 \i0 \ul0 . Elle vise \'e0 mettre un terme \'e0 un litige entre le salari\'e9 et l'employeur \b0 \i \ul0 (V. A. Cermolacce, JCl. Travail Trait\'e9, Fasc. 32-20)\b0 \i0 \ul0 . En outre, la transaction organise les cons\'e9quences financi\'e8res de la rupture d'une relation de travail. \'c0 ce titre, elle intervient apr\'e8s la rupture du contrat elle-m\'eame.
+\par \pard \ql \li0\ri0 \sb120 \fi0 N'ayant ni le m\'eame objet, ni des conditions et des effets semblables, la transaction et la rupture conventionnelle ne sauraient \'eatre confondues (Pour plus de d\'e9tails, \b0 \i \ul0 V. G. Br\'e9don, L. Flament, La rupture conventionnelle : une rupture amiable encadr\'e9e : JCP S 2008, 1431, pp. 20-21\b0 \i0 \ul0 ).
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 7. -  \b0 \i0 \ul0  \b \i0 \ul0 Rupture conventionnelle et rupture amiable - \b0 \i0 \ul0 La rupture amiable, dont la validit\'e9 est admise par la jurisprudence \b0 \i \ul0 (Cass. soc., 18 mai 1953 : Dr. soc. 1953, p. 602. - Cass. soc., 21 janv. 2003 : TPS 2003, comm. 105, 1er arr\'eat ; JurisData n\'b0 2003-017333 ; Dr. soc. 2003, p. 547, note G. Couturier)\b0 \i0 \ul0 , a pour objet de rompre le contrat de travail en dehors de tout litige, sauf \'e0 encourir la requalification en transaction \b0 \i \ul0 (Cass. soc., 6 mai 1998 : JSL 1998, n\'b0 17-5)\b0 \i0 \ul0 .
+\par \pard \ql \li0\ri0 \sb120 \fi0 En comparaison, l'objet de la rupture conventionnelle - \b0 \i \ul0 "v\'e9ritable rupture amiable encadr\'e9e"\b0 \i0 \ul0  \b0 \i \ul0 (G. Br\'e9don, L. Flament, op. cit., p. 17)\b0 \i0 \ul0  - semble se situer \'e0 mi-chemin entre ces deux proc\'e9d\'e9s puisque l'article L. 1237-11 du Code du travail indique que, dans ce cadre, \b0 \i \ul0 "l'employeur et le salari\'e9 peuvent convenir en commun des conditions de la rupture du contrat de travail qui les lie"\b0 \i0 \ul0 . En effet, la convention de rupture a pour objet de formaliser la rupture du contrat et d'en am\'e9nager les modalit\'e9s.
+\par \pard 
+\par \fs24 \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 I. -  Champ d'application\fs20 \b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 1\'b0  Relations contractuelles vis\'e9es\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 8. -  \b0 \i0 \ul0  \b \i0 \ul0 Contrat de travail \'e0 dur\'e9e ind\'e9termin\'e9e - \b0 \i0 \ul0 En raison de sa situation dans le Code du travail \b0 \i \ul0 (G. Br\'e9don, L. Flament, op. cit., p. 20)\b0 \i0 \ul0 , la rupture conventionnelle concerne uniquement le contrat de travail \'e0 dur\'e9e ind\'e9termin\'e9e \b0 \i \ul0 (S. Chassagnard-Pinet, P.-Y. Verkindt, op. cit., n\'b0 13, p. 28)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 9. -  \b0 \i0 \ul0  \b \i0 \ul0 Salari\'e9s concern\'e9s - \b0 \i0 \ul0 \b0 \i \ul0 A priori\b0 \i0 \ul0 , quel que soit le salari\'e9 en cause, il para\'eet possible de faire usage de la rupture conventionnelle pour rompre le contrat de travail d\'e8s lors que le salari\'e9 est titulaire d'un contrat \'e0 dur\'e9e ind\'e9termin\'e9e, m\'eame si certaines interrogations subsistent pour les ruptures en cours de p\'e9riode d'essai, pour les salari\'e9s en arr\'eats de travail - quelle qu'en soit la cause -, pour les salari\'e9es en cong\'e9 de maternit\'e9 ou encore pour le m\'e9decin du travail \b0 \i \ul0 (V. S. Chassagnard-Pinet, P.-Y. Verkindt, op. cit., n\'b0 24 \'e0 28, p. 30. - D. Jourdan, R\'e9daction d'une convention de rupture d'un CDI : JCP S 2008, 1562, p. 22)\b0 \i0 \ul0 . On notera que ces diff\'e9rentes cat\'e9gories de salari\'e9s b\'e9n\'e9ficient de r\'e9gimes de protection contre le licenciement. La question est donc de savoir si un contrat de travail peut \'eatre rompu sur le fondement des articles L. 1237-11 et suivants du Code du travail durant les p\'e9riodes de protection institu\'e9es par le Code du travail au profit des salari\'e9s vis\'e9s pr\'e9c\'e9demment. \'c0 notre sens, la rupture conventionnelle \'e9tant exclusive de la d\'e9mission et du licenciement \b0 \i \ul0 (C. trav., art. L. 1237-11, al. 2)\b0 \i0 \ul0 , les r\'e9gimes sp\'e9cifiques de protection contre le licenciement pr\'e9vues dans ces diff\'e9rentes hypoth\'e8ses ne devraient pas rendre impossible l'utilisation de la rupture conventionnelle \b0 \i \ul0 (V. G. Br\'e9don, L. Flament, op. cit., p. 20)\b0 \i0 \ul0 .
+\par \pard \ql \li240\ri0 \sb120 \fi0 En outre, aux termes de la circulaire n\'b0 2008-11 du 22 juillet 2008, la Direction G\'e9n\'e9rale du Travail (DGT) a attir\'e9 l'attention des DDTEFP sur le fait \b0 \i \ul0 "que la rupture conventionnelle ne s'inscrit pas dans une d\'e9marche visant \'e0 contourner des proc\'e9dures et des garanties l\'e9gales (p\'e9riodes de protection de l'emploi, accident du travail, maladie professionnelle, maternit\'e9, maladie de droit commun ; proc\'e9dures de rupture pour inaptitude m\'e9dicale ; proc\'e9dure de licenciement engag\'e9e, etc.)."\b0 \i0 \ul0  Toutefois, on restera prudent sur l'utilisation de la rupture conventionnelle en ce qui concerne ces cat\'e9gories de salari\'e9s.
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 10. -  \b0 \i0 \ul0  \b \i0 \ul0 Salari\'e9 prot\'e9g\'e9 - \b0 \i0 \ul0 De mani\'e8re assez "r\'e9volutionnaire" \b0 \i \ul0 (S. Chassagnard-Pinet, P.-Y. Verkindt, op. cit., n\'b0 13, p. 28)\b0 \i0 \ul0 , les salari\'e9s b\'e9n\'e9ficiant d'une protection contre le licenciement en raison d'un mandat syndical ou d'un mandat \'e9lectif - qu'ils aient \'e9t\'e9 institu\'e9s l\'e9galement ou conventionnellement \b0 \i \ul0 (C. trav., art. L. 2411-1 et L. 2411-2)\b0 \i0 \ul0  - peuvent avoir recours \'e0 la proc\'e9dure de la rupture conventionnelle \b0 \i \ul0 (C. trav., art. L. 1237-15, 1re phrase)\b0 \i0 \ul0 , selon des modalit\'e9s distinctes du droit commun (\b0 \i \ul0 V. A. Louvet, op. cit., p. 21 et sp\'e9c. p. 24, Ann. 1\b0 \i0 \ul0  \'e9tablissant un sch\'e9ma de la proc\'e9dure de rupture conventionnelle du contrat de travail d'un salari\'e9 prot\'e9g\'e9).
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 11. -  \b0 \i0 \ul0  \b \i0 \ul0 Licenciement pour motif \'e9conomique - \b0 \i0 \ul0 \'c0 la diff\'e9rence de l'ANI du 11 janvier 2008, la loi du 25 juin 2008 a exclu le dispositif de rupture conventionnelle du champ du licenciement pour motif \'e9conomique. Ainsi, en vertu de l'article L. 1233-3, alin\'e9a 2 du Code du travail, les dispositions relatives au licenciement pour motif \'e9conomique sont applicables \'e0 toute rupture de travail \'e0 l'exclusion de la rupture conventionnelle \b0 \i \ul0 (V. A. Fabre, Rupture conventionnelle et champ du licenciement pour motif \'e9conomique : une exclusion troublante : RDT 2008, p. 653)\b0 \i0 \ul0 . Hormis les hypoth\'e8ses des d\'e9parts n\'e9goci\'e9s dans le cadre de la GPEC et du plan de sauvegarde de l'emploi \b0 \i \ul0 (V. infra n\'b0 14)\b0 \i0 \ul0 , rien n'emp\'eache la conclusion d'une rupture conventionnelle dans un contexte \'e9conomique \b0 \i \ul0 (P\'e9lissier, Modernisation de la rupture du contrat de travail : RJS 2008, p. 682 ; Liaisons soc. suppl. janv. 2009, n\'b0 40, p. 40)\b0 \i0 \ul0 . Par contre, cela a pour cons\'e9quence d'\'e9carter toutes les obligations de l'employeur applicables en une telle situation \b0 \i \ul0 (G. Auzero, La rupture conventionnelle du contrat de travail : l'illusion de la s\'e9curisation : RDT 2008, p. 524)\b0 \i0 \ul0 . En effet, l'employeur n'a pas \'e0 tenir compte des ruptures conventionnelles effectu\'e9es dans un contexte \'e9conomique, sous r\'e9serve d'une fraude \'e0 la loi marquant la volont\'e9 de d\'e9tourner les r\'e8gles du licenciement \'e9conomique
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 12. -  \b0 \i0 \ul0  \b \i0 \ul0 Dirigeant mandataire social - \b0 \i0 \ul0 Le 6 octobre 2008, Mme Laurence Parisot, pr\'e9sidente du MEDEF, et Jean-Fran\'e7ois Folz, pr\'e9sident de l'AFEP, pr\'e9sentaient le code de gouvernement d'entreprise qui \'e9tablit des \b0 \i \ul0 "recommandations sur la r\'e9mun\'e9ration des dirigeants mandataires sociaux de soci\'e9t\'e9s dont les titres sont admis aux n\'e9gociations sur un march\'e9 r\'e9glement\'e9"\b0 \i0 \ul0 . Ce code comporte un certain nombre de recommandations, notamment pour les indemnit\'e9s de d\'e9part per\'e7ues par les dirigeants cumulant un contrat de travail et un mandat social. Les soci\'e9t\'e9s qui ne suivraient pas ces recommandations devraient fournir des explications dans leur rapport gestion sur les raisons pour lesquelles elles ne sont pas appliqu\'e9es \b0 \i \ul0 (V. G. Nott\'e9 : JCP E 2008, act. 441. - C. com., art. L. 225-37, r\'e9d. L. n\'b0 2008-649, 3 juill. 2008. - V. V. Magnier : JCP E 2008, act. 280)\b0 \i0 \ul0 .
+\par \pard \ql \li240\ri0 \sb120 \fi0 Selon le principe n\'b0 12 \'e9nonc\'e9 par ce code, il est prescrit de \b0 \i \ul0 "mettre un terme au contrat de travail en cas de mandat social : le niveau \'e9lev\'e9 des r\'e9mun\'e9rations des dirigeants mandataires sociaux dans les soci\'e9t\'e9s cot\'e9es se justifie notamment par la prise de risque. Il est par cons\'e9quent incompatible avec des avantages du contrat de travail. En cons\'e9quence, il est recommand\'e9, lorsqu'un dirigeant devient mandataire social de l'entreprise, de mettre fin au contrat de travail qui le lie \'e0 la soci\'e9t\'e9, soit par rupture conventionnelle, soit par d\'e9mission"\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 2\'b0  Relations contractuelles exclues\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 13. -  \b0 \i0 \ul0  \b \i0 \ul0 Relations de travail \'e0 dur\'e9e d\'e9termin\'e9e - \b0 \i0 \ul0 La rupture conventionnelle \'e9tant uniquement applicable aux contrats \'e0 dur\'e9e ind\'e9termin\'e9e, sont exclus de son champ d'application : 
+\par \pard 
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 - \tab}\pard \ql \li1440\fi-600 \ri0 \jclisttab\tx1440 \widctlpar\faauto\adjustright\itap0\ls11\ilvl0 \sb0 les salari\'e9s titulaires d'un \b \i \ul0 contrat de travail \'e0 dur\'e9e d\'e9termin\'e9e\b0 \i0 \ul0 ,
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 - \tab}\pard \ql \li1440\fi-600 \ri0 \jclisttab\tx1440 \widctlpar\faauto\adjustright\itap0\ls11\ilvl0 \sb0 les salari\'e9s titulaires d'un contrat d'apprentissage.
+\par \pard \ql \li240\ri0 \sb120 \fi0 Ainsi, les r\'e8gles sp\'e9cifiques de rupture applicables au contrat de travail \'e0 dur\'e9e d\'e9termin\'e9e ou au contrat d'apprentissage demeurent applicables \b0 \i \ul0 (S. Chassagnard-Pinet, P.-Y. Verkindt, loc. cit. - D. Jourdan, op. cit., p. 21)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 14. -  \b0 \i0 \ul0  \b \i0 \ul0 Rupture pour cause \'e9conomique - \b0 \i0 \ul0 Conform\'e9ment \'e0 l'article L. 1237-16, 1\'b0 du Code du travail, les r\'e8gles relatives \'e0 la rupture conventionnelle ne sont pas applicables aux ruptures de contrats de travail r\'e9sultant des \b \i \ul0 accords collectifs de gestion pr\'e9visionnelle des emplois et des comp\'e9tences (GPEC)\b0 \i0 \ul0  dans les conditions d\'e9finies par l'article L. 2242-15 du Code du travail. En vertu de l'article L. 1237-16, 2\'b0 du Code du travail, il en est de m\'eame pour les ruptures de contrats de travail r\'e9sultant des \b \i \ul0 plans de sauvegarde de l'emploi\b0 \i0 \ul0  dans les conditions d\'e9finies par l'article L. 1233-61 du Code du travail.
+\par \pard \ql \li240\ri0 \sb120 \fi0 En revanche, dans ces deux hypoth\'e8ses, les d\'e9parts volontaires de droit commun demeurent valables.
+\par \pard 
+\par \fs24 \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 II. -  Mise en oeuvre\fs20 \b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 15. -  \b0 \i0 \ul0  \b \i0 \ul0 Protection du consentement des parties - \b0 \i0 \ul0 Les parties choisissent librement d'avoir recours au dispositif de rupture conventionnelle. Ainsi, contrairement \'e0 la d\'e9mission et au licenciement, la rupture conventionnelle ne peut \'eatre impos\'e9e par l'une ou l'autre des parties \b0 \i \ul0 (C. trav., art. L. 1237-11, al. 2)\b0 \i0 \ul0 , les dispositions des articles L. 1237-11 et suivants du Code du travail \'e9tant \b0 \i \ul0 "destin\'e9es \'e0 garantir la libert\'e9 du consentement des parties"\b0 \i0 \ul0  \b0 \i \ul0 (C. trav., art. L. 1237-11, al. 3, 2e phrase)\b0 \i0 \ul0 . Le l\'e9gislateur s'est montr\'e9 tr\'e8s soucieux de la r\'e9alit\'e9 et du respect du consentement des parties dans le cadre de la rupture conventionnelle (Pour une approche en droit compar\'e9, \b0 \i \ul0 V. P. Lokiec, S. Robin-Olivier, Rupture conventionnelle et contr\'f4le du consentement du salari\'e9 : RDT 2008, p. 550. - P. R\'e9my, RDT 2008, p. 551. - S. Honeyball : RDT 2008, p. 555. - D.B. Oppenheimer : RDT 2008, p. 55\b0 \i0 \ul0 7).
+\par \pard \ql \li0\ri0 \sb120 \fi0 La r\'e9alit\'e9 et l'existence du consentement du salari\'e9 seront, par cons\'e9quent, sous haute surveillance. \b0 \i \ul0 "Pour garantir la libert\'e9 de consentement du salari\'e9, il est essentiel que celui-ci sache qu'il peut au cours de la discussion recueillir les informations et avis n\'e9cessaires \'e0 sa d\'e9cision"\b0 \i0 \ul0  \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard \ql \li0\ri0 \sb120 \fi0 Dans la m\'eame optique, l'homologation op\'e9r\'e9e par l'autorit\'e9 administrative a pour objet de v\'e9rifier le respect du consentement des parties \b0 \i \ul0 (V. infra n\'b0 51 \'e0 86)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 A. -  D\'e9roulement de la proc\'e9dure\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 16. -  \b0 \i0 \ul0  \b \i0 \ul0 Dur\'e9e pr\'e9visionnelle - \b0 \i0 \ul0 Une rupture conventionnelle du contrat de travail peut s'\'e9taler sur une p\'e9riode de 36 jours calendaires \b0 \i \ul0 (V. D. Jourdan, op. cit., p. 21)\b0 \i0 \ul0  : 
+\par \pard 
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 - \tab}\pard \ql \li1200\fi-600 \ri0 \jclisttab\tx1200 \widctlpar\faauto\adjustright\itap0\ls12\ilvl0 \sb0 3 jours calendaires consacr\'e9s aux discussions ;
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 - \tab}\pard \ql \li1200\fi-600 \ri0 \jclisttab\tx1200 \widctlpar\faauto\adjustright\itap0\ls12\ilvl0 \sb0 15 jours calendaires de d\'e9lai de r\'e9tractation ;
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 - \tab}\pard \ql \li1200\fi-600 \ri0 \jclisttab\tx1200 \widctlpar\faauto\adjustright\itap0\ls12\ilvl0 \sb0 15 jours ouvrables d'obtention de l'homologation.
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 17. -  \b0 \i0 \ul0  \b \i0 \ul0 Salari\'e9 prot\'e9g\'e9 - \b0 \i0 \ul0 Par exception au droit commun, plusieurs r\'e8gles proc\'e9durales particuli\'e8res sont applicables \'e0 la rupture conventionnelle du contrat de travail du salari\'e9 prot\'e9g\'e9, comme la consultation des repr\'e9sentants du personnel sur le projet de rupture, la demande d'autorisation pr\'e9sent\'e9e \'e0 l'inspecteur du travail et les cons\'e9quences de l'annulation de l'autorisation. Par cons\'e9quent, ces proc\'e9dures r\'e9serv\'e9es aux salari\'e9s prot\'e9g\'e9s se cumulent avec celles de droit commun de la rupture conventionnelle \b0 \i \ul0 (A. Louvet, op. cit., p. 21. - V. Fasc. 15-96)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 1\'b0  Initiative\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 18. -  \b0 \i0 \ul0  \b \i0 \ul0 Proposition - \b0 \i0 \ul0 Conform\'e9ment au principe de la libert\'e9 contractuelle, les parties sont libres de mettre en oeuvre une proc\'e9dure conventionnelle, le \b \i \ul0 salari\'e9\b0 \i0 \ul0  ou l'\b \i \ul0 employeur\b0 \i0 \ul0  pouvant la proposer sans distinction \b0 \i \ul0 (S. Chassagnard-Pinet, P.-Y. Verkindt, op. cit., n\'b0 31, p. 31)\b0 \i0 \ul0 , mais sans pouvoir l'imposer \b0 \i \ul0 (C. trav., art. L. 1237-11, al. 2)\b0 \i0 \ul0 . Cependant, sans \'eatre v\'e9ritablement formalis\'e9, le recours \'e0 la rupture conventionnelle demande une certaine structuration. Ainsi, les parties au contrat conviennent du principe d'une rupture conventionnelle lors d'un ou plusieurs entretiens \b0 \i \ul0 (C. trav., art. L. 1237-12, al. 1er)\b0 \i0 \ul0 . Ils sont n\'e9anmoins libres d'organiser comme bon leur semble ces entrevues, notamment leur nombre et leur dur\'e9e \b0 \i \ul0 (S. Chassagnard-Pinet, P.-Y. Verkindt, loc. cit.)\b0 \i0 \ul0 .
+\par \pard \ql \li240\ri0 \sb120 \fi0 En pratique, plusieurs entretiens seront n\'e9cessaires pour \'e9tablir les modalit\'e9s de d\'e9part du salari\'e9 \b0 \i \ul0 (A. Louvet, op. cit., p. 22)\b0 \i0 \ul0 . En ce cas, trois jours calendaires peuvent \'eatre suffisants pour discuter des conditions de la rupture du contrat \b0 \i \ul0 (D. Jourdan, op. cit., p. 22)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 19. -  \b0 \i0 \ul0  \b \i0 \ul0 Forme - \b0 \i0 \ul0 L'initiative et l'engagement de la proc\'e9dure de rupture conventionnelle n'\'e9tant soumis \'e0 aucun formalisme, tout moyen peut \'eatre utilis\'e9 pour y recourir : \b0 \i \ul0 "courrier \'e9lectronique, courrier simple, entretien"\b0 \i0 \ul0 , etc. \b0 \i \ul0 (A. Louvet, op. cit., p. 22)\b0 \i0 \ul0 . Pour d\'e9montrer l'engagement de la proc\'e9dure de rupture conventionnelle, la lettre recommand\'e9e sera n\'e9anmoins recommand\'e9e.
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 2\'b0  Entretien\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 a)  D\'e9roulement\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 20. -  \b0 \i0 \ul0  \b \i0 \ul0 Objet - \b0 \i0 \ul0 Le ou les entretiens organis\'e9s en vue d'une rupture conventionnelle ont pour objet de mettre en place une discussion et une n\'e9gociation sur les \b \i \ul0 modalit\'e9s de rupture\b0 \i0 \ul0  du contrat de travail ainsi que sur l'\b \i \ul0 \'e9laboration\b0 \i0 \ul0  formelle d'une \b \i \ul0 convention de rupture\b0 \i0 \ul0 .
+\par \pard \ql \li360\ri0 \sb120 \fi0 Par cons\'e9quent, contrairement \'e0 l'entretien pr\'e9alable de licenciement, aucune discussion sur les causes concourant \'e0 la rupture ne doit \'eatre engag\'e9e par les parties \b0 \i \ul0 (G. Br\'e9don, L. Flament, op. cit., p. 18)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 21. -  \b0 \i0 \ul0  \b \i0 \ul0 Nombre d'entretiens - \b0 \i0 \ul0 Selon l'article L. 1237-12, alin\'e9a 1er du Code du travail, les parties au contrat conviennent du principe d'une rupture conventionnelle lors d'un ou plusieurs entretiens. Il en r\'e9sulte que le nombre de r\'e9unions n'est pas limit\'e9 : les parties sont totalement libres sur ce point. En revanche, la circulaire du 22 juillet 2008 indique qu'\b0 \i \ul0 "il est n\'e9cessaire que les parties proc\'e8dent au moins \'e0 un entretien pr\'e9paratoire"\b0 \i0 \ul0  \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 . En pratique, les r\'e9unions seront vraisemblablement au nombre de deux ou trois.
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 22. -  \b0 \i0 \ul0  \b \i0 \ul0 Absence de formalisme - \b0 \i0 \ul0 En l'absence de pr\'e9cisions l\'e9gales, la circulaire du 22 juillet 2008 indique simplement qu'il n'existe aucun formalisme particulier pour la tenue du ou des entretiens pr\'e9paratoires \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 23. -  \b0 \i0 \ul0  \b \i0 \ul0 Salari\'e9 prot\'e9g\'e9 - \b0 \i0 \ul0 Dans le cadre du licenciement d'un salari\'e9 prot\'e9g\'e9, la demande d'autorisation pr\'e9sent\'e9e \'e0 l'inspecteur du travail doit \'eatre pr\'e9c\'e9d\'e9e de l'entretien pr\'e9alable au licenciement du salari\'e9 prot\'e9g\'e9 et \'eatre adress\'e9e \'e0 l'inspecteur du travail, le cas \'e9ch\'e9ant, dans un d\'e9lai de quinze jours \'e0 compter de l'avis du comit\'e9 d'entreprise \b0 \i \ul0 (C. trav., art. R. 2421-1 et R. 2421-10)\b0 \i0 \ul0 .
+\par \pard \ql \li360\ri0 \sb120 \fi0 Le probl\'e8me est de savoir si ces proc\'e9dures sp\'e9ciales sont applicables \'e0 la rupture conventionnelle. Pour certains auteurs, il semblerait que la r\'e9ponse soit n\'e9gative en raison de l'absence de formalisme du ou des entretiens pr\'e9paratoires (En ce sens, \b0 \i \ul0 A. Louvet, op. cit., p. 22, note n\'b0 7\b0 \i0 \ul0 ). \'c0 notre sens, dans la mesure o\'f9 la circulaire du 22 juillet 2008 insiste sur la tenue d'au moins une r\'e9union entre les parties, il nous semble que ces garanties proc\'e9durales doivent \'eatre respect\'e9es.
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 24. -  \b0 \i0 \ul0  \b \i0 \ul0 Absence de confidentialit\'e9 - \b0 \i0 \ul0 A l'inverse de certaines proc\'e9dures de r\'e8glement amiable, comme la m\'e9diation judiciaire \b0 \i \ul0 (S. Chassagnard-Pinet, P.-Y. Verkindt, loc. cit.\b0 \i0 \ul0  - sur la m\'e9diation judiciaire, V. \b0 \i \ul0 J.-Ph. Tricoit, La m\'e9diation judiciaire : L'Harmattan, 2008\b0 \i0 \ul0 ), aucune obligation de confidentialit\'e9 n'a \'e9t\'e9 impos\'e9e aux parties par le l\'e9gislateur.
+\par \pard \ql \li360\ri0 \sb120 \fi0 En pratique, on recommandera donc au salari\'e9 et \'e0 l'employeur de ne pas fournir d'informations qui pourraient \'eatre utilis\'e9es par l'autre partie en cas d'\'e9chec des n\'e9gociations \b0 \i \ul0 (G. Br\'e9don, L. Flament, op. cit., p. 18)\b0 \i0 \ul0 . En tout \'e9tat de cause, il peut \'eatre utile d'ins\'e9rer dans la rupture conventionnelle une clause de confidentialit\'e9 \b0 \i \ul0 (L. Gamet, G. Flichy, Rupture du contrat de travail : Delmas, 2008, n\'b0 917, p. 102)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 b)  Assistance des parties\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 25. -  \b0 \i0 \ul0  \b \i0 \ul0 R\'f4le et pr\'e9rogatives de l'assistant - \b0 \i0 \ul0 Les assistants ont pour mission principale de garantir la validit\'e9 du consentement de chacune des parties. \'c0 cet \'e9gard, \b0 \i \ul0 "les parties ou les personnes qui les assistent [...], si elles le d\'e9sirent, peuvent compl\'e9ter le formulaire d'informations ou de commentaires permettant d'appr\'e9cier la libert\'e9 de consentement de chacun. Ces informations ou commentaires doivent \'eatre port\'e9s dans les cases pr\'e9vues \'e0 cet effet. Dans ce cas, la date, le nom et la signature de l'auteur doivent \'eatre mentionn\'e9es. Si besoin est, des feuillets peuvent \'eatre adjoints au formulaire et doivent alors rappeler l'identit\'e9 de chaque intervenant, \'eatre dat\'e9es et sign\'e9es"\b0 \i0 \ul0  \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li480\ri0 \sb0 \fi0 1)  Assistance du salari\'e9\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li480\ri0 \sb0 \fi0 26. -  \b0 \i0 \ul0  \b \i0 \ul0 Choix de l'assistant - \b0 \i0 \ul0 Au cours de ce ou ces entretiens, le salari\'e9 a la facult\'e9 de se faire assister par des personnes diff\'e9rentes selon les circonstances.
+\par \pard \ql \li480\ri0 \sb120 \fi0 C'est l'article L. 1237-12 du Code du travail qui donne les pr\'e9cisions relatives aux conditions de cette assistance du salari\'e9.
+\par \pard \ql \li480\ri0 \sb120 \fi0 En vertu de cette disposition, \b \i \ul0 lorsque l'entreprise comporte des institutions repr\'e9sentatives du personnel\b0 \i0 \ul0 , le salari\'e9 peut \'eatre assist\'e9 \b0 \i \ul0 "par une personne de son choix appartenant au personnel de l'entreprise, qu'il s'agisse d'un salari\'e9 titulaire d'un mandat syndical ou d'un salari\'e9 membre d'une institution repr\'e9sentative du personnel ou tout autre salari\'e9"\b0 \i0 \ul0  \b0 \i \ul0 (C. trav., art. L. 1237-12, al. 1er, 1\'b0)\b0 \i0 \ul0 .
+\par \pard \ql \li480\ri0 \sb120 \fi0 En revanche, \b \i \ul0 en l'absence d'institution repr\'e9sentative du personnel dans l'entreprise\b0 \i0 \ul0 , le salari\'e9 peut \'eatre assist\'e9 par un conseiller du salari\'e9 choisi sur une liste dress\'e9e par l'autorit\'e9 administrative \b0 \i \ul0 (C. trav., art. L. 1237-12, al. 1er, 2\'b0)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li480\ri0 \sb0 \fi0 27. -  \b0 \i0 \ul0  \b \i0 \ul0 Restrictions - \b0 \i0 \ul0 Il semblerait que cette liste alternative soit limitative : le salari\'e9 ne peut pas opter pour d'autres assistants, comme, par exemple, une personne appartenant \'e0 une organisation syndicale \b0 \i \ul0 (G. Auzero, op. cit., p. 523)\b0 \i0 \ul0  ou encore un avocat \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li480\ri0 \sb0 \fi0 28. -  \b0 \i0 \ul0  \b \i0 \ul0 Obligation d'information de l'employeur - \b0 \i0 \ul0 Il est \'e0 noter que le salari\'e9 doit informer l'employeur de sa volont\'e9 de se faire assister durant la ou les r\'e9unions \b0 \i \ul0 (C. trav., art. L. 1237-12, al. 2)\b0 \i0 \ul0 . \'c0 cet effet, comme l'indique la circulaire du 22 juillet 2008, le formulaire de demande d'homologation \b0 \i \ul0 (V. infra n\'b0 55)\b0 \i0 \ul0  doit pr\'e9ciser clairement le nom, le pr\'e9nom, la qualit\'e9 de l'assistant (membre du CE, DP, DS, autre salari\'e9 de l'entreprise ou conseiller du salari\'e9).
+\par \pard \ql \li480\ri0 \sb120 \fi0 Le Code du travail ne donne aucune pr\'e9cision particuli\'e8re sur les \b \i \ul0 d\'e9lais\b0 \i0 \ul0  \'e0 respecter et sur la \b \i \ul0 forme\b0 \i0 \ul0  \'e0 adopter pour cette information \b0 \i \ul0 (Ph. Pacotte, Modernisation du march\'e9 du travail : inventaire du dispositif : Cah. dr. entreprise n\'b0 6, nov. 2008, dossier 63)\b0 \i0 \ul0 . Par cons\'e9quent, il est vraisemblable que cette information doit intervenir dans un d\'e9lai raisonnable afin de permettre aux parties de prendre leurs dispositions \b0 \i \ul0 (G. Br\'e9don, L. Flament, op. cit., p. 18)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li480\ri0 \sb0 \fi0 2)  Assistance de l'employeur\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li480\ri0 \sb0 \fi0 29. -  \b0 \i0 \ul0  \b \i0 \ul0 Condition - \b0 \i0 \ul0 De m\'eame, lors du ou des entretiens, l'employeur a la facult\'e9 de se faire assister par diff\'e9rentes personnes selon les situations.
+\par \pard \ql \li480\ri0 \sb120 \fi0 Cependant, l'employeur ne dispose de cette facult\'e9 \b \i \ul0 que si le salari\'e9 en fait lui-m\'eame usage\b0 \i0 \ul0  \b0 \i \ul0 (C. trav., art. L. 1237-12, al. 2, 1re phrase)\b0 \i0 \ul0 . On peut voir dans cette disposition une application du principe de l'\'e9galit\'e9 des armes.
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li480\ri0 \sb0 \fi0 30. -  \b0 \i0 \ul0  \b \i0 \ul0 Qualit\'e9 de l'assistant - \b0 \i0 \ul0 De cette fa\'e7on, \b0 \i \ul0 "l'employeur peut se faire assister par une personne de son choix appartenant au personnel de l'entreprise ou, dans les entreprises de moins de cinquante salari\'e9s, par une personne appartenant \'e0 son organisation syndicale d'employeurs ou par un autre employeur relevant de la m\'eame branche"\b0 \i0 \ul0  \b0 \i \ul0 (C. trav., art. L. 1237-12, al. 3)\b0 \i0 \ul0 .
+\par \pard \ql \li480\ri0 \sb120 \fi0 En ce cas, selon la circulaire du 22 juillet 2008, le formulaire de demande d'homologation \b0 \i \ul0 (V. infra n\'b0 55)\b0 \i0 \ul0  doit pr\'e9ciser clairement le nom, le pr\'e9nom et la qualit\'e9 de l'assistant de l'employeur.
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li480\ri0 \sb0 \fi0 31. -  \b0 \i0 \ul0  \b \i0 \ul0 Restrictions - \b0 \i0 \ul0 Comme pour le salari\'e9, cette liste alternative est limitative : l'employeur ne peut faire appel \'e0 aucun autre assistant, notamment son avocat ou son conseil \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c. - G. Br\'e9don, L. Flament, op. cit., p. 17. - S. Chassagnard-Pinet, P.-Y. Verkindt, op. cit., n\'b0 32, p. 32)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li480\ri0 \sb0 \fi0 32. -  \b0 \i0 \ul0  \b \i0 \ul0 Obligation d'information du salari\'e9 - \b0 \i0 \ul0 Si l'employeur souhaite \'e9galement se faire assister, il en informe \'e0 son tour le salari\'e9 \b0 \i \ul0 (C. trav., art. L. 1237-12, al. 2, 2e phrase, in fine)\b0 \i0 \ul0 . Le Code du travail ne donne aucune pr\'e9cision particuli\'e8re sur les d\'e9lais \'e0 respecter et sur la forme \'e0 adopter pour cette information \b0 \i \ul0 (Ph. Pacotte, Modernisation du march\'e9 du travail : inventaire du dispositif : Cah. dr. entreprise n\'b0 6, nov. 2008, dossier 63)\b0 \i0 \ul0 . Cette information devrait \'eatre effectu\'e9e dans un d\'e9lai raisonnable afin de permettre aux parties de prendre leurs dispositions \b0 \i \ul0 (G. Br\'e9don, L. Flament, op. cit., p. 18)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li480\ri0 \sb0 \fi0 33. -  \b0 \i0 \ul0  \b \i0 \ul0 Autre obligation d'information - \b0 \i0 \ul0 L'extension de l'accord national interprofessionnel par l'arr\'eat\'e9 du 23 juillet 2008 a pour effet de rendre opposable \'e0 tous les employeurs et salari\'e9s les clauses de cet accord pour lesquelles une transcription l\'e9gislative ou r\'e9glementaire n'\'e9tait pas n\'e9cessaire. Ainsi, conform\'e9ment aux dispositions de l'ANI du 11 janvier 2008, l'employeur est tenu d'informer le salari\'e9 de la possibilit\'e9 de prendre des contacts n\'e9cessaires, en particulier aupr\'e8s du service public de l'emploi, pour \'eatre en mesure d'envisager la suite de son parcours professionnel. Cette information doit \'eatre donn\'e9e avant que le salari\'e9 ne donne son consentement \'e0 la convention de rupture \b0 \i \ul0 (V. JCP S 2008, act. 451)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 B. -  \'c9laboration de la convention de rupture\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 1\'b0  Conditions de forme\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 34. -  \b0 \i0 \ul0  \b \i0 \ul0 Formalisme - \b0 \i0 \ul0 La convention de rupture est soumise \'e0 plusieurs conditions de forme. Tout d'abord, la convention de rupture doit faire l'objet d'un \'e9crit, dont un exemplaire sera remis \'e0 la DDTEFP lors de la demande d'homologation. En outre, la convention de rupture doit \'eatre dat\'e9e et sign\'e9e par les parties. Enfin, il est imp\'e9ratif pour chacune des parties de porter la mention "lu et approuv\'e9" de fa\'e7on manuscrite sur la convention de rupture \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 a)  Existence d'un \'e9crit\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 35. -  \b0 \i0 \ul0  \b \i0 \ul0 Contenu - \b0 \i0 \ul0 La convention de rupture d\'e9finit les conditions de celle-ci, notamment le montant de l'indemnit\'e9 sp\'e9cifique de rupture \b0 \i \ul0 conventionnelle (C. trav., art. L. 1237-13, al. 1er\b0 \i0 \ul0 . - Pour un mod\'e8le, \b0 \i \ul0 V. Fasc. 1612. - D. Jourdan, op. cit., p. 20. - P. Granet, Rupture conventionnelle d'un contrat de travail : JCP E 2008, 2104\b0 \i0 \ul0 ).
+\par \pard \ql \li360\ri0 \sb120 \fi0 Les modalit\'e9s de la rupture du contrat de travail peuvent concern\'e9es l'obligation \'e9ventuelle de non-concurrence, la restitution du mat\'e9riel mis \'e0 la disposition du salari\'e9 par l'employeur comme, par exemple, la restitution d'un v\'e9hicule de fonction ou du mat\'e9riel informatique \b0 \i \ul0 (D. Jourdan, op. cit., p. 21)\b0 \i0 \ul0 , le sort du droit individuel \'e0 la formation \b0 \i \ul0 (Liaisons soc. suppl. janv. 2009, n\'b0 43, p. 41 . - L. Gamet, G. Flichy, op. cit., n\'b0 917, p. 102)\b0 \i0 \ul0 , les bonus vers\'e9s au salari\'e9 au titre de l'ann\'e9e en cours ou de l'ann\'e9e achev\'e9e, etc. \b0 \i \ul0 (A. Louvet, op. cit., p. 23, note n\'b0 12\b0 \i0 \ul0 . - V. \'e9galement \b0 \i \ul0 L. Gamet, G. Flichy, op. cit., p. 102)\b0 \i0 \ul0 .
+\par \pard \ql \li360\ri0 \sb120 \fi0 Par ailleurs, la convention de rupture fixe la date de rupture du contrat de travail \b0 \i \ul0 (C. trav., art. L. 1237-13, al. 2)\b0 \i0 \ul0 .
+\par \pard \ql \li360\ri0 \sb120 \fi0 Au contraire, il est recommand\'e9 de ne pas ins\'e9rer dans la convention de rupture une clause selon laquelle les parties renoncent r\'e9ciproquement \'e0 toute action, afin d'\'e9carter tout risque de requalification en transaction \b0 \i \ul0 (L. Gamet, G. Flichy, op. cit., n\'b0 918, p. 103)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 36. -  \b0 \i0 \ul0  \b \i0 \ul0 Mention de la cause de la rupture - \b0 \i0 \ul0 Doit-on mentionner la cause de la rupture du contrat de travail dans la convention de rupture, notamment l'existence d'un litige entre les parties ? En l'absence de disposition expresse en ce sens, il n'est pas n\'e9cessaire d'indiquer la cause de la rupture dans la convention de rupture \b0 \i \ul0 (B. Gauriau, L'exclusivit\'e9 de la rupture conventionnelle : Dr. soc. 2008, p. 1067)\b0 \i0 \ul0 , et ce, pour \'e9viter tout refus d'homologation et toute requalification.
+\par \pard \ql \li360\ri0 \sb120 \fi0 D'une part, dans la mesure o\'f9 la rupture conventionnelle se distingue totalement de la transaction \b0 \i \ul0 (V. supra n\'b0 5)\b0 \i0 \ul0 , \b0 \i \ul0 "il n'y a pas lieu de faire \'e9tat d'un quelconque litige et de concessions r\'e9ciproques"\b0 \i0 \ul0  \b0 \i \ul0 (D. Jourdan, op. cit., p. 21)\b0 \i0 \ul0 .
+\par \pard \ql \li360\ri0 \sb120 \fi0 D'autre part, l'indication de motifs dans le pr\'e9ambule de la convention de rupture pourrait \'eatre le terreau d'un \'e9ventuel contentieux entre le salari\'e9 et l'employeur \b0 \i \ul0 (B. Gauriau, op. cit., p. 1067)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 b)  Signature\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 37. -  \b0 \i0 \ul0  \b \i0 \ul0 Effet - \b0 \i0 \ul0 La convention de rupture doit \'eatre sign\'e9e par les parties. Elle doit \'e9galement \'eatre dat\'e9e. Malgr\'e9 son caract\'e8re anodin, cette pr\'e9cision est d'importance \b0 \i \ul0 (Ph. Pacotte, Modernisation du march\'e9 du travail : inventaire du dispositif : Cah. dr. entreprise n\'b0 6, nov. 2008, dossier 63)\b0 \i0 \ul0  car le d\'e9lai de r\'e9tractation - dont b\'e9n\'e9ficient les parties - court \'e0 compter de la date de signature de la convention de rupture \b0 \i \ul0 (C. trav., art. L. 1237-13, al. 3, 1re phrase)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 38. -  \b0 \i0 \ul0  \b \i0 \ul0 Salari\'e9 prot\'e9g\'e9 - \b0 \i0 \ul0 Les r\'e8gles de la proc\'e9dure conventionnelle se cumulent avec celles du statut sp\'e9cifique des salari\'e9s prot\'e9g\'e9s \b0 \i \ul0 (V. supra n\'b0 10)\b0 \i0 \ul0 . Le cas \'e9ch\'e9ant, le comit\'e9 d'entreprise doit \'eatre inform\'e9 et consult\'e9 sur le projet de rupture conventionnelle du salari\'e9 prot\'e9g\'e9. Ainsi \b0 \i \ul0 "dans le cadre d'une consultation du comit\'e9 d'entreprise, l'avis de ce dernier devra pr\'e9c\'e9der la signature de la convention de rupture"\b0 \i0 \ul0  \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008\b0 \i0 \ul0 . - dans le m\'eame sens, \b0 \i \ul0 A. Louvet, op. cit., p. 22)\b0 \i0 \ul0 . En outre, la convention doit \'eatre sign\'e9e par les parties pr\'e9alablement \'e0 la demande d'autorisation \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard \ql \li360\ri0 \sb120 \fi0 La convention de rupture doit \'eatre sign\'e9e par les parties \b \i \ul0 pr\'e9alablement\b0 \i0 \ul0  \'e0 la demande d'autorisation d\'e9pos\'e9e \'e0 l'inspecteur du travail \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 39. -  \b0 \i0 \ul0  \b \i0 \ul0 \b \i \ul0 Consultation du CE\b \i0 \ul0  - \b0 \i0 \ul0 Les r\'e8gles de la proc\'e9dure conventionnelle se cumulent avec celles du statut sp\'e9cifique des salari\'e9s prot\'e9g\'e9s \b0 \i \ul0 (V. supra n\'b0 17)\b0 \i0 \ul0 . Or, le cas \'e9ch\'e9ant, le comit\'e9 d'entreprise doit \'eatre inform\'e9 et consult\'e9 sur le projet de rupture conventionnelle du salari\'e9 prot\'e9g\'e9. \'c0 cette occasion, \b0 \i \ul0 "le salari\'e9 concern\'e9 par le projet doit \'eatre invit\'e9 \'e0 assister \'e0 la r\'e9union du comit\'e9 d'entreprise au cours de laquelle il pourra faire part de ses \'e9ventuelles observations"\b0 \i0 \ul0  \b0 \i \ul0 (A. Louvet, op. cit., p. 22)\b0 \i0 \ul0 . Le comit\'e9 d'entreprise rend un avis au terme de ce d\'e9bat \b0 \i \ul0 (Ibid.)\b0 \i0 \ul0 . Par ailleurs, \b0 \i \ul0 "dans le cadre d'une consultation du comit\'e9 d'entreprise, l'avis de ce dernier devra pr\'e9c\'e9der la signature de la convention de rupture"\b0 \i0 \ul0  \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008\b0 \i0 \ul0 . - dans le m\'eame sens, \b0 \i \ul0 A. Louvet, op. cit., p. 22)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 c)  Date de la rupture du contrat de travail\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 40. -  \b0 \i0 \ul0  \b \i0 \ul0 Fixation - \b0 \i0 \ul0 La date de rupture du contrat de travail est fix\'e9e par la convention de rupture elle-m\'eame. Or, l'article L. 1237-13 du Code du travail \'e9nonce que la rupture du contrat de travail \b0 \i \ul0 "ne peut intervenir avant le lendemain du jour de l'homologation"\b0 \i0 \ul0  \b0 \i \ul0 (C. trav., art. L. 1237-13, al. 2, in fine)\b0 \i0 \ul0 . Par cons\'e9quent, la mention de la date de la rupture du contrat de travail suppose au pr\'e9alable son calcul.
+\par \pard \ql \li360\ri0 \sb120 \fi0 Concr\'e8tement, la date de la rupture du contrat de travail ne peut intervenir \b \i \ul0 au minimum 33 jours calendaires apr\'e8s la signature de la convention\b0 \i0 \ul0  \b0 \i \ul0 (D. Jourdan, op. cit., p. 21)\b0 \i0 \ul0 . A notre sens, la proc\'e9dure d'homologation permet de rectifier l'erreur \'e9ventuelle dans ce calcul et d'indiquer la date correcte dans la convention de rupture. En ce sens, la circulaire du 22 juillet 2008 indique que cette date peut n'\'eatre que simplement indicative.
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 41. -  \b0 \i0 \ul0  \b \i0 \ul0 Date effective - \b0 \i0 \ul0 \b0 \i \ul0 "Le contrat peut \'eatre rompu le lendemain du jour de la notification de l'acceptation de l'homologation, ou en cas de silence du DDTEFP apr\'e8s que le d\'e9lai d'instruction de 15 jours ouvrables s'est \'e9coul\'e9 apr\'e8s r\'e9ception de la demande par le DDTEFP"\b0 \i0 \ul0  \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 42. -  \b0 \i0 \ul0  \b \i0 \ul0 Am\'e9nagement - \b0 \i0 \ul0 Il semblerait que le d\'e9lai \'e9nonc\'e9 \'e0 l'article L. 1237-13 du Code du travail soit un d\'e9lai minimum que les parties peuvent am\'e9nager librement : ces derni\'e8res pourraient, par exemple, pr\'e9voir que la rupture sera effective apr\'e8s un certain pr\'e9avis courant \'e0 compter de l'homologation \b0 \i \ul0 (Ph. Pacotte, Modernisation du march\'e9 du travail : inventaire du dispositif : Cah. dr. entreprise n\'b0 6, nov. 2008, dossier 63)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 43. -  \b0 \i0 \ul0  \b \i0 \ul0 Salari\'e9s prot\'e9g\'e9s - \b0 \i0 \ul0 Par d\'e9rogation aux dispositions de l'article L. 1237-13 du Code du travail, en ce qui concerne les salari\'e9s prot\'e9g\'e9s \b0 \i \ul0 (V. supra n\'b0 10 et 17)\b0 \i0 \ul0 , la rupture du contrat de travail ne peut intervenir que le lendemain du jour de l'autorisation donn\'e9e par l'inspection du travail \b0 \i \ul0 (C. trav., art. L. 1237-15, 3e phrase)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 2\'b0  R\'e9tractation de l'une des parties\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 44. -  \b0 \i0 \ul0  \b \i0 \ul0 Droit - \b0 \i0 \ul0 S'inspirant des m\'e9canismes du droit de la consommation \b0 \i \ul0 (B. Gauriau, op. cit., p. 1066. - P. Lokiec, S. Robin-Olivier, Rupture conventionnelle et contr\'f4le du consentement du salari\'e9 : RDT 2008, p. 551)\b0 \i0 \ul0 , le l\'e9gislateur a pr\'e9vu que chaque partie dispose d'un droit de r\'e9tractation conform\'e9ment aux dispositions de l'article L. 1237-13, alin\'e9a 3 du Code du travail.
+\par \pard \ql \li240\ri0 \sb120 \fi0 Ainsi, l'employeur ou le salari\'e9 est libre de revenir sur son consentement pendant un d\'e9lai fix\'e9 par le m\'eame article.
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 45. -  \b0 \i0 \ul0  \b \i0 \ul0 D\'e9lai de r\'e9tractation - \b0 \i0 \ul0 Le d\'e9lai de r\'e9tractation est de \b \i0 \ul0 15 jours calendaires\b0 \i0 \ul0  \b0 \i \ul0 (C. trav., art. L. 1237-13, al. 3, 1re phrase)\b0 \i0 \ul0 . Le d\'e9lai est identique pour le salari\'e9 et l'employeur.
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 46. -  \b0 \i0 \ul0  \b \i0 \ul0 Point de d\'e9part du d\'e9lai de r\'e9tractation - \b0 \i0 \ul0 Ce d\'e9lai de 15 jours court \'e0 compter de la date de la signature de la convention de rupture par les deux parties \b0 \i \ul0 (C. trav., art. L. 1237-13, al. 3, 1re phrase)\b0 \i0 \ul0 . On notera que la circulaire du 22 juillet 2008 pr\'e9cise que \b0 \i \ul0 "le d\'e9lai d\'e9marre au lendemain de la date de signature de la convention de rupture"\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 47. -  \b0 \i0 \ul0  \b \i0 \ul0 Computation du d\'e9lai de r\'e9tractation - \b0 \i0 \ul0 \b0 \i \ul0 "Le d\'e9compte des jours calendaires reprend la totalit\'e9 des jours de la semaine"\b0 \i0 \ul0  \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c. - A. Louvet, op. cit., p. 23, note n\'b0 13\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 48. -  \b0 \i0 \ul0  \b \i0 \ul0 Fin du d\'e9lai de r\'e9tractation - \b0 \i0 \ul0 Le d\'e9lai de r\'e9tractation s'ach\'e8ve le quinzi\'e8me jour apr\'e8s la signature de la convention de rupture \'e0 24 heures \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c. - D. Jourdan, op. cit., p. 22)\b0 \i0 \ul0 . Tr\'e8s logiquement, une fois ce d\'e9lai de 15 jours d\'e9pass\'e9, il n'est plus possible de se pr\'e9valoir de son droit de r\'e9tractation.
+\par \pard \ql \li240\ri0 \sb120 \fi0 Premier exemple : \b0 \i \ul0 "pour une rupture le 8 d\'e9cembre, le salari\'e9 [ou l'employeur] peut y renoncer jusqu'au 23 d\'e9cembre \'e0 24 heures "\b0 \i0 \ul0  \b0 \i \ul0 (A. Louvet, op. cit., p. 23, note n\'b0 13\b0 \i0 \ul0 .
+\par \pard \ql \li240\ri0 \sb120 \fi0 Deuxi\'e8me exemple : pour une convention de rupture qui a \'e9t\'e9 sign\'e9e le 1er ao\'fbt, le d\'e9lai de r\'e9tractation expire le 16 ao\'fbt \'e0 24 heures. D\'e8s lors, la partie la plus diligente peut adresser le formulaire de demande d'homologation au DDTEFP \'e0 partir du 17 ao\'fbt \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 49. -  \b0 \i0 \ul0  \b \i0 \ul0 Conditions d'exercice - \b0 \i0 \ul0 Le droit de r\'e9tractation est exerc\'e9 par le salari\'e9 ou l'employeur selon des formes identiques. Ainsi, la r\'e9tractation doit avoir lieu, pour des raisons de preuve, sous la forme d'une lettre adress\'e9e par tout moyen attestant de sa date de r\'e9ception par l'autre partie \b0 \i \ul0 (C. trav., art. L. 1237-13, al. 3, 2e phrase)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 50. -  \b0 \i0 \ul0  \b \i0 \ul0 Envoi de la demande d'homologation - \b0 \i0 \ul0 Le lendemain de la fin du d\'e9lai de r\'e9tractation, la demande d'homologation peut \'eatre adress\'e9e au DDTEFP par la partie la plus diligente \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \fs24 \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 III. -  Homologation de la convention de rupture\fs20 \b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 51. -  \b0 \i0 \ul0  \b \i0 \ul0 Validit\'e9 de la convention de rupture - \b0 \i0 \ul0 La validit\'e9 de la convention est subordonn\'e9e \'e0 son homologation par l'autorit\'e9 administrative \b0 \i \ul0 (C. trav., art. L. 1237-14, al. 3)\b0 \i0 \ul0 . \b0 \i \ul0 A contrario\b0 \i0 \ul0 , la convention de rupture non homologu\'e9e semble n'avoir aucune valeur juridique.
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 52. -  \b0 \i0 \ul0  \b \i0 \ul0 D\'e9roulement de la relation de travail durant l'instruction de la demande d'homologation - \b0 \i0 \ul0 Durant toute la dur\'e9e de la proc\'e9dure de rupture conventionnelle, le salari\'e9 poursuit normalement son activit\'e9 professionnelle et demeure soumis au pouvoir de direction, au pouvoir r\'e9glementaire et au pouvoir disciplinaire de l'employeur.
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 53. -  \b0 \i0 \ul0  \b \i0 \ul0 \b \i \ul0 Salari\'e9 prot\'e9g\'e9\b \i0 \ul0  - \b0 \i0 \ul0 \b0 \i \ul0 "Dans l'attente de l'autorisation et jusqu'\'e0 la rupture effective de son contrat de travail, le salari\'e9 prot\'e9g\'e9 poursuit son activit\'e9 professionnelle et exerce pleinement son mandat de repr\'e9sentant du personnel"\b0 \i0 \ul0  \b0 \i \ul0 (A. Louvet, op. cit., p. 23 ; Liaisons soc. suppl. janv. 2009, n\'b0 42, p. 40)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 54. -  \b0 \i0 \ul0  \b \i0 \ul0 Recevabilit\'e9 de la demande d'homologation - \b0 \i0 \ul0 Avant d'instruire la demande d'homologation, le DDTEFP en v\'e9rifie la recevabilit\'e9 \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 , c'est-\'e0-dire la pr\'e9sence de toutes les informations n\'e9cessaires pour effectuer le contr\'f4le (\b0 \i \ul0 V. infra n\'b0 74\b0 \i0 \ul0 , pour la liste des pi\'e8ces \'e0 fournir lors de la pr\'e9sentation de la demande).
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 A. -  Demande\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 1\'b0  Envoi\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 a)  Droit commun\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 55. -  \b0 \i0 \ul0  \b \i0 \ul0 D\'e9lai - \b0 \i0 \ul0 \'c0 l'issue du d\'e9lai de r\'e9tractation, la partie la plus diligente adresse une demande d'homologation \'e0 l'autorit\'e9 administrative, avec un exemplaire de la convention de rupture \b0 \i \ul0 (C. trav., art. L. 1237-14, al. 1er, 1re phrase)\b0 \i0 \ul0 .
+\par \pard \ql \li360\ri0 \sb120 \fi0 Lorsque les deux parties d\'e9posent simultan\'e9ment une demande d'homologation, la proc\'e9dure d'homologation d\'e9bute \'e0 compter de la date de pr\'e9sentation de la premi\'e8re demande parvenue aupr\'e8s de l'autorit\'e9 administrative comp\'e9tente \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c. - D. Jourdan, op. cit., p. 22)\b0 \i0 \ul0 .
+\par \pard \ql \li360\ri0 \sb120 \fi0 On notera que le Code du travail ne pr\'e9cise pas le temps \'e0 respecter entre la fin du d\'e9lai de r\'e9tractation et la saisine de l'autorit\'e9 administrative aux fins d'homologation \b0 \i \ul0 (G. Auzero, op. cit., p. 523)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 56. -  \b0 \i0 \ul0  \b \i0 \ul0 Forme - \b0 \i0 \ul0 La demande d'homologation est pr\'e9sent\'e9e \'e0 l'aide d'un formulaire administratif \b0 \i \ul0 (D. Jourdan, op. cit., p. 22)\b0 \i0 \ul0 . Un arr\'eat\'e9 du ministre charg\'e9 du travail fixe le mod\'e8le de cette demande \b0 \i \ul0 (C. trav., art. L. 1237-14, al. 1er, 2 phrase)\b0 \i0 \ul0 . Il s'agit de l'arr\'eat\'e9 du 18 juillet 2008.
+\par \pard \ql \li360\ri0 \sb120 \fi0 Plus largement, sur la mani\'e8re dont la demande doit \'eatre faite \'e0 la DDTEFP, le Code du travail est muet. Par cons\'e9quent, la demande est effectu\'e9e librement par voie postale ou par remise directe \'e0 la DDTEFP \b0 \i \ul0 (D. Jourdan, R\'e9daction d'une convention de rupture d'un CDI : JCP S 2008, 1562, p. 22)\b0 \i0 \ul0 . Cependant, il est recommand\'e9 d'effectuer cet envoi par lettre recommand\'e9e avec avis de r\'e9ception, ce qui est le moyen le plus efficace pour apporter la preuve de la date de r\'e9ception par l'administration \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 57. -  \b0 \i0 \ul0  \b \i0 \ul0 Contenu du formulaire - \b0 \i0 \ul0 Selon la circulaire du 22 juillet 2008, le formulaire de demande d'homologation de la rupture conventionnelle contient : 
+\par \pard 
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 - \tab}\pard \ql \li1560\fi-600 \ri0 \jclisttab\tx1560 \widctlpar\faauto\adjustright\itap0\ls13\ilvl0 \sb0 la convention de rupture sign\'e9e par les deux parties ;
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 - \tab}\pard \ql \li1560\fi-600 \ri0 \jclisttab\tx1560 \widctlpar\faauto\adjustright\itap0\ls13\ilvl0 \sb0 les informations n\'e9cessaires \'e0 l'instruction de la demande d'homologation par le DDTEFP ;
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 - \tab}\pard \ql \li1560\fi-600 \ri0 \jclisttab\tx1560 \widctlpar\faauto\adjustright\itap0\ls13\ilvl0 \sb0 et, en cas de refus d'homologation, les \'e9l\'e9ments de motivation qui fondent cette d\'e9cision expresse.
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 b)  Salari\'e9 prot\'e9g\'e9\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 58. -  \b0 \i0 \ul0  \b \i0 \ul0 Demande d'autorisation \'e0 l'inspecteur du travail - \b0 \i0 \ul0 Les salari\'e9s prot\'e9g\'e9s peuvent b\'e9n\'e9ficier du dispositif de la rupture conventionnelle \b0 \i \ul0 (V. supra n\'b0 17)\b0 \i0 \ul0 . Cependant, cette proc\'e9dure subit quelques am\'e9nagements. Ainsi, par d\'e9rogation aux dispositions de l'article L. 1237-14 du Code du travail, la rupture conventionnelle est soumise \'e0 l'autorisation de l'inspecteur du travail dans les conditions pr\'e9vues au chapitre Ier du titre Ier du livre IV, \'e0 la section 1 du chapitre Ier et au chapitre II du titre II du livre IV de la deuxi\'e8me partie du Code du travail \b0 \i \ul0 (C. trav., art. L. 1237-15, 1re phrase)\b0 \i0 \ul0 . La demande d'autorisation est soumise \'e0 l'inspecteur du travail dans les conditions pr\'e9vues \'e0 l'article L. 2411-1 du Code du travail \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 . Cette demande sera accompagn\'e9e du formulaire sp\'e9cifique aux salari\'e9s prot\'e9g\'e9s de rupture conventionnelle qui contient la convention de rupture \b0 \i \ul0 (V. A. 28 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 59. -  \b0 \i0 \ul0  \b \i0 \ul0 Signature pr\'e9alable \'e0 la demande d'autorisation - \b0 \i0 \ul0 La convention de rupture doit \'eatre sign\'e9e par les parties pr\'e9alablement \'e0 la demande d'autorisation \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 60. -  \b0 \i0 \ul0  \b \i0 \ul0 Moment de la demande d'autorisation - \b0 \i0 \ul0 \b0 \i \ul0 "L'employeur ne pourra pas adresser la demande d'autorisation \'e0 l'inspecteur du travail tant que le d\'e9lai de r\'e9flexion de 15 jours calendaires \'e0 compter de la date de signature de la convention de rupture n'est pas expir\'e9, et en tout \'e9tat de cause, la rupture conventionnelle ne pourra prendre effet qu'apr\'e8s l'autorisation administrative"\b0 \i0 \ul0  \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 61. -  \b0 \i0 \ul0  \b \i0 \ul0 Formalit\'e9s - \b0 \i0 \ul0 Plus pr\'e9cis\'e9ment, \'e0 l'issue du d\'e9lai de r\'e9tractation \'e0 la disposition des parties \b0 \i \ul0 (V. supra n\'b0 44)\b0 \i0 \ul0 , \b0 \i \ul0 "l'employeur doit adresser la demande d'autorisation - par lettre recommand\'e9e avec accus\'e9 de r\'e9ception \'e0 l'inspecteur du travail habituellement comp\'e9tent - accompagn\'e9e des \'e9l\'e9ments n\'e9cessaires \'e0 la prise de d\'e9cision : le formulaire de rupture conventionnelle sp\'e9cifique aux salari\'e9s prot\'e9g\'e9s d\'fbment compl\'e9t\'e9 [la convention de rupture], les courriers de convocation aux entretiens pr\'e9paratoires, le cas \'e9ch\'e9ant, le proc\'e8s-verbal de la r\'e9union de consultation du comit\'e9 d'entreprise et les douze derniers bulletins de salaire"\b0 \i0 \ul0  \b0 \i \ul0 (A. Louvet, op. cit., p. 23)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 2\'b0  R\'e9ception\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 62. -  \b0 \i0 \ul0  \b \i0 \ul0 Contenu de l'accus\'e9 de r\'e9ception - \b0 \i0 \ul0 En retour \'e0 la demande d'homologation, le DDTEFP adresse \'e0 chacune des parties un accus\'e9 de r\'e9ception de la demande en indiquant la \b \i \ul0 date de pr\'e9sentation de la demande\b0 \i0 \ul0  \b0 \i \ul0 (D. Jourdan, op. cit., p. 22)\b0 \i0 \ul0 .
+\par \pard \ql \li240\ri0 \sb120 \fi0 Quel que soit le moyen d'envoi - par la poste ou par remise directe - \b0 \i \ul0 "la DDTEFP appose le timbre \'e0 la date du jour d'arriv\'e9e sur la demande d'homologation"\b0 \i0 \ul0  \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 . \b0 \i \ul0 "\'c0 l'arriv\'e9e de la demande d'homologation, le DDTEFP comp\'e9tent adresse \'e0 chaque partie un accus\'e9 de r\'e9ception de cette demande sur lequel sont sp\'e9cifi\'e9es, d'une part, la date d'arriv\'e9e de la demande, et, d'autre part, la date \'e0 laquelle le d\'e9lai d'instruction expire. L'accus\'e9 de r\'e9ception pr\'e9cise qu'\'e0 d\'e9faut de refus expr\'e8s d'homologation avant cette derni\'e8re date, l'homologation est r\'e9put\'e9e acquise"\b0 \i0 \ul0  \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 63. -  \b0 \i0 \ul0  \b \i0 \ul0 R\'e9ception d'une demande incompl\'e8te - \b0 \i0 \ul0 Lorsqu'une demande est consid\'e9r\'e9e comme incompl\'e8te au regard des pi\'e8ces demand\'e9es par la DDTEFP, elle est d\'e9clar\'e9e irrecevable. La demande peut \'eatre rejet\'e9e notamment en l'absence de renseignements aff\'e9rents aux salaires per\'e7us, en l'absence de respect du d\'e9lai de r\'e9tractation, en l'absence de signatures de la convention de rupture, etc. \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard \ql \li240\ri0 \sb120 \fi0 En outre, les parties sont inform\'e9es de l'irrecevabilit\'e9 de leur demande \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 B. -  Instruction\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 1\'b0  Autorit\'e9 comp\'e9tente\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 64. -  \b0 \i0 \ul0  \b \i0 \ul0 DDTEFP - \b0 \i0 \ul0 Selon l'article R. 1237-3 du Code du travail, l'autorit\'e9 administrative comp\'e9tente pour l'homologation de la convention de rupture pr\'e9vue \'e0 l'article L. 1237-14 du m\'eame code est le directeur d\'e9partemental du travail, de l'emploi et de la formation professionnelle (DDTEFP). Selon la circulaire du 22 juillet 2008, \b0 \i \ul0 "dans le cadre des dispositions de l'article 7 du d\'e9cret n\'b0 94-466 du 28 d\'e9cembre 1994, [le DDTEFP] pourra d\'e9l\'e9guer sa signature \'e0 son adjoint direct dans le champ des relations du travail"\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 65. -  \b0 \i0 \ul0  \b \i0 \ul0 Comp\'e9tence mat\'e9rielle - \b0 \i0 \ul0 \b0 \i \ul0 "Le DDTEFP est comp\'e9tent pour l'ensemble des entreprises, quel que soit le secteur d'activit\'e9 consid\'e9r\'e9, parties \'e0 une rupture conventionnelle"\b0 \i0 \ul0  \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 66. -  \b0 \i0 \ul0  \b \i0 \ul0 Comp\'e9tence territoriale - \b0 \i0 \ul0 Le DDTEFP territorialement comp\'e9tent pour instruire la demande d'homologation est celui du lieu o\'f9 est \'e9tabli l'employeur \b0 \i \ul0 (C. trav., art. R. 1237-3)\b0 \i0 \ul0 . Plus pr\'e9cis\'e9ment, \b0 \i \ul0 "le DDTEFP territorialement comp\'e9tent pour instruire la demande d'homologation est celui dont d\'e9pend " l'employeur " du salari\'e9, partie \'e0 la convention de rupture, c'est \'e0 dire celui dont rel\'e8ve l'\'e9tablissement o\'f9 est employ\'e9 le salari\'e9"\b0 \i0 \ul0  \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard \ql \li240\ri0 \sb120 \fi0 Si le DDTEFP recevant la demande n'est pas territorialement comp\'e9tent pour la traiter, il n'a pas \'e0 instruire cette demande, mais doit en revanche la transmettre au DDTEFP comp\'e9tent, et en aviser les parties. Dans cette hypoth\'e8se, le d\'e9lai d'instruction ne court pas \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 67. -  \b0 \i0 \ul0  \b \i0 \ul0 Salari\'e9 prot\'e9g\'e9 - \b0 \i0 \ul0 La demande d'autorisation est adress\'e9e \'e0 \b \i \ul0 l'inspecteur du travail\b0 \i0 \ul0  dont d\'e9pend l'\'e9tablissement dans lequel le salari\'e9 est employ\'e9 \b0 \i \ul0 (V. not. C. trav., art. R. 2421-1 et R. 2421-10)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 2\'b0  D\'e9lai\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 68. -  \b0 \i0 \ul0  \b \i0 \ul0 Dur\'e9e du d\'e9lai d'instruction - \b0 \i0 \ul0 Le DDTEFP dispose d'un d\'e9lai pour instruire la demande d'homologation qui lui est pr\'e9sent\'e9e. Le DDTEFP dispose d'un d\'e9lai de quinze jours ouvrables pour rendre ses conclusions \b0 \i \ul0 (C. trav., art. L. 1237-14, al. 2, 1re phrase)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 69. -  \b0 \i0 \ul0  \b \i0 \ul0 Point de d\'e9part - \b0 \i0 \ul0 Le d\'e9lai d'instruction d\'e9bute \'e0 compter de la r\'e9ception de la demande d'homologation adress\'e9e par la partie la plus diligente \b0 \i \ul0 (C. trav., art. L. 1237-14, al. 2, 1re phrase)\b0 \i0 \ul0 . Cela signifie que ce d\'e9lai commence \'e0 courir le lendemain du jour ouvrable de r\'e9ception de la demande d'homologation par le DDTEFP \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard \ql \li240\ri0 \sb120 \fi0 Lorsque le DDTEFP saisi pour homologation n'est pas celui territorialement comp\'e9tent, le d\'e9lai d'instruction ne court pas \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 . Il en est de m\'eame lorsque la demande d'homologation est jug\'e9e irrecevable par le DDTEFP \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 70. -  \b0 \i0 \ul0  \b \i0 \ul0 Computation - \b0 \i0 \ul0 Dans la mesure o\'f9 il s'agit d'un d\'e9lai de 15 jours ouvrables, il convient de prendre en compte l'ensemble des jours de la semaine, \'e0 l'exception du jour de repos hebdomadaire (dimanche) et des \b0 \i \ul0 "jours reconnus f\'e9ri\'e9s par la loi et habituellement ch\'f4m\'e9s dans la DDTEFP"\b0 \i0 \ul0  \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 71. -  \b0 \i0 \ul0  \b \i0 \ul0 Expiration - \b0 \i0 \ul0 Ce d\'e9lai expire le dernier jour ouvrable \'e0 24 heures \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard \ql \li240\ri0 \sb120 \fi0 Par exemple, \b0 \i \ul0 "pour une demande d'homologation parvenue au DDTEFP le vendredi 8 ao\'fbt 2008, le d\'e9lai d'instruction de 15 jours ouvrables d\'e9bute le samedi 2 ao\'fbt 2008 \'e0 0 heure et expire le mardi 20 ao\'fbt 2008 \'e0 24 heures (vendredi 15 ao\'fbt 2008 f\'e9ri\'e9), jour au-del\'e0 duquel, sans notification d'un refus, l'homologation est r\'e9put\'e9e acquise"\b0 \i0 \ul0  \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 72. -  \b0 \i0 \ul0  \b \i0 \ul0 Salari\'e9 prot\'e9g\'e9 - \b0 \i0 \ul0 L'inspecteur du travail dispose d'un d\'e9lai de 15 jours calendaires. Ce d\'e9lai court \'e0 compter de la r\'e9ception de la demande d'autorisation \b0 \i \ul0 (C. trav., art. R. 2421-4\b0 \i0 \ul0 . - en ce sens, \b0 \i \ul0 A. Louvet, op. cit., p. 23)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 3\'b0  Nature\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 a)  Instruction du DDTEFP\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 73. -  \b0 \i0 \ul0  \b \i0 \ul0 Contr\'f4le - \b0 \i0 \ul0 L'instruction de la DDTEFP consiste \'e0 s'assurer, d'une part, que les conditions de la rupture conventionnelle ont \'e9t\'e9 correctement respect\'e9es et, d'autre part, que la libert\'e9 de consentement des parties est bien r\'e9serv\'e9e \b0 \i \ul0 (C. trav., art. L. 1237-14, al. 2, 1re phrase)\b0 \i0 \ul0 .
+\par \pard \ql \li360\ri0 \sb120 \fi0 Le contr\'f4le porte donc les conditions de validit\'e9 de la rupture conventionnelle. En effet, comme le pr\'e9cise la circulaire du 22 juillet 2008, \b0 \i \ul0 "il incombe au DDTEFP de s'assurer de la validit\'e9 de la demande d'homologation. Son contr\'f4le doit porter sur les points qui permettent de v\'e9rifier le libre consentement des parties, d'une part, et, d'autre part, sur les \'e9l\'e9ments fondant l'accord du salari\'e9"\b0 \i0 \ul0 .
+\par \pard \ql \li360\ri0 \sb120 \fi0 En revanche, le contr\'f4le du DDTEFP \b0 \i \ul0 "ne saurait porter sur les motifs ayant amen\'e9 les parties \'e0 convenir de la rupture du contrat"\b0 \i0 \ul0  \b0 \i \ul0 (G. Br\'e9don, L. Flament, op. cit., p. 18)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 74. -  \b0 \i0 \ul0  \b \i0 \ul0 Crit\'e8res utilis\'e9s - \b0 \i0 \ul0 Selon la circulaire du 22 juillet 2008, afin de d\'e9terminer si une convention de rupture peut ou non \'eatre homologu\'e9e, le DDTEFP devra contr\'f4ler un certain nombre de points. Ainsi, seront examin\'e9s : 
+\par \pard 
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 - \tab}\pard \ql \li1560\fi-600 \ri0 \jclisttab\tx1560 \widctlpar\faauto\adjustright\itap0\ls13\ilvl0 \sb0 les informations relatives aux parties (identit\'e9s et adresses des parties \'e0 la convention de rupture) ; l'anciennet\'e9 du salari\'e9 ;
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 - \tab}\pard \ql \li1560\fi-600 \ri0 \jclisttab\tx1560 \widctlpar\faauto\adjustright\itap0\ls13\ilvl0 \sb0 les \'e9l\'e9ments de r\'e9mun\'e9ration (douze derniers salaires bruts vers\'e9s au salari\'e9 afin de d\'e9terminer la base de calcul de l'indemnit\'e9 sp\'e9cifique de rupture conventionnelle) ;
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 - \tab}\pard \ql \li1560\fi-600 \ri0 \jclisttab\tx1560 \widctlpar\faauto\adjustright\itap0\ls13\ilvl0 \sb0 la tenue d'au moins un entretien ;
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 - \tab}\pard \ql \li1560\fi-600 \ri0 \jclisttab\tx1560 \widctlpar\faauto\adjustright\itap0\ls13\ilvl0 \sb0 le ou les assistants des parties \'e0 l'entretien ;
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 - \tab}\pard \ql \li1560\fi-600 \ri0 \jclisttab\tx1560 \widctlpar\faauto\adjustright\itap0\ls13\ilvl0 \sb0 la signature de la convention de rupture ;
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 - \tab}\pard \ql \li1560\fi-600 \ri0 \jclisttab\tx1560 \widctlpar\faauto\adjustright\itap0\ls13\ilvl0 \sb0 la v\'e9rification de l'indemnit\'e9 sp\'e9cifique de rupture conventionnelle \b0 \i \ul0 (V. Cons. prud'h. Valence, sect. ind., 14 oct. 2008 : Semaine sociale Lamy 10 nov. 2008, p. 12)\b0 \i0 \ul0  ;
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 - \tab}\pard \ql \li1560\fi-600 \ri0 \jclisttab\tx1560 \widctlpar\faauto\adjustright\itap0\ls13\ilvl0 \sb0 la date envisag\'e9e de rupture du contrat de travail ;
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 - \tab}\pard \ql \li1560\fi-600 \ri0 \jclisttab\tx1560 \widctlpar\faauto\adjustright\itap0\ls13\ilvl0 \sb0 le droit de r\'e9tractation.
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 b)  Salari\'e9 prot\'e9g\'e9\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 75. -  \b0 \i0 \ul0  \b \i0 \ul0 Instruction de l'inspecteur du travail - \b0 \i0 \ul0 Par d\'e9rogation aux dispositions de l'article L. 1237-14 du Code du travail, la rupture conventionnelle est soumise \'e0 l'autorisation de l'inspecteur du travail dans les conditions pr\'e9vues au chapitre Ier du titre Ier du livre IV, \'e0 la section 1 du chapitre Ier et au chapitre II du titre II du livre IV de la deuxi\'e8me partie du Code du travail \b0 \i \ul0 (C. trav., art. L. 1237-15, 1re phrase)\b0 \i0 \ul0 .
+\par \pard \ql \li360\ri0 \sb120 \fi0 Dans ce cadre, \b0 \i \ul0 "l'inspecteur du travail n'a pas \'e0 appr\'e9cier l'existence et la validit\'e9 d'un motif qui justifierait la rupture conventionnelle. Il doit seulement appr\'e9cier la libert\'e9 de consentement mesur\'e9e au regard du respect des r\'e8gles de l'assistance, du d\'e9lai de r\'e9tractation, de la proc\'e9dure et du montant de l'indemnit\'e9 sp\'e9cifique de rupture. La d\'e9cision autorisant la rupture conventionnelle devra, en tout \'e9tat de cause, constater l'absence de lien avec le mandat"\b0 \i0 \ul0  \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c. - A. Louvet, op. cit., p. 23)\b0 \i0 \ul0 . Par ailleurs, \b0 \i \ul0 "la d\'e9cision de l'inspecteur du travail intervient \'e0 l'issue d'une enqu\'eate contradictoire qui donne lieu l'audition s\'e9par\'e9e de l'employeur et du salari\'e9"\b0 \i0 \ul0  \b0 \i \ul0 (Ibid.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 C. -  D\'e9cision de l'autorit\'e9 administrative comp\'e9tente\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 1\'b0  Droit commun\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 76. -  \b0 \i0 \ul0  \b \i0 \ul0 Nature de la d\'e9cision de la DDTEFP - \b0 \i0 \ul0 Le DDTEFP peut rendre des d\'e9cisions de nature diff\'e9rente : 
+\par \pard 
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 - \tab}\pard \ql \li1440\fi-600 \ri0 \jclisttab\tx1440 \widctlpar\faauto\adjustright\itap0\ls11\ilvl0 \sb0 il peut rendre, dans le d\'e9lai imparti pour l'instruction, une d\'e9cision explicite qui soit homologue la convention de rupture, soit la refuse ;
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 - \tab}\pard \ql \li1440\fi-600 \ri0 \jclisttab\tx1440 \widctlpar\faauto\adjustright\itap0\ls11\ilvl0 \sb0 il peut aussi rendre une d\'e9cision implicite en omettant de notifier sa d\'e9cision aux parties.
+\par \pard \ql \li240\ri0 \sb120 \fi0 Les coordonn\'e9es des parties \'e0 la rupture conventionnelle sont celles auxquelles le DDTEFP adresse, le cas \'e9ch\'e9ant, sa d\'e9cision \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard \ql \li240\ri0 \sb120 \fi0 Quelle que soit la d\'e9cision prise par le DDTEFP, ce dernier doit remplir le formulaire de rupture conventionnelle \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard \ql \li240\ri0 \sb120 \fi0 En cas de contentieux ult\'e9rieur, \b0 \i \ul0 "le juge prud'homal pourra demander en cas de besoin au DDTEFP de lui transmettre ce document"\b0 \i0 \ul0  \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 77. -  \b0 \i0 \ul0  \b \i0 \ul0 D\'e9cision explicite - \b0 \i0 \ul0 La DDTEFP peut rendre une d\'e9cision \b \i \ul0 acceptant\b0 \i0 \ul0  l'homologation de la convention de rupture pr\'e9sent\'e9e par les parties.
+\par \pard \ql \li240\ri0 \sb120 \fi0 Le \b \i \ul0 rejet\b0 \i0 \ul0  de la demande est motiv\'e9 et comporte la ou les raisons de fait et de droit qui conduisent le DDTEFP \'e0 refuser l'homologation, et \'e0 estimer que la rupture conventionnelle ne repose pas sur le libre consentement des parties, et notamment du salari\'e9 \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 78. -  \b0 \i0 \ul0  \b \i0 \ul0 D\'e9cision implicite d'homologation - \b0 \i0 \ul0 \'c0 d\'e9faut de notification dans le d\'e9lai de 15 jours ouvrables, l'homologation est r\'e9put\'e9e acquise et l'autorit\'e9 administrative est dessaisie \b0 \i \ul0 (C. trav., art. L.1237-14, al. 2, 2e phrase)\b0 \i0 \ul0 . Autrement dit, \'e0 d\'e9faut de r\'e9ponse du DDTEFP dans le d\'e9lai de 15 jours pr\'e9cit\'e9, l'absence de r\'e9ponse du DDTEFP vaut acceptation de l'homologation.
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 79. -  \b0 \i0 \ul0  \b \i0 \ul0 Conservation du formulaire de rupture conventionnelle - \b0 \i0 \ul0 Que la demande d'homologation soit accept\'e9e ou refus\'e9e par le DDTEFP, le formulaire doit \'eatre conserv\'e9 dans le cadre d'une \'e9ventuelle communication aux instances comp\'e9tentes dans l'hypoth\'e8se o\'f9 elle ferait l'objet d'une contestation par les parties \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 2\'b0  Salari\'e9 prot\'e9g\'e9\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 80. -  \b0 \i0 \ul0  \b \i0 \ul0 D\'e9cision explicite de l'inspecteur du travail - \b0 \i0 \ul0 L'inspecteur du travail saisi d'une demande d'autorisation de rupture conventionnelle peut rendre une d\'e9cision explicite autorisant la rupture conventionnelle. L'autorisation donn\'e9e par l'inspecteur du travail vaut alors homologation \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard \ql \li240\ri0 \sb120 \fi0 Au contraire, l'inspecteur du travail peut aussi rendre une d\'e9cision explicite refusant d'approuver la rupture conventionnelle.
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 81. -  \b0 \i0 \ul0  \b \i0 \ul0 Absence de r\'e9ponse de l'inspecteur du travail - \b0 \i0 \ul0 Contrairement \'e0 la demande d'homologation au DDTEFP \b0 \i \ul0 (V. supra n\'b0 78)\b0 \i0 \ul0 , lorsque l'inspecteur du travail conserve le silence sur la demande d'autorisation \'e0 l'issue du d\'e9lai de 15 jours, ce silence ne vaut pas homologation ou acceptation tacite de la rupture conventionnelle \b0 \i \ul0 (A. Louvet, op. cit., p. 23)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 D. -  Voies de recours\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 1\'b0  Droit commun\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 82. -  \b0 \i0 \ul0  \b \i0 \ul0 Conseil des prud'hommes - \b0 \i0 \ul0 \b0 \i \ul0 "L'homologation ne peut faire l'objet d'un litige distinct de celui relatif \'e0 la convention. Tout litige concernant la convention, l'homologation ou le refus d'homologation rel\'e8ve de la comp\'e9tence du conseil des prud'hommes, \'e0 l'exclusion de tout autre recours contentieux ou administratif"\b0 \i0 \ul0  \b0 \i \ul0 (C. trav., art. L. 1237-14, al. 4, 1re et 2e phrases\b0 \i0 \ul0 . - pour un exemple de contentieux en raison d'un refus d'homologation, V. \b0 \i \ul0 Cons. prud'h. Valence, sect., 14 oct. 2008 : Semaine sociale Lamy 10 nov. 2008, p. 12)\b0 \i0 \ul0 .
+\par \pard \ql \li240\ri0 \sb120 \fi0 La comp\'e9tence du conseil des prud'hommes est donc \b \i \ul0 exclusive\b0 \i0 \ul0 . Au vu de ce texte, \b0 \i \ul0 "cela exclut la mise en oeuvre de toute autre voie de recours, non seulement les recours devant le tribunal administratif, mais \'e9galement les recours gracieux devant le DDTEFP et les recours hi\'e9rarchiques devant le ministre"\b0 \i0 \ul0  \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 83. -  \b0 \i0 \ul0  \b \i0 \ul0 Avocat salari\'e9 - \b0 \i0 \ul0 Pour les avocats salari\'e9s, \b0 \i \ul0 "les litiges n\'e9s \'e0 l'occasion d'un contrat de travail ou de la convention de rupture, de l'homologation ou du refus d'homologation de cette convention sont soumis \'e0 l'arbitrage du b\'e2tonnier, \'e0 charge d'appel devant la cour d'appel si\'e9geant en chambre du conseil"\b0 \i0 \ul0  \b0 \i \ul0 (L. n\'b0 71-1130, 31 d\'e9c. 1971 portant r\'e9forme de certaines professions judiciaires et juridiques, art. 7, dernier alin\'e9a)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 84. -  \b0 \i0 \ul0  \b \i0 \ul0 Contr\'f4le du juge judiciaire - \b0 \i0 \ul0 Le contr\'f4le effectu\'e9 par le juge judiciaire sera distinct selon la nature du litige qui lui sera soumis \b0 \i \ul0 (G. Auzero, op. cit., p. 525)\b0 \i0 \ul0 . Premi\'e8rement, le juge judiciaire saisi d'un litige relatif \'e0 un refus d'homologation devrait contr\'f4ler la motivation de ce refus sans se substituer \'e0 l'autorit\'e9 administrative \b0 \i \ul0 (G.-P. Qu\'e9tant, L'homologation de la rupture conventionnelle devant le conseil de prud'hommes : JSL 2009, n\'b0 247, p. 5)\b0 \i0 \ul0 . En effet, la validit\'e9 de la convention de rupture est subordonn\'e9e \'e0 l'homologation par l'autorit\'e9 administrative, comme le sous-entend l'alin\'e9a 3 de l'article L. 1237-14 du Code du travail. Pourtant, un conseil de prud'hommes a proc\'e9d\'e9 de lui-m\'eame \'e0 l'homologation de la rupture conventionnelle refus\'e9e par le DDTEFP, tout en lui conf\'e9rant force ex\'e9cutoire \b0 \i \ul0 (Cons. prud'h. Valence, sect., 14 oct. 2008 pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard \ql \li240\ri0 \sb120 \fi0 Deuxi\'e8mement, le juge saisi de la contestation d'une homologation pourra examiner l'existence et de la r\'e9alit\'e9 du consentement des parties, le respect de la proc\'e9dure et la cause v\'e9ritable de la rupture. Pour appr\'e9cier au mieux le litige, "le juge prud'homal pourra demander en cas de besoin au DDTEFP de lui transmettre " le formulaire de rupture conventionnelle \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 85. -  \b0 \i0 \ul0  \b \i0 \ul0 D\'e9lai de recours - \b0 \i0 \ul0 Ce recours juridictionnel est enferm\'e9 dans un d\'e9lai strict. Ce d\'e9lai est un d\'e9lai de 12 mois. Il a pour point de d\'e9part la date d'homologation de la convention \b0 \i \ul0 (C. trav., art. L. 1237-14, al. 4, 3e phrase)\b0 \i0 \ul0  ou de la d\'e9cision implicite d'acceptation \b0 \i \ul0 (Lettre-Circ. ACOSS-DIRRES n\'b0 2008-081, 16 oct. 2008 : JCP S 2008, 1576)\b0 \i0 \ul0 . \'c0 d\'e9faut d'introduire l'action dans ce d\'e9lai, celle-ci sera consid\'e9r\'e9e comme irrecevable. On notera qu'\'e0 l'occasion de ce contentieux, le salari\'e9 sera bien avis\'e9 de pr\'e9senter l'ensemble de ses demandes sans se limiter \'e0 celles relatives \'e0 la rupture conventionnelle. Il \'e9vitera ainsi de se voir opposer par la suite le principe de l'unicit\'e9 de l'instance propre \'e0 la mati\'e8re prud'homale.
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 86. -  \b0 \i0 \ul0  \b \i0 \ul0 Appel - \b0 \i0 \ul0 Si le conseil de prud'hommes saisi maintient le refus, il est possible de faire appel \b0 \i \ul0 (G.-P. Qu\'e9tant, L'homologation de la rupture conventionnelle devant le conseil de prud'hommes : JSL 2009, n\'b0 247, p. 7)\b0 \i0 \ul0  puisque la demande en contestation du refus d'homologation est une demande ind\'e9termin\'e9e \b0 \i \ul0 (CPC, art. 40)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 2\'b0  Salari\'e9 prot\'e9g\'e9\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 87. -  \b0 \i0 \ul0  \b \i0 \ul0 Recours contre la d\'e9cision de l'Inspecteur du travail - \b0 \i0 \ul0 Le Code du travail ne pr\'e9voit pas de dispositions particuli\'e8res en ce qui concerne les recours dirig\'e9s contre la d\'e9cision autorisant la rupture ou le refus d'autorisation donn\'e9e par l'inspection du travail. En ce cas, \b0 \i \ul0 "les recours classiques, administratif ou contentieux, contre les d\'e9cisions de l'inspecteur du travail demeurent alors que la juridiction prud'homale reste comp\'e9tente pour statuer sur les recours relatifs \'e0 la convention de rupture"\b0 \i0 \ul0  \b0 \i \ul0 (L. Gamet, G. Flichy, op. cit., n\'b0 920, p. 103)\b0 \i0 \ul0 .
+\par \pard \ql \li240\ri0 \sb120 \fi0 Ainsi, le recours form\'e9 contre la d\'e9cision de l'inspecteur du travail autorisant ou refusant la rupture conventionnelle peut \'eatre d\'e9f\'e9r\'e9 devant le ministre du travail \b0 \i \ul0 (C. trav., art. R. 2422-1)\b0 \i0 \ul0  ou/et devant le tribunal administratif selon la r\'e8gle de droit commun (En ce sens, \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c. - V. Fasc. 15-98)\b0 \i0 \ul0 .
+\par \pard 
+\par \fs24 \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 IV. -  Effets\fs20 \b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 88. -  \b0 \i0 \ul0  \b \i0 \ul0 Sp\'e9cificit\'e9 : absence de compensation par le budget de l'\'c9tat - \b0 \i0 \ul0 En r\'e8gle g\'e9n\'e9rale, toute mesure de r\'e9duction ou d'exon\'e9ration de cotisations de s\'e9curit\'e9 sociale donne lieu \'e0 compensation int\'e9grale aux r\'e9gimes concern\'e9s par le budget de l'\'c9tat pendant toute la dur\'e9e de son application \b0 \i \ul0 (CSS, art. L. 131-7, al. 1er)\b0 \i0 \ul0 .
+\par \pard \ql \li0\ri0 \sb120 \fi0 Pour les dispositions relatives \'e0 la rupture conventionnelle, cette mesure n'est pas applicable pour l'exon\'e9ration, pour leur fraction non assujettie \'e0 l'imp\'f4t sur le revenu, des indemnit\'e9s vers\'e9es \'e0 l'occasion de la rupture conventionnelle du contrat de travail mentionn\'e9es au douzi\'e8me alin\'e9a de l'article L. 242-1 du m\'eame code et au troisi\'e8me alin\'e9a de l'article L. 741-10 du Code rural \b0 \i \ul0 (L. n\'b0 2008-1330, 17 d\'e9c. 2008, art. 26, I, 2\'b0)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 A. -  Effets communs \'e0 l'\'e9gard des parties\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 89. -  \b0 \i0 \ul0  \b \i0 \ul0 Application de la convention de rupture - \b0 \i0 \ul0 La validit\'e9 de la convention est subordonn\'e9e \'e0 son homologation par l'autorit\'e9 administrative \b0 \i \ul0 (C. trav., art. L. 1237-14, al. 3)\b0 \i0 \ul0 . D\'e8s lors, une fois homologu\'e9e, la convention de rupture lie les parties. Elle emporte rupture du contrat de travail et application des modalit\'e9s de sa rupture.
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb120 \fi0 A contrario\b0 \i0 \ul0 , la convention de rupture non homologu\'e9e semble n'avoir aucune valeur juridique.
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 90. -  \b0 \i0 \ul0  \b \i0 \ul0 Absence d'effet purgatoire de l'homologation - \b0 \i0 \ul0 Contrairement au proc\'e8s-verbal de conciliation, l'homologation ne suffit pas \'e0 purger la convention de rupture de tout vice \b0 \i \ul0 (G.-P. Qu\'e9tant, L'homologation de la rupture conventionnelle devant le conseil de prud'hommes : JSL 2009, n\'b0 247, p. 5)\b0 \i0 \ul0 .
+\par \pard \ql \li0\ri0 \sb120 \fi0 En d\'e9pit de l'homologation, il sera possible d'agir devant le conseil de prud'hommes pour obtenir l'annulation de la convention de rupture, notamment pour vice du consentement et plus pr\'e9cis\'e9ment pour dol \b0 \i \ul0 (V. F. Gaudu, Les ruptures d'un commun accord : Dr. ouvrier 2008, p. 602)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 B. -  Effets \'e0 l'\'e9gard du salari\'e9\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 1\'b0  Allocations de ch\'f4mage\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 91. -  \b0 \i0 \ul0  \b \i0 \ul0 B\'e9n\'e9fice - \b0 \i0 \ul0 Suite \'e0 l'avis d\'e9pos\'e9 par le ministre de l'\'e9conomie, de l'industrie et de l'emploi \b0 \i \ul0 (Avis relatif \'e0 l'agr\'e9ment de l'avenant n\'b0 1 du 27 juin 2008 au r\'e8glement g\'e9n\'e9ral annex\'e9 \'e0 la convention du 18 janvier 2006 relative \'e0 l'aide au retour \'e0 l'emploi et \'e0 l'indemnisation du ch\'f4mage : Journal Officiel 10 Septembre 2008)\b0 \i0 \ul0 , le r\'e8glement g\'e9n\'e9ral annex\'e9 \'e0 la convention du 18 janvier 2006 relative \'e0 l'aide au retour \'e0 l'emploi et \'e0 l'indemnisation du ch\'f4mage a obtenu un agr\'e9ment \b0 \i \ul0 (A. 9 oct. 2008 portant agr\'e9ment de l'avenant n\'b0 1 du 27 juin 2008 au r\'e8glement g\'e9n\'e9ral annex\'e9 \'e0 la convention du 18 janvier 2006 relative \'e0 l'aide au retour \'e0 l'emploi et \'e0 l'indemnisation du ch\'f4mage : Journal Officiel 22 Novembre 2008)\b0 \i0 \ul0 .
+\par \pard \ql \li240\ri0 \sb120 \fi0 Aux termes de cet arr\'eat\'e9 du 9 octobre 2008 \b0 \i \ul0 (art. 1er)\b0 \i0 \ul0 , sont rendues obligatoires, pour tous les employeurs et tous les salari\'e9s mentionn\'e9s \'e0 l'article L. 5422-13 du Code du travail, les stipulations de l'avenant n\'b0 1 du 27 juin 2008 au r\'e8glement g\'e9n\'e9ral annex\'e9 \'e0 la convention du 18 janvier 2006 relative \'e0 l'aide au retour \'e0 l'emploi et \'e0 l'indemnisation du ch\'f4mage. D\'e8s lors, le salari\'e9 qui a conclu une convention de rupture b\'e9n\'e9ficie de l'assurance-ch\'f4mage \b0 \i \ul0 (C. trav., art. L. 5421-1 et L. 5422-1)\b0 \i0 \ul0  dans les conditions de droit commun, comme le pr\'e9voyait \'e0 l'origine l'ANI du 11 janvier 2008 \b0 \i \ul0 (V. pour quelques r\'e9flexions G. Br\'e9don, L. Flament, op. cit., p. 19 . - E. Dock\'e8s, op. cit., p. 283)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 2\'b0  Indemnit\'e9 sp\'e9cifique de rupture conventionnelle\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 92. -  \b0 \i0 \ul0  \b \i0 \ul0 Droit - \b0 \i0 \ul0 Le salari\'e9 ayant conclu une convention de rupture, dans le cadre des articles L. 1237-11 et suivants du Code du travail, a droit au versement d'une indemnit\'e9 sp\'e9cifique de rupture conventionnelle \b0 \i \ul0 (C. trav., art. L. 1237-13, al. 1er)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 a)  Modalit\'e9s de calcul\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 93. -  \b0 \i0 \ul0  \b \i0 \ul0 Montant - \b0 \i0 \ul0 Le montant de l'indemnit\'e9 sp\'e9cifique de rupture conventionnelle ne peut pas \'eatre inf\'e9rieur \'e0 celui de l'indemnit\'e9 l\'e9gale de licenciement pr\'e9vue \'e0 l'article L. 1234-9 du Code du travail \b0 \i \ul0 (C. trav., art. L. 1237-13, al. 1er)\b0 \i0 \ul0 .
+\par \pard \ql \li360\ri0 \sb120 \fi0 Depuis la loi n\'b0 2008-596 du 25 juin 2008 portant modernisation du march\'e9 du travail, le montant minimum de l'indemnit\'e9 l\'e9gale de licenciement pour motif personnel est identique \'e0 celui de l'indemnit\'e9 octroy\'e9e en cas de licenciement \'e9conomique \b0 \i \ul0 (V. Fasc. 32-2)\b0 \i0 \ul0 . Conform\'e9ment aux dispositions du d\'e9cret n\'b0 2008-715 du 18 juillet 2008 \b0 \i \ul0 (C. trav., art. R. 1234-2)\b0 \i0 \ul0 , l'indemnit\'e9 de rupture conventionnelle est \'e9gale au minimum \'e0 1/5e de mois de salaire par ann\'e9e d'anciennet\'e9, auquel s'ajoutent 2/15e de salaire par ann\'e9e au-del\'e0 de 10 ans d'anciennet\'e9.
+\par \b0 \i \ul0 \pard \ql \li360\ri0 \sb120 \fi0 A contrario\b0 \i0 \ul0 , il est possible pour les parties de pr\'e9voir une indemnit\'e9 sup\'e9rieure \'e0 ce montant. Enfin, \'e0 notre sens, il n'est pas n\'e9cessaire de faire la distinction entre les salari\'e9s selon leur anciennet\'e9 comme pour le licenciement.
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 94. -  \b0 \i0 \ul0  \b \i0 \ul0 \b \i \ul0 Date d'application\b \i0 \ul0  - \b0 \i0 \ul0 Le montant minimum d\'e9fini \'e0 l'article L. 1234-9 du Code du travail est applicable depuis l'entr\'e9e en vigueur du d\'e9cret n\'b0 2008-715 du 18 juillet 2008, soit le 20 juillet 2008. Cela signifie que les ruptures conventionnelles conclues entre le 27 juin et le 19 juillet inclus sont soumises \'e0 l'ancien montant minimum, soit 1/10e de mois de salaire par ann\'e9e d'anciennet\'e9, auquel s'ajoutent 2/15e de mois de salaire par ann\'e9e de 10 ans d'anciennet\'e9 (Pour un exemple, \b0 \i \ul0 Cons. prud'h. Valence, sect. ind., 14 oct. 2008 : Semaine sociale Lamy 10 nov. 2008, p. 12\b0 \i0 \ul0 ).
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 95. -  \b0 \i0 \ul0  \b \i0 \ul0 Base de calcul - \b0 \i0 \ul0 \b0 \i \ul0 "Conform\'e9ment \'e0 l'article L. 1234-9, alin\'e9a 1er du Code du travail, l'indemnit\'e9 est calcul\'e9e sur la moyenne des trois ou douze derniers mois de r\'e9mun\'e9ration, au plus favorable"\b0 \i0 \ul0  \b0 \i \ul0 (Circ. DGT, n\'b0 2008-11, 22 juill. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 96. -  \b0 \i0 \ul0  \b \i0 \ul0 Pr\'e9sence d'une indemnit\'e9 de licenciement conventionnelle plus favorable - \b0 \i0 \ul0 En pr\'e9sence d'une convention collective ou d'un accord collectif de travail pr\'e9voyant une indemnit\'e9 conventionnelle de licenciement plus avantageuse pour le salari\'e9, le calcul de l'indemnit\'e9 sp\'e9cifique de rupture conventionnelle doit-elle \'eatre effectu\'e9e par rapport \'e0 ce montant ? La jurisprudence n'a pas encore tranch\'e9 cette question.
+\par \pard \ql \li360\ri0 \sb120 \fi0 Selon le proc\'e8s-verbal d'interpr\'e9tation n\'b0 1 de l'ANI du 11 janvier 2008 \b0 \i \ul0 (V. supra n\'b0 1)\b0 \i0 \ul0 , m\'eame si celui-ci est d\'e9pourvu de valeur juridique contraignante (l'ensemble des signataires de l'ANI n'ayant pas donn\'e9 leur approbation), il semblerait que pour calculer l'indemnit\'e9 de rupture conventionnelle, il convient de se baser sur le montant pr\'e9vu par la convention collective \b0 \i \ul0 (V. Divergences entre les signataires de l'ANI : Semaine sociale Lamy 19 janv. 2009, p. 2)\b0 \i0 \ul0 .
+\par \pard \ql \li360\ri0 \sb120 \fi0 Face aux divergences d'interpr\'e9tation, un avenant n\'b0 4 modifie l'article 12 de l'ANI du 11 janvier 2008. Selon cette nouvelle r\'e9daction, en cas de rupture conventionnelle du CDI, l'indemnit\'e9 sp\'e9cifique ne peut \'eatre inf\'e9rieure \'e0 l'indemnit\'e9 interprofessionnelle de rupture unique, \b0 \i \ul0 "ni \'e0 l'indemnit\'e9 conventionnelle de licenciement pr\'e9vue par la convention collective applicable"\b0 \i0 \ul0 .
+\par \pard \ql \li360\ri0 \sb120 \fi0 De son c\'f4t\'e9, CGT-FO consid\'e8re qu'une convention collective peut pr\'e9voir une indemnit\'e9 sp\'e9cifique de rupture conventionnelle totalement autonome \b0 \i \ul0 (V. V. Lopez-Rivoire : Semaine sociale Lamy 19 janv. 2009, p. 4)\b0 \i0 \ul0 .
+\par \pard \ql \li360\ri0 \sb120 \fi0 Cependant, on notera que l'article L. 1237-13, alin\'e9a 1er du Code du travail ne vise que l'indemnit\'e9 l\'e9gale de licenciement.
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 b)  R\'e9gime fiscal\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 97. -  \b0 \i0 \ul0  \b \i0 \ul0 Pr\'e9sentation - \b0 \i0 \ul0 Pour la d\'e9termination du r\'e9gime fiscal des indemnit\'e9s de rupture conventionnelle, une distinction est \'e9tablie entre les salari\'e9s qui sont en droit de b\'e9n\'e9ficier d'une pension de retraite d'un r\'e9gime l\'e9galement obligatoire et ceux qui ne sont pas en droit d'en b\'e9n\'e9ficier \b0 \i \ul0 (Lettre-Circ. ACOSS-DIRRES n\'b0 2008-081, 16 oct. 2008 : JCP S 2008, 1576)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 98. -  \b0 \i0 \ul0  \b \i0 \ul0 Exon\'e9ration fiscale - \b0 \i0 \ul0 \b \i \ul0 Lorsque le salari\'e9 n'est pas en droit de b\'e9n\'e9ficier d'une pension de retraite l\'e9galement obligatoire\b0 \i0 \ul0 , ne constitue pas une r\'e9mun\'e9ration imposable \b0 \i \ul0 (C. trav., art. L. 1237-16. - CGI, art. 80 duodecies)\b0 \i0 \ul0  la fraction des indemnit\'e9s fix\'e9es dans la convention de rupture, qui n'exc\'e8de pas : 
+\par \pard 
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 - \tab}\pard \ql \li1560\fi-600 \ri0 \jclisttab\tx1560 \widctlpar\faauto\adjustright\itap0\ls13\ilvl0 \sb0 soit deux fois le montant de la r\'e9mun\'e9ration annuelle brute per\'e7ue par le salari\'e9 au cours de l'ann\'e9e civile pr\'e9c\'e9dant la rupture de son contrat de travail, ou 50 % de l'indemnit\'e9 si ce seuil est sup\'e9rieur, dans la limite de 6 fois le plafond annuel de la S\'e9curit\'e9 sociale en vigueur \'e0 la date de versement des indemnit\'e9s ;
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 - \tab}\pard \ql \li1560\fi-600 \ri0 \jclisttab\tx1560 \widctlpar\faauto\adjustright\itap0\ls13\ilvl0 \sb0 soit le montant de l'indemnit\'e9 de licenciement pr\'e9vue par la convention collective. En cons\'e9quence, les indemnit\'e9s de rupture conventionnelle sont exon\'e9r\'e9es d'imp\'f4t sur le revenu dans la limite des plafonds applicables aux indemnit\'e9s de licenciement \b0 \i \ul0 (Lettre-Circ. ACOSS-DIRRES n\'b0 2008-081, 16 oct. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 99. -  \b0 \i0 \ul0  \b \i0 \ul0 Exclusion du r\'e9gime d'exon\'e9ration fiscale - \b0 \i0 \ul0 \'c0 l'inverse, \b \i \ul0 lorsque le salari\'e9 est en droit de b\'e9n\'e9ficier d'une pension de retraite l\'e9galement obligatoire\b0 \i0 \ul0 , le r\'e9gime d'exon\'e9ration fiscale se trouve exclu. En revanche, les indemnit\'e9s vers\'e9es aux salari\'e9s en droit de b\'e9n\'e9ficier d'une pension de retraite sont exon\'e9r\'e9es d'imp\'f4t dans la limite de 3 050  EUR  \b0 \i \ul0 (CGI, art 81, 22\'b0)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 C. -  Effets \'e0 l'\'e9gard de l'employeur\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 1\'b0  R\'e9gime social\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 100. -  \b0 \i0 \ul0  \b \i0 \ul0 Pr\'e9sentation - \b0 \i0 \ul0 Pour la d\'e9termination du r\'e9gime social des indemnit\'e9s de rupture conventionnelle, une distinction est faite \'e9galement entre les salari\'e9s qui sont en droit de b\'e9n\'e9ficier d'une pension de retraite d'un r\'e9gime l\'e9galement obligatoire et ceux qui ne sont pas en droit d'en b\'e9n\'e9ficier \b0 \i \ul0 (Lettre-Circ. ACOSS-DIRRES n\'b0 2008-081, 16 oct. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 a)  Exon\'e9rations de pr\'e9l\'e8vements sociaux\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 101. -  \b0 \i0 \ul0  \b \i0 \ul0 Cotisations de s\'e9curit\'e9 sociale - \b0 \i0 \ul0 Pour les indemnit\'e9s vers\'e9es aux salari\'e9s qui ne sont pas en droit de b\'e9n\'e9ficier d'une pension de retraite l\'e9galement obligatoire, il r\'e9sulte des dispositions combin\'e9es de l'article 80 \b0 \i \ul0 duodecies\b0 \i0 \ul0  du Code G\'e9n\'e9ral des imp\'f4ts et de l'article L. 242-1, alin\'e9a 12 du Code de la s\'e9curit\'e9 sociale - tels que modifi\'e9s par l'article 5 de la loi de modernisation du march\'e9 du travail - qu'est exon\'e9r\'e9e de cotisations de s\'e9curit\'e9 sociale, la fraction des indemnit\'e9s de rupture conventionnelle qui n'exc\'e8de pas un plafond alternatif : 
+\par \pard 
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 - \tab}\pard \ql \li1560\fi-600 \ri0 \jclisttab\tx1560 \widctlpar\faauto\adjustright\itap0\ls13\ilvl0 \sb0 soit deux fois le montant de la r\'e9mun\'e9ration annuelle brute per\'e7ue par le salari\'e9 au cours de l'ann\'e9e civile pr\'e9c\'e9dant la rupture du contrat de travail ou 50 % du montant de l'indemnit\'e9 si ce seuil est sup\'e9rieur, dans la limite de six fois le plafond annuel de la s\'e9curit\'e9 sociale en vigueur \'e0 la date du versement des indemnit\'e9s ;
+\par {
+\listtext\pard \f1 \fs20 \cf \b0 \i0 \ul0 - \tab}\pard \ql \li1560\fi-600 \ri0 \jclisttab\tx1560 \widctlpar\faauto\adjustright\itap0\ls13\ilvl0 \sb0 soit le montant de l'indemnit\'e9 de licenciement pr\'e9vue par la convention collective de branche, par l'accord professionnel ou interprofessionnel ou, \'e0 d\'e9faut, par la loi.
+\par \pard \ql \li360\ri0 \sb120 \fi0 En cons\'e9quence, les indemnit\'e9s de rupture conventionnelle sont exon\'e9r\'e9es de cotisations dans la limite des plafonds applicables aux indemnit\'e9s de licenciement \b0 \i \ul0 (Lettre-Circ. ACOSS-DIRRES n\'b0 2008-081, 16 oct. 2008, pr\'e9c.)\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 102. -  \b0 \i0 \ul0  \b \i0 \ul0 CSG et CRDS - \b0 \i0 \ul0 Les indemnit\'e9s de rupture conventionnelle sont exon\'e9r\'e9es de CSG et de CRDS dans la limite du montant de l'indemnit\'e9 de licenciement pr\'e9vu par la convention collective de branche, l'accord professionnel ou interprofessionnel ou par la loi \b0 \i \ul0 (Lettre-Circ. ACOSS-DIRRES n\'b0 2008-081, 16 oct. 2008, pr\'e9c. - CSS, art. L. 136-2, II, 5\'b0)\b0 \i0 \ul0 .
+\par \pard \ql \li360\ri0 \sb120 \fi0 Si l'indemnit\'e9 de rupture conventionnelle d\'e9passe ce montant, la fraction qui le d\'e9passe est assujettie \'e0 la CSG et au CRDS \b0 \i \ul0 (Communiqu\'e9 URSSAF, 30 juin 2008 : JCP S 2008, act. 395)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 b)  Soumission aux pr\'e9l\'e8vements sociaux\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 103. -  \b0 \i0 \ul0  \b \i0 \ul0 Cotisations de s\'e9curit\'e9 sociale - \b0 \i0 \ul0 Les indemnit\'e9s de rupture conventionnelle per\'e7ues par les salari\'e9s en droit de b\'e9n\'e9ficier d'une pension de retraite sont int\'e9gralement soumises aux cotisations de s\'e9curit\'e9 sociale \b0 \i \ul0 (Lettre-Circ. ACOSS-DIRRES n\'b0 2008-081, 16 oct. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li360\ri0 \sb0 \fi0 104. -  \b0 \i0 \ul0  \b \i0 \ul0 CSG et CRDS - \b0 \i0 \ul0 Les indemnit\'e9s de rupture conventionnelle per\'e7ues par les salari\'e9s en droit de b\'e9n\'e9ficier d'une pension de retraite sont int\'e9gralement soumises \'e0 la CSG et au CRDS \b0 \i \ul0 (Lettre-Circ. ACOSS-DIRRES n\'b0 2008-081, 16 oct. 2008, pr\'e9c.)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 2\'b0  D\'e9claration aux organismes sociaux des ruptures conventionnelles des salari\'e9s de 55 ans et plus\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 105. -  \b0 \i0 \ul0  \b \i0 \ul0 Obligation - \b0 \i0 \ul0 Conform\'e9ment \'e0 l'article L. 1221-18 du Code du travail, tout employeur est tenu d'adresser \'e0 l'URSSAF dont il rel\'e8ve, au plus tard le 31 janvier de chaque ann\'e9e, une d\'e9claration indiquant le nombre de salari\'e9s partis en pr\'e9retraite ou plac\'e9s en cessation anticip\'e9e d'activit\'e9 au cours de l'ann\'e9e civile pr\'e9c\'e9dente, leur \'e2ge et le montant de l'avantage qui leur est allou\'e9. Cette d\'e9claration indique \'e9galement le nombre de mises \'e0 la retraite d'office \'e0 l'initiative de l'employeur et le nombre de salari\'e9s \'e2g\'e9s de cinquante-cinq ans et plus licenci\'e9s au cours de l'ann\'e9e civile pr\'e9c\'e9dant la d\'e9claration.
+\par \pard \ql \li240\ri0 \sb120 \fi0 Depuis l'entr\'e9e en vigueur de la loi n\'b0 2008-1330 du 17 d\'e9cembre 2008 de financement de la s\'e9curit\'e9 sociale pour 2009, devront \'eatre \'e9galement d\'e9clar\'e9s les salari\'e9s \'e2g\'e9s de 55 ans et plus ayant b\'e9n\'e9fici\'e9 de la rupture conventionnelle \b0 \i \ul0 (L., art. 90, II, 1\'b0. - C. trav., art. L. 1221-18, al. 1er, in fine. - V. F. Taquet, Les principales dispositions de la loi de financement de la s\'e9curit\'e9 sociale pour 2009 : JCP E 2009, 1027, sp\'e9c. n\'b0 22)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 106. -  \b0 \i0 \ul0  \b \i0 \ul0 Formalit\'e9s - \b0 \i0 \ul0 Un arr\'eat\'e9 du 31 d\'e9cembre 2008 fixant le mod\'e8le du formulaire \b0 \i \ul0 "D\'e9claration de d\'e9part de salari\'e9s, soit \'e0 55 ans au moins dans le cadre d'un licenciement ou d'une rupture conventionnelle, soit en cas de pr\'e9retraite d'entreprise ou de mise \'e0 la retraite d'office"\b0 \i0 \ul0  \'e9tablit un mod\'e8le de formulaire \b0 \i \ul0 (formulaire Cerfa n\'b0 13799*01 ; notice explicative Cerfa n\'b0 51305*01. - V. Fasc. 1612)\b0 \i0 \ul0 .
+\par \pard \ql \li240\ri0 \sb120 \fi0 Ce formulaire peut \'eatre imprim\'e9 ou rempli \'e9lectroniquement puis imprim\'e9 sur les sites internet www.urssaf.fr et www.service-public.gouv.fr.
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 107. -  \b0 \i0 \ul0  \b \i0 \ul0 Sanction du d\'e9faut de d\'e9claration - \b0 \i0 \ul0 Le d\'e9faut de production, dans les d\'e9lais prescrits, de cette d\'e9claration entra\'eene une p\'e9nalit\'e9 dont le montant est \'e9gal \'e0 six cent fois le taux horaire du salaire minimum de croissance (V. montant, \b0 \i \ul0 Fasc. 26-60\b0 \i0 \ul0 ).
+\par \pard \ql \li240\ri0 \sb120 \fi0 Cette p\'e9nalit\'e9 est recouvr\'e9e par l'URSSAF dont rel\'e8ve l'employeur. Son produit est affect\'e9 \'e0 la Caisse nationale d'assurance vieillesse des travailleurs salari\'e9s \b0 \i \ul0 (C. trav., art. L. 1221-18, al. 3)\b0 \i0 \ul0 .
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 3\'b0  D\'e9claration des indemnit\'e9s de rupture conventionnelle du mandataire social\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li240\ri0 \sb0 \fi0 108. -  \b0 \i0 \ul0  \b \i0 \ul0 Cons\'e9quences de l'\'e9diction du code MEDEF/AFEP - \b0 \i0 \ul0 \b0 \i \ul0 "Lorsqu'un dirigeant devient mandataire social de l'entreprise"\b0 \i0 \ul0 , le code MEDEF/AFEP recommande \b0 \i \ul0 "de mettre fin au contrat de travail qui le lie \'e0 la soci\'e9t\'e9"\b0 \i0 \ul0  notamment \b0 \i \ul0 "par rupture conventionnelle"\b0 \i0 \ul0 . Or, dans cette hypoth\'e8se, les indemnit\'e9s de rupture conventionnelle pourraient \'eatre assimil\'e9es \'e0 des primes de bienvenue ("golden handshake" ou "golden hello"). La question se pose donc de savoir si le montant de ces indemnit\'e9s doit ou non \'eatre d\'e9voil\'e9 aux actionnaires et au public. Cela ne semble pas \'eatre pr\'e9vu par le code propos\'e9 par le MEDEF et l'AFEP (En ce sens, \b0 \i \ul0 Ph. Portier, Commentaires sur les recommandations du MEDEF et de l'AFEP sur les "parachutes dor\'e9s" : JCP E 2008, 2372, n\'b0 19\b0 \i0 \ul0 ).
+\par \pard 
+\par \fs24 \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 Bibliographie\fs20 \b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 Ouvrages\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb120 \fi0 L. Gamet\b0 \i0 \ul0 \b \i0 \ul0  et G. Flichy\b0 \i0 \ul0 
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb0 \fi0 Rupture du contrat de travail\b0 \i0 \ul0  : Delmas, 2008
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 Articles\b0 \i0 \ul0 
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb120 \fi0 M.-C. Amauger-Lattes\b0 \i0 \ul0 \b \i0 \ul0  et I. Desbarats\b0 \i0 \ul0 
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb0 \fi0 Emploi des seniors et rupture conventionnelle : des liaisons dangereuses...\b0 \i0 \ul0  : Semaine sociale Lamy 5 mai 2008, p. 7
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb120 \fi0 G. Auzero\b0 \i0 \ul0 
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb0 \fi0 La rupture conventionnelle du contrat de travail : l'illusion de la s\'e9curisation\b0 \i0 \ul0  : RDT 2008, p. 522
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb120 \fi0 G. Br\'e9don\b0 \i0 \ul0 \b \i0 \ul0  et L. Flament\b0 \i0 \ul0 
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb0 \fi0 La rupture conventionnelle : une rupture amiable encadr\'e9e\b0 \i0 \ul0  : JCP S 2008, 1431, p. 17
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb120 \fi0 S. Chassagnard-Pinet\b0 \i0 \ul0 \b \i0 \ul0  et P.-Y. Verkindt\b0 \i0 \ul0 
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb0 \fi0 La rupture conventionnelle du contrat de travail\b0 \i0 \ul0  : JCP S 2008, 1365, p. 25
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb120 \fi0 E. Dock\'e8s\b0 \i0 \ul0 
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb0 \fi0 Un accord donnant, donnant, donnant, donnant...\b0 \i0 \ul0  : Dr. soc. 2008, p. 280
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb120 \fi0 A. Fabre\b0 \i0 \ul0 
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb0 \fi0 Rupture conventionnelle et champ du licenciement pour motif \'e9conomique : une exclusion troublante\b0 \i0 \ul0  : RDT 2008, p. 653
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb120 \fi0 F. Favennec-H\'e9ry\b0 \i0 \ul0 
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb0 \fi0 Le nouveau r\'e9gime de la rupture conventionnelle du contrat de travail\b0 \i0 \ul0  : Semaine sociale Lamy 21 janv. 2008, p. 3
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb0 \fi0 La rupture conventionnelle du contrat de travail, mesure phare de l'accord\b0 \i0 \ul0  : Dr. soc. 2008, p. 311
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb0 \fi0 Rupture conventionnelle du contrat de travail : quel domaine ?\b0 \i0 \ul0  : Semaine sociale Lamy 30 juin 2008, p. 12
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb120 \fi0 Fr. Gaudu\b0 \i0 \ul0 
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb0 \fi0 Les ruptures d'un commun accord\b0 \i0 \ul0  : Dr. ouvrier 2008, p. 594
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb120 \fi0 B. Gauriau\b0 \i0 \ul0 
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb0 \fi0 L'exclusivit\'e9 de la rupture conventionnelle\b0 \i0 \ul0  : Dr. soc. 2008, p. 1065
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb120 \fi0 P. Granet\b0 \i0 \ul0 
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb0 \fi0 Rupture conventionnelle d'un contrat de travail\b0 \i0 \ul0  : JCP E 2008, 2104
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb120 \fi0 T. Grumbach\b0 \i0 \ul0 
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb0 \fi0 Un premier jugement sur la rupture conventionnelle\b0 \i0 \ul0  : Semaine sociale Lamy 10 nov. 2008, p. 12
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb120 \fi0 D. Jourdan\b0 \i0 \ul0 
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb0 \fi0 R\'e9daction d'une convention de rupture d'un CDI\b0 \i0 \ul0  : JCP S 2008, 1562, p. 20
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb120 \fi0 P. Lokiec\b0 \i0 \ul0 \b \i0 \ul0  et S. Robin-Olivier\b0 \i0 \ul0 
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb0 \fi0 Rupture conventionnelle et contr\'f4le du consentement du salari\'e9\b0 \i0 \ul0  : RDT 2008, p. 550
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb120 \fi0 A. Louvet\b0 \i0 \ul0 
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb0 \fi0 La rupture conventionnelle du contrat \'e0 dur\'e9e ind\'e9termin\'e9e d'un salari\'e9 prot\'e9g\'e9\b0 \i0 \ul0  : JCP S 2008, 1645, p. 21
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb120 \fi0 S. Niel\b0 \i0 \ul0 
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb0 \fi0 Quelques aspects pratiques de la rupture conventionnelle\b0 \i0 \ul0  : Semaine sociale Lamy 30 juin 2008, p. 8
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb120 \fi0 Ph. Pacotte\b0 \i0 \ul0 
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb0 \fi0 Modernisation du march\'e9 du travail : inventaire du dispositif\b0 \i0 \ul0  : Cah. dr. entreprise n\'b0 6, nov. 2008, dossier 63
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb120 \fi0 J. P\'e9lissier\b0 \i0 \ul0 
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb0 \fi0 Modernisation de la rupture du contrat de travail\b0 \i0 \ul0  : RJS 2008, p. 679
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb120 \fi0 X. Pr\'e9tot\b0 \i0 \ul0 
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb0 \fi0 L'homologation de la rupture conventionnelle par l'autorit\'e9 administrative\b0 \i0 \ul0  : Dr. soc. 2008, p. 316
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb120 \fi0 G.-P. Qu\'e9tant\b0 \i0 \ul0 
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb0 \fi0 L'homologation de la rupture conventionnelle devant le conseil de prud'hommes\b0 \i0 \ul0  : JSL 2009, n\'b0 247, p. 4
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb120 \fi0 Fr. Taquet\b0 \i0 \ul0 
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb0 \fi0 Br\'e8ves r\'e9flexions sur la rupture conventionnelle du contrat de travail\b0 \i0 \ul0  : JCP E 2008, 1921
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb120 \fi0 Liaisons soc. suppl. janv. 2009, p. 39\b0 \i0 \ul0 
+\par \b0 \i \ul0 \pard \ql \li0\ri0 \sb0 \fi0 La rupture conventionnelle selon la circulaire\b0 \i0 \ul0  : Semaine sociale Lamy 15 sept. 2008, p. 2
+\par \pard 
+\par \b \i0 \ul0 \pard \ql \li0\ri0 \sb0 \fi0 Formule\b0 \i0 \ul0 
+\par \pard 
+\par \pard \ql \li0\ri0 \sb120 \fi0 JCl. Travail Trait\'e9, Fasc. 1612
+\par \pard 
+\par \pard 
+\par \pard 
+\par \pard 
+\par \pard \hyphpar0 \qc \li0\ri0 \sb0 \fi0 \'a9 LexisNexis SA
+\par 
+\sect \sectd \marglsxn1296\sbknone {
+\header \pard }\pard 
+\par \hyphauto1} 

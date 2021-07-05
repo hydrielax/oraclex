@@ -16,6 +16,13 @@ hr {
     margin-top: 3rem;
 }
 
+/* for icon */
+.icon {
+    width: 1.2rem;
+    margin-left: 0.5rem;
+    transform: translateY(-10%);
+}
+
 .error, .errornote, .errorlist {
     color: var(--danger);
 }

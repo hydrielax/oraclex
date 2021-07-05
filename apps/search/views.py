@@ -1,8 +1,7 @@
-from django.shortcuts import render
-from django.shortcuts import redirect
+from django.shortcuts import render, redirect 
 from django.contrib.auth.decorators import login_required
 from .forms import RequeteForm
-from .models import Jugement, MotCle, GroupeMotCle
+from apps.search.models import Jugement, MotCle, GroupeMotCle
 from .recherche import *
 
 
