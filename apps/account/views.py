@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.shortcuts import get_object_or_404
 from .models import Agent
-from .forms import UserForm, AgentForm
+from .forms import UserForm, AgentForm, RespoForm
 from django.http import HttpResponseRedirect
 
 
@@ -33,6 +33,32 @@ def EditProfile(request, username):
     context = {'user_form': user_form, 'agent_form': agent_form}
 
     return render(request, 'account/update_profile.html', context)
+
+
+def ChangeResponsable(request):
+    '''Vue pour changer le responsable'''
+
+    if request.method == 'POST':
+        #affichage de la page
+        respo_form = RespoForm(request.POST)
+        #validation du formulaire
+        if respo_form.is_valid():
+            respo = respo_form.cleaned_date['respo']
+            respo.responsable = True
+            respo.save()
+            for user in Agent.objects.all():
+                if user != respo and user.responsable:
+                    user.responsable = False
+                    user.save()
+            url = reverse("account:edit-respo")
+            return HttpResponseRedirect(url)
+
+    else:
+        respo_form = RespoForm()
+    
+    context = {'respo_form': respo_form}
+    
+    return render(request, 'account/update_respo.html', context)
 
 
 '''

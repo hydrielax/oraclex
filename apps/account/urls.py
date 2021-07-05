@@ -4,4 +4,5 @@ from . import views
 app_name = 'account'
 urlpatterns = [
     path('<slug:username>/edit', views.EditProfile, name='edit-profile'),
+    path('edit-respo/', views.ChangeResponsable, name='edit-respo'),
 ]

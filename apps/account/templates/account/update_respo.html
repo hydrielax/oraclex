@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Modifier le responsable -{% endblock %}
+
+{% block content %}
+<h1>Modifier le responsable</h1>
+
+
+<form method='POST' enctype="multipart/form-data" action='{% url "account:edit-respo" %}'>
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ respo_form.respo.label_tag }}
+                <div class="form-control-container ">
+                    {{ respo_form.respo }}
+                    <span class="form-control-state"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Confirmer le changement</button>
+</form>
+
+<br />
+<br />
+<br />
+{% endblock %}
