@@ -1,4 +1,4 @@
 <input type="checkbox"
-       onchange="window.{{ widget.attrs.id }} = this.checked;"
        ${ {% if widget.attrs.checked %}typeof window.{{ widget.attrs.id }} == 'undefined' || {% endif %}
-                window.{{ widget.attrs.id }} ? 'checked' : '' }>
+                window.{{ widget.attrs.id }} ? 'checked' : '' }
+       onchange="window.{{ widget.attrs.id }} = this.checked;">

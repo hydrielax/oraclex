@@ -26,7 +26,7 @@ class InfosJugement(forms.Form):
 
     def __str__(self):
         js = "{{name:'{}', ".format(self.jugement.file.name)
-        js += "lisible:'{}', ".format(self.jugement.lisible)
+        js += "lisible:'{}', ".format('Oui' if self.jugement.lisible else 'Non')
         js += "date:'{}', ".format(self.jugement.date_jugement)
         js += "juridiction:'{}', ".format(self.jugement.juridiction)
         js += "gain:'{}', ".format(self.jugement.gain)
