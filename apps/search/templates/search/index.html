@@ -6,6 +6,18 @@
     <h1>Recherche</h1>
     <h2>Paramètres de la recherche</h2>
     <form method="POST">{% csrf_token %}
+        <div class="fieldWrapper form-group">
+            <label class="font-weight-medium mb-2" for="addreceivers1">Add receivers</label>
+            <div class="form-control-container form-chips-container" data-component="chips">
+                <input data-role="typewriter" type="text" class="chips-input stretchy" id="addreceivers1" />
+                <label class="font-weight-medium mb-2 sr-only" for="receivers1">Receivers</label>
+                <select class="sr-only" data-role="input" tabindex="-1" aria-hidden="true" id="receivers1" multiple>
+                    <option selected>Sem Inceptos Tellus</option>
+                    <option>Amet Porta</option>
+                    <option selected>Pharetra Fusce Venenatis</option>
+                </select>
+            </div>
+        </div>
         <div class="row">
             <div class="col">
                 <div class="fieldWrapper form-group">
