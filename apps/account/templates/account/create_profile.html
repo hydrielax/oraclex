@@ -34,27 +34,7 @@
 <form method='POST' enctype="multipart/form-data" class="needs-validation" novalidate>
     {% csrf_token %}
     <div class="row">
-        {% for field in form %}
-            <div class="col-12 col-md-6">
-                <div class="form-group">
-                    <label class="{% if field.field.required %}required{% endif %}" for="{{ field.auto_id }}">{{ field.label }}</label> :<br>
-                    <div class="form-control-container {% if field.errors %}is-invalid{% endif %}">
-                        {{ field }}
-                        <span class="form-control-state"></span>
-                    </div>
-                    {% if field.help_text %}
-                        <small style="color: grey">{{ field.help_text }}</small>
-                    {% endif %}
-                    {% if field.errors %}
-                        <div class="invalid-feedback"><ul>
-                        {% for error in field.errors %}
-                            <li>{{ error }}</li>
-                        {% endfor %}
-                        </ul></div>
-                    {% endif %}
-                </div>
-            </div>
-        {% endfor %}
+        {% include 'forms/form.html' with form=form %}
     </div>
     <button type="submit" class="btn btn-primary">Valider</button>
 </form>

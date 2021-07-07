@@ -21,18 +21,10 @@
     </div>
 {% endif %}
 
-<form method='POST' enctype="multipart/form-data" action='{% url "account:edit-respo" %}'>
+<form method='POST' enctype="multipart/form-data" class="needs-validation" novalidate>
     {% csrf_token %}
     <div class="row">
-        <div class="col-12 col-md-6">
-            <div class="form-group">
-                {{ respo_form.respo.label_tag }}
-                <div class="form-control-container ">
-                    {{ respo_form.respo }}
-                    <span class="form-control-state"></span>
-                </div>
-            </div>
-        </div>
+        {% include 'forms/form.html' with form=respo_form %}
     </div>
     <button type="submit" class="btn btn-primary">Confirmer le changement</button>
 </form>

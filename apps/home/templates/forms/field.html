@@ -1,0 +1,17 @@
+<div class="form-group">
+    <label class="{% if field.field.required %}required{% endif %}" for="{{ field.auto_id }}">{{ field.label }}</label> :<br>
+    <div class="form-control-container {% if field.errors %}is-invalid{% endif %}">
+        {{ field }}
+        <span class="form-control-state"></span>
+    </div>
+    {% if field.help_text %}
+        <small id="passwordHelpBlock" class="form-text text-muted">{{ field.help_text }}</small>
+    {% endif %}
+    {% if field.errors %}
+        <div class="invalid-feedback"><ul>
+        {% for error in field.errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+        </ul></div>
+    {% endif %}
+</div>
