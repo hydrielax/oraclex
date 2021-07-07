@@ -21,30 +21,38 @@
     </div>
 {% endif %}
 
-<h2>Informations générales</h2>
+{% if form.errors %}
+ <div class="form-error mb-3 text-white">
+    <h2 class="text-white text-uppercase">Oouups ! Vous avez une erreur</h2>
+    {% for error in form.non_field_errors %}
+        {{error}}
+    {% endfor %}
+  </div>
+{% endif %}
 
+<br>
 
-<form method='POST' enctype="multipart/form-data">
+<form method='POST' enctype="multipart/form-data" class="needs-validation" novalidate>
     {% csrf_token %}
     <div class="row">
         {% for field in form %}
             <div class="col-12 col-md-6">
                 <div class="form-group">
-                    {{ field.label_tag }}<br>
-                    <div class="form-control-container ">
+                    <label class="{% if field.field.required %}required{% endif %}" for="{{ field.auto_id }}">{{ field.label }}</label> :<br>
+                    <div class="form-control-container {% if field.errors %}is-invalid{% endif %}">
                         {{ field }}
                         <span class="form-control-state"></span>
-                        {% if field.help_text %}
-                            <small style="color: grey">{{ field.help_text }}</small>
-                        {% endif %}
-                        {% if field.errors %}
-                            <div class="invalid-feedback"><ul>
-                                {% for error in field.errors %}
-                                <li style="color: red">{{ error }}</li>
-                                {% endfor %}
-                            </ul></div>
-                        {% endif %}
                     </div>
+                    {% if field.help_text %}
+                        <small style="color: grey">{{ field.help_text }}</small>
+                    {% endif %}
+                    {% if field.errors %}
+                        <div class="invalid-feedback"><ul>
+                        {% for error in field.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                        </ul></div>
+                    {% endif %}
                 </div>
             </div>
         {% endfor %}
@@ -52,6 +60,16 @@
     <button type="submit" class="btn btn-primary">Valider</button>
 </form>
 
+<script>
+    function create_username() {
+        input = document.getElementById('id_username');
+        if (input.value == "") {
+            first_name = document.getElementById('id_first_name').value[0].toLowerCase();
+            last_name = document.getElementById('id_last_name').value.split(' ')[0].toLowerCase();
+            input.value = first_name + last_name;
+        }
+    }
+</script>
 <br />
 <p><a href="{% url 'home:home' %}">Revenir à l'accueil</a></p>
 <br />

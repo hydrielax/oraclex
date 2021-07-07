@@ -23,9 +23,11 @@ hr {
     transform: translateY(-10%);
 }
 
+/*
 .error, .errornote, .errorlist {
     color: var(--danger);
 }
+*/
 
 
 /* PIED DE PAGE EN BAS */

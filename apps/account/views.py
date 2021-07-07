@@ -73,17 +73,15 @@ def ChangeResponsable(request):
 def AddUser(request):
     '''Vue pour ajouter un utilisateur'''
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
-            agent = Agent(user=user)
-            agent.save()
-            return redirect('home:home')
+            Agent.objects.create(user=user)
     else:
-        form = UserCreationForm()
+        form = CreateUserForm()
     return render(request, 'account/create_profile.html', {'form': form})
 
 
@@ -112,29 +110,3 @@ class AddUserView(FormView):
         agent.save()
         return redirect(reverse('account:profile-created'))
 
-
-
-def ProfileCreated(request):
-    '''Valider la création de compte'''
-    return render(request, 'account/profile_created.html')
-
-
-
-'''
-class EditProfile(UserPassesTestMixin, UpdateView):
-    model = Agent
-    fields = ['first_name', 'last_name', 'username', 'email', 'telephone' ]
-    template_name = 'account/update_profile.html'
-
-    def get_success_url(self):
-        return reverse("account:edit-profile", kwargs={'username': self.object.username})
-
-    def get_object(self):
-        # We get records by primary key, which ensures that
-        # changes in the title or slug doesn't break links
-        return get_object_or_404(Agent, username=self.kwargs['username'])
-
-    def test_func(self):
-        self.object = self.get_object()
-        return self.object == self.request.user or self.request.user.is_superuser
-'''

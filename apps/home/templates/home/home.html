@@ -75,23 +75,25 @@
         </a>
     </div>
     <div class="col-6 col-sm-4 col-md-3 d-flex gb-4">
-        <a class="flex-fluid btn-light gx-3 gy-2 rounded" href="{% url 'account:edit-respo' %}">
-            <table style="height:100%; width:100%;"><tbody><tr>
-                <td class="text-center align-middle">Changer le responsable du site</td>
-            </tr></tbody></table>
-        </a>
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 d-flex gb-4">
         <a class="flex-fluid btn-light gx-3 gy-2 rounded" href="{% url 'account:edit-profile' user.username %}">
             <table style="height:100%; width:100%;"><tbody><tr>
                 <td class="text-center align-middle">Modifier mon compte</td>
             </tr></tbody></table>
         </a>
     </div>
+    {% if user.agent.responsable %}
+        <div class="col-6 col-sm-4 col-md-3 d-flex gb-4">
+            <a class="flex-fluid btn-light gx-3 gy-2 rounded" href="{% url 'account:add-user' %}">
+                <table style="height:100%; width:100%;"><tbody><tr>
+                    <td class="text-center align-middle">Ajouter un utilisateur</td>
+                </tr></tbody></table>
+            </a>
+        </div>
+    {% endif %}
     <div class="col-6 col-sm-4 col-md-3 d-flex gb-4">
-        <a class="flex-fluid btn-light gx-3 gy-2 rounded" href="{% url 'account:add-user' %}">
+        <a class="flex-fluid btn-light gx-3 gy-2 rounded" href="{% url 'account:edit-respo' %}">
             <table style="height:100%; width:100%;"><tbody><tr>
-                <td class="text-center align-middle">Ajouter un utilisateur</td>
+                <td class="text-center align-middle">Changer le responsable du site</td>
             </tr></tbody></table>
         </a>
     </div>
@@ -114,7 +116,7 @@
             <ul>
                 <li><strong>{{ respo.name }}</strong></li>
                 <li>Email : <a href='mailto:{{ respo.user.email }}'>{{ respo.user.email }}</a></li>
-                <li>Téléphone : <a href='tel:{{ respo.telephone }}'>{{ respo.telephone }}</a></li>
+                <li>Téléphone : {% if respo.telephone %}<a href='tel:{{ respo.telephone }}'>{{ respo.telephone }}</a></li>{% endif %}
             </ul>
         {% else %}
             <p><i>Aucun responsable n'a été défini.</i></p>
