@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Ajouter un utilisateur -{% endblock %}
+
+{% block content %}
+<h1>Ajouter un utilisateur</h1>
+
+{% if form.is_valid %}
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </symbol>
+    </svg>
+    <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+        <div>
+            Le compte a bien été créé.
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="padding: 1rem 1rem;"></button>
+    </div>
+{% endif %}
+
+{% if form.errors %}
+ <div class="form-error mb-3 text-white">
+    <h2 class="text-white text-uppercase">Oouups ! Vous avez une erreur</h2>
+    {% for error in form.non_field_errors %}
+        {{error}}
+    {% endfor %}
+  </div>
+{% endif %}
+
+
+<form method='POST' enctype="multipart/form-data" class="needs-validation" novalidate>
+    {% csrf_token %}
+    <div class="row">
+        {% for field in form %}
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label class="{% if field.field.required %}required{% endif %}" for="{{ field.auto_id }}">{{ field.label }}</label> :<br>
+                    <div class="form-control-container {% if field.errors %}is-invalid{% endif %}">
+                        {{ field }}
+                        <span class="form-control-state"></span>
+                    </div>
+                    {% if field.help_text %}
+                        <small style="color: grey">{{ field.help_text }}</small>
+                    {% endif %}
+                    {% if field.errors %}
+                        <div class="invalid-feedback"><ul>
+                        {% for error in field.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                        </ul></div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <button type="submit" class="btn btn-primary">Valider</button>
+</form>
+
+<script>
+    function create_username() {
+        input = document.getElementById('id_username');
+        if (input.value == "") {
+            first_name = document.getElementById('id_first_name').value[0].toLowerCase();
+            last_name = document.getElementById('id_last_name').value.split(' ')[0].toLowerCase();
+            input.value = first_name + last_name;
+        }
+    }
+</script>
+<br />
+<p><a href="{% url 'home:home' %}">Revenir à l'accueil</a></p>
+<br />
+<br />
+<br />
+{% endblock %}

@@ -31,7 +31,7 @@
 <p>
     Oraclex est un logiciel web vous permettant de consulter et utiliser 
     toutes les décisions de justice archivées de la SNCF. Pour commencer, 
-    choisissez un outil ci-dessous !
+    choisissez un outil ci-dessous !
 </p>
 <br>
 <h3>Outils principaux</h3>
@@ -41,7 +41,7 @@
         <a class="d-flex flex-column flex-fluid edito-packshot gx-3 gy-3 gy-md-4 gx-md-4 rounded big" href="{% url 'search:index' %}" style="--choice: var(--purple)">
             <div class="d-flex flex-column flex-fluid">
                 <h2>Recherche</h2>
-                <p class="d-none d-sm-flex">Recherchez des décisions de justice à partir de mots-clés, dates, villes...</p>
+                <p>Recherchez des décisions de justice à partir de mots-clés, dates, villes...</p>
             </div>
         </a>
     </div>
@@ -49,7 +49,7 @@
         <a class="d-flex flex-column flex-fluid edito-packshot gx-3 gy-3 gy-md-4 gx-md-4 rounded big" href="{% url 'predict:index' %}" style="--choice: var(--pink)">
             <div class="d-flex flex-column flex-fluid">
                 <h2>Prédiction</h2>
-                <p class="d-none d-sm-flex">Laissez l'Intelligence Artificielle prédire une décision à partir d'une liste de mots-clés !</p>
+                <p>Laissez l'Intelligence Artificielle prédire une décision à partir d'une liste de mots-clés !</p>
             </div>
         </a>
     </div>
@@ -57,9 +57,33 @@
         <a class="d-flex flex-column flex-fluid edito-packshot gx-3 gy-3 gy-md-4 gx-md-4 rounded big" href="{% url 'add_file:index' %}" style="--choice: var(--red)">
             <div class="d-flex flex-column flex-fluid">
                 <h2>Ajout de fichiers</h2>
-                <p class="d-none d-sm-flex">Un procès vient de se terminer ? Ajoutez la décision de justice à la base de données !</p>
+                <p>Un procès vient de se terminer ? Ajoutez la décision de justice à la base de données !</p>
             </div>
         </a>
+    </div>
+</div>
+<br>
+
+<div class="row">
+    <div class="col-12 col-sm-6 gb-4">
+        <h3>Reponsable du site</h3>
+        {% if respo %}
+            <ul>
+                <li><strong>{{ respo.name }}</strong></li>
+                <li>Email : <a href='mailto:{{ respo.user.email }}'>{{ respo.user.email }}</a></li>
+                <li>Téléphone : {% if respo.telephone %}<a href='tel:{{ respo.telephone }}'>{{ respo.telephone }}</a></li>{% endif %}
+            </ul>
+        {% else %}
+            <p><i>Aucun responsable n'a été défini.</i></p>
+        {% endif %}
+    </div>
+    <div class="col-12 col-sm-6 gb-4">
+        <h3>État de la base de données</h3>
+        <ul>
+            <li>Nombre total de décisions : <strong class='text-primary'>{{ stats_bdd.total }}</strong></li>
+            <li>Nombre de décisions lisibles : <strong class='text-success'>{{ stats_bdd.lisible }}</strong></li>
+            <li>Nombre de décisions illisibles : <strong class='text-danger'>{{ stats_bdd.illisible }}</strong></li>
+        </ul>
     </div>
 </div>
 <br>
@@ -75,51 +99,27 @@
         </a>
     </div>
     <div class="col-6 col-sm-4 col-md-3 d-flex gb-4">
-        <a class="flex-fluid btn-light gx-3 gy-2 rounded" href="{% url 'account:edit-respo' %}">
-            <table style="height:100%; width:100%;"><tbody><tr>
-                <td class="text-center align-middle">Changer le responsable du site</td>
-            </tr></tbody></table>
-        </a>
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 d-flex gb-4">
-        <a class="flex-fluid btn-light gx-3 gy-2 rounded" href="{% url 'account:edit-profile' user.username %}">
+        <a class="flex-fluid btn-light gx-3 gy-2 rounded" href="{% url 'account:edit-profile' %}">
             <table style="height:100%; width:100%;"><tbody><tr>
                 <td class="text-center align-middle">Modifier mon compte</td>
             </tr></tbody></table>
         </a>
     </div>
+    {% if user.agent.responsable %}
+        <div class="col-6 col-sm-4 col-md-3 d-flex gb-4">
+            <a class="flex-fluid btn-light gx-3 gy-2 rounded" href="{% url 'account:add-user' %}">
+                <table style="height:100%; width:100%;"><tbody><tr>
+                    <td class="text-center align-middle">Ajouter un utilisateur</td>
+                </tr></tbody></table>
+            </a>
+        </div>
+    {% endif %}
     <div class="col-6 col-sm-4 col-md-3 d-flex gb-4">
-        <a class="flex-fluid btn-light gx-3 gy-2 rounded" href="">
+        <a class="flex-fluid btn-light gx-3 gy-2 rounded" href="{% url 'account:edit-respo' %}">
             <table style="height:100%; width:100%;"><tbody><tr>
-                <td class="text-center align-middle">Ajouter un utilisateur</td>
+                <td class="text-center align-middle">Modifier le responsable du site</td>
             </tr></tbody></table>
         </a>
     </div>
 </div>
-<br>
-<br>
-
-<div class="row">
-    <div class="col-12 col-sm-6 gb-4">
-        <h3>État de la base de données</h3>
-        <ul>
-            <li>Nombre total de décisions : <strong class='text-primary'>{{ stats_bdd.total }}</strong></li>
-            <li>Nombre de décisions lisibles : <strong class='text-success'>{{ stats_bdd.lisible }}</strong></li>
-            <li>Nombre de décisions illisibles : <strong class='text-danger'>{{ stats_bdd.illisible }}</strong></li>
-        </ul>
-    </div>
-    <div class="col-12 col-sm-6 gb-4">
-        <h3>Reponsable du site</h3>
-        {% if respo %}
-            <ul>
-                <li><strong>{{ respo.name }}</strong></li>
-                <li>Email : <a href='mailto:{{ respo.user.email }}'>{{ respo.user.email }}</a></li>
-                <li>Téléphone : <a href='tel:{{ respo.telephone }}'>{{ respo.telephone }}</a></li>
-            </ul>
-        {% else %}
-            <p><i>Aucun responsable n'a été défini.</i></p>
-        {% endif %}
-    </div>
-</div>
-
 {% endblock %}

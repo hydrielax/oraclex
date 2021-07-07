@@ -1,18 +1,22 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
+from django.utils.text import slugify
 from django.urls import reverse
-from django.views.generic.edit import CreateView, UpdateView
+from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import UserPassesTestMixin
-from django.shortcuts import get_object_or_404
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login, authenticate
+from django.views.generic.edit import CreateView, UpdateView, FormView
+
 from .models import Agent
-from .forms import UserForm, AgentForm, RespoForm
-from django.http import HttpResponseRedirect
+from .forms import UserForm, AgentForm, RespoForm, CreateUserForm
 
 
-def EditProfile(request, username):
+
+def EditProfile(request):
     '''Vue d'édition du profil'''
 
-    my_user = User.objects.get(username = username)
+    my_user = request.user
     my_agent = Agent.objects.get(user = my_user)
 
     if request.method == 'POST':
@@ -23,9 +27,6 @@ def EditProfile(request, username):
         if user_form.is_valid() and agent_form.is_valid():
             user_form.save()
             agent_form.save()
-            #url = reverse("account:edit-profile", kwargs={'username': username})
-            #return HttpResponseRedirect(url)
-
     else:
         user_form = UserForm(instance=my_user)
         agent_form = AgentForm(instance=my_agent)
@@ -38,7 +39,6 @@ def EditProfile(request, username):
 def ChangeResponsable(request):
     '''Vue pour changer le responsable'''
 
-    context = {}
     respo_actuel = Agent.objects.filter(responsable=True)
     if respo_actuel:
         respo_actuel = respo_actuel[0]
@@ -50,8 +50,6 @@ def ChangeResponsable(request):
         respo_form = RespoForm(request.POST, initial={'respo': respo_actuel})
         #validation du formulaire
         if respo_form.is_valid():
-            print('valider')
-            context['form_complete'] = True
             respo = respo_form.cleaned_data['respo']
             if respo:
                 respo.responsable = True
@@ -64,26 +62,24 @@ def ChangeResponsable(request):
     else:
         respo_form = RespoForm(initial={'respo': respo_actuel})
     
-    context['respo_form'] = respo_form
-    
+    context = {'respo_form': respo_form}
     return render(request, 'account/update_respo.html', context)
 
 
-'''
-class EditProfile(UserPassesTestMixin, UpdateView):
-    model = Agent
-    fields = ['first_name', 'last_name', 'username', 'email', 'telephone' ]
-    template_name = 'account/update_profile.html'
 
-    def get_success_url(self):
-        return reverse("account:edit-profile", kwargs={'username': self.object.username})
+def AddUser(request):
+    '''Vue pour ajouter un utilisateur'''
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            Agent.objects.create(user=user)
+    else:
+        form = CreateUserForm()
+    return render(request, 'account/create_profile.html', {'form': form})
 
-    def get_object(self):
-        # We get records by primary key, which ensures that
-        # changes in the title or slug doesn't break links
-        return get_object_or_404(Agent, username=self.kwargs['username'])
 
-    def test_func(self):
-        self.object = self.get_object()
-        return self.object == self.request.user or self.request.user.is_superuser
-'''
+

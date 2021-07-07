@@ -6,8 +6,8 @@
     <h1>Résultats</h1>
     <h2>Paramètres entrés</h2>
     <table>
-        <tr><th>Date minimale : </th><td>{{ parametres.dateMin | default_if_none:"1900 01" }}</td></tr>
-        <tr><th>Date maximale : </th><td>{{ parametres.dateMax | default_if_none:"Aujourd'hui" }}</td></tr>
+        <tr><th>Date minimale : </th><td>{{ parametres.dateMin | default_if_none:"1900 01" }}</td></tr>
+        <tr><th>Date maximale : </th><td>{{ parametres.dateMax | default_if_none:"Aujourd'hui" }}</td></tr>
         <tr><th>Type de Juridiction : </th><td>{{ parametres.type_juridiction | default_if_none:"Toutes" }}</td></tr>
         <tr><th>Juridiction : </th><td>{{ parametres.juridiction | default_if_none:"Toutes" }}</td></tr>
         <tr>
@@ -163,7 +163,6 @@
             {% endfor %}
         </ul>
     </div-->
-    <br><br>
     <h2 class="text-info2">Prédiction</h2>
     {% else %}
     <p class="text-danger">Aucun jugement ne correspond à votre recherche</p>

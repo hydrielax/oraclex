@@ -1,9 +1,9 @@
-<button class="btn btn-light" onclick="document.getElementById('{{ widget.attrs.id }}').click()">
-    {{ widget.text }} &nbsp;
-    <i class="icons-external-link" aria-hidden="true"></i>
-</button>
 <input type="{{ widget.type }}"
        name="{{ widget.name }}"
        style="display:none"
        onchange="document.getElementById('{{ widget.form.id }}').submit()"
       {% include "django/forms/widgets/attrs.html" %}>
+<button class="btn btn-light" onclick="document.getElementById('{{ widget.attrs.id }}').click();">
+    {{ widget.text }} &nbsp;
+    <i class="icons-file" aria-hidden="true"></i>
+</button>

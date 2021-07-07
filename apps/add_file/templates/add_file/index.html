@@ -4,16 +4,10 @@
 
 {% block content %}
     <style>
-        .table {
-            margin-bottom: 1.5rem;
-        }
-        .btn-outline-gray {
+        .btn-light-outline {
             background-color: var(--white);
             color: var(--dark);
             border-color: #d9d9d9;
-        }
-        form {
-            margin-bottom: 2rem;
         }
     </style>
 
@@ -21,12 +15,40 @@
         Ajout de fichiers
     </h1>
 
-    {{ tableau }}
+    {% if tableau %}
+    <table class="table mb-4" id="tableau">
+        <script>
+            var s = 1;
+            function display_table(sort_field) {
+                var table = {{ tableau }};
+                var html = "<thead><tr>";
+                for (const [field, name] of Object.entries(table[0])) {
+                    html += "<th class='align-middle'>";
+                    html += `<a class="d-flex" href="javascript:display_table('${field}');">${name}&nbsp;&nbsp;`;
+                    html += `<i class="dropdown-toggle${s>0?'':' icons-flip-vertical'}${field==sort_field?'':' invisible'}">`;
+                    html += "</i></a></th>";
+                } html += "</tr></thead>";
+                table.shift();
+                table.sort((r1, r2) => r1[sort_field].toLowerCase() > r2[sort_field].toLowerCase() ? s : -s);
+                s = -s;
+                html += "<tbody>";
+                for(const row of table) {
+                    html += "<tr>";
+                    for (const value of Object.values(row)) {
+                        html += `<td class='text-truncate' style="max-width: 20vw;">${value}</td>`;
+                    } html += "</tr>";
+                } html += "</tbody>";
+                document.getElementById("tableau").innerHTML = html;
+            }
+        display_table('name');
+        </script>
+    </table>
+    {% endif %}
 
-    <form id="{{ selection.id }}" action="/ajout/" method="POST" enctype="multipart/form-data">
+    <form class="text-nowrap" id="{{ selection.id }}" method="POST" enctype="multipart/form-data">
         {% csrf_token %} {{ selection }}
         {% if tableau %}
-        <button class="btn btn-light btn-outline-gray" onclick="window.location.href='/ajout'">Annuler</button>
+        <button class="btn btn-light btn-light-outline" onclick="window.location.href=''">Annuler</button>
         <button class="btn btn-outline-success" type="button">Valider</button>
         {% endif %}
     </form>
