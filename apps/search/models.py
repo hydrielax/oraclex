@@ -1,7 +1,6 @@
 from django.db import models
 from django.urls import reverse
-from datetime import date
-from apps.add_file.conversion import *
+from apps.add_file.analyse import *
 import os
 import random
 
@@ -33,9 +32,12 @@ class MotCle(models.Model):
         verbose_name = "Mot-clé"
         verbose_name_plural = "Mots-clés"
 
+    @property
+    def variantes(self):
+        return {self.nom, self.variante1, self.variante2, self.variante3}
+
     def __str__(self):
         return self.nom
-
 
 
 class TypeJuridiction(models.Model):
@@ -51,7 +53,6 @@ class TypeJuridiction(models.Model):
 
     def __str__(self):
         return self.nom
-
 
 
 class Juridiction(models.Model):
@@ -91,14 +92,13 @@ class Jugement(models.Model):
 
     def get_absolute_url(self):
         return reverse('jugement', args=[self.id])
-    
+
     @classmethod
     def create(cls, f):
+        text = extractText(f.file)
         jugement = cls(file=f, lisible=random.choice([True, False]))
+        print(findKeywords(text, MotCle.objects.all()))
         return jugement
-
-
-
 
 
 class Responsable(models.Model):
