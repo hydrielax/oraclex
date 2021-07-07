@@ -2,7 +2,6 @@ from django.db import models
 from django.urls import reverse
 from apps.add_file.analyse import *
 import os
-import random
 
 
 class GroupeMotCle(models.Model):
@@ -96,7 +95,7 @@ class Jugement(models.Model):
     @classmethod
     def create(cls, f):
         text = extractText(f.file)
-        jugement = cls(file=f, lisible=random.choice([True, False]))
+        jugement = cls(file=f)
         print(findKeywords(text, MotCle.objects.all()))
         return jugement
 

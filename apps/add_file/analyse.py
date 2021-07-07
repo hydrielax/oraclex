@@ -1,11 +1,11 @@
 from pdf2image import convert_from_bytes
-import pytesseract
+from pytesseract import image_to_string
 
 def extractText(file):
   text = ''
   pages = convert_from_bytes(file.read())
   for page in pages:
-      text += pytesseract.image_to_string(page, lang='fra')
+      text += image_to_string(page, lang='fra')
   return text
 
 def findKeywords(text, keywords):
