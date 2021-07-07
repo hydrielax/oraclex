@@ -61,13 +61,13 @@
                                     {% if user.agent %}
                                         <span>{{ user.agent }}</span>
                                     {% else %}
-                                        <span>Pirate !</span>
+                                        <span>Pirate !</span>
                                     {% endif %}
                                     <i class="icons-menu-account" style="margin-left: 10px;" aria-hidden="true"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-right" role="menu">
                                     <li><a class="dropdown-item" href="{% url 'account:edit-profile' %}"%>Modifier mon profil</a></li>
-                                    <li><a class="dropdown-item" href="{% url 'account:add-user' %}">Ajouter un utilisateur</a></li>
+                                    <!--li><a class="dropdown-item" href="{% url 'account:add-user' %}">Ajouter un utilisateur</a></li-->
                                     <li><a class="dropdown-item" href="{% url 'logout' %}">Me déconnecter</a></li>
                                 </ul> 
                             </div>

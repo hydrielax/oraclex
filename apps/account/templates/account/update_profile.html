@@ -24,14 +24,16 @@
 
 {% if user_form.errors or agent_form.errors %}
  <div class="form-error mb-3 text-white">
-    <h2 class="text-white text-uppercase">Oouups ! Vous avez une erreur</h2>
-    {% for error in user_form.non_field_errors|add:agent_form.non_field_errors %}
+    <h2 class="text-white text-uppercase">Oouups ! Vous avez une erreur</h2>
+    {% for error in user_form.non_field_errors %}
+        {{error}}
+    {% endfor %}
+    {% for error in agent_form.non_field_errors %}
         {{error}}
     {% endfor %}
   </div>
 {% endif %}
 
-<br>
 
 <form method='POST' enctype="multipart/form-data" class="needs-validation" novalidate>
     {% csrf_token %}

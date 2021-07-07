@@ -23,14 +23,13 @@
 
 {% if form.errors %}
  <div class="form-error mb-3 text-white">
-    <h2 class="text-white text-uppercase">Oouups ! Vous avez une erreur</h2>
+    <h2 class="text-white text-uppercase">Oouups ! Vous avez une erreur</h2>
     {% for error in form.non_field_errors %}
         {{error}}
     {% endfor %}
   </div>
 {% endif %}
 
-<br>
 
 <form method='POST' enctype="multipart/form-data" class="needs-validation" novalidate>
     {% csrf_token %}
