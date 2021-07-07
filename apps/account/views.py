@@ -13,10 +13,10 @@ from .forms import UserForm, AgentForm, RespoForm, CreateUserForm
 
 
 
-def EditProfile(request, username):
+def EditProfile(request):
     '''Vue d'édition du profil'''
 
-    my_user = User.objects.get(username = username)
+    my_user = request.user
     my_agent = Agent.objects.get(user = my_user)
 
     if request.method == 'POST':
@@ -27,9 +27,6 @@ def EditProfile(request, username):
         if user_form.is_valid() and agent_form.is_valid():
             user_form.save()
             agent_form.save()
-            #url = reverse("account:edit-profile", kwargs={'username': username})
-            #return HttpResponseRedirect(url)
-
     else:
         user_form = UserForm(instance=my_user)
         agent_form = AgentForm(instance=my_agent)
@@ -85,28 +82,4 @@ def AddUser(request):
     return render(request, 'account/create_profile.html', {'form': form})
 
 
-
-class AddUserView(FormView):
-    template_name = 'account/create_profile.html'
-    form_class = CreateUserForm
-
-    def form_valid(self, form):
-        user = form.save()
-        # create a unique user name
-        initial = form.cleaned_data.get('first_name')[0]
-        last_name = slugify(form.cleaned_data.get('last_name'))
-        username = initial+last_name
-        if User.objects.filter(username=username):
-            id = 1
-            usernameid = f'{username}-{id}'
-            while User.objects.filter(username = usernameid):
-                id += 1
-                usernameid = f'{username}-{id}'
-            username = usernameid
-        user.username = username
-        print(username)
-        user.save()
-        agent = Agent(user = user)
-        agent.save()
-        return redirect(reverse('account:profile-created'))
 

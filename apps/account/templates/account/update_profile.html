@@ -21,53 +21,68 @@
     </div>
 {% endif %}
 
-<h2>Informations générales</h2>
 
+{% if user_form.errors or agent_form.errors %}
+ <div class="form-error mb-3 text-white">
+    <h2 class="text-white text-uppercase">Oouups ! Vous avez une erreur</h2>
+    {% for error in user_form.non_field_errors|add:agent_form.non_field_errors %}
+        {{error}}
+    {% endfor %}
+  </div>
+{% endif %}
 
-<form method='POST' enctype="multipart/form-data" action='{% url "account:edit-profile" user.username %}'>
+<br>
+
+<form method='POST' enctype="multipart/form-data" class="needs-validation" novalidate>
     {% csrf_token %}
     <div class="row">
-        <div class="col-12 col-md-6">
-            <div class="form-group">
-                {{ user_form.first_name.label_tag }}
-                <div class="form-control-container ">
-                    {{ user_form.first_name }}
-                    <span class="form-control-state"></span>
+        {% for field in user_form %}
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label class="{% if field.field.required %}required{% endif %}" for="{{ field.auto_id }}">{{ field.label }}</label> :<br>
+                    <div class="form-control-container {% if field.errors %}is-invalid{% endif %}">
+                        {{ field }}
+                        <span class="form-control-state"></span>
+                    </div>
+                    {% if field.help_text %}
+                        <small style="color: grey">{{ field.help_text }}</small>
+                    {% endif %}
+                    {% if field.errors %}
+                        <div class="invalid-feedback"><ul>
+                        {% for error in field.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                        </ul></div>
+                    {% endif %}
                 </div>
             </div>
-        </div>
-        <div class="col-12 col-md-6">
-            <div class="form-group">
-                {{ user_form.last_name.label_tag }}
-                <div class="form-control-container ">
-                    {{ user_form.last_name }}
-                    <span class="form-control-state"></span>
+        {% endfor %}
+        {% for field in agent_form %}
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label class="{% if field.field.required %}required{% endif %}" for="{{ field.auto_id }}">{{ field.label }}</label> :<br>
+                    <div class="form-control-container {% if field.errors %}is-invalid{% endif %}">
+                        {{ field }}
+                        <span class="form-control-state"></span>
+                    </div>
+                    {% if field.help_text %}
+                        <small style="color: grey">{{ field.help_text }}</small>
+                    {% endif %}
+                    {% if field.errors %}
+                        <div class="invalid-feedback"><ul>
+                        {% for error in field.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                        </ul></div>
+                    {% endif %}
                 </div>
             </div>
-        </div>
+        {% endfor %}
         <div class="col-12 col-md-6">
             <div class="form-group">
-                {{ user_form.username.label_tag }}
-                <div class="form-control-container ">
-                    {{ user_form.username }}
-                    <span class="form-control-state"></span>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-6">
-            <div class="form-group">
-                {{ user_form.email.label_tag }}
-                <div class="form-control-container ">
-                    {{ user_form.email }}
-                    <span class="form-control-state"></span>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-6">
-            <div class="form-group">
-                {{ agent_form.telephone.label_tag }}
-                <div class="form-control-container ">
-                    {{ agent_form.telephone }}
+                <label>Mot de passe</label> :<br>
+                <div class="">
+                    <p><a href="{% url 'password_change' %}" class="btn bg-pink text-white">Changer le mot de passe <i class="icons-external-link ml-2" aria-hidden="true"></i></a></p>
                     <span class="form-control-state"></span>
                 </div>
             </div>
@@ -76,10 +91,22 @@
     <button type="submit" class="btn btn-primary">Valider</button>
 </form>
 
+
 <br />
-<p><a href="{% url 'password_change' %}">Changer le mot de passe</a></p>
+<!--p><a href="{% url 'password_change' %}">Changer le mot de passe</a></p-->
 <p><a href="{% url 'home:home' %}">Revenir à l'accueil</a></p>
 <br />
 <br />
 <br />
+
+<script>
+    function create_username() {
+        input = document.getElementById('id_username');
+        if (input.value == "") {
+            first_name = document.getElementById('id_first_name').value[0].toLowerCase();
+            last_name = document.getElementById('id_last_name').value.split(' ')[0].toLowerCase();
+            input.value = first_name + last_name;
+        }
+    }
+</script>
 {% endblock %}
