@@ -5,19 +5,15 @@
 {% block content %}
     <h1>Recherche</h1>
     <h2>Paramètres de la recherche</h2>
-    <form method="POST">{% csrf_token %}
         <div class="fieldWrapper form-group">
-            <label class="font-weight-medium mb-2" for="addreceivers1">Add receivers</label>
-            <div class="form-control-container form-chips-container" data-component="chips">
-                <input data-role="typewriter" type="text" class="chips-input stretchy" id="addreceivers1" />
-                <label class="font-weight-medium mb-2 sr-only" for="receivers1">Receivers</label>
-                <select class="sr-only" data-role="input" tabindex="-1" aria-hidden="true" id="receivers1" multiple>
-                    <option selected>Sem Inceptos Tellus</option>
-                    <option>Amet Porta</option>
-                    <option selected>Pharetra Fusce Venenatis</option>
-                </select>
+            <div class="form-field form-control-container form-chips-container">
+                <div class="chips-set">
+                </div>
+                <input placeholder="Enter something here" autofocus autocomplete="off" type="text" class="chip-input chips-input stretchy" />
+                <span class="form-control-state"></span>
             </div>
         </div>
+    <form method="POST">{% csrf_token %}
         <div class="row">
             <div class="col">
                 <div class="fieldWrapper form-group">
@@ -184,4 +180,54 @@
         <button type="submit" class="btn btn-primary"><span>Rechercher</span> <i class="icons-search" aria-hidden="true"></i></button>
         <!--button type="submit" class="btn btn-outline-primary" disabled><span>Prévoir</span> <i class="icons-share" aria-hidden="true"></i></button-->
     </form>
-    {% endblock %}
+    <style>input:focus-visible{outline:none;}</style>
+    <script>
+        var input = document.querySelector(".chip-input");
+        var chips = document.querySelector(".chips-set");
+
+        document.querySelector(".form-field")
+        .addEventListener('click',() => {
+            //input.style.display = 'block';
+            input.focus();
+        });
+        
+        input.addEventListener('blur',()=>{
+            //input.style.display = 'none';
+        });
+
+        input.addEventListener('keypress', function(event) {
+            if(event.which === 13){
+                chips.appendChild(function () {
+                    var _chip = document.createElement('div');
+                    _chip.classList.add('chips-group');
+                    _chip.classList.add('chip');
+                    //_chip.addEventListener('click', chipClickHandler);
+                    _chip.append(
+                        (function () {
+                            var _chip_text = document.createElement('span');
+                            _chip_text.classList.add('chips');
+                            _chip_text.classList.add('chips-label');
+                            _chip_text.innerHTML = input.value;
+                            return _chip_text;
+                        })(),
+                        (function () {
+                            var _chip_button = document.createElement('button');
+                            _chip_button.classList.add('chips');
+                            _chip_button.classList.add('chips-btn');
+                            _chip_button.classList.add('chips-only-icon');
+                            _chip_button.innerHTML = '<i class="icons-close" aria-hidden="true"></i>';
+                            _chip_button.addEventListener('click', chipClickHandler);
+                            return _chip_button;
+                        })()
+                    );
+                    return _chip;
+                }());
+                input.value = '';
+            }
+        });
+        
+        function chipClickHandler(event){
+            chips.removeChild(event.currentTarget.parentNode);
+        }
+    </script>
+{% endblock %}
