@@ -1,4 +1,5 @@
+{% load filters %}
 <input type="checkbox"
-       ${ {% if widget.attrs.checked %}typeof window.{{ widget.attrs.id }} == 'undefined' || {% endif %}
-                window.{{ widget.attrs.id }} ? 'checked' : '' }
-       onchange="window.{{ widget.attrs.id }} = this.checked;">
+       ${ {% if widget.attrs.checked %}typeof window.{{ 'box'|addstr:widget.attrs.id }} == 'undefined' || {% endif %}
+                window.{{ 'box'|addstr:widget.attrs.id }} ? 'checked' : '' }
+       onchange="window.{{ 'box'|addstr:widget.attrs.id }} = this.checked;">

@@ -203,9 +203,9 @@ class Jugement(models.Model):
 
     @classmethod
     def create(cls, f):
-        text = extractText(f.file)
+        #text = extractText(f.file)
         jugement = cls(file=f)
-        print(findKeywords(text, MotCle.objects.all()))
+        #print(findKeywords(text, MotCle.objects.all()))
         return jugement
 
 

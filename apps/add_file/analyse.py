@@ -10,8 +10,8 @@ def extractText(file):
 
 def findKeywords(text, keywords):
     keywords_found = set()
-    for word in text.split():
-        for keyword in keywords:
-            if word.upper() in keyword.variantes:
+    for keyword in keywords:
+        for word in keyword.variantes.values_list('name'):
+            if word in text:
                 keywords_found.add(keyword)
     return keywords_found
