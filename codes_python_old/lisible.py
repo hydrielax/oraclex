@@ -248,7 +248,7 @@ def search(txt_path,MotsCles):
                 if mot in line.upper():
                     L.add(mot)
                 
-    return L
+    return list(L)
 
 
 L=search(myfile,MotsCles)
