@@ -1,18 +1,13 @@
 from django import forms
-from .widgets import SimpleFileInput, PersistentCheckbox
+from .widgets import CustomFileInput, PersistentCheckbox
 from apps.search.models import Jugement
 from django.utils.safestring import mark_safe
 
 
 class ChoixFichiers(forms.Form):
 
-    parameters = {'text': 'Sélectionner', 'multiple': True, 'upload_to': 'jugements'}
-    fichiers = forms.FileField(label='', widget=SimpleFileInput(attrs=parameters))
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.id = id(self)
-        self.fields['fichiers'].widget.form = self
+    parameters = {'multiple': True, 'upload_to': 'jugements'}
+    fichiers = forms.FileField(label='', widget=CustomFileInput(attrs=parameters))
 
 
 class InfosJugement(forms.Form):

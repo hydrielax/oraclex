@@ -1,16 +1,9 @@
 from django.forms import FileInput, CheckboxInput
 
 
-class SimpleFileInput(FileInput):
+class CustomFileInput(FileInput):
 
-    template_name = 'add_file/widgets/simple_file_input.html'
-
-    def get_context(self, name, value, attrs):
-        context = super().get_context(name, value, attrs)
-        context['widget']['attrs'].update({'id': id(self)})
-        text = context['widget']['attrs'].pop('text', '')
-        context['widget'].update({'text': text, 'form': self.form})
-        return context
+    template_name = 'add_file/widgets/custom_file_input.html'
 
 class PersistentCheckbox(CheckboxInput):
 
@@ -18,5 +11,5 @@ class PersistentCheckbox(CheckboxInput):
 
     def get_context(self, name, value, attrs):
         context = super().get_context(name, value, attrs)
-        context['widget']['attrs'].update({'id': name + str(id(self))})
+        context['widget']['attrs'].update({'id': id(self)})
         return context

@@ -3,20 +3,22 @@
 {% block title %}Ajout de fichiers -{% endblock %}
 
 {% block content %}
-    <style>
-        .btn-light-outline {
-            background-color: var(--white);
-            color: var(--dark);
-            border-color: #d9d9d9;
-        }
-    </style>
-
     <h1>
         Ajout de fichiers
     </h1>
 
+    <h2>
+        Envoyer des jugements à analyser
+    </h2>
+    <form class="text-nowrap mb-4" method="POST" enctype="multipart/form-data">
+        {% csrf_token %} {{ selection }}
+    </form>
+
+    <h2>
+        Jugements en attente de validation
+    </h2>
     {% if tableau %}
-    <table class="table mb-4" id="tableau">
+    <table class="table" id="tableau">
         <script>
             var s = 1;
             function display_table(sort_field) {
@@ -43,13 +45,7 @@
         display_table('name');
         </script>
     </table>
+    {% else %}
+        Aucun jugement en attente de validation
     {% endif %}
-
-    <form class="text-nowrap" id="{{ selection.id }}" method="POST" enctype="multipart/form-data">
-        {% csrf_token %} {{ selection }}
-        {% if tableau %}
-        <button class="btn btn-light btn-light-outline" onclick="window.location.href=''">Annuler</button>
-        <button class="btn btn-outline-success" type="button">Valider</button>
-        {% endif %}
-    </form>
 {% endblock %}
