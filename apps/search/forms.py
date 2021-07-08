@@ -1,5 +1,5 @@
 from django import forms
-from .models import Juridiction, TypeJuridiction, Jugement, MotCle, GroupeMotCle
+from .models import Juridiction, TypeJuridiction, Jugement, MotCle, Categorie
 from .fields import ListTextWidget, MySelectMultiple
 
 

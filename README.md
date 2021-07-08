@@ -67,4 +67,4 @@ Les tables créées corespondent aux `class` dans le fichier `app/forms.py`. Que
 * La table `Jugement` représente un fichier de jugement : elle contient le fichier du jugement, les données extraites de ce fichier, ainsi que la date d'import du fichier et l'utilisateur qui l'a importé
 * La table `Juridiction` représente le tribunal qui a jugé un certain jugement. Les différents tribunaux ont été importés à partir de l'[annuaire officiel](http://www.annuaires.justice.gouv.fr/annuaires-12162/annuaire-des-conseils-de-prudhommes-21779.html), via la [base de données de la justice](http://petitpois.justice.comarquage.fr/poi/search)
 * Pour les différents types de juridiction, nous avons choisi de les importer sous forme d'une table `TypeJuridiction` pour prévoir l'ajout d'autres types facilement (notamment pour d'autres services juridiques de la SNCF qui s'appuient sur d'autres juridictions)
-* Les `MotCle` associés à un `Jugement` sont aussi répartis dans des groupes `GroupeMotCle`
+* Les `MotCle` associés à un `Jugement` sont aussi répartis dans des groupes `Categorie`

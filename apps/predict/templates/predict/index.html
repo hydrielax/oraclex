@@ -61,7 +61,7 @@
                             {% for motcle in liste_sans_groupe %}
                                 <div class="select-menu-item" role="listitem">
                                     <div class="custom-control custom-checkbox">
-                                        <button type="button" data-role="value" data-target="{{ motcle.id }}" role="checkbox" aria-checked="false" class="custom-control-label w-100 text-left font-weight-medium">{{ motcle.nom }}</button>
+                                        <button type="button" data-role="value" data-target="{{ motcle.id }}" role="checkbox" aria-checked="false" class="custom-control-label w-100 text-left font-weight-medium">{{ motcle.representant.name }}</button>
                                     </div>
                                 </div>
                             {% endfor %}
@@ -99,7 +99,7 @@
                             {% for motcle in liste_sans_groupe %}
                             <div class="select-menu-item" role="listitem">
                                 <div class="custom-control custom-checkbox">
-                                    <button type="button" data-role="value" data-target="{{ motcle.id }}" role="checkbox" aria-checked="false" class="custom-control-label w-100 text-left font-weight-medium">{{ motcle.nom}}</button>
+                                    <button type="button" data-role="value" data-target="{{ motcle.id }}" role="checkbox" aria-checked="false" class="custom-control-label w-100 text-left font-weight-medium">{{ motcle.representant.name}}</button>
                                 </div>
                             </div>
                             {% endfor %}
@@ -115,7 +115,7 @@
                                 {% for motcle in groupe.mots_cles %}
                                 <div class="select-menu-item" role="listitem">
                                     <div class="custom-control custom-checkbox">
-                                        <button type="button" data-role="value" data-target="{{ motcle.id }}" role="checkbox" aria-checked="false" class="custom-control-label w-100 text-left font-weight-medium">{{ motcle.nom }}</button>
+                                        <button type="button" data-role="value" data-target="{{ motcle.id }}" role="checkbox" aria-checked="false" class="custom-control-label w-100 text-left font-weight-medium">{{ motcle.representant.name }}</button>
                                     </div>
                                 </div>
                                 {% endfor %}

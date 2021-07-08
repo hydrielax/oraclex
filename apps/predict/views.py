@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from apps.predict.forms import RequeteForm
-from apps.search.models import Jugement, MotCle, GroupeMotCle
+from apps.search.models import Jugement, MotCle, Categorie
 from .predict_model import *
 
 
@@ -27,7 +27,7 @@ def prediction(request):
         form = RequeteForm()
 
     indexmotcles = MotCle.objects.all()
-    groupes = GroupeMotCle.objects.all()
+    groupes = Categorie.objects.all()
     liste = []
     for i in range(0, len(groupes)):
         listeMotCle = []
@@ -35,16 +35,16 @@ def prediction(request):
         for motcle in mots_cles:
             index=0
             #while indexmotcles[index]!=motcle: index+=1
-            listeMotCle.append({'id': motcle.id, 'nom': motcle.nom, })
+            listeMotCle.append({'id': motcle.id, 'nom': motcle.representant.name, })
         liste.append({'id':i, 'nom': groupes[i].nom, 'mots_cles': listeMotCle, })
     
     #en 2 : mots-clés sans groupes
     liste2 = []
-    mots_cles = MotCle.objects.filter(groupe__isnull=True)
+    mots_cles = MotCle.objects.filter(categorie__isnull=True)
     for motcle in mots_cles:
         index=0
         #while indexmotcles[index]!=motcle: index+=1
-        liste2.append({'id': motcle.id, 'nom': motcle.nom, })
+        liste2.append({'id': motcle.id, 'nom': motcle.representant.name, })
 
     context = {
         'form': form, 

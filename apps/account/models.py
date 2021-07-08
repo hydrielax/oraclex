@@ -14,7 +14,7 @@ class Agent(models.Model):
         return f'{self.user.first_name} {self.user.last_name}'
     
     def __str__(self):
-        if self.name:
+        if self.name != ' ':
             return self.name
         else:
             return self.user.username

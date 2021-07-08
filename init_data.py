@@ -4,7 +4,7 @@
 # init_database()
 
 import csv
-from apps.search.models import Juridiction, TypeJuridiction, MotCle, GroupeMotCle
+from apps.search.models import Juridiction, TypeJuridiction, MotCle, Categorie, Mot
 
 
 def rangerMotCle():
@@ -27,14 +27,22 @@ def import_mot_cle():
     #on efface les mots-clés
     for motcle in MotCle.objects.all():
         motcle.delete()
+    for mot in Mot.objects.all():
+        mot.delete()
     
     #on ajoute les mots clés depuis le fichier
     file = open('media/mots_cles.txt', 'r')
     for row in file:
-        motcle = MotCle(
-            nom = row,
-        )
+        variantes = row.split(',')
+        mot_principal = Mot(name = variantes[0])
+        mot_principal.save()
+        motcle = MotCle(representant = mot_principal)
         motcle.save()
+        mot_principal.motcle = motcle
+        mot_principal.save()
+        for variante in variantes[1:]:
+            mot = Mot(name = variante, motcle = motcle)
+            mot.save()
 
 
 def import_type_juridiction():

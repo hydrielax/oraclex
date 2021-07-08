@@ -17,7 +17,12 @@ def EditProfile(request):
     '''Vue d'édition du profil'''
 
     my_user = request.user
-    my_agent = Agent.objects.get(user = my_user)
+    if Agent.objects.filter(user = my_user):
+        my_agent = Agent.objects.get(user = my_user)
+    else:
+        #créer l'agent
+        my_agent = Agent(user=my_user)
+        my_agent.save()
 
     if request.method == 'POST':
         #affichage de la page

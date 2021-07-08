@@ -1,12 +1,22 @@
 from django.contrib import admin
 from .models import *
 
-#admin.site.register(Juridiction)
-#admin.site.register(Jugement)
-#admin.site.register(MotCle)
+
+# page des mots-clés
+class MotInline(admin.TabularInline):
+    model = Mot
+
+class MotCleAdmin(admin.ModelAdmin):
+    inlines = [
+        MotInline,
+    ]
+    list_display = ('__str__', 'categorie')
+admin.site.register(MotCle, MotCleAdmin)
+
+#autres pages standards
 admin.site.register(TypeJuridiction)
-admin.site.register(GroupeMotCle)
-admin.site.register(Responsable)
+admin.site.register(Categorie)
+
 
 @admin.register(Juridiction)
 class Juridiction(admin.ModelAdmin):
@@ -14,8 +24,4 @@ class Juridiction(admin.ModelAdmin):
 
 @admin.register(Jugement)
 class Jugement(admin.ModelAdmin):
-    list_display = ('__str__', 'lisible', 'decision', 'gain', 'date_jugement', 'juridiction')
-
-@admin.register(MotCle)
-class MotCle(admin.ModelAdmin):
-    list_display = ('nom', 'groupe')
+    list_display = ('name', 'lisible', 'decision', 'gain', 'date_jugement', 'juridiction')
