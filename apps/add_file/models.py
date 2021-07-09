@@ -1,6 +1,6 @@
 from django.db import models
 from apps.search.models import BaseJugement, MotCle
-from .analyse import extract_text, find_keywords
+from .analyse import extract_text, find_keywords, extraction_somme
 
 
 class JugementTemp(BaseJugement):
@@ -19,4 +19,5 @@ class JugementTemp(BaseJugement):
         print('Start')
         text, score = extract_text(self.file.file)
         mots_cle = find_keywords(text, MotCle.objects.all())
-        print(mots_cle, text, score)
+        somme = extraction_somme(text)
+        print(mots_cle, somme, text, score)
