@@ -1,7 +1,7 @@
+import os
 from django.db import models
 from django.urls import reverse
 from apps.add_file.analyse import *
-import os
 from apps.account.models import Agent
 
 
@@ -130,15 +130,16 @@ class Juridiction(models.Model):
 
 
 
-class Jugement(models.Model):
+class BaseJugement(models.Model):
     '''Objet représentant une décision de justice.'''
     file = models.FileField(
-        verbose_name = 'Fichier', 
+        verbose_name = 'Fichier',
         upload_to = 'jugements'
     )
     lisible = models.BooleanField(
         verbose_name = 'Lisible',
-        help_text = "Vrai si le fichier est lisible par l'ordinateur."
+        help_text = "Vrai si le fichier est lisible par l'ordinateur.",
+        null = True
     )
     decision = models.CharField(
         verbose_name = 'Décision', 
@@ -187,9 +188,7 @@ class Jugement(models.Model):
     )
 
     class Meta:
-        ordering = ['-date_jugement']
-        verbose_name = 'Décision de justice'
-        verbose_name_plural = 'Décisions de justice'
+        abstract = True
 
     @property
     def name(self):
@@ -201,11 +200,10 @@ class Jugement(models.Model):
     def get_absolute_url(self):
         return reverse('jugement', args=[self.id])
 
-    @classmethod
-    def create(cls, f):
-        #text = extractText(f.file)
-        jugement = cls(file=f)
-        #print(findKeywords(text, MotCle.objects.all()))
-        return jugement
 
+class Jugement(BaseJugement):
 
+    class Meta:
+        ordering = ['-date_jugement']
+        verbose_name = 'Décision de justice'
+        verbose_name_plural = 'Décisions de justice'

@@ -32,7 +32,7 @@ def import_mot_cle():
     
     #on ajoute les mots clés depuis le fichier
     file = open('media/mots_cles.txt', 'r')
-    for row in file:
+    for row in file.read().splitlines():
         variantes = row.split(',')
         mot_principal = Mot(name = variantes[0])
         mot_principal.save()

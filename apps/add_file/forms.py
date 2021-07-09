@@ -14,9 +14,9 @@ class InfosJugement(forms.Form):
 
     conserver = forms.BooleanField(widget=PersistentCheckbox())
 
-    def __init__(self, fichier, *args, **kwargs):
+    def __init__(self, jugement, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.jugement = Jugement.create(fichier)
+        self.jugement = jugement
         self.conserver = self.fields['conserver']
 
     def __str__(self):

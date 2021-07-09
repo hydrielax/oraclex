@@ -1,30 +1,24 @@
 from pdf2image import convert_from_bytes
-from pytesseract import image_to_string
+from pytesseract import image_to_data
 import re
 
-def extractText(file):
-  text = ''
-  pages = convert_from_bytes(file.read())
-  for page in pages:
-      text += image_to_string(page, lang='fra')
-  return text
 
-def findKeywords1(text, keywords):
+def extract_text(file):
+    text = ""
+    good = total = 0
+    for page in convert_from_bytes(file.read()):
+        data = image_to_data(page, lang='fra', output_type='dict')
+        for word, conf in zip(data['text'], map(float, data['conf'])):
+            text += word + " "
+            good += (conf > 75)
+            total += 1
+    return text, good / total
+
+
+def find_keywords(text, keywords):
     keywords_found = set()
     for keyword in keywords:
         for word in keyword.variantes.values_list('name'):
-            if word in text:
+            if re.search("\W" + word[0] + "\W", text, re.IGNORECASE):
                 keywords_found.add(keyword)
-    return keywords_found
-
-
-
-def findKeywords(text, keywords):
-    keywords_found = set()
-    #keywords=set(keywords)
-    for MotCle in keyword.variantes.values_list('name'):
-        mot= "\W"+MotCle+"\W"
-        found=re.search(mot, text, re.IGNORECASE)
-        if found :
-                keywords_found.add(MotCle)
     return keywords_found
