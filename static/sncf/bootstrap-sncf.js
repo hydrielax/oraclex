@@ -74732,7 +74732,6 @@ var Chips = function () {
       }
 
       groupNode.setAttribute('class', 'chips-group');
-      groupNode.setAttribute('class', 'chips-group');
       chipsLabelNode.setAttribute('class', 'chips chips-label');
       chipsBtnNode.setAttribute('class', 'chips chips-btn chips-only-icon');
       chipsBtnRemove.setAttribute('class', 'sr-only');

@@ -124,3 +124,4 @@ def init_database():
     import_ca()
     import_cc()
     print('Initialisation de la base de donnée terminée !')
+
