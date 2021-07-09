@@ -37,7 +37,7 @@ def findKeywords(text, keywords):
 ##### #   #   #    #    #   #   #  ####   #   #   #  ###  #   #     #    # #####      ####  ###  #   # #   # ##### 
 ##############################################################################################################################
 
-
+### H=extraction_somme(txt), type(txt) == string , as a result : (False, 0) : somme non trouvée, (True:+s) : somme gagnée , (True:+s) : somme perdue 
 
 import re
 
@@ -103,7 +103,7 @@ def extraction_somme(contenu):
     dernier_condamne = 0#permet d'avoir le veritable rang du condamne
     
     if (qs == None) :#si 'Par ces motifs' est mal écrit, le fichier est considéré comme endommagé + critere de lisibilité
-        return (False,-1)
+        return (False,0)
     else :
         i = qs.end()# mm probleme que rang_somme
         r = re.compile("(condamn[ ]?[eèéÉÈËÊêë])",re.IGNORECASE)
@@ -139,8 +139,10 @@ def extraction_somme(contenu):
                         #print(multiplicateur_somme(somme,contenu,dernier_condamne,len(contenu)-1))
                     rang_somme = recherche_somme.end()+rang_somme
                     recherche_somme = re.search(somme_re,contenu[rang_somme:])
-                        
-    return (True,somme)
+            return (True,somme)
+    
+    return (False,0)
+
 
 
 """Pour savoir qui paye, on recherche les noms des deux partis et celui qui est trouvé en premier est celui qui paye"""
