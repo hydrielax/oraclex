@@ -41,12 +41,14 @@ Oraclex est un projet de gestion, d'analyse, et de prédiction de décisions de 
 ### Pour installer TesseractOCR :
 #### Sur Linux: 
 * **Utilisez les commandes :**
+
 `sudo apt-get install tesseract-ocr`
 
 `sudo apt install libtesseract-dev`
 #### Sur macOS: 
 * **Utilisez la commande :**
 `sudo port install tesseract`
+
 Pour installer une nouvelle langue, exécutez :
 `sudo port install tesseract-<langcode>`
 Pour le français :
