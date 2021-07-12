@@ -14,6 +14,6 @@ class Historique(list):
     def __str__(self):
         js = "[{name:'Nom du fichier', state:'État'}"
         for jugement in self:
-            js += ", {{name:'{0}', state:'{1}'}}".format(jugement.name, type(jugement))
+            js += ", {{name:'{0}', state:'{1}'}}".format(jugement.name, type(jugement).__name__)
         js += "]"
         return mark_safe(js)
