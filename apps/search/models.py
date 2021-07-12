@@ -96,7 +96,7 @@ class Juridiction(models.Model):
     '''Objet représentant une juridiction.'''
 
     nom = models.CharField(
-        max_length = 70, 
+        max_length = 100, 
         null = True, 
         blank = True
     )
