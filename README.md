@@ -81,7 +81,7 @@ Pour le français :
 
 ###### Changer le code : 
 * **C'est la dernière solution, que nous ne recommandons pas vraiment, qui consiste à changer le code, cela ne fonctionnera pas pour le serveur, mais seulement dans le local.**
-6. Après l'étape 5. Dans votre code, mettez le chemin de tesseract avant d'appeler image_to_string :
+5. Après l'étape 4. Dans votre code, mettez le chemin de tesseract avant d'appeler image_to_string :
 `pytesseract.pytesseract.tesseract_cmd = r'C:\Users\USER\AppData\Local\Tesseract-OCR\tesseract.exe' #(ou le chemin que vous aviez.)`
 
 ### Pour installer Poppler :
