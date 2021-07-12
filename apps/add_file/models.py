@@ -1,6 +1,6 @@
 from django.db import models
 from apps.search.models import BaseJugement, MotCle
-from .analyse import extract_text, find_keywords, extraction_somme
+from .analyse import extract_text, find_keywords, extract_date, extraction_somme
 
 
 class JugementTemp(BaseJugement):
@@ -8,6 +8,12 @@ class JugementTemp(BaseJugement):
     file = models.FileField(
         verbose_name='Fichier',
         upload_to='jugements/temp'
+    )
+    doublon = models.ForeignKey(
+        to = BaseJugement,
+        on_delete = models.SET_NULL,
+        null = True,
+        blank = True,
     )
 
     class Meta:
@@ -17,7 +23,8 @@ class JugementTemp(BaseJugement):
 
     def analyse(self):
         print('Start')
-        text, score = extract_text(self.file.file)
+        text, quality = extract_text(self.file.file)
         mots_cle = find_keywords(text, MotCle.objects.all())
         somme = extraction_somme(text)
-        print(mots_cle, somme, text, score)
+        date = extract_date(text)
+        print(mots_cle, date, somme, text, quality)
