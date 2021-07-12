@@ -23,6 +23,12 @@ hr {
     transform: translateY(-10%);
 }
 
+.form-chips-container {
+    padding: .1563rem;
+}
+.chips-group {
+    padding: .1563rem ;
+}
 /*
 .error, .errornote, .errorlist {
     color: var(--danger);
