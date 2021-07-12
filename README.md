@@ -37,7 +37,83 @@ Oraclex est un projet de gestion, d'analyse, et de prédiction de décisions de 
     ```
 9. Créez un compte super-utilisateur : `$ python3 manage.py createsuperuser`
 
+## Installations 2 :
+### Pour installer TesseractOCR:
+#### Sur Linux: 
+* **Utilisez la commande:**
+`sudo apt-get install tesseract-ocr`
+`sudo apt install libtesseract-dev`
+#### Sur macOS: 
+* **Utilisez la commande:**
+`sudo port install tesseract`
+Pour installer une nouvelle langue, exécutez :
+`sudo port install tesseract-<langcode>`
+Pour le français :
+`sudo port install tesseract-fra`
+#### Sur Windows: 
+
+* **Pour installer Tesseract-OCR:**
+1. Respirez profondément, il faudra un peu de patience ici.
+2. Installez tesseract à l'aide du programme d'installation Windows disponible à l'adresse suivante : https://github.com/UB-Mannheim/tesseract/wiki
+
+3. Notez le chemin d'accès à tesseract depuis l'installation. Le chemin d'installation par défaut généralement est : `C:\Users\USER\AppData\Local\Tesseract-OCR`ou bien `C:\Program Files\Tesseract-OCR` Il est possible qu'il change, veuillez donc vérifiez le chemin d'installation.
+
+4. Ajouter le Path avec : Modifier les variables d'environnement système >> Variables d'environnement... >> Variable : Path >> Modifier >> Nouveau >> Ajouter le chemin d'accès et enregistrer.
+
+
+##### Si cela n'a pas fonctionné, essayez l'une de ces solutions : 
+
+###### Chocolatey: 
+2. Installez chocolatey avec powershell.exe : 
+`$ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
+
+3. Puis utilisez la commande suivante
+`$ choco install tesseract --pre `
+
+
+###### Anaconda: 
+2. Installez Anaconda. 
+3. Puis avec Anaconda prompt utilisez la commande suivante
+`$ conda install -c conda-forge tesseract `
+
+###### Anaconda: 
+* **C'est la dernière solution, que nous ne recommandons pas vraiment, qui consiste à changer le code, cela ne fonctionnera pas pour le serveur, mais seulement dans le local.**
+6. Après l'étape 5. Dans votre code, mettez le chemin de tesseract avant d'appeler image_to_string :
+`pytesseract.pytesseract.tesseract_cmd = r'C:\Users\USER\AppData\Local\Tesseract-OCR\tesseract.exe' #(ou le chemin que vous aviez.)`
+
+### Pour installer Poppler:
+#### Sur Linux: 
+* **Utilisez la commande:**
+`sudo apt-get install poppler-utils`
+
+#### Sur macOS: 
+* **Utilisez la commande:**
+`sudo port install tesseract`
+Vous devrez installer poppler pour Mac: http://macappstore.org/poppler/
 ---
+#### Sur Windows: 
+
+* **Pour installer Poppler sur Windows:**
+1. Allez sur cette page: http://blog.alivate.com.au/poppler-windows/  et téléchargez le binaire de votre choix. Ou Bien utilisez ce lien direct : http://blog.alivate.com.au/wp-content/uploads/2018/10/poppler-0.68.0_x86.7z
+
+2. Extrayez le fichier d'archive poppler-0.68.0_x86.7z dans C:\Program Files. Ainsi, la structure du répertoire devrait ressembler à ceci :
+
+C :
+    └ Program Files
+        └ poppler-0.68.0_x86
+            └ bin
+            └ include
+            └ lib
+            └ share
+
+3. Ajoutez C:\Program Files\poppler-0.68.0_x86\bin à votre PATH système en procédant comme suit : (Cliquez sur le bouton Démarrer de Windows, et recherchez Modifier les variables )  Modifier les variables d'environnement du système >> sur Variables d'environnement...>> PATH >> Nouveau >> puis ajoutez C:\Users\Program Files\poppler-0.68.0_x86\bin,et enregistrez.
+##### Solutions plus simple : 
+
+###### Chocolatey: 
+
+`$ choco install poppler `
+###### Anaconda: 
+`$ conda install -c conda-forge poppler `
 
 ## Commandes courantes
 
