@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import JugementTemp
 
-# Register your models here.
+
+@admin.register(JugementTemp)
+class JugementTemp(admin.ModelAdmin):
+    list_display = ('name', 'lisible', 'decision', 'gain', 'date_jugement', 'juridiction')

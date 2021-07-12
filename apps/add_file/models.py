@@ -1,5 +1,5 @@
 from django.db import models
-from apps.search.models import BaseJugement, MotCle
+from apps.search.models import BaseJugement, Jugement, MotCle
 from .analyse import extract_text, find_keywords, extract_date, extraction_somme
 
 
@@ -10,7 +10,7 @@ class JugementTemp(BaseJugement):
         upload_to='jugements/temp'
     )
     doublon = models.ForeignKey(
-        to = BaseJugement,
+        to = Jugement,
         on_delete = models.SET_NULL,
         null = True,
         blank = True,
@@ -23,8 +23,9 @@ class JugementTemp(BaseJugement):
 
     def analyse(self):
         print('Start')
-        text, quality = extract_text(self.file.file)
-        mots_cle = find_keywords(text, MotCle.objects.all())
-        somme = extraction_somme(text)
-        date = extract_date(text)
-        print(mots_cle, date, somme, text, quality)
+        #text, quality = extract_text(self.file.file)
+        #mots_cle = find_keywords(text, MotCle.objects.all())
+        #somme = extraction_somme(text)
+        #date = extract_date(text)
+        #print(mots_cle, date, somme, text, quality)
+        self.save()
