@@ -101,7 +101,6 @@ Vous devrez installer poppler pour Mac : http://macappstore.org/poppler/
 C :
 
     └ Program Files
-
         └ poppler-0.68.0_x86
 
             └ bin
@@ -109,7 +108,7 @@ C :
             └ include
 
             └ lib
-            
+
             └ share
 
 3. Ajoutez C:\Program Files\poppler-0.68.0_x86\bin à votre PATH système en procédant comme suit : (Cliquez sur le bouton Démarrer de Windows, et recherchez Modifier les variables )  Modifier les variables d'environnement du système >> sur Variables d'environnement...>> PATH >> Nouveau >> puis ajoutez C:\Users\Program Files\poppler-0.68.0_x86\bin,et enregistrez.
