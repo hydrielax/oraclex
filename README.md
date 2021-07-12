@@ -38,21 +38,21 @@ Oraclex est un projet de gestion, d'analyse, et de prédiction de décisions de 
 9. Créez un compte super-utilisateur : `$ python3 manage.py createsuperuser`
 
 ## Installations 2 :
-### Pour installer TesseractOCR :
+### Pour installer Tesseract-OCR :
 #### Sur Linux: 
 * **Utilisez les commandes :**
 
-`sudo apt-get install tesseract-ocr`
+`$ sudo apt-get install tesseract-ocr`
 
-`sudo apt install libtesseract-dev`
+`$ sudo apt install libtesseract-dev`
 #### Sur macOS: 
 * **Utilisez la commande :**
-`sudo port install tesseract`
+`$ sudo port install tesseract`
 
 Pour installer une nouvelle langue, exécutez :
-`sudo port install tesseract-<langcode>`
+`$ sudo port install tesseract-<langcode>`
 Pour le français :
-`sudo port install tesseract-fra`
+`$ sudo port install tesseract-fra`
 #### Sur Windows : 
 
 * **Pour installer Tesseract-OCR :**
@@ -85,15 +85,12 @@ Pour le français :
 `pytesseract.pytesseract.tesseract_cmd = r'C:\Users\USER\AppData\Local\Tesseract-OCR\tesseract.exe' #(ou le chemin que vous aviez.)`
 
 ### Pour installer Poppler :
-#### Sur Linux: 
+#### Sur Linux : 
 * **Utilisez la commande :**
-`sudo apt-get install poppler-utils`
+`$ sudo apt-get install poppler-utils`
 
 #### Sur macOS : 
-* **Utilisez la commande :**
-`sudo port install tesseract`
-Vous devrez installer poppler pour Mac: http://macappstore.org/poppler/
----
+Vous devrez installer poppler pour Mac : http://macappstore.org/poppler/
 #### Sur Windows : 
 
 * **Pour installer Poppler sur Windows :**
@@ -118,6 +115,7 @@ C :
 ###### Anaconda : 
 `$ conda install -c conda-forge poppler `
 
+---
 ## Commandes courantes
 
 * **À chaque fois que vous revenez sur le code,** il faut relancer l'environnement virtuel avec la commande : `$ workon oraclex_env`
