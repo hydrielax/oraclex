@@ -107,39 +107,6 @@
             </div>
             {% endfor %}
         </div>
-        <!-- mots-clés : recherche avec liste complète non triée -->
-        <!--div class="fieldWrapper form-group">
-            {{ form.motsCles.label_tag }}
-            <div class="select-improved" data-component="select-multiple">
-                <div class="select-control">
-                    <div class="input-group" data-role="select-toggle">
-                        <div class="form-control">
-                            <div class="custom-control custom-checkbox">
-                                <label data-role="placeholder" class="custom-control-label font-weight-medium">Sélectionnez des mots-clés</label>
-                            </div>
-                        </div>
-                        {{ form.motsCles }}
-                        <div class="input-group-append input-group-last">
-                            <button class="btn btn-primary btn-only-icon" data-role="btn" type="button" aria-expanded="false" aria-controls="multiselecttoggle">
-                                <i class="icons-arrow-down icons-size-x75" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div id="multiselecttoggle" class="select-menu" data-role="menu">
-                        <div class="select-group" data-role="group" data-id="0" role="list">
-                            {% for motcle in liste_sans_groupe %}
-                                <div class="select-menu-item" role="listitem">
-                                    <div class="custom-control custom-checkbox">
-                                        <button type="button" data-role="value" data-target="{{ motcle.id }}" role="checkbox" aria-checked="false" class="custom-control-label w-100 text-left font-weight-medium">{{ motcle.representant.name }}</button>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div-->
-        <!-- mots-clés : champ par défaut -->
         <!--div class="fieldWrapper form-group">
             {{ form.motsCles }}
         </div-->

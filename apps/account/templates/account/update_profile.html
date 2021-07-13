@@ -3,6 +3,10 @@
 
 {% block title %}Modifier le profil -{% endblock %}
 
+{% block head %}
+    <script type='text/javascript' src="{% static 'js/account_functions.js' %}"></script>
+{% endblock %}
+
 {% block content %}
 <h1>Modifier le profil</h1>
 
@@ -57,18 +61,5 @@
 <br />
 <!--p><a href="{% url 'password_change' %}">Changer le mot de passe</a></p-->
 <p><a href="{% url 'home:home' %}">Revenir à l'accueil</a></p>
-<br />
-<br />
-<br />
 
-<script>
-    function create_username() {
-        input = document.getElementById('id_username');
-        if (input.value == "") {
-            first_name = document.getElementById('id_first_name').value[0].toLowerCase();
-            last_name = document.getElementById('id_last_name').value.split(' ')[0].toLowerCase();
-            input.value = first_name + last_name;
-        }
-    }
-</script>
 {% endblock %}
