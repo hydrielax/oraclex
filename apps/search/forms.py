@@ -13,6 +13,7 @@ def motscles_valide(chaine):
 
 class RequeteForm(forms.Form):
     '''Formulaire de recherche.'''
+
     dateMin = forms.DateField(
         input_formats=["%Y %m"],
         label="Date Minimale",
@@ -38,17 +39,22 @@ class RequeteForm(forms.Form):
         widget=ListTextWidget(attrs={'class': 'form-control', 'placeholder': 'Tapez le nom de la ville'}),
         required=False
     )
-    motsCles_textInput = forms.CharField(
-        label="Mots-Clés",
-        widget=forms.TextInput(attrs={'placeholder': 'Tapez les mots-clés séparés par une virgule', 'class': 'form-control'}),
-        validators=[motscles_valide],
+    motcle = forms.ModelMultipleChoiceField(
+        queryset = MotCle.objects.all(),
+        label = "Mots-clés",
         required=False,
     )
-    motsCles = forms.ModelMultipleChoiceField(
-        queryset=MotCle.objects.all(),
-        label="Mots-Clés (non-fonctionnel)",
-        widget=MySelectMultiple(attrs={'class':"sr-only", 'id':"exampleFormControlMultiSelect3", 'data-role':"input", 'tabindex':"-1", 'aria-hidden':"true", 'multiple':'' }),
-        # widget=forms.CheckboxSelectMultiple(),
-        required=False,
-    )
+    # motsCles_textInput = forms.CharField(
+    #     label="Mots-Clés",
+    #     widget=forms.TextInput(attrs={'placeholder': 'Tapez les mots-clés séparés par une virgule', 'class': 'form-control'}),
+    #     validators=[motscles_valide],
+    #     required=False,
+    # )
+    # motsCles = forms.ModelMultipleChoiceField(
+    #     queryset=MotCle.objects.all(),
+    #     label="Mots-Clés (non-fonctionnel)",
+    #     widget=MySelectMultiple(attrs={'class':"sr-only", 'id':"exampleFormControlMultiSelect3", 'data-role':"input", 'tabindex':"-1", 'aria-hidden':"true", 'multiple':'' }),
+    #     # widget=forms.CheckboxSelectMultiple(),
+    #     required=False,
+    # )
 

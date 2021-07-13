@@ -1,7 +1,7 @@
 from django import forms
 
 class ListTextWidget(forms.Select):
-    template_name = 'search/listtxt.html'
+    template_name = 'forms/listtxt.html'
 
     def format_value(self, value):
         # Copied from forms.Input - makes sure value is rendered properly

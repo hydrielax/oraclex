@@ -6,6 +6,28 @@ from .recherche import *
 
 
 @login_required
+def searchview(request):
+    print(request.method)
+    if request.method == 'GET':
+        form = RequeteForm(request.GET)
+        if form.is_valid():
+            motscles = form.cleaned_data['motcle']
+            dateMin = form.cleaned_data['dateMin']
+            datemax = form.cleaned_data['dateMax']
+            type_juridiction = form.cleaned_data['type_juridiction']
+            juridiction = form.cleaned_data['juridiction']
+    else:
+        form = RequeteForm()
+
+    context = {
+        'form': form, 
+    }
+
+    return render(request, 'search/index.html', context)
+
+
+
+@login_required
 def recherche(request):
     if request.method == 'POST':
         form = RequeteForm(request.POST)
