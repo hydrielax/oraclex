@@ -76,6 +76,8 @@ Pour le français :
 3. Puis utilisez la commande suivante
 `$ choco install tesseract --pre `
 
+4. Le programme d'installation de Tesseract fourni par Chocolatey ne comprend actuellement que la langue anglaise. Pour installer la langue française, téléchargez le pack de langue correspondant (fichier fra.traineddata) à partir de https://github.com/tesseract-ocr/tessdata/ et placez-le dans C:\\Program Files\\Tesseract-OCR\\\\tessdata (ou à l'endroit où Tesseract OCR est installé).
+
 
 ###### Anaconda : 
 2. Installez Anaconda. 
