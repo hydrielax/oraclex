@@ -45,6 +45,9 @@ Oraclex est un projet de gestion, d'analyse, et de prédiction de décisions de 
 `$ sudo apt-get install tesseract-ocr`
 
 `$ sudo apt install libtesseract-dev`
+
+Et pour installer la langue française, exécutez :
+`$ sudo apt install tesseract-fra`
 #### Sur macOS: 
 * **Utilisez la commande :**
 `$ sudo port install tesseract`
