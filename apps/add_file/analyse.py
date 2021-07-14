@@ -29,6 +29,15 @@ def extract_date(text):
     dates = search_dates(text, languages=['fr'], settings={'STRICT_PARSING': True})
     return dates[0][1]
 
+
+def extraction_jugement(file,text):
+    nom=file.name
+    fav = re.search("\W*[FDM]\W",nom)#ATTENTION PEUT ETRE MODIFIER L'AJOUT DU POINT
+    if fav != None:
+        res = nom[fav.start()+1:fav.start()+2]
+            
+        return res
+    return "not found"
 ########################################################################################################################
     ##### #   #  #####  ####      #    #### ##### #  ###  #   #     #####  #####      ####  ###  #   # #   # #####
     #     #   #   #    #   #    #   # #       #   # #   # ##  #      #  #  #         #     #   # ## ## ## ## #
