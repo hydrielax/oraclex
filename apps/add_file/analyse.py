@@ -37,7 +37,77 @@ def extraction_jugement(file,text):
         res = nom[fav.start()+1:fav.start()+2]
             
         return res
-    return "not found"
+    return extraction_jugement2(text)
+
+
+
+def extraction_jugement2(txt):
+    """Cette fonction extrait le jugement du fichier s'il n'a pas été extrait du nom du fichier,
+     sa précision est de 81.73% en général et de 86.44% pour le jugement favorable vs défavorable seulement."""
+    limite = re.compile("([EP][aà]r\W+ces\W+m[oÛÜ]t[fi][fe]s)",re.IGNORECASE)
+    possibilite_de_rechreche = re.search(limite,txt)
+    if (possibilite_de_rechreche == None) :#si "Par ces motifs" n'est pas trouvée
+        return None
+    else :
+        i = possibilite_de_rechreche.end()
+        s=1
+        condamnations = re.finditer("condamne\W",txt[i:], re.IGNORECASE)
+        for m in [k for k in condamnations]:
+            rang=m.end()+i
+            words = re.compile("(\w)+(\W)+(\w)+(\W)+(\w)+(\W)",re.IGNORECASE)
+            words_found = re.search(words,txt[rang:])
+            civil_re = re.compile('(M\.|Mme|Madame|Mlle|Monsieur|Mr|CFDT|CGT|SYNDICAT)',re.IGNORECASE)
+            civil = re.search(civil_re, words_found.group())
+            if civil:
+                s+=3
+            for pseudo in noms_sncf:
+                pseudo_re=''
+                for car in pseudo:
+                    if car in [' ',',','-','_']:
+                        pseudo_re += '[ ,-_]'
+                    elif car == "'":
+                        pseudo_re += '.'
+                    elif car in ['e','é','É','È','è']:
+                        pseudo_re+='[eéèÉÈ]'
+                    else :
+                        pseudo_re += car
+                ts = re.compile('('+pseudo_re+')',re.IGNORECASE)
+                sncf = re.search(ts,words_found.group())
+                if sncf:
+                    s-=5
+                    break
+ 
+        deboutements = re.finditer("d[eéÉÈè]bout[ceéÉÈè]\W",txt[i:], re.IGNORECASE)
+        for m in [k2 for k2 in deboutements]:
+            rang=m.end()+i
+            words = re.compile("\w+\W+\w+\W+\w+\W",re.IGNORECASE)
+            words_found = re.search(words,txt[rang:])
+            civil_re = re.compile('(M\.|Mme|Madame|Mlle|Monsieur|Mr|CFDT|CGT|SYNDICAT )',re.IGNORECASE)
+            civil = re.search(civil_re, words_found.group())
+            if civil:
+                s+=1
+            for pseudo in noms_sncf:
+                pseudo_re=''
+                for car in pseudo:
+                    if car in [' ',',','-','_']:
+                        pseudo_re += '[ ,-_]'
+                    elif car == "'":
+                        pseudo_re += '.'
+                    elif car in ['e','é','É','È','è']:
+                        pseudo_re+='[eéèÉÈ]'
+                    else :
+                        pseudo_re += car
+                ts = re.compile('('+pseudo_re+')',re.IGNORECASE)
+                sncf = re.search(ts,words_found.group())
+                if sncf:
+                    s-=1
+                    break
+        if s>0:
+            return 'F'
+        elif s== 0 : 
+            return 'M'
+        else : 
+            return 'D'    
 ########################################################################################################################
     ##### #   #  #####  ####      #    #### ##### #  ###  #   #     #####  #####      ####  ###  #   # #   # #####
     #     #   #   #    #   #    #   # #       #   # #   # ##  #      #  #  #         #     #   # ## ## ## ## #
