@@ -2,6 +2,7 @@ from apps.search.models import MotCle
 from pdf2image import convert_from_bytes
 from pytesseract import image_to_data
 from dateparser.search import search_dates
+from dateparser import parse
 import re
 
 
@@ -37,10 +38,39 @@ def find_keywords(text, keywords):
     return keywords_found
 
 
-def extract_date(text):
-    dates = search_dates(text, languages=['fr'], settings={'STRICT_PARSING': True})
-    return dates[0][1]
+#def extract_date(text):
+#    dates = search_dates(text, languages=['fr'], settings={'STRICT_PARSING': True})
+#    return dates[0][1]
 
+def extract_date(nom,text):
+    #extraire la date du fichier texte
+    dates = search_dates(text, languages=['fr'], settings={'STRICT_PARSING': True,'PREFER_DATES_FROM': 'past'})
+    if dates:
+        date_text = dates[0][1]
+    #extraire la date du nom du fichier
+    file_name = nom.replace("-", " ")
+    L=[str(int(s)) for s in file_name.split() if s.isdigit()]
+    name = ' '.join(L)
+    date1 = parse(name, settings={'PREFER_DATES_FROM': 'past','PREFER_DAY_OF_MONTH': 'first'})
+    if date1:
+        date_name = date1.date()
+    #Si la méthode parse n'a pas fonctionné, nous utiliserons Regex.
+    else :
+        name_of_file=re.search("(([0-9]{4}|[0-9]{2})\W[0-9]{2}\W([0-9]{2})?)", nom)
+        if name_of_file:
+            date2 = search_dates(name_of_file.group(), languages=['fr'], settings={'PREFER_DATES_FROM': 'past','PREFER_DAY_OF_MONTH': 'first'})
+        if date2:
+            date_name = date2[0][1].date()
+    #Comparaisons:
+    if not dates :
+        return date_name
+    elif (date1 | date2 ) & dates:
+        if date_name.year == date_text.year & date_name.month == date_text.month :
+            return date_text
+        else:
+            return date_name
+    else:
+        return date_text
 
 def extraction_jugement(file,text):
     nom=file.name
@@ -184,8 +214,8 @@ def verif_somme(recherche_somme):#renvoie True si somme_re est effectivement une
 
 
 def extraction_somme(contenu):
-
-    limite = "([EP][aà]r ces m[oÛÜ]t[efi]fs)"
+    
+    limite = "([EP][aà]r\W+ces\W+m[oÛÜ]t[fi][fe]s)"
     somme = 0 #somme perdue par la sncf
     somme_re = '[0-9]{0,3}[\., ]?[0-9]{0,3}[\., ]?[0-9]{0,3}[\., ]?[0-9]{1,3}[\., ]?((euros)|[\.,])?[0-9]{0,2} ?((euros)|[€ÄÊ])?'#somme en re
     q = re.compile(limite,re.IGNORECASE)
