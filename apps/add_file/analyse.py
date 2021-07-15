@@ -328,4 +328,3 @@ def multiplicateur_somme(somme,contenu,i,j):#i et j sont les rangs de débuts et
     if rang_sncf <= rang_civil:
         multiplicateur = -1
     return multiplicateur
-
