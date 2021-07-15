@@ -3,6 +3,12 @@
 {% block title %}Ajout de fichiers -{% endblock %}
 
 {% block content %}
+    <style>
+        h2 {
+            text-transform: none;
+        }
+    </style>
+
     <h1>
         Ajout de fichiers
     </h1>
@@ -15,7 +21,7 @@
     </form>
 
     <h2>
-        Jugements en attente de validation
+        Historique des jugements envoyés
     </h2>
     {% if tableau %}
     <table class="table" id="tableau">

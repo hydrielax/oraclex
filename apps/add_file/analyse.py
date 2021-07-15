@@ -10,7 +10,6 @@ def analyse(jugement):
     jugement.text, jugement.quality = extract_text(jugement.file.file)
     jugement.date_jugement = extract_date(jugement.text)
     jugement.gain = extraction_somme(jugement.text)
-    print(jugement.gain)
     jugement.mots_cle.set(find_keywords(jugement.text, MotCle.objects.all()))
     jugement.register()
     print('End')
@@ -31,8 +30,8 @@ def extract_text(file):
 def find_keywords(text, keywords):
     keywords_found = set()
     for keyword in keywords:
-        for word in keyword.variantes.values_list('name'):
-            if re.search("\W" + word[0] + "\W", text, re.IGNORECASE):
+        for word in keyword.variantes.values_list('name', flat=True):
+            if re.search("\W"+word+"\W", text, re.IGNORECASE):
                 keywords_found.add(keyword)
     return keywords_found
 
@@ -42,12 +41,10 @@ def extract_date(text):
     return dates[0][1]
 
 
-def extraction_jugement(file,text):
-    nom=file.name
-    fav = re.search("\W*[FDM]\W",nom)#ATTENTION PEUT ETRE MODIFIER L'AJOUT DU POINT
+def extraction_jugement(filename,text):
+    fav = re.search("\W*[FDM]\W",filename)#ATTENTION PEUT ETRE MODIFIER L'AJOUT DU POINT
     if fav != None:
-        res = nom[fav.start()+1:fav.start()+2]
-            
+        res = filename[fav.start()+1:fav.start()+2]
         return res
     return extraction_jugement2(text)
 

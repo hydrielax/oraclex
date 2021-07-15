@@ -1,5 +1,7 @@
 from django.db import models
 from apps.search.models import BaseJugement, Jugement, MotCle
+from threading import Thread
+from .analyse import analyse
 
 
 class JugementTemp(BaseJugement):
@@ -16,9 +18,25 @@ class JugementTemp(BaseJugement):
         verbose_name = 'Décision non validée'
         verbose_name_plural = 'Décisions non validées'
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.thread = Thread(target=analyse, args=(self,), daemon=True)
+
     def register(self):
         fields = {fld.name: getattr(self, fld.name) for fld in BaseJugement._meta.fields}
         jugement = Jugement(**fields)
         jugement.save()
         jugement.mots_cle.set(self.mots_cle.all())
         self.delete()
+
+    @classmethod
+    def run_threads(cls, by=4):
+        while True:
+            jugements = cls.objects.all()[:by]
+            for jugement in jugements:
+                jugement.thread.start()
+            for jugement in jugements:
+                jugement.thread.join()
+
+
+JugementTemp.thread = Thread(target=JugementTemp.run_threads, daemon=True)

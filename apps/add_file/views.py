@@ -3,9 +3,9 @@ from django.contrib.auth.decorators import login_required
 from .forms import ChoixFichiers, Historique
 from .models import JugementTemp, Jugement
 from apps.account.models import Agent
-from threading import Thread
-from .analyse import analyse
 from itertools import chain
+
+JugementTemp.thread.start()
 
 @login_required
 def ajout(request):
@@ -15,7 +15,6 @@ def ajout(request):
         for f in fichiers:
             jugement = JugementTemp(file=f, agent_import=agent)
             jugement.save()
-            Thread(target=analyse, args=(jugement,), daemon=True).start()
     selection = ChoixFichiers()
     jugements = chain(JugementTemp.objects.filter(agent_import=agent), Jugement.objects.filter(agent_import=agent))
     tableau = Historique(jugements)

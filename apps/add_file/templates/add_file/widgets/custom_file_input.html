@@ -10,13 +10,13 @@
        oninput="updateInfo();"
         {% include "django/forms/widgets/attrs.html" %}>
 <button class="btn btn-light mb-1" type="button" onclick="document.getElementById('{{ widget.attrs.id }}').click();">
-    Sélectionner &nbsp; <i class="icons-file"></i>
+    Sélectionner&nbsp;<i class="icons-file"></i>
 </button>
 <span id="{{ 'confirm'|addstr:widget.attrs.id }}"></span>
 <p class="mt-1" id="{{ 'number'|addstr:widget.attrs.id }}"></p>
 <script>
     function updateInfo() {
-        var buttons = "<button class='btn btn-light btn-light-outline mb-1' type='button'onclick='window.location.reload();'>Annuler</button> ";
+        var buttons = "<button class='btn btn-light btn-light-outline mb-1' type='button' onclick='location.reload();'>Annuler</button> ";
         buttons += "<button class='btn btn-outline-success mb-1' type='submit'>Valider</button> ";
         document.getElementById("{{ 'confirm'|addstr:widget.attrs.id }}").innerHTML = buttons;
         var file_number = `${document.getElementById("{{ widget.attrs.id }}").files.length} fichiers sélectionnés`;
