@@ -9,7 +9,7 @@ import nltk, string
 from sklearn.feature_extraction.text import TfidfVectorizer
 nltk.download('punkt')
 
-def detect_doublons(text):
+def detect_doublon(text):
     stemmer = nltk.stem.porter.PorterStemmer()
     remove_punctuation_map = dict((ord(char), None) for char in string.punctuation)
     def stem_tokens(tokens):
@@ -26,8 +26,8 @@ def detect_doublons(text):
         return ((tfidf * tfidf.T).A)[0,1]
 
     L=[]
-    for textes in Jugement.objects.all().values_list('text'):
-        L.append(cosine_sim(text, textes[0]))
+    for textes in Jugement.objects.all().values_list('text',flat=True):
+        L.append(cosine_sim(text, textes))
     
     if max(L)>0.95 :
         return True
