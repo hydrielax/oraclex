@@ -9,10 +9,13 @@ from .recherche import *
 def searchview(request):
     '''Vue pour la recherche et les résultats'''
     context = {}
+    print(request.method)
     if request.method == 'GET':
         form = RequeteForm(request.GET)
+        print(request.GET)
+        print(form.is_valid())
         if form.is_valid():
-            context += show_results(request, form)
+            context = show_results(request, form)
     else:
         form = RequeteForm()
 
@@ -26,7 +29,8 @@ def searchview(request):
 def show_results(request, form):
     '''Afficher les résultats de la recherche'''
 
-    motsCles = form.cleaned_data['motcle']
+    motsCles = find_motsCles(form.cleaned_data['motcle'])
+    print('Query', motsCles)
     dateMin = form.cleaned_data['dateMin']
     dateMax = form.cleaned_data['dateMax']
     type_juridiction = form.cleaned_data['type_juridiction']
