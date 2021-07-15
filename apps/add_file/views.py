@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .forms import ChoixFichiers, Historique
-from .models import JugementTemp, Jugement
+from .models import Jugement, JugementTemp
 from apps.account.models import Agent
 from threading import Thread
 from .analyse import analyse
