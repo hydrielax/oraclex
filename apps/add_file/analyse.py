@@ -42,11 +42,16 @@ def find_keywords(text, keywords):
 #    dates = search_dates(text, languages=['fr'], settings={'STRICT_PARSING': True})
 #    return dates[0][1]
 
-def extract_date(nom,text):
+def extract_date(file,text):
     #extraire la date du fichier texte
-    dates = search_dates(text, languages=['fr'], settings={'STRICT_PARSING': True,'PREFER_DATES_FROM': 'past'})
-    if dates:
-        date_text = dates[0][1]
+    nom=file.name
+    #Le try except c'est pour éviter un bug dans dateparser, il est possible que ce problème soit résolu avec les prochaines versions de dateparser.
+    try :
+        dates = search_dates(text, languages=['fr'], settings={'STRICT_PARSING': True,'PREFER_DATES_FROM': 'past'})
+        if dates:
+            date_text = dates[0][1].date()
+    except :
+        dates= None
     #extraire la date du nom du fichier
     file_name = nom.replace("-", " ")
     L=[str(int(s)) for s in file_name.split() if s.isdigit()]
@@ -54,7 +59,8 @@ def extract_date(nom,text):
     date1 = parse(name, settings={'PREFER_DATES_FROM': 'past','PREFER_DAY_OF_MONTH': 'first'})
     if date1:
         date_name = date1.date()
-    #Si la méthode parse n'a pas fonctionné, nous utiliserons Regex.
+        date2 = None
+    #Si la méthode parse n'a pas fonctionné, nous utiliserons les expressions régulières.
     else :
         name_of_file=re.search("(([0-9]{4}|[0-9]{2})\W[0-9]{2}\W([0-9]{2})?)", nom)
         if name_of_file:
@@ -64,17 +70,18 @@ def extract_date(nom,text):
     #Comparaisons:
     if not dates :
         return date_name
-    elif (date1 | date2 ) & dates:
+    elif (bool(date1) | bool(date2) ) & bool(dates):
         if date_name.year == date_text.year & date_name.month == date_text.month :
             return date_text
         else:
             return date_name
     else:
         return date_text
+    
 
 def extraction_jugement(file,text):
     nom=file.name
-    fav = re.search("\W*[FDM]\W",nom)#ATTENTION PEUT ETRE MODIFIER L'AJOUT DU POINT
+    fav = re.search("\W*[FDM]\W",nom) #ATTENTION PEUT ETRE MODIFIER L'AJOUT DU POINT
     if fav != None:
         res = nom[fav.start()+1:fav.start()+2]
             
