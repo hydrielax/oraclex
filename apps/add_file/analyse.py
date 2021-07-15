@@ -1,7 +1,19 @@
+from apps.search.models import MotCle
 from pdf2image import convert_from_bytes
 from pytesseract import image_to_data
 from dateparser.search import search_dates
 import re
+
+
+def analyse(jugement):
+    print('Start')
+    jugement.text, jugement.quality = extract_text(jugement.file.file)
+    jugement.date_jugement = extract_date(jugement.text)
+    jugement.gain = extraction_somme(jugement.text)
+    print(jugement.gain)
+    jugement.mots_cle.set(find_keywords(jugement.text, MotCle.objects.all()))
+    jugement.register()
+    print('End')
 
 
 def extract_text(file):
@@ -94,7 +106,7 @@ def verif_somme(recherche_somme):#renvoie True si somme_re est effectivement une
 
 def extraction_somme(contenu):
 
-    limite = "([EP]ar ces m[oÛÜ]t[fi]fs)"
+    limite = "([EP][aà]r ces m[oÛÜ]t[efi]fs)"
     somme = 0 #somme perdue par la sncf
     somme_re = '[0-9]{0,3}[\., ]?[0-9]{0,3}[\., ]?[0-9]{0,3}[\., ]?[0-9]{1,3}[\., ]?((euros)|[\.,])?[0-9]{0,2} ?((euros)|[€ÄÊ])?'#somme en re
     q = re.compile(limite,re.IGNORECASE)
@@ -102,7 +114,7 @@ def extraction_somme(contenu):
     dernier_condamne = 0#permet d'avoir le veritable rang du condamne
 
     if (qs == None) :#si 'Par ces motifs' est mal écrit, le fichier est considéré comme endommagé + critere de lisibilité
-        return (False,0)
+        return None
     else :
         i = qs.end()# mm probleme que rang_somme
         r = re.compile("(condamn[ ]?[eèéÉÈËÊêë])",re.IGNORECASE)
@@ -138,9 +150,9 @@ def extraction_somme(contenu):
                         #print(multiplicateur_somme(somme,contenu,dernier_condamne,len(contenu)-1))
                     rang_somme = recherche_somme.end()+rang_somme
                     recherche_somme = re.search(somme_re,contenu[rang_somme:])
-            return (True,somme)
+            return somme
 
-    return (True,0)
+    return 0
 
 
 

@@ -24,4 +24,4 @@ class Juridiction(admin.ModelAdmin):
 
 @admin.register(Jugement)
 class Jugement(admin.ModelAdmin):
-    list_display = ('name', 'lisible', 'decision', 'gain', 'date_jugement', 'juridiction')
+    list_display = ('name', 'decision', 'gain', 'date_jugement', 'juridiction')

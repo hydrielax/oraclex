@@ -10,7 +10,7 @@
     <h2>
         Envoyer des jugements à analyser
     </h2>
-    <form class="text-nowrap mb-4" method="POST" enctype="multipart/form-data">
+    <form class="mb-4" method="POST" enctype="multipart/form-data">
         {% csrf_token %} {{ selection }}
     </form>
 
@@ -20,7 +20,7 @@
     {% if tableau %}
     <table class="table" id="tableau">
         <script>
-            var s = 1;
+            var s = -1;
             function display_table(sort_field) {
                 var table = {{ tableau }};
                 var html = "<thead><tr>";
@@ -42,7 +42,7 @@
                 } html += "</tbody>";
                 document.getElementById("tableau").innerHTML = html;
             }
-        display_table('name');
+        display_table('date');
         </script>
     </table>
     {% else %}

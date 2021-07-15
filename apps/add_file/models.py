@@ -1,14 +1,9 @@
 from django.db import models
 from apps.search.models import BaseJugement, Jugement, MotCle
-from .analyse import extract_text, find_keywords, extract_date, extraction_somme
 
 
 class JugementTemp(BaseJugement):
 
-    file = models.FileField(
-        verbose_name='Fichier',
-        upload_to='jugements/temp'
-    )
     doublon = models.ForeignKey(
         to = Jugement,
         on_delete = models.SET_NULL,
@@ -21,11 +16,9 @@ class JugementTemp(BaseJugement):
         verbose_name = 'Décision non validée'
         verbose_name_plural = 'Décisions non validées'
 
-    def analyse(self):
-        print('Start')
-        #text, quality = extract_text(self.file.file)
-        #mots_cle = find_keywords(text, MotCle.objects.all())
-        #somme = extraction_somme(text)
-        #date = extract_date(text)
-        #print(mots_cle, date, somme, text, quality)
-        self.save()
+    def register(self):
+        fields = {fld.name: getattr(self, fld.name) for fld in BaseJugement._meta.fields}
+        jugement = Jugement(**fields)
+        jugement.save()
+        jugement.mots_cle.set(self.mots_cle.all())
+        self.delete()

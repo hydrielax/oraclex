@@ -31,7 +31,7 @@ def import_mot_cle():
         mot.delete()
     
     #on ajoute les mots clés depuis le fichier
-    file = open('media/mots_cles.txt', 'r')
+    file = open('media/mots_cles.txt', 'r', encoding='utf-8')
     for row in file.read().splitlines():
         variantes = row.split(',')
         mot_principal = Mot(name = variantes[0])
@@ -66,7 +66,7 @@ def import_cp():
         cp.delete()
 
     #on les réimporte depuis le fichier
-    file = open('media/Conseil_Prudhommes.csv', 'r')
+    file = open('media/Conseil_Prudhommes.csv', 'r', encoding='utf-8')
     reader = csv.reader(file, delimiter=",")
 
     for row in reader:
@@ -89,7 +89,7 @@ def import_ca():
         ca.delete()
 
     #on les réimporte depuis le fichier
-    file = open('media/Cour_Appel.csv', 'r')
+    file = open('media/Cour_Appel.csv', 'r', encoding='utf-8')
     reader = csv.reader(file, delimiter=",")
 
     for row in reader:
@@ -115,10 +115,19 @@ def import_cc():
     ).save()
 
 
+def delete_juridictions():
+    '''Efface toutes les juridictions'''
+    print('Effacement des juridictions')
+    for juridiction in Juridiction.objects.all():
+        juridiction.delete()
+    print('Juridictions effacées')
+
+
 def init_database():
     print('Importation des mots-clés...')
     import_mot_cle()
     print('Importation des juridictions...')
+    #delete_juridictions()
     import_type_juridiction()
     import_cp()
     import_ca()

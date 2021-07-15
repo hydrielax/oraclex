@@ -1,7 +1,6 @@
 import os
 from django.db import models
 from django.urls import reverse
-from apps.add_file.analyse import *
 from apps.account.models import Agent
 
 
@@ -108,7 +107,7 @@ class Juridiction(models.Model):
     type_juridiction = models.ForeignKey(
         to = 'TypeJuridiction', 
         to_field = "cle", 
-        on_delete = models.SET_NULL, 
+        on_delete = models.CASCADE,
         null = True, 
         blank = True
     )
@@ -129,62 +128,70 @@ class Juridiction(models.Model):
         return self.nom
 
 
-
 class BaseJugement(models.Model):
     '''Objet représentant une décision de justice.'''
     file = models.FileField(
-        verbose_name = 'Fichier',
-        upload_to = 'jugements'
+        verbose_name='Fichier',
+        upload_to='jugements'
+    )
+    text = models.TextField(
+        verbose_name='Texte',
+        null=True
+    )
+    quality = models.FloatField(
+        verbose_name='Qualité',
+        help_text="Indice de qualité du PDF analysé",
+        null=True
     )
     lisible = models.BooleanField(
-        verbose_name = 'Lisible',
-        help_text = "Vrai si le fichier est lisible par l'ordinateur.",
-        null = True
+        verbose_name='Lisible',
+        help_text="Vrai si le fichier est lisible par l'ordinateur.",
+        null=True
     )
     decision = models.CharField(
-        verbose_name = 'Décision', 
-        max_length = 1, 
-        choices = (('F', 'Favorable'), ('D', 'Défavorable'), ('M', 'Mixte')), 
-        null = True, 
-        blank = True, 
-        help_text = 'Décision de justice'
+        verbose_name='Décision',
+        max_length=1,
+        choices=(('F', 'Favorable'), ('D', 'Défavorable'), ('M', 'Mixte')),
+        null=True,
+        blank=True,
+        help_text='Décision de justice'
     )
     date_jugement = models.DateField(
-        verbose_name = 'Date du jugement', 
-        null = True, 
-        blank = True, 
-        help_text = 'Date du jugement'
+        verbose_name='Date du jugement',
+        null=True,
+        blank=True,
+        help_text='Date du jugement'
     )
     juridiction = models.ForeignKey(
-        to = TypeJuridiction, 
-        verbose_name = 'Juridiction', 
-        on_delete = models.SET_NULL, 
-        null = True, 
-        blank = True, 
-        help_text = 'Cour ou Conseil du jugement'
+        to=TypeJuridiction,
+        verbose_name='Juridiction',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        help_text='Cour ou Conseil du jugement'
     )
     mots_cle = models.ManyToManyField(
-        to = MotCle, 
-        verbose_name = 'Mot-Clé', 
-        help_text = 'Mots-clé présents dans le Jugement', 
-        blank = True
+        to=MotCle,
+        verbose_name='Mot-Clé',
+        help_text='Mots-clé présents dans le Jugement',
+        blank=True
     )
     gain = models.FloatField(
-        verbose_name = 'Somme gagnée', 
-        help_text = 'Somme gagnée lors du procès (négative si perdu)', 
-        null = True, 
-        blank = True
+        verbose_name='Somme gagnée',
+        help_text='Somme gagnée lors du procès (négative si perdu)',
+        null=True,
+        blank=True
     )
     date_import = models.DateTimeField(
-        verbose_name = "Date d'import du jugement", 
-        auto_now_add = True
+        verbose_name="Date d'import du jugement",
+        auto_now_add=True
     )
     agent_import = models.ForeignKey(
-        to = Agent,
-        verbose_name = "Agent l'ayant importé",
-        on_delete = models.SET_NULL,
-        null = True,
-        blank = True,
+        to=Agent,
+        verbose_name="Agent l'ayant importé",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
     )
 
     class Meta:
@@ -193,7 +200,7 @@ class BaseJugement(models.Model):
     @property
     def name(self):
         return os.path.basename(self.file.name)
-    
+
     def __str__(self):
         return self.name
 
@@ -202,7 +209,6 @@ class BaseJugement(models.Model):
 
 
 class Jugement(BaseJugement):
-
     class Meta:
         ordering = ['-date_jugement']
         verbose_name = 'Décision de justice'

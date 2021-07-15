@@ -4,4 +4,4 @@ from .models import JugementTemp
 
 @admin.register(JugementTemp)
 class JugementTemp(admin.ModelAdmin):
-    list_display = ('name', 'lisible', 'decision', 'gain', 'date_jugement', 'juridiction')
+    list_display = ('name', 'decision', 'gain', 'date_jugement', 'juridiction')
