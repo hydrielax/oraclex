@@ -1,9 +1,38 @@
 from apps.search.models import MotCle
+from apps.search.models import Jugement
 from pdf2image import convert_from_bytes
 from pytesseract import image_to_data
 from dateparser.search import search_dates
 from dateparser import parse
 import re
+import nltk, string
+from sklearn.feature_extraction.text import TfidfVectorizer
+nltk.download('punkt')
+
+def detect_doublons(text):
+    stemmer = nltk.stem.porter.PorterStemmer()
+    remove_punctuation_map = dict((ord(char), None) for char in string.punctuation)
+    def stem_tokens(tokens):
+        return [stemmer.stem(item) for item in tokens]
+
+    '''remove punctuation, lowercase, stem'''
+    def normalize(text):
+        return stem_tokens(nltk.word_tokenize(text.lower().translate(remove_punctuation_map) , language='french'))
+    
+    vectorizer = TfidfVectorizer(tokenizer=normalize, stop_words='english')
+    
+    def cosine_sim(text1, text2):
+        tfidf = vectorizer.fit_transform([text1, text2])
+        return ((tfidf * tfidf.T).A)[0,1]
+
+    L=[]
+    for textes in Jugement.objects.all().values_list('text'):
+        L.append(cosine_sim(text, textes[0]))
+    
+    if max(L)>0.95 :
+        return True
+    
+    return False
 
 
 def analyse(jugement):
@@ -71,12 +100,13 @@ def extract_date(file,text):
     if not dates :
         return date_name
     elif (bool(date1) | bool(date2) ) & bool(dates):
-        if date_name.year == date_text.year & date_name.month == date_text.month :
+        if ((date_name.year == date_text.year) & (date_name.month == date_text.month)) :
             return date_text
         else:
             return date_name
     else:
         return date_text
+
     
 
 def extraction_jugement(file,text):
