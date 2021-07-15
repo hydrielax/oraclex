@@ -1,8 +1,14 @@
 from apps.search.models import MotCle
+from apps.search.models import Jugement
 from pdf2image import convert_from_bytes
 from pytesseract import image_to_data
 from dateparser.search import search_dates
+from dateparser import parse
 import re
+import nltk, string
+from sklearn.feature_extraction.text import TfidfVectorizer
+nltk.download('punkt')
+
 
 
 def analyse(jugement):
@@ -30,22 +36,83 @@ def extract_text(file):
 def find_keywords(text, keywords):
     keywords_found = set()
     for keyword in keywords:
-        for word in keyword.variantes.values_list('name', flat=True):
+        for word in keyword.variantes.values_list('name',flat=True):
             if re.search("\W" + word + "\W", text, re.IGNORECASE):
                 keywords_found.add(keyword)
     return keywords_found
 
+def detect_doublon(text):
+    stemmer = nltk.stem.porter.PorterStemmer()
+    remove_punctuation_map = dict((ord(char), None) for char in string.punctuation)
+    def stem_tokens(tokens):
+        return [stemmer.stem(item) for item in tokens]
 
-def extract_date(text):
-    dates = search_dates(text, languages=['fr'], settings={'STRICT_PARSING': True})
-    return dates[0][1]
+    '''remove punctuation, lowercase, stem'''
+    def normalize(text):
+        return stem_tokens(nltk.word_tokenize(text.lower().translate(remove_punctuation_map) , language='french'))
+    
+    vectorizer = TfidfVectorizer(tokenizer=normalize, stop_words='english')
+    
+    def cosine_sim(text1, text2):
+        tfidf = vectorizer.fit_transform([text1, text2])
+        return ((tfidf * tfidf.T).A)[0,1]
 
+    L=[]
+    for textes in Jugement.objects.all().values_list('text',flat=True):
+        L.append(cosine_sim(text, textes))
+    
+    if max(L)>0.95 :
+        return True
+    
+    return False
+
+
+#def extract_date(text):
+#    dates = search_dates(text, languages=['fr'], settings={'STRICT_PARSING': True})
+#    return dates[0][1]
+
+def extract_date(file,text):
+    #extraire la date du fichier texte
+    nom=file.name
+    #Le try except c'est pour éviter un bug dans dateparser, il est possible que ce problème soit résolu avec les prochaines versions de dateparser.
+    try :
+        dates = search_dates(text, languages=['fr'], settings={'STRICT_PARSING': True,'PREFER_DATES_FROM': 'past'})
+        if dates:
+            date_text = dates[0][1].date()
+    except :
+        dates= None
+    #extraire la date du nom du fichier
+    file_name = nom.replace("-", " ")
+    L=[str(int(s)) for s in file_name.split() if s.isdigit()]
+    name = ' '.join(L)
+    date1 = parse(name, settings={'PREFER_DATES_FROM': 'past','PREFER_DAY_OF_MONTH': 'first'})
+    if date1:
+        date_name = date1.date()
+        date2 = None
+    #Si la méthode parse n'a pas fonctionné, nous utiliserons les expressions régulières.
+    else :
+        name_of_file=re.search("(([0-9]{4}|[0-9]{2})\W[0-9]{2}\W([0-9]{2})?)", nom)
+        if name_of_file:
+            date2 = search_dates(name_of_file.group(), languages=['fr'], settings={'PREFER_DATES_FROM': 'past','PREFER_DAY_OF_MONTH': 'first'})
+        if date2:
+            date_name = date2[0][1].date()
+    #Comparaisons:
+    if not dates :
+        return date_name
+    elif (bool(date1) | bool(date2) ) & bool(dates):
+        if ((date_name.year == date_text.year) & (date_name.month == date_text.month)) :
+            return date_text
+        else:
+            return date_name
+    else:
+        return date_text
+
+    
 
 def extraction_jugement(filename,text):
-    fav = re.search("\W*[FDM]\W",filename)#ATTENTION PEUT ETRE MODIFIER L'AJOUT DU POINT
+    fav = re.search("\W*[FDM]\W",filename) #ATTENTION PEUT ETRE MODIFIER L'AJOUT DU POINT
     if fav != None:
-        res = filename[fav.start()+1:fav.start()+2]
-            
+        res = filename[fav.start()+1:fav.start()+2]         
         return res
     return extraction_jugement2(text)
 
@@ -182,8 +249,8 @@ def verif_somme(recherche_somme):#renvoie True si somme_re est effectivement une
 
 
 def extraction_somme(contenu):
-
-    limite = "([EP][aà]r ces m[oÛÜ]t[efi]fs)"
+    
+    limite = "([EP][aà]r\W+ces\W+m[oÛÜ]t[fi][fe]s)"
     somme = 0 #somme perdue par la sncf
     somme_re = '[0-9]{0,3}[\., ]?[0-9]{0,3}[\., ]?[0-9]{0,3}[\., ]?[0-9]{1,3}[\., ]?((euros)|[\.,])?[0-9]{0,2} ?((euros)|[€ÄÊ])?'#somme en re
     q = re.compile(limite,re.IGNORECASE)
@@ -266,4 +333,3 @@ def multiplicateur_somme(somme,contenu,i,j):#i et j sont les rangs de débuts et
     if rang_sncf <= rang_civil:
         multiplicateur = -1
     return multiplicateur
-
