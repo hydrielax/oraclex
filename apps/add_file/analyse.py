@@ -63,7 +63,7 @@ def detect_doublon(text):
     
     if max(L)>0.95 :
         return True
-    
+#Il faut préciser qui est le doublon    
     return False
 
 
