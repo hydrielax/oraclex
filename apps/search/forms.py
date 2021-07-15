@@ -1,5 +1,5 @@
 from django import forms
-from .models import Juridiction, TypeJuridiction, Jugement, MotCle, Categorie
+from .models import Juridiction, TypeJuridiction, Jugement, MotCle, Categorie, Mot
 from .fields import ListTextWidget, MySelectMultiple
 
 
@@ -39,8 +39,8 @@ class RequeteForm(forms.Form):
         widget=ListTextWidget(attrs={'class': 'form-control', 'placeholder': 'Tapez le nom de la ville'}),
         required=False
     )
-    motcle = forms.ModelMultipleChoiceField(
-        queryset = MotCle.objects.all(),
+    motcle = forms.MultipleChoiceField(
+        choices = [mot.name for mot in Mot.objects.all()],
         label = "Mots-clés",
         required=False,
     )

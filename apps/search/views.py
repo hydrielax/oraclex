@@ -7,24 +7,73 @@ from .recherche import *
 
 @login_required
 def searchview(request):
+    '''Vue pour la recherche et les résultats'''
+    context = {}
     print(request.method)
     if request.method == 'GET':
         form = RequeteForm(request.GET)
+        print(request.GET)
+        print(form.is_valid())
         if form.is_valid():
-            motscles = form.cleaned_data['motcle']
-            dateMin = form.cleaned_data['dateMin']
-            datemax = form.cleaned_data['dateMax']
-            type_juridiction = form.cleaned_data['type_juridiction']
-            juridiction = form.cleaned_data['juridiction']
+            context = show_results(request, form)
     else:
         form = RequeteForm()
 
-    context = {
-        'form': form, 
-    }
+    context['form'] = form
 
     return render(request, 'search/index.html', context)
 
+
+
+@login_required
+def show_results(request, form):
+    '''Afficher les résultats de la recherche'''
+
+    motsCles = find_motsCles(form.cleaned_data['motcle'])
+    print('Query', motsCles)
+    dateMin = form.cleaned_data['dateMin']
+    dateMax = form.cleaned_data['dateMax']
+    type_juridiction = form.cleaned_data['type_juridiction']
+    juridiction = form.cleaned_data['juridiction']
+
+    jugements = filtrerJugements(motsCles, dateMin, dateMax, type_juridiction, juridiction)
+
+    # recuperation des donnes a partir des scripts
+    moyenne = moyenneGains(jugements)
+    ecart_type = ecart_type_gains(jugements)
+    mediane = medianeGains(jugements)
+    minimum = minimumGain(jugements)
+    maximum = maximumGain(jugements)
+
+    stats = {
+        'moyenne': moyenne,
+        'ecart_type': ecart_type,
+        'mediane': mediane,
+        'minimum': minimum,
+        'maximum': maximum,
+    }
+
+    # graphique répartitions des gains
+    labels = sorted(list(set([jugement.gain for jugement in jugements])))
+    data = [len(jugements.filter(gain=x)) for x in labels]
+
+    graph_gain = {
+        'labels': labels,
+        'data': data
+    }
+
+    graph_pie = {
+       'labels' : ["favorable", "défavorable"],
+       'data': [len(jugements.filter(gain__gte=0)), len(jugements.filter(gain__lt=0))]
+    }
+
+    context = {
+        'jugements': jugements,
+        'stats': stats,
+        'graph_gain': graph_gain,
+        'graph_pie': graph_pie
+    }
+    return context
 
 
 @login_required

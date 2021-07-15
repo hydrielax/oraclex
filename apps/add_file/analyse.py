@@ -31,7 +31,7 @@ def find_keywords(text, keywords):
     keywords_found = set()
     for keyword in keywords:
         for word in keyword.variantes.values_list('name', flat=True):
-            if re.search("\W"+word+"\W", text, re.IGNORECASE):
+            if re.search("\W" + word + "\W", text, re.IGNORECASE):
                 keywords_found.add(keyword)
     return keywords_found
 
@@ -45,6 +45,7 @@ def extraction_jugement(filename,text):
     fav = re.search("\W*[FDM]\W",filename)#ATTENTION PEUT ETRE MODIFIER L'AJOUT DU POINT
     if fav != None:
         res = filename[fav.start()+1:fav.start()+2]
+            
         return res
     return extraction_jugement2(text)
 
