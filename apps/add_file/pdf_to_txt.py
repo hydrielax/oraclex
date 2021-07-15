@@ -10,17 +10,29 @@ from pdf2image import convert_from_path
 
 #this function can identify the placement of the text, and can take as an input colored pdf too
 
-def extract_text(file):
+def pdf_to_txt2(file):
+    """Take as an argument the file ,
+    comme sortie, elle donne le texte et deux critères de lisibilité et le texte."""
     text = ""
+    L=[]
+    
     good = total = 0
-    for page in convert_from_bytes(file.read()):
-        data = image_to_data(page, lang='fra', config=r'--oem 3 --psm 6', output_type='dict')
+    pages = convert_from_path(file.read(), 350)
+    for page in pages:
+        image = np.array(page) 
+        image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+        gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        threshold_img = cv2.threshold(gray_image, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
+        custom_config = r'--oem 3 --psm 6'
+        data = pytesseract.image_to_data(threshold_img, output_type = Output.DICT, config=custom_config, lang='fra')
+        L.append(mean(list(map(float,data['conf']))))
         for word, conf in zip(data['text'], map(float, data['conf'])):
             if word: text += word + " "
             good += (conf > 75)
             total += 1
-    return text, good / total
-
+        
+    return text,mean(L),good/total
+            
 
 
 def extract_text2(file):
