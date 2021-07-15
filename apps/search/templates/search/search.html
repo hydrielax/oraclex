@@ -1,0 +1,185 @@
+{% load static %}
+
+<h2>Paramètres de la recherche</h2>
+<form method="GET" onkeydown="return event.key != 'Enter';" action="{% url 'search:results' %}">
+<div class="bd-example">
+    <label class="font-weight-medium mb-2" for="addreceivers1">Mots-clés :</label>
+    <div class="form-control-container form-chips-container" data-component="chips">
+        
+        <input data-role="typewriter" type="text" class="chips-input stretchy form-control" id="addreceivers1" style="width: 84px;" list='receivers1' placeholder='Entrez ici vos mots-clés'>
+        
+        <datalist id="receivers1">
+            <option value='CDD'></option>
+            <option value='Sem Inceptos Tellus'></option>
+            <option value="Amet Porta"></option>
+            <option value="test"></option>
+            <option value="omnibus"></option>
+        </datalist>
+        <label class="font-weight-medium mb-2 sr-only" for="receivers1">Éléments</label>
+        <select class="sr-only" data-role="input" tabindex="-1" aria-hidden="true" id="" multiple=""  name='motcle'>
+        </select>
+    </div>
+</div>
+<br>
+    <div class="row">
+        <div class="col">
+            <div class="fieldWrapper form-group">
+                {{ form.dateMin.label_tag }}
+                <div class="form-control-container has-left-icon">
+                    {{ form.dateMin }}
+                    <span class="form-control-state"></span>
+                    <span class="form-control-icon">
+                        <i class="icons-calendar"></i>
+                    </span>
+                </div>
+                {% for error in form.dateMin.errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col">
+            <div class="fieldWrapper form-group">
+                {{ form.dateMax.label_tag }}
+                <div class="form-control-container has-left-icon">
+                    {{ form.dateMax }}
+                    <span class="form-control-state"></span>
+                    <span class="form-control-icon">
+                        <i class="icons-calendar"></i>
+                    </span>
+                </div>
+                {% for error in form.dateMax.errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="fieldWrapper form-group"> 
+                {{ form.type_juridiction.label_tag }}
+                {{ form.type_juridiction }}
+            </div>
+        </div>
+        <div class="col">
+            <div class="fieldWrapper form-group">
+                {{ form.juridiction.label_tag }}
+                <div class="form-control-container has-left-icon">
+                    {{ form.juridiction }}
+                    <span class="form-control-state"></span>
+                    <span class="form-control-icon">
+                        <i class="icons-search"></i>
+                    </span>
+                </div>
+                {% for error in form.juridiction.errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- mot-clés: recherche en tapant les mots-clés -->
+    <!--
+    <div class="fieldWrapper form-group">
+        {{ form.motsCles_textInput.label_tag }}
+        <div class="form-control-container has-left-icon">
+            {{ form.motsCles_textInput }}
+            <span class="form-control-state"></span>
+            <span class="form-control-icon">
+                <i class="icons-search"></i>
+            </span>
+        </div>
+        {% for error in form.motsCles_textInput.errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+        {% endfor %}
+    </div>
+    <!--div class="fieldWrapper form-group">
+        {{ form.motsCles }}
+    </div-->
+    <!-- mot-clés : liste triée par groupe --><!--
+    <div class="fieldWrapper form-group">
+        {{ form.motsCles.label_tag }}
+        <div class="select-improved" data-component="select-multiple">
+            <div class="select-control">
+                <div class="input-group" data-role="select-toggle">
+                    <div class="form-control">
+                        <div class="custom-control custom-checkbox">
+                            <label data-role="placeholder" class="custom-control-label font-weight-medium">Tous les mots-clés</label>
+                        </div>
+                    </div>
+                    {{ form.motsCles }}
+                    <div class="input-group-append input-group-last">
+                        <button class="btn btn-primary btn-only-icon" data-role="btn" type="button" aria-expanded="false" aria-controls="multiselecttoggle2">
+                            <i class="icons-arrow-down icons-size-x75" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="multiselecttoggle2" class="select-menu" data-role="menu" role="list">
+                    <div class="select-group" data-role="group" data-id="-1" role="list">
+                        {% for motcle in liste_sans_groupe %}
+                        <div class="select-menu-item" role="listitem">
+                            <div class="custom-control custom-checkbox">
+                                <button type="button" data-role="value" data-target="{{ motcle.id }}" role="checkbox" aria-checked="false" class="custom-control-label w-100 text-left font-weight-medium">{{ motcle.representant.name}}</button>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% for groupe in liste %}
+                    <div class="select-group" data-role="group" data-id="{{ groupe.id }}" role="listitem">
+                        <div class="select-group-head">
+                            <div class="custom-control custom-checkbox w-100">
+                                <button type="button" data-role="counter" class="custom-control-label font-weight-bold w-100 text-left text-uppercase">{{ groupe.nom }}</button>
+                            </div>     
+                        </div>
+                        <div class="select-group-content" role="list">
+                            {% for motcle in groupe.mots_cles %}
+                            <div class="select-menu-item" role="listitem">
+                                <div class="custom-control custom-checkbox">
+                                    <button type="button" data-role="value" data-target="{{ motcle.id }}" role="checkbox" aria-checked="false" class="custom-control-label w-100 text-left font-weight-medium">{{ motcle.representant.name }}</button>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div--> <br>
+    <button type="submit" class="btn btn-primary"><span>Rechercher</span> <i class="icons-search" aria-hidden="true"></i></button>
+    <!--button type="submit" class="btn btn-outline-primary" disabled><span>Prévoir</span> <i class="icons-share" aria-hidden="true"></i></button-->
+</form>
+<!--script type='text/javascript' src="{% static 'js/chips.js' %}"></script-->
+<style>
+    input:focus-visible {
+        outline:none;
+    }
+    /*
+    datalist {
+        position: absolute;
+        background-color: white;
+        border: 1px solid blue;
+        border-radius: 0 0 5px 5px;
+        border-top: none;
+        font-family: sans-serif;
+        width: 350px;
+        padding: 5px;
+    }
+    option {
+        background-color: white;
+        padding: 4px;
+        color: blue;
+        margin-bottom: 1px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+    option:hover, .active{
+        background-color: lightblue;
+    }*/
+</style>

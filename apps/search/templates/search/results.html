@@ -1,24 +1,9 @@
-{% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Recherche -{% endblock %}
+<h2>Résultats</h2>
 
-{% block content %}
-    <h1>Résultats</h1>
-    <h2>Paramètres entrés</h2>
-    <table>
-        <tr><th>Date minimale : </th><td>{{ parametres.dateMin | default_if_none:"1900 01" }}</td></tr>
-        <tr><th>Date maximale : </th><td>{{ parametres.dateMax | default_if_none:"Aujourd'hui" }}</td></tr>
-        <tr><th>Type de Juridiction : </th><td>{{ parametres.type_juridiction | default_if_none:"Toutes" }}</td></tr>
-        <tr><th>Juridiction : </th><td>{{ parametres.juridiction | default_if_none:"Toutes" }}</td></tr>
-        <tr>
-            <th>Mots-clés : </th>
-            <td>{% for mot in parametres.motsCles %}{{ mot }}, {% endfor %}</td>
-        </tr>
-    </table>
-    <br><br>
-    <h2>Résultats statistiques</h2>
-    <!--img style="width:100%" src="https://support.minitab.com/fr-fr/minitab/19/media/generated-content/images/capahist_curves_cable.png"-->
-    {% if jugements %}
+<!--img style="width:100%" src="https://support.minitab.com/fr-fr/minitab/19/media/generated-content/images/capahist_curves_cable.png"-->
+{% if jugements %}
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <div id="container" class="mx-auto" style="width: 25%;">
         <canvas id="pieChart"></canvas>
@@ -38,7 +23,7 @@
             responsive: true
         }
         };
-    
+
         var ctx = document.getElementById('pieChart').getContext('2d');
         var pieChart = new Chart(ctx, config);
     </script>
@@ -85,7 +70,7 @@
             }
         }
         };
-    
+
         var ctx = document.getElementById('barChart').getContext('2d');
         var barChart = new Chart(ctx, config);
     </script>
@@ -145,7 +130,7 @@
         <h2 class="text-info2">Statistiques</h2>
         <ul class="list-group">
             <li class="list-group-item"><b>Moyenne:</b> {{ moyenne }}€</li>
-     k      <li class="list-group-item"><b>Médiane:</b> {{ mediane }}€</li>
+        k      <li class="list-group-item"><b>Médiane:</b> {{ mediane }}€</li>
             <li class="list-group-item"><b>Ecart-type:</b> {{ ecart_type }}€</li>
             <li class="list-group-item"><b>Minimum:</b> {{ minimum }}€</li>
             <li class="list-group-item"><b>Maximum:</b> {{ maximum }}€</li>
@@ -163,8 +148,6 @@
             {% endfor %}
         </ul>
     </div-->
-    <h2 class="text-info2">Prédiction</h2>
-    {% else %}
+{% else %}
     <p class="text-danger">Aucun jugement ne correspond à votre recherche</p>
-    {% endif %}
-{% endblock %}
+{% endif %}
