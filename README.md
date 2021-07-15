@@ -26,14 +26,15 @@ Oraclex est un projet de gestion, d'analyse, et de prédiction de décisions de 
 5. Placez-vous dans le dossier `oraclex` avec la commande `cd` si besoin
 6. Installez les dépendances logicielles : `sudo apt-get install $(cat Aptfile)`
 6. Installez les dépendances Python : `pip3 install -r requirements.txt`
-7. Créez la base de données : `$ python3 manage.py migrate` 
+7. Créez la base de données : `python3 manage.py migrate` 
 8. Remplissez la BDD avec les données de base :
     ```python
-    $ python3 manage.py shell
+    python3 manage.py shell
     >> from init_data import init_database
     >> init_database()
     ```
-9. Créez un compte super-utilisateur : `$ python3 manage.py createsuperuser`
+9. Créez un compte super-utilisateur : `python3 manage.py createsuperuser`
+
 
 ---
 
@@ -101,17 +102,17 @@ Oraclex est un projet de gestion, d'analyse, et de prédiction de décisions de 
 ---
 ## Commandes courantes
 
-* **À chaque fois que vous revenez sur le code,** il faut relancer l'environnement virtuel avec la commande : `$ workon oraclex_env`
+* **À chaque fois que vous revenez sur le code,** il faut relancer l'environnement virtuel avec la commande : `workon oraclex_env`
 * **Pour tester le site en local :**
     1. Placez-vous dans le dossier `oraclex` avec `cd` si besoin
     2. Vérifiez que l'environnement virtuel est activé
-    3. Lancez le serveur : `$ python3 manage.py runserver`
+    3. Lancez le serveur : `python3 manage.py runserver`
     4. Dans un navigateur, connectez-vous à l'adresse **http://localhost:8000**
     5. Pour arrêter le serveur, tapez `CTRL+C`
 * **Lorsque vous modifiez la structure de la base de donnée** (fichiers `models.py`) :
     1. Vérifiez que le serveur est arrêté
-    2. Créez un script de migration de l'ancienne bdd à la nouvelle : `$ python3 manage.py makemigrations`
-    3. Appliquez les changements : `$ python3 manage.py migrate`
+    2. Créez un script de migration de l'ancienne bdd à la nouvelle : `python3 manage.py makemigrations`
+    3. Appliquez les changements : `python3 manage.py migrate`
 
 ---
 
