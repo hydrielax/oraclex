@@ -10,27 +10,47 @@ def motscles_valide(chaine):
             raise forms.ValidationError('Vous avez saisi un mot-clé incorrect')
 
 
-
+MONTHS = [(1,'Janvier'), (2,'Février'), (3,'Mars'), (4,'Avril'), (5,'Mai'), (6,'Juin'), (7,'Juillet'), (8,'Août'), (9,'Septembre'), (10,'Octobre'), (11,'Novembre'), (12,'Décembre')]
 class RequeteForm(forms.Form):
     '''Formulaire de recherche.'''
 
-    dateMin = forms.DateField(
-        input_formats=["%Y %m"],
-        label="Date Minimale",
-        widget=forms.TextInput(attrs={'placeholder': 'AAAA MM', 'class': 'form-control'}),
-        required=False
+    datemMin = forms.ChoiceField(
+        choices = MONTHS,
+        label = "",
+        required=False,
+        initial=1,
     )
-    dateMax = forms.DateField(
-        input_formats=["%Y %m"],
-        label="Date Maximale",
-        widget=forms.TextInput(attrs={'placeholder': 'AAAA MM', 'class': 'form-control'}),
-        required=False
+    dateyMin = forms.IntegerField(
+        required=False,
+        initial=1900,
     )
+    datemMax = forms.ChoiceField(
+        choices = MONTHS,
+        label = "",
+        required=False,
+        initial=1,
+    )
+    dateyMax = forms.IntegerField(
+        required=False,
+        initial=1900,
+    )
+    # dateMin = forms.DateField(
+    #     input_formats=["%Y %m"],
+    #     label="Date Minimale",
+    #     widget=forms.TextInput(attrs={'placeholder': 'AAAA MM', 'class': 'form-control'}),
+    #     required=False
+    # )
+    # dateMax = forms.DateField(
+    #     input_formats=["%Y %m"],
+    #     label="Date Maximale",
+    #     widget=forms.TextInput(attrs={'placeholder': 'AAAA MM', 'class': 'form-control'}),
+    #     required=False
+    # )
     type_juridiction = forms.ModelChoiceField(
         queryset=TypeJuridiction.objects.all(),
         label="Type de juridiction",
         widget=forms.Select(attrs={'class': 'form-control'}),
-        required=False
+        required=False,
     )
     juridiction = forms.ModelChoiceField(
         queryset=Juridiction.objects.all(),
