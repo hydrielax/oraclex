@@ -14,6 +14,7 @@ def searchview(request):
         form = RequeteForm(request.GET)
         print(request.GET)
         print(form.is_valid())
+        print(form.errors)
         if form.is_valid():
             context = show_results(request, form)
     else:

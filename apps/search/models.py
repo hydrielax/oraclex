@@ -163,7 +163,7 @@ class BaseJugement(models.Model):
         help_text='Date du jugement'
     )
     juridiction = models.ForeignKey(
-        to=TypeJuridiction,
+        to=Juridiction,
         verbose_name='Juridiction',
         on_delete=models.SET_NULL,
         null=True,
