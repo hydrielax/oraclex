@@ -26,7 +26,7 @@ class JugementTemp(BaseJugement):
         fields = {fld.name: getattr(self, fld.name) for fld in BaseJugement._meta.fields}
         jugement = Jugement(**fields)
         jugement.save()
-        jugement.mots_cle.set(self.mots_cle.all())
+        jugement.mots_clesset(self.mots_clesall())
         self.delete()
 
     @classmethod

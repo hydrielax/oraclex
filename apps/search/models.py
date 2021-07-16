@@ -170,10 +170,10 @@ class BaseJugement(models.Model):
         blank=True,
         help_text='Cour ou Conseil du jugement'
     )
-    mots_cle = models.ManyToManyField(
+    mots_cles= models.ManyToManyField(
         to=MotCle,
         verbose_name='Mot-Clé',
-        help_text='Mots-clé présents dans le Jugement',
+        help_text='Mots-clés présents dans le Jugement',
         blank=True
     )
     gain = models.FloatField(

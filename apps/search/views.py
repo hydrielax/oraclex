@@ -15,68 +15,73 @@ def searchview(request):
         print(request.GET)
         print(form.is_valid())
         print(form.errors)
-        if form.is_valid():
-            context = show_results(request, form)
+        #if form.is_valid():
+        context = show_results(form)
     else:
         form = RequeteForm()
 
     context['form'] = form
-
     return render(request, 'search/index.html', context)
 
 
 
-@login_required
-def show_results(request, form):
+def show_results(form):
     '''Afficher les résultats de la recherche'''
 
+    # récupérer les résultats
     motsCles = find_motsCles(form.cleaned_data['motcle'])
-    print('Query', motsCles)
-    dateMin = form.cleaned_data['dateMin']
-    dateMax = form.cleaned_data['dateMax']
+    dateMin = firstDay(form.cleaned_data['dateMin'])
+    dateMax = lastDay(form.cleaned_data['dateMax'])
     type_juridiction = form.cleaned_data['type_juridiction']
     juridiction = form.cleaned_data['juridiction']
-
     jugements = filtrerJugements(motsCles, dateMin, dateMax, type_juridiction, juridiction)
 
-    # recuperation des donnes a partir des scripts
-    moyenne = moyenneGains(jugements)
-    ecart_type = ecart_type_gains(jugements)
-    mediane = medianeGains(jugements)
-    minimum = minimumGain(jugements)
-    maximum = maximumGain(jugements)
-
+    # statistiques
     stats = {
-        'moyenne': moyenne,
-        'ecart_type': ecart_type,
-        'mediane': mediane,
-        'minimum': minimum,
-        'maximum': maximum,
+        'moyenne': moyenneGains(jugements),
+        'ecart_type': ecart_type_gains(jugements),
+        'mediane': medianeGains(jugements),
+        'minimum': minimumGain(jugements),
+        'maximum': maximumGain(jugements),
     }
 
-    # graphique répartitions des gains
-    labels = sorted(list(set([jugement.gain for jugement in jugements])))
-    data = [len(jugements.filter(gain=x)) for x in labels]
-
+    # graphiques
+    graph_gain_labels = list(jugements.order_by('gain').values_list('gain', flat=True).distinct())
     graph_gain = {
-        'labels': labels,
-        'data': data
+        'labels': graph_gain_labels,
+        'data': [len(jugements.filter(gain=x)) for x in graph_gain_labels],
     }
-
     graph_pie = {
        'labels' : ["favorable", "défavorable"],
-       'data': [len(jugements.filter(gain__gte=0)), len(jugements.filter(gain__lt=0))]
+       'data': [len(jugements.filter(gain__gte=0)), len(jugements.filter(gain__lt=0))],
     }
 
+    # envoie au template
     context = {
         'jugements': jugements,
         'stats': stats,
         'graph_gain': graph_gain,
-        'graph_pie': graph_pie
+        'graph_pie': graph_pie,
     }
     return context
 
 
+
+
+@login_required
+def unreadables(request):
+    '''Génère la liste des Fichiers Illsibles.'''
+
+    # fichiers illisibles
+    bad_files = Jugement.objects.filter(lisible = False).all()
+
+    context = {
+        'bad_files': bad_files,
+    }
+    return render(request, 'search/unreadables.html', context)
+
+
+'''
 @login_required
 def recherche(request):
     if request.method == 'POST':
@@ -189,18 +194,5 @@ def resultat(request):
         'graph_gain': graph_gain,
         'graph_pie': graph_pie
     })
+'''
 
-
-
-
-@login_required
-def unreadables(request):
-    '''Génère la liste des Fichiers Illsibles.'''
-
-    # fichiers illisibles
-    bad_files = Jugement.objects.filter(lisible = False).all()
-
-    context = {
-        'bad_files': bad_files,
-    }
-    return render(request, 'search/unreadables.html', context)

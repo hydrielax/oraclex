@@ -1,7 +1,12 @@
 from .models import *
 from django.db.models import Q
 from math import sqrt
+import datetime
+from dateutil.relativedelta import relativedelta
 
+
+# lecture des requêtes
+# --------------------
 
 def find_motsCles(mots):
     motsCles = []
@@ -11,34 +16,36 @@ def find_motsCles(mots):
             motsCles.append(matching_mot[0].motcle.pk)
     return MotCle.objects.filter(pk__in=motsCles)
 
+def firstDay(date):
+    return date
+
+def lastDay(date):
+    if not date: return date
+    return firstDay(date) + relativedelta(months=1, days=-1)
+
+
+# filtrage des jugements
+# ----------------------
 
 def filtrerJugements(motsCles, dateMin, dateMax, type_juridiction, juridiction):
     jugements = Jugement.objects.all()
-    variables = {
-        'mots_cle': motsCles,
-        'date_jugement_min': dateMin,
-        'date_jugement_max': dateMax,
-        'type_juridiction': type_juridiction,
-        'juridiction': juridiction,
-    }
-    for key, value in variables.items():
-        if key == 'mots_cle' and value:
-            jugements = jugements.filter(mots_cle__nom__in=motsCles).distinct()
-        print(jugements)
-        if key == 'date_jugement_min' and value:
-            annee, mois = dateMin.split(" ")
-            dateQuery = Q(date_jugement__year__gt=annee) | (Q(date_jugement__year=annee) & Q(date_jugement__month__gte=mois))
-            jugements = jugements.filter(dateQuery)
-        if key == 'date_jugement_max' and value:
-            annee, mois = dateMax.split(" ")
-            dateQuery = Q(date_jugement__year__lt=annee) | (Q(date_jugement__year=annee) & Q(date_jugement__month__lte=mois))
-            jugements = jugements.filter(dateQuery)
-        if key == 'type_juridiction' and value:
-            jugements = jugements.filter(juridiction__type_juridiction = type_juridiction)
-        if key == 'juridiction' and value:
-            jugements = jugements.filter(juridiction__nom=juridiction)
+    if motsCles:
+        for motcle in motsCles:
+            jugements = jugements.filter(mots_cles= motcle)
+    if dateMin:
+        jugements = jugements.filter(date_jugement__gte = dateMin)
+    if dateMax:
+        jugements = jugements.filter(date_jugement__lte = dateMax)
+    if type_juridiction:
+        jugements = jugements.filter(juridiction__type_juridiction = type_juridiction)
+    if juridiction:
+        jugements = jugements.filter(juridiction = juridiction)
     
-    return jugements.order_by('gain')
+    return jugements
+
+
+# calculs des statistiques
+# ------------------------
 
 def moyenneGains(jugements):
     if not jugements:

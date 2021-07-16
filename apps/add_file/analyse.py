@@ -17,7 +17,7 @@ def analyse(jugement):
     print('Start')
     jugement.text, jugement.quality = extract_text(jugement.file.file)
     jugement.lisible = jugement.quality > 0.6
-    jugement.date_jugement = extract_date(jugement.name, jugement.text)
+    jugement.mots_clesment = extract_date(jugement.name, jugement.text)
     jugement.decision = extraction_jugement(jugement.name, jugement.text)
     jugement.gain = extraction_somme(jugement.text)
     jugement.mots_cle.set(find_keywords(jugement.text, MotCle.objects.all()))
