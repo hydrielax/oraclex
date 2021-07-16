@@ -14,8 +14,8 @@ nltk.download('punkt')
 def analyse(jugement):
     print('Start')
     jugement.text, jugement.quality = extract_text(jugement.file.file)
-    jugement.date_jugement = extract_date(jugement.file.name, jugement.text)
-    jugement.decision = extraction_jugement(jugement.file.name, jugement.text)
+    jugement.date_jugement = extract_date(jugement.name, jugement.text)
+    jugement.decision = extraction_jugement(jugement.name, jugement.text)
     jugement.gain = extraction_somme(jugement.text)
     jugement.mots_cle.set(find_keywords(jugement.text, MotCle.objects.all()))
     jugement.register()
@@ -38,13 +38,16 @@ def find_keywords(text, keywords):
     keywords_found = set()
     for keyword in keywords:
         for word in keyword.variantes.values_list('name',flat=True):
-            if re.search("\W" + word + "\W", text, re.IGNORECASE):
+            if re.search("\W"+word+"\W", text, re.IGNORECASE):
                 keywords_found.add(keyword)
     return keywords_found
 
+
 def detect_doublon(text):
+
     stemmer = nltk.stem.porter.PorterStemmer()
     remove_punctuation_map = dict((ord(char), None) for char in string.punctuation)
+
     def stem_tokens(tokens):
         return [stemmer.stem(item) for item in tokens]
 
@@ -87,17 +90,19 @@ def extract_date(filename,text):
         date_name = date1.date()
         date2 = None
     #Si la méthode parse n'a pas fonctionné, nous utiliserons les expressions régulières.
-    else :
+    else:
         name_of_file=re.search("(([0-9]{4}|[0-9]{2})\W[0-9]{2}\W([0-9]{2})?)", filename)
         if name_of_file:
             date2 = search_dates(name_of_file.group(), languages=['fr'], settings={'PREFER_DATES_FROM': 'past','PREFER_DAY_OF_MONTH': 'first'})
             if date2:
                 date_name = date2[0][1].date()
+        else:
+            date2 = None
     #Comparaisons:
-    if not dates :
+    if not dates:
         return date_name
     elif (bool(date1) | bool(date2) ) & bool(dates):
-        if ((date_name.year == date_text.year) & (date_name.month == date_text.month)) :
+        if date_name.year == date_text.year and date_name.month == date_text.month:
             return date_text
         else:
             return date_name
