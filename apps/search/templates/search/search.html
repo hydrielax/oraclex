@@ -1,85 +1,48 @@
 {% load static %}
 
 <h2>Paramètres de la recherche</h2>
-<form method="GET" onkeydown="return event.key != 'Enter';" action="{% url 'search:results' %}">
-<div class="bd-example">
-    <label class="font-weight-medium mb-2" for="addreceivers1">Mots-clés :</label>
-    <div class="form-control-container form-chips-container" data-component="chips">
-        
-        <input data-role="typewriter" type="text" class="chips-input stretchy form-control" id="addreceivers1" style="width: 84px;" list='receivers1' placeholder='Entrez ici vos mots-clés'>
-        
-        <datalist id="receivers1">
-            <option value='CDD'></option>
-            <option value='Sem Inceptos Tellus'></option>
-            <option value="Amet Porta"></option>
-            <option value="test"></option>
-            <option value="omnibus"></option>
-        </datalist>
-        <label class="font-weight-medium mb-2 sr-only" for="receivers1">Éléments</label>
-        <select class="sr-only" data-role="input" tabindex="-1" aria-hidden="true" id="" multiple=""  name='motcle'>
-        </select>
-    </div>
-</div>
-<br>
-    <div class="row">
-        <div class="col">
-            <div class="fieldWrapper form-group">
-                {{ form.dateMin.label_tag }}
-                <div class="form-control-container has-left-icon">
-                    {{ form.dateMin }}
-                    <span class="form-control-state"></span>
-                    <span class="form-control-icon">
-                        <i class="icons-calendar"></i>
-                    </span>
-                </div>
-                {% for error in form.dateMin.errors %}
-                <div class="alert alert-danger">
-                    <strong>{{ error|escape }}</strong>
-                </div>
-                {% endfor %}
-            </div>
+<form method="GET" onkeydown="return event.key != 'Enter';" action="{% url 'search:results' %}" autocomplete='off' class="needs-validation" novalidate>
+    <div class="bd-example">
+        <label class="font-weight-medium mb-2" for="addreceivers1">Mots-clés :</label>
+        <div class="form-control-container form-chips-container {% if form.motcle.errors %}is-invalid{% endif %}" data-component="chips">
+            
+            <input data-role="typewriter" type="text" class="chips-input stretchy form-control" id="addreceivers1" style="width: 84px;" list='receivers1' placeholder='Entrez ici vos mots-clés'>
+            
+            <datalist id="receivers1">
+                <option value='CDD'>CDD</option>
+                <option value='Sem Inceptos Tellus'></option>
+                <option value="Amet Porta"></option>
+                <option value="test"></option>
+                <option value="omnibus"></option>
+            </datalist>
+            <label class="font-weight-medium mb-2 sr-only" for="receivers1">Éléments</label>
+            <select class="sr-only" data-role="input" tabindex="-1" aria-hidden="true" id="" multiple=""  name='motcle'>
+            </select>
         </div>
-        <div class="col">
-            <div class="fieldWrapper form-group">
-                {{ form.dateMax.label_tag }}
-                <div class="form-control-container has-left-icon">
-                    {{ form.dateMax }}
-                    <span class="form-control-state"></span>
-                    <span class="form-control-icon">
-                        <i class="icons-calendar"></i>
-                    </span>
-                </div>
-                {% for error in form.dateMax.errors %}
-                <div class="alert alert-danger">
-                    <strong>{{ error|escape }}</strong>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
+        {% if form.motcle.errors %}
+            <div class="invalid-feedback"><ul>
+            {% for error in form.motcle.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+            </ul></div>
+        {% endif %}
     </div>
+    <br>
     <div class="row">
-        <div class="col">
+        <div class="col-12 col-sm-6">
+            {% include 'forms/field.html' with field=form.dateMin icon="icons-calendar" %}
+        </div>
+        <div class="col-12 col-sm-6">
+            {% include 'forms/field.html' with field=form.dateMax icon="icons-calendar" %}
+        </div>
+        <div class="col-12 col-sm-6">
             <div class="fieldWrapper form-group"> 
                 {{ form.type_juridiction.label_tag }}
                 {{ form.type_juridiction }}
             </div>
         </div>
-        <div class="col">
-            <div class="fieldWrapper form-group">
-                {{ form.juridiction.label_tag }}
-                <div class="form-control-container has-left-icon">
-                    {{ form.juridiction }}
-                    <span class="form-control-state"></span>
-                    <span class="form-control-icon">
-                        <i class="icons-search"></i>
-                    </span>
-                </div>
-                {% for error in form.juridiction.errors %}
-                <div class="alert alert-danger">
-                    <strong>{{ error|escape }}</strong>
-                </div>
-                {% endfor %}
-            </div>
+        <div class="col-12 col-sm-6">
+            {% include 'forms/field.html' with field=form.juridiction icon="icons-search" %}
         </div>
     </div>
     <!-- mot-clés: recherche en tapant les mots-clés -->

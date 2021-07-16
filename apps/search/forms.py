@@ -28,7 +28,7 @@ class RequeteForm(forms.Form):
     )
     type_juridiction = forms.ModelChoiceField(
         queryset=TypeJuridiction.objects.all(),
-        label="Type de juridiction (non-fonctionnel)",
+        label="Type de juridiction",
         widget=forms.Select(attrs={'class': 'form-control'}),
         required=False
     )
@@ -40,7 +40,7 @@ class RequeteForm(forms.Form):
         required=False
     )
     motcle = forms.MultipleChoiceField(
-        choices = [mot.name for mot in Mot.objects.all()],
+        choices = [(mot.name, mot.name) for mot in Mot.objects.all()],
         label = "Mots-clés",
         required=False,
     )

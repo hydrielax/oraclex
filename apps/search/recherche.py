@@ -5,13 +5,10 @@ from math import sqrt
 
 def find_motsCles(mots):
     motsCles = []
-    print('mots ', mots)
     for mot in mots:
         matching_mot = Mot.objects.filter(name = mot)
-        print('match ', matching_mot)
         if matching_mot:
             motsCles.append(matching_mot[0].motcle.pk)
-            print('list', motsCles)
     return MotCle.objects.filter(pk__in=motsCles)
 
 
@@ -37,7 +34,7 @@ def filtrerJugements(motsCles, dateMin, dateMax, type_juridiction, juridiction):
             dateQuery = Q(date_jugement__year__lt=annee) | (Q(date_jugement__year=annee) & Q(date_jugement__month__lte=mois))
             jugements = jugements.filter(dateQuery)
         if key == 'type_juridiction' and value:
-            jugements = jugements.filter(juridiction__ville=type_juridiction)
+            jugements = jugements.filter(juridiction__type_juridiction = type_juridiction)
         if key == 'juridiction' and value:
             jugements = jugements.filter(juridiction__nom=juridiction)
     
