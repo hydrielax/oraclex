@@ -14,7 +14,8 @@ nltk.download('punkt')
 def analyse(jugement):
     print('Start')
     jugement.text, jugement.quality = extract_text(jugement.file.file)
-    jugement.date_jugement = extract_date(jugement.text)
+    jugement.date_jugement = extract_date(jugement.file.name, jugement.text)
+    jugement.decision = extraction_jugement(jugement.file.name, jugement.text)
     jugement.gain = extraction_somme(jugement.text)
     jugement.mots_cle.set(find_keywords(jugement.text, MotCle.objects.all()))
     jugement.register()
@@ -90,8 +91,8 @@ def extract_date(filename,text):
         name_of_file=re.search("(([0-9]{4}|[0-9]{2})\W[0-9]{2}\W([0-9]{2})?)", filename)
         if name_of_file:
             date2 = search_dates(name_of_file.group(), languages=['fr'], settings={'PREFER_DATES_FROM': 'past','PREFER_DAY_OF_MONTH': 'first'})
-        if date2:
-            date_name = date2[0][1].date()
+            if date2:
+                date_name = date2[0][1].date()
     #Comparaisons:
     if not dates :
         return date_name
