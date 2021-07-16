@@ -8,12 +8,14 @@ import re
 import nltk, string
 from sklearn.feature_extraction.text import TfidfVectorizer
 nltk.download('punkt')
+sep = "(^|\W|\_|$)+"
 
 #pull before push
 
 def analyse(jugement):
     print('Start')
     jugement.text, jugement.quality = extract_text(jugement.file.file)
+    jugement.lisible = jugement.quality > 0.6
     jugement.date_jugement = extract_date(jugement.name, jugement.text)
     jugement.decision = extraction_jugement(jugement.name, jugement.text)
     jugement.gain = extraction_somme(jugement.text)
@@ -38,7 +40,7 @@ def find_keywords(text, keywords):
     keywords_found = set()
     for keyword in keywords:
         for word in keyword.variantes.values_list('name',flat=True):
-            if re.search("\W"+word+"\W", text, re.IGNORECASE):
+            if re.search(sep+word+sep, text, re.IGNORECASE):
                 keywords_found.add(keyword)
     return keywords_found
 
@@ -75,33 +77,26 @@ def detect_doublon(text):
 def extract_date(filename,text):
     #extraire la date du fichier texte
     #Le try except c'est pour éviter un bug dans dateparser, il est possible que ce problème soit résolu avec les prochaines versions de dateparser.
-    try :
+    try:
         dates = search_dates(text, languages=['fr'], settings={'STRICT_PARSING': True,'PREFER_DATES_FROM': 'past'})
-        if dates:
-            date_text = dates[0][1].date()
-    except :
-        dates= None
+        date_text = dates[0][1].date() if dates else None
+    except: pass
     #extraire la date du nom du fichier
-    file_name = filename.replace("-", " ")
-    L=[str(int(s)) for s in file_name.split() if s.isdigit()]
+    L=[str(int(s)) for s in filename.split() if s.isdigit()]
     name = ' '.join(L)
-    date1 = parse(name, settings={'PREFER_DATES_FROM': 'past','PREFER_DAY_OF_MONTH': 'first'})
-    if date1:
-        date_name = date1.date()
-        date2 = None
+    date = parse(name, settings={'PREFER_DATES_FROM': 'past','PREFER_DAY_OF_MONTH': 'first'})
+    date_name = date.date() if date else None
     #Si la méthode parse n'a pas fonctionné, nous utiliserons les expressions régulières.
-    else:
-        name_of_file=re.search("(([0-9]{4}|[0-9]{2})\W[0-9]{2}\W([0-9]{2})?)", filename)
+    if not date_name:
+        name_of_file=re.search("(([0-9]{4}|[0-9]{2})"+sep+"[0-9]{2}"+sep+"([0-9]{2})?)", filename)
         if name_of_file:
-            date2 = search_dates(name_of_file.group(), languages=['fr'], settings={'PREFER_DATES_FROM': 'past','PREFER_DAY_OF_MONTH': 'first'})
-            if date2:
-                date_name = date2[0][1].date()
-        else:
-            date2 = None
+            date = search_dates(name_of_file.group(), languages=['fr'], settings={'PREFER_DATES_FROM': 'past','PREFER_DAY_OF_MONTH': 'first'})
+            date_name = date[0][1].date() if date else None
     #Comparaisons:
-    if not dates:
+    print(date_name)
+    if not date_text:
         return date_name
-    elif (bool(date1) | bool(date2) ) & bool(dates):
+    elif date_name:
         if date_name.year == date_text.year and date_name.month == date_text.month:
             return date_text
         else:
@@ -109,10 +104,9 @@ def extract_date(filename,text):
     else:
         return date_text
 
-    
 
 def extraction_jugement(filename,text):
-    fav = re.search("\W*[FDM]\W",filename) #ATTENTION PEUT ETRE MODIFIER L'AJOUT DU POINT
+    fav = re.search(sep+"[FDM]"+sep,filename) #ATTENTION PEUT ETRE MODIFIER L'AJOUT DU POINT
     if fav:
         return filename[fav.start()+1:fav.start()+2]
     return extraction_jugement2(text)
@@ -123,17 +117,17 @@ noms_sncf = ["établissement SNCF",'EPIC','epic','E.P.I.C','e.p.i.c','E.P.I.C.',
 def extraction_jugement2(txt):
     """Cette fonction extrait le jugement du fichier s'il n'a pas été extrait du nom du fichier,
      sa précision est de 81.73% en général et de 86.44% pour le jugement favorable vs défavorable seulement."""
-    limite = re.compile("([EP][aà]r\W+ces\W+m[oÛÜ]t[fi][fe]s)",re.IGNORECASE)
+    limite = re.compile("([EP][aà]r"+sep+"ces"+sep+"m[oÛÜ]t[fi][fe]s)",re.IGNORECASE)
     possibilite_de_rechreche = re.search(limite,txt)
     if (possibilite_de_rechreche == None) :#si "Par ces motifs" n'est pas trouvée
         return None
     else :
         i = possibilite_de_rechreche.end()
         s=1
-        condamnations = re.finditer("condamne\W",txt[i:], re.IGNORECASE)
+        condamnations = re.finditer("condamne"+sep,txt[i:], re.IGNORECASE)
         for m in [k for k in condamnations]:
             rang=m.end()+i
-            words = re.compile("(\w)+(\W)+(\w)+(\W)+(\w)+(\W)",re.IGNORECASE)
+            words = re.compile("\w+\W+\w+\W+\w+\W",re.IGNORECASE)
             words_found = re.search(words,txt[rang:])
             civil_re = re.compile('(M\.|Mme|Madame|Mlle|Monsieur|Mr|CFDT|CGT|SYNDICAT)',re.IGNORECASE)
             civil = re.search(civil_re, words_found.group())
@@ -156,7 +150,7 @@ def extraction_jugement2(txt):
                     s-=5
                     break
  
-        deboutements = re.finditer("d[eéÉÈè]bout[ceéÉÈè]\W",txt[i:], re.IGNORECASE)
+        deboutements = re.finditer("d[eéÉÈè]bout[ceéÉÈè]"+sep,txt[i:], re.IGNORECASE)
         for m in [k2 for k2 in deboutements]:
             rang=m.end()+i
             words = re.compile("\w+\W+\w+\W+\w+\W",re.IGNORECASE)
@@ -260,7 +254,7 @@ def extraction_somme(contenu):
 
     if (qs == None) :#si 'Par ces motifs' est mal écrit, le fichier est considéré comme endommagé + critere de lisibilité
         return None
-    else :
+    else:
         i = qs.end()# mm probleme que rang_somme
         r = re.compile("(condamn[ ]?[eèéÉÈËÊêë])",re.IGNORECASE)
         rs = re.search(r,contenu[i:])#On recherche Ã  partir de "Par ces motifs" pour éviter les autres chiffres
