@@ -6,6 +6,7 @@ from statistics import mean
 from pytesseract import Output
 from pdf2image import convert_from_path
 
+
 #### Note : we have not yet taken into account the readability criteria, we must do so, via the confidence coefficient.
 
 #this function can identify the placement of the text, and can take as an input colored pdf too
@@ -74,21 +75,3 @@ def extract_text2(file):
             
     return mean(L),good/total
 
-
-"""
-# to test it we tested with many files, while showing a pregression bar and the total time
-import time                
-from progressbar import progressbar
-start_time = time.time()
-
-for i in progressbar(range(10)):
-    pdfs = r"C:\Users\anass\Programmation\Extract info\{0}.pdf".format(i+1) 
-    txt_path = r"C:\Users\anass\Programmation\Extract info\output-{}.txt".format(i+40)
-    H=pdf_to_txt(pdfs,txt_path)
-    print(i+1,"\n","max confidence:", max(H) , "\n","min confidence", min(H) , "\n","average confidence", mean(H) , "\n")
-
-
-print("Total time : %s seconds" % (time.time() - start_time))
-
-
-"""
