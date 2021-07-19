@@ -69,7 +69,7 @@ class TypeJuridiction(models.Model):
     '''Objet représentant un type de juridiction : Cour de Cassation, Appel, etc...'''
     cle = models.CharField(
         verbose_name = 'Abbréviation', 
-        max_length = 2, 
+        max_length = 3,
         primary_key = True
     )
     nom = models.CharField(

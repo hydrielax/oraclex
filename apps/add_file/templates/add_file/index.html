@@ -7,18 +7,52 @@
         h2 {
             text-transform: none;
         }
+        .btn-light-outline {
+            background-color: var(--white);
+            color: var(--dark);
+            border-color: #d9d9d9;
+        }
     </style>
 
     <h1>
         Ajout de fichiers
     </h1>
 
+
     <h2>
         Envoyer des jugements à analyser
     </h2>
+
     <form class="mb-4" method="POST" enctype="multipart/form-data">
-        {% csrf_token %} {{ selection }}
+        {% csrf_token %}
+
+        {{ selection.fichiers }}
+        <button class="btn btn-light mb-1" type="button"
+            onclick="document.getElementById('id_fichiers').click();">
+        Fichiers &nbsp;<i class="icons-document"></i>
+        </button>
+
+        {{ selection.dossier }}
+        <button class="btn btn-light mb-1" type="button"
+            onclick="document.getElementById('id_dossier').click();">
+        Dossier &nbsp;<i class="icons-file"></i>
+        </button>
+
+        <span id="cancel-validate"></span>
+        <p class="mt-1" id="file_count"></p>
+        <script>
+        function updateInfo() {
+            let buttons = "<button class='btn btn-light btn-light-outline mb-1' type='button' onclick='location.reload();'>Annuler</button> ";
+            buttons += "<button class='btn btn-outline-success mb-1' type='submit'>Valider</button>";
+            document.getElementById("cancel-validate").innerHTML = buttons;
+            const nb_file = document.getElementById("id_fichiers").files.length
+            const nb_folder = document.getElementById("id_dossier").files.length
+            const file_number = `${nb_file + nb_folder} fichiers sélectionnés`;
+            document.getElementById("file_count").innerHTML = file_number;
+        }
+        </script>
     </form>
+
 
     <h2>
         Historique des jugements envoyés

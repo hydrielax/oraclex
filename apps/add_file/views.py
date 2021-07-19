@@ -11,7 +11,7 @@ JugementTemp.thread.start()
 def ajout(request):
     agent = Agent.objects.get(user=request.user)
     if request.method == 'POST':
-        fichiers = request.FILES.getlist('fichiers')
+        fichiers = request.FILES.getlist('fichiers') + request.FILES.getlist('dossier')
         for f in fichiers:
             jugement = JugementTemp(file=f, agent_import=agent)
             jugement.save()

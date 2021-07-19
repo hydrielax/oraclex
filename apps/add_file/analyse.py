@@ -1,28 +1,34 @@
 from apps.search.models import MotCle
-from apps.search.models import Jugement
+from apps.search.models import Jugement, Juridiction
+from django.utils.text import slugify
 from pdf2image import convert_from_bytes
 from pytesseract import image_to_data
+from datetime import datetime
 from dateparser.search import search_dates
-from dateparser import parse
 import re
 import nltk, string
 from sklearn.feature_extraction.text import TfidfVectorizer
 import fitz
 nltk.download('punkt', quiet=True)
-sep = "(^|\W|\_|$)+"
 
-#pull before push
+sep = r"(?:^|\W|\_|$)+"  # Regular expression for separator
+
 
 def analyse(jugement):
-    print('Start')
-    jugement.text, jugement.quality = extract_text(jugement.file.file)
-    jugement.lisible = jugement.quality > 0.6
-    jugement.mots_clesment = extract_date(jugement.name, jugement.text)
-    jugement.decision = extraction_jugement(jugement.name, jugement.text)
-    jugement.gain = extraction_somme(jugement.text)
-    jugement.mots_cle.set(find_keywords(jugement.text, MotCle.objects.all()))
-    jugement.register()
-    print('End')
+    try:
+        print('Start', jugement.name)
+        jugement.text, jugement.quality = extract_text(jugement.file.file)
+        jugement.lisible = jugement.quality > 0.6
+        jugement.date_jugement = extract_date(jugement.name, jugement.text)
+        jugement.decision = extraction_jugement(jugement.name, jugement.text)
+        jugement.gain = extraction_somme(jugement.text)
+        jugement.juridiction = find_juridiction(jugement.name, Juridiction.objects.all())
+        jugement.mots_cles.set(find_keywords(jugement.text, MotCle.objects.all()))
+        jugement.register()
+        print('End')
+    except BaseException as exc:
+        raise exc
+        jugement.delete()
 
 
 def extract_text_ocr(file):
@@ -36,6 +42,7 @@ def extract_text_ocr(file):
             total += 1
     return text, good / total
 
+
 def get_text_percentage(file):
     """
     If the returned percentage of text is very low, the document is a scanned PDF
@@ -48,18 +55,17 @@ def get_text_percentage(file):
     for page_num, page in enumerate(doc):
         total_page_area += abs(page.rect)
         for b in page.getTextBlocks():
-            if b[6]==0:
+            if b[6] == 0:
                 r = fitz.Rect(b[:4])  # rectangle where block text appears
                 total_text_area += abs(r)
     return total_text_area / total_page_area 
 
-def extract_text(file):
-    text_perc=get_text_percentage(file)
-    default_percentage= 0.2
-    if text_perc < default_percentage:
-        extract_text_ocr(file)
+def extract_text(file, limit_perc=0.2):
+    text_perc = get_text_percentage(file)
+    if text_perc < limit_perc:
+        return extract_text_ocr(file)
     else:
-        extract_from_pdf(file)
+        return extract_from_pdf(file), 0.99
 
 def extract_from_pdf(file):
     text = ""
@@ -76,6 +82,15 @@ def find_keywords(text, keywords):
             if re.search(sep+word+sep, text, re.IGNORECASE):
                 keywords_found.add(keyword)
     return keywords_found
+
+
+def find_juridiction(filename, juridictions):
+    for juridiction in juridictions:
+        ville = re.sub(r'\d{5} ', '', juridiction.ville)
+        ville = re.sub(r' CEDEX( \d+)?', '', ville)
+        if re.search(sep+juridiction.type_juridiction.cle+sep+ville+sep, slugify(filename), re.IGNORECASE):
+            return juridiction
+
 
 def detect_doublon(text):
 
@@ -105,8 +120,6 @@ def detect_doublon(text):
     return False
 
 
-
-
 def extract_date(filename,text):
     #extraire la date du fichier texte
     #Le try except c'est pour éviter un bug dans dateparser, il est possible que ce problème soit résolu avec les prochaines versions de dateparser.
@@ -114,19 +127,16 @@ def extract_date(filename,text):
         dates = search_dates(text, languages=['fr'], settings={'STRICT_PARSING': True,'PREFER_DATES_FROM': 'past'})
         date_text = dates[0][1].date() if dates else None
     except: pass
-    #extraire la date du nom du fichier
-    L=[str(int(s)) for s in filename.split() if s.isdigit()]
-    name = ' '.join(L)
-    date = parse(name, settings={'PREFER_DATES_FROM': 'past','PREFER_DAY_OF_MONTH': 'first'})
-    date_name = date.date() if date else None
-    #Si la méthode parse n'a pas fonctionné, nous utiliserons les expressions régulières.
-    if not date_name:
-        name_of_file=re.search("(([0-9]{4}|[0-9]{2})"+sep+"[0-9]{2}"+sep+"([0-9]{2})?)", filename)
-        if name_of_file:
-            date = search_dates(name_of_file.group(), languages=['fr'], settings={'PREFER_DATES_FROM': 'past','PREFER_DAY_OF_MONTH': 'first'})
-            date_name = date[0][1].date() if date else None
+    date_regex = re.search(sep+r"(\d{4}|\d{2})(?:"+sep+r"(\d{2}))?(?:"+sep+r"(\d{2}))?"+sep, filename)
+    if date_regex:
+        fields = date_regex.groups()
+        year = int('20' + fields[0]) if len(fields[0]) == 2 else int(fields[0])
+        month = int(fields[1]) if fields[1] else 1
+        day = int(fields[2]) if fields[2] else 1
+        date_name = datetime(year, month, day)
+    else:
+        date_name = None
     #Comparaisons:
-    print(date_name)
     if not date_text:
         return date_name
     elif date_name:
@@ -137,16 +147,14 @@ def extract_date(filename,text):
     else:
         return date_text
 
-    
 
 def extraction_jugement(filename,text):
-    fav = re.search(sep+"[FDM]"+sep,filename) #ATTENTION PEUT ETRE MODIFIER L'AJOUT DU POINT
+    fav = re.search(sep+"([FDM])"+sep,filename) #ATTENTION PEUT ETRE MODIFIER L'AJOUT DU POINT
     if fav:
-        return filename[fav.start()+1:fav.start()+2] #bullshit
+        return fav.groups()[0] #bullshit
     return extraction_jugement2(text)
 
 noms_sncf = ["établissement SNCF",'EPIC','epic','E.P.I.C','e.p.i.c','E.P.I.C.','e.p.i.c.','SNCF','S.N.C.F','S.N.C.F.','sncf','s.n.c.f','Société Nationale des Chemins de Fer Français','Société Nationale des Chemins de Fer Francais','société nationale des chemins de fer français','société nationale des chemins de fer francais','SOCIETE NATIONALE DES CHEMINS DE FER FRANÇAIS','SOCIETE NATIONALE DES CHEMINS DE FER FRANCAIS','MOBILITES','MOBILITéS','RESEAU','RéSEAU','groupe','EPIC Société Nationale des Chemins de Fer Français','EPIC Société Nationale des Chemins de Fer Francais','EPIC SOCIETE NATIONALE DES CHEMINS DE FER FRANÇAIS','EPIC SOCIETE NATIONALE DES CHEMINS DE FER FRANCAIS','EPIC MOBILITES','EPIC MOBILITÉS','EPIC RESEAU','EPIC RÉSEAU','EPIC GROUPE','E.P.I.C Société Nationale des Chemins de Fer Français','E.P.I.C Société Nationale des Chemins de Fer Francais','E.P.I.C Société Nationale des Chemins de Fer Francais','E.P.I.C société nationale des chemins de fer français','E.P.I.C SOCIETE NATIONALE DES CHEMINS DE FER FRANÇAIS','E.P.I.C SOCIETE NATIONALE DES CHEMINS DE FER FRANcAIS','E.P.I.C MOBILITES','E.P.I.C MOBILITÉS','E.P.I.C RESEAU','E.P.I.C RESEAU','E.P.I.C Groupe','e.p.i.c Société Nationale des Chemins de Fer Français','e.p.i.c Société Nationale des Chemins de Fer Francais','e.p.i.c SOCIETE NATIONALE DES CHEMINS DE FER FRANÇAIS','e.p.i.c SOCIETE NATIONALE DES CHEMINS DE FER FRANCAIS','e.p.i.c MOBILITES','e.p.i.c MOBILITÉS','e.p.i.c Mobilités','e.p.i.c mobilités','e.p.i.c mobilites','e.p.i.c Mobilites','e.p.i.c RESEAU','e.p.i.c RÉSEAU','e.p.i.c réseau','e.p.i.c réseau','e.p.i.c reseau','e.p.i.c Réseau','e.p.i.c Reseau','e.p.i.c Groupe','e.p.i.c GROUPE', 'E.P.I.C. Société Nationale des Chemins de Fer Français','E.P.I.C. Société Nationale des Chemins de Fer Francais','E.P.I.C. société nationale des chemins de fer français','E.P.I.C. société nationale des chemins de fer francais','E.P.I.C. SOCIéTé NATIONALE DES CHEMINS DE FER FRANCAIS','E.P.I.C. SOCIÉTÉ NATIONALE DES CHEMINS DE FER FRANÇAIS','E.P.I.C. SOCIETE NATIONALE DES CHEMINS DE FER FRANÇAIS','E.P.I.C. SOCIETE NATIONALE DES CHEMINS DE FER FRANCAIS','E.P.I.C. MOBILITES','E.P.I.C. MOBILITÉS','E.P.I.C. Mobilités','E.P.I.C. mobilités','E.P.I.C. mobilites','E.P.I.C. Mobilites','E.P.I.C. RESEAU','E.P.I.C. RÉSEAU','E.P.I.C. réseau','E.P.I.C. reseau','E.P.I.C. Réseau','E.P.I.C. Reseau','E.P.I.C. Groupe','E.P.I.C. GROUPE','e.p.i.c. Société Nationale des Chemins de Fer Français','e.p.i.c. Société Nationale des Chemins de Fer Francais','e.p.i.c. société nationale des chemins de fer français','e.p.i.c. société nationale des chemins de fer francais','e.p.i.c. SOCIÉTÉ NATIONALE DES CHEMINS DE FER FRANCAIS','e.p.i.c. SOCIÉTÉ NATIONALE DES CHEMINS DE FER FRANÇAIS','e.p.i.c. SOCIETE NATIONALE DES CHEMINS DE FER FRANÇAIS','e.p.i.c. SOCIETE NATIONALE DES CHEMINS DE FER FRANCAIS','e.p.i.c. MOBILITES','e.p.i.c. MOBILITÉS','e.p.i.c. Mobilités','e.p.i.c. mobilités','e.p.i.c. mobilites','e.p.i.c. Mobilites','e.p.i.c. RESEAU','e.p.i.c. RÉSEAU','e.p.i.c. réseau','e.p.i.c. reseau','e.p.i.c. Réseau','e.p.i.c. Reseau','e.p.i.c. Groupe', 'e.p.i.c. GROUPE','SNCF MOBILITES','SNCF MOBILITÉS','SNCF Mobilités','SNCF mobilités','SNCF mobilites','SNCF Mobilites','SNCF RESEAU','SNCF RÉSEAU','SNCF réseau','SNCF reseau','SNCF Réseau','SNCF Reseau','SNCF Groupe','SNCF GROUPE','S.N.C.F MOBILITES','S.N.C.F MOBILITÉS','S.N.C.F Mobilités','S.N.C.F mobilités','S.N.C.F mobilites','S.N.C.F Mobilites','S.N.C.F RESEAU','S.N.C.F RÉSEAU','S.N.C.F réseau','S.N.C.F reseau','S.N.C.F Réseau','S.N.C.F Reseau','S.N.C.F Groupe', 'S.N.C.F GROUPE', 'S.N.C.F. MOBILITES','S.N.C.F. MOBILITÉS','S.N.C.F. Mobilités','S.N.C.F. mobilités','S.N.C.F. mobilites','S.N.C.F. Mobilites','S.N.C.F. RESEAU','S.N.C.F. RÉSEAU','S.N.C.F. réseau','S.N.C.F. reseau','S.N.C.F. Réseau','S.N.C.F. Reseau','S.N.C.F. Groupe','S.N.C.F. GROUPE','sncf MOBILITES','sncf MOBILITÉS','sncf Mobilités','sncf mobilités','sncf mobilites','sncf Mobilites','sncf RESEAU','sncf RÉSEAU','sncf réseau','sncf reseau','sncf Réseau','sncf Reseau','sncf Groupe','sncf GROUPE','s.n.c.f. MOBILITES','s.n.c.f. MOBILITÉS','s.n.c.f. Mobilités','s.n.c.f. mobilités','s.n.c.f. mobilites','s.n.c.f. Mobilites','s.n.c.f. RESEAU','s.n.c.f. RÉSEAU','s.n.c.f. réseau','s.n.c.f. reseau','s.n.c.f. Réseau','s.n.c.f. Reseau','s.n.c.f. Groupe','s.n.c.f. GROUPE','Société Nationale des Chemins de Fer Français MOBILITES','Société Nationale des Chemins de Fer Français MOBILITÉS','Société Nationale des Chemins de Fer Français Mobilités','Société Nationale des Chemins de Fer Français mobilités','Société Nationale des Chemins de Fer Français mobilites','Société Nationale des Chemins de Fer Français Mobilites','Société Nationale des Chemins de Fer Français RESEAU','Société Nationale des Chemins de Fer Français RÉSEAU','Société Nationale des Chemins de Fer Français réseau','Société Nationale des Chemins de Fer Français reseau','Société Nationale des Chemins de Fer Français Réseau','Société Nationale des Chemins de Fer Français Reseau','Société Nationale des Chemins de Fer Français Groupe','Société Nationale des Chemins de Fer Français GROUPE','Société Nationale des Chemins de Fer Francais MOBILITES','Société Nationale des Chemins de Fer Francais MOBILITÉS','Société Nationale des Chemins de Fer Francais Mobilités','Société Nationale des Chemins de Fer Francais mobilités','Société Nationale des Chemins de Fer Francais mobilites','Société Nationale des Chemins de Fer Francais Mobilites','Société Nationale des Chemins de Fer Francais RESEAU','Société Nationale des Chemins de Fer Francais RÉSEAU','Société Nationale des Chemins de Fer Francais réseau','Société Nationale des Chemins de Fer Francais reseau','Société Nationale des Chemins de Fer Francais Réseau','Société Nationale des Chemins de Fer Francais Reseau','Société Nationale des Chemins de Fer Francais Groupe','Société Nationale des Chemins de Fer Francais GROUPE','société nationale des chemins de fer français MOBILITES','société nationale des chemins de fer français MOBILITÉS','société nationale des chemins de fer français Mobilités','société nationale des chemins de fer français mobilités','société nationale des chemins de fer français mobilites','société nationale des chemins de fer français Mobilites','société nationale des chemins de fer français RESEAU','société nationale des chemins de fer français RÉSEAU','société nationale des chemins de fer français réseau','société nationale des chemins de fer français reseau','société nationale des chemins de fer français Réseau','société nationale des chemins de fer français Reseau','société nationale des chemins de fer français Groupe','société nationale des chemins de fer français GROUPE','société nationale des chemins de fer francais MOBILITES','société nationale des chemins de fer francais MOBILITÉS','société nationale des chemins de fer francais Mobilités','société nationale des chemins de fer francais mobilités','société nationale des chemins de fer francais mobilites','société nationale des chemins de fer francais Mobilites','société nationale des chemins de fer francais RESEAU','société nationale des chemins de fer francais RÉSEAU','société nationale des chemins de fer francais réseau','société nationale des chemins de fer francais reseau','société nationale des chemins de fer francais Réseau','société nationale des chemins de fer francais Reseau','société nationale des chemins de fer francais Groupe','société nationale des chemins de fer francais GROUPE','Groupe  EPIC','Groupe  epic','Groupe  E.P.I.C','Groupe  e.p.i.c','Groupe  E.P.I.C.','Groupe  e.p.i.c.','Groupe  SNCF','Groupe  S.N.C.F','Groupe  S.N.C.F.','Groupe  sncf','Groupe  s.n.c.f.','Groupe  Société Nationale des Chemins de Fer Français','Groupe  Société Nationale des Chemins de Fer Francais','Groupe  société nationale des chemins de fer français','Groupe  société nationale des chemins de fer francais','GROUPE  MOBILITES','GROUPE  MOBILITÉS','GROUPE  Mobilités','GROUPE  mobilités','GROUPE  mobilites','GROUPE  Mobilites','GROUPE  RESEAU','GROUPE  RÉSEAU','GROUPE  réseau','GROUPE  reseau','GROUPE  Réseau','GROUPE  Reseau']
-
 
 def extraction_jugement2(txt):
     """Cette fonction extrait le jugement du fichier s'il n'a pas été extrait du nom du fichier,
@@ -223,8 +231,6 @@ def extraction_jugement2(txt):
     #     #   #   #    #    #   #   # #       #   # #   # #  ##      #  #  #            #  #   # #   # #   # #
     ##### #   #   #    #     #  #   #  ####   #   #  ###  #   #     ###    #####      ####  ###  #   # #   # #####
 ########################################################################################################################
-
-
 
 
 chiffres = [str(k) for k in range(10)]

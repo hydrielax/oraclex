@@ -1,12 +1,14 @@
 from django import forms
-from .widgets import CustomFileInput
+from .widgets import InvisibleFileInput
 from django.utils.safestring import mark_safe
 
 
 class ChoixFichiers(forms.Form):
 
-    parameters = {'multiple': True, 'upload_to': 'jugements'}
-    fichiers = forms.FileField(label='', widget=CustomFileInput(attrs=parameters))
+    use_required_attribute = False
+    options = {'upload_to': 'jugements', 'oninput': 'updateInfo();', 'autocomplete': 'off', 'multiple': True}
+    fichiers = forms.FileField(label='', widget=InvisibleFileInput(attrs={**options, 'accept': 'application/pdf'}))
+    dossier = forms.FileField(label='', widget=InvisibleFileInput(attrs={**options, 'webkitdirectory': True}))
 
 
 class Historique(list):

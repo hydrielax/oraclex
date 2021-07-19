@@ -53,7 +53,7 @@ def import_type_juridiction():
         type.delete()
 
     #on les intialise
-    TypeJuridiction(cle="CP", nom="Conseil des Prud'Hommes", niveau="1").save()
+    TypeJuridiction(cle="CPH", nom="Conseil des Prud'Hommes", niveau="1").save()
     TypeJuridiction(cle="CA", nom="Cour d'Appel",            niveau="2").save()
     TypeJuridiction(cle="CC", nom="Cour de Cassation",       niveau="3").save()
 
@@ -62,7 +62,7 @@ def import_cp():
     '''Importe dans la base de données la liste des Conseils de Prud'Hommes.'''
 
     #on efface tous les cp
-    for cp in Juridiction.objects.filter(type_juridiction='CP'):
+    for cp in Juridiction.objects.filter(type_juridiction='CPH'):
         cp.delete()
 
     #on les réimporte depuis le fichier
@@ -73,7 +73,7 @@ def import_cp():
         juridiction = Juridiction(
             nom = row[0], 
             ville = row[1],
-            type_juridiction = TypeJuridiction.objects.get(cle='CP'),
+            type_juridiction = TypeJuridiction.objects.get(cle='CPH'),
             rattachement = None,
         )
         juridiction.save()
