@@ -1,51 +1,43 @@
 from django import forms
 from .models import Juridiction, TypeJuridiction, Jugement, MotCle, Categorie, Mot
 from .fields import ListTextWidget, MySelectMultiple
+import datetime
 
+MONTHS = [('1','Janvier'), ('2','Février'), ('3','Mars'), ('4','Avril'), ('5','Mai'), ('6','Juin'), ('7','Juillet'), ('8','Août'), ('9','Septembre'), ('10','Octobre'), ('11','Novembre'), ('12','Décembre')]
 
-def motscles_valide(chaine):
-    liste_motscles = [mot.nom.upper() for mot in MotCle.objects.all()]
-    for mot in chaine.split(","):
-        if (mot.strip().upper() not in liste_motscles):
-            raise forms.ValidationError('Vous avez saisi un mot-clé incorrect')
-
-
-MONTHS = [(1,'Janvier'), (2,'Février'), (3,'Mars'), (4,'Avril'), (5,'Mai'), (6,'Juin'), (7,'Juillet'), (8,'Août'), (9,'Septembre'), (10,'Octobre'), (11,'Novembre'), (12,'Décembre')]
 class RequeteForm(forms.Form):
     '''Formulaire de recherche.'''
 
     datemMin = forms.ChoiceField(
         choices = MONTHS,
-        label = "",
-        required=False,
-        initial=1,
+        label = "Date minimale - Mois",
+        required=True,
+        initial="1",
+        widget=forms.Select(attrs={'class': 'form-control'}),
     )
     dateyMin = forms.IntegerField(
+        label = "Date minimale - Année",
         required=False,
         initial=1900,
+        widget=forms.NumberInput(attrs={'class': 'form-control', 'value':1900}),
+        min_value=1900,
+        max_value=datetime.datetime.now().year,
     )
     datemMax = forms.ChoiceField(
         choices = MONTHS,
-        label = "",
-        required=False,
-        initial=1,
+        label = "Date maximale - Mois",
+        required=True,
+        initial="8",
+        widget=forms.Select(attrs={'class': 'form-control'}),
     )
     dateyMax = forms.IntegerField(
         required=False,
-        initial=1900,
+        #initial=datetime.datetime.now().year,
+        label = "Date maximale - Année",
+        widget=forms.NumberInput(attrs={'class': 'form-control', 'value':datetime.datetime.now().year}),
+        min_value=1900,
+        max_value=datetime.datetime.now().year,
     )
-    # dateMin = forms.DateField(
-    #     input_formats=["%Y %m"],
-    #     label="Date Minimale",
-    #     widget=forms.TextInput(attrs={'placeholder': 'AAAA MM', 'class': 'form-control'}),
-    #     required=False
-    # )
-    # dateMax = forms.DateField(
-    #     input_formats=["%Y %m"],
-    #     label="Date Maximale",
-    #     widget=forms.TextInput(attrs={'placeholder': 'AAAA MM', 'class': 'form-control'}),
-    #     required=False
-    # )
     type_juridiction = forms.ModelChoiceField(
         queryset=TypeJuridiction.objects.all(),
         label="Type de juridiction",
@@ -59,11 +51,23 @@ class RequeteForm(forms.Form):
         widget=ListTextWidget(attrs={'class': 'form-control', 'placeholder': 'Tapez le nom de la ville'}),
         required=False
     )
-    motcle = forms.MultipleChoiceField(
-        choices = [(mot.name, mot.name) for mot in Mot.objects.all()],
+    motcle = forms.ModelMultipleChoiceField(
+        queryset=Mot.objects.all(),
         label = "Mots-clés",
         required=False,
     )
+    # dateMin = forms.DateField(
+    #     input_formats=["%Y %m"],
+    #     label="Date Minimale",
+    #     widget=forms.TextInput(attrs={'placeholder': 'AAAA MM', 'class': 'form-control'}),
+    #     required=False
+    # )
+    # dateMax = forms.DateField(
+    #     input_formats=["%Y %m"],
+    #     label="Date Maximale",
+    #     widget=forms.TextInput(attrs={'placeholder': 'AAAA MM', 'class': 'form-control'}),
+    #     required=False
+    # )
     # motsCles_textInput = forms.CharField(
     #     label="Mots-Clés",
     #     widget=forms.TextInput(attrs={'placeholder': 'Tapez les mots-clés séparés par une virgule', 'class': 'form-control'}),
