@@ -14,23 +14,9 @@ def motscles_valide(chaine):
 class RequeteForm(forms.Form):
     '''Formulaire de recherche.'''
     
-    type_juridiction = forms.ModelChoiceField(
-        queryset=TypeJuridiction.objects.all(),
-        label="Type de juridiction (peut etre à utiliser)",
-        widget=forms.Select(attrs={'class': 'form-control'}),
-        required=False
-    )
-    
-    motsCles_textInput = forms.CharField(
-        label="Mots-Clés",
-        widget=forms.TextInput(attrs={'placeholder': 'Tapez les mots-clés séparés par une virgule', 'class': 'form-control'}),
-        validators=[motscles_valide],
-        required=False,
-    )
     motsCles = forms.ModelMultipleChoiceField(
         queryset=MotCle.objects.all(),
-        label="Mots-Clés (non-fonctionnel)",
-        widget=MySelectMultiple(attrs={'class':"sr-only", 'id':"exampleFormControlMultiSelect3", 'data-role':"input", 'tabindex':"-1", 'aria-hidden':"true", 'multiple':'' }),
-        # widget=forms.CheckboxSelectMultiple(),
+        label="Mots-Clés",
+        widget=forms.SelectMultiple(),
         required=False,
     )
