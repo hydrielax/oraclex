@@ -16,12 +16,13 @@ def find_motsCles(mots):
             motsCles.append(matching_mot[0].motcle.pk)
     return MotCle.objects.filter(pk__in=motsCles)
 
-def firstDay(date):
-    return date
+def firstDay(month, year):
+    return datetime.date(int(year), int(month), 1)
 
-def lastDay(date):
+def lastDay(month, year):
+    date = firstDay(month, year)
     if not date: return date
-    return firstDay(date) + relativedelta(months=1, days=-1)
+    return date + relativedelta(months=1, days=-1)
 
 
 # filtrage des jugements

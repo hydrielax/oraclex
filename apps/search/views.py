@@ -9,14 +9,13 @@ from .recherche import *
 def searchview(request):
     '''Vue pour la recherche et les résultats'''
     context = {}
-    print(request.method)
-    if request.method == 'GET':
+    if request.GET:
         form = RequeteForm(request.GET)
         print(request.GET)
         print(form.is_valid())
         print(form.errors)
-        #if form.is_valid():
-        #context = show_results(form)
+        if form.is_valid():
+            context = show_results(form)
     else:
         form = RequeteForm(initial={'datemMax': str(datetime.datetime.now().month)})
 
@@ -30,8 +29,8 @@ def show_results(form):
 
     # récupérer les résultats
     motsCles = find_motsCles(form.cleaned_data['motcle'])
-    dateMin = firstDay(form.cleaned_data['dateMin'])
-    dateMax = lastDay(form.cleaned_data['dateMax'])
+    dateMin = firstDay(form.cleaned_data['datemMin'], form.cleaned_data['dateyMin'])
+    dateMax = lastDay(form.cleaned_data['datemMax'], form.cleaned_data['dateyMax'])
     type_juridiction = form.cleaned_data['type_juridiction']
     juridiction = form.cleaned_data['juridiction']
     jugements = filtrerJugements(motsCles, dateMin, dateMax, type_juridiction, juridiction)

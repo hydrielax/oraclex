@@ -27,7 +27,7 @@ class RequeteForm(forms.Form):
         choices = MONTHS,
         label = "Date maximale - Mois",
         required=True,
-        initial="8",
+        initial='12',
         widget=forms.Select(attrs={'class': 'form-control'}),
     )
     dateyMax = forms.IntegerField(
