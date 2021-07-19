@@ -16,7 +16,9 @@ def prediction(request):
         form = RequeteForm(request.POST)
         if form.is_valid():
             motsCles = form.cleaned_data['motsCles']
-            variantes = Mot.objects.filter(motcle__in=motsCles).values_list('name', flat=True)
+            #variantes = Mot.objects.filter(motcle__in=motsCles).values_list('name', flat=True)
+            variantes = motsCles.values_list('representant__name', flat=True)
+            var_bool = [motCle in motsCles for motCle in MotCle.objects.all()]
             #proba = ia(variantes)
             proba = 0
             context['proba'] = proba
