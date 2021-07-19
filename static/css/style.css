@@ -16,7 +16,9 @@ hr {
     margin-top: 3rem;
 }
 
-/* for icon */
+/* FORMLAIRES */
+/* ---------- */
+
 .icon {
     width: 1.2rem;
     margin-left: 0.5rem;
@@ -29,11 +31,15 @@ hr {
 .chips-group {
     padding: .1563rem ;
 }
-/*
-.error, .errornote, .errorlist {
-    color: var(--danger);
+
+p.form-narrow .form-control-container {
+    height: max-content;
+    display: inline-block;
 }
-*/
+p.form-narrow .form-control {
+    width: 10.5em;
+    display: inline-block;
+}
 
 
 /* PIED DE PAGE EN BAS */

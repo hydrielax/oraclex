@@ -2,6 +2,8 @@
 
 <h2>Paramètres de la recherche</h2>
 <form method="GET" onkeydown="return event.key != 'Enter';" action="{% url 'search:results' %}" autocomplete='off' class="needs-validation" novalidate>
+
+    <!--Mots clés-->
     <div class="bd-example">
         <label class="font-weight-medium mb-2" for="addreceivers1">Mots-clés :</label>
         <div class="form-control-container form-chips-container {% if form.motcle.errors %}is-invalid{% endif %}" data-component="chips">
@@ -18,6 +20,7 @@
             <label class="font-weight-medium mb-2 sr-only" for="receivers1">Éléments</label>
             <select class="sr-only" data-role="input" tabindex="-1" aria-hidden="true" id="" multiple=""  name='motcle'>
             </select>
+            <span class="form-control-state"></span>
         </div>
         {% if form.motcle.errors %}
             <div class="invalid-feedback"><ul>
@@ -28,13 +31,27 @@
         {% endif %}
     </div>
     <br>
+
+    <!-- Autres champs -->
+    <p class="form-narrow">
+        <label>Période :</label> de 
+        <span class="form-control-container {% if field.errors %}is-invalid{% endif %}">
+            {{ form.datemMin }}
+        </span>
+        <span class="form-control-container {% if field.errors %}is-invalid{% endif %}">
+            {{ form.dateyMin }}
+            <span class="form-control-state"></span>
+        </span>
+        à
+        <span class="form-control-container {% if field.errors %}is-invalid{% endif %}">
+            {{ form.datemMax }}
+        </span>
+        <span class="form-control-container {% if field.errors %}is-invalid{% endif %}">
+            {{ form.dateyMax }}
+            <span class="form-control-state"></span>
+        </span>
+    </p>
     <div class="row">
-        <div class="col-12 col-sm-6">
-            {% include 'forms/field.html' with field=form.datemMin icon="icons-calendar" %}
-        </div>
-        <div class="col-12 col-sm-6">
-            {% include 'forms/field.html' with field=form.dateyMin icon="icons-calendar" %}
-        </div>
         <div class="col-12 col-sm-6">
             <div class="fieldWrapper form-group"> 
                 {{ form.type_juridiction.label_tag }}

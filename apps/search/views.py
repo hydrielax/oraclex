@@ -18,7 +18,7 @@ def searchview(request):
         #if form.is_valid():
         #context = show_results(form)
     else:
-        form = RequeteForm()
+        form = RequeteForm(initial={'datemMax': str(datetime.datetime.now().month)})
 
     context['form'] = form
     return render(request, 'search/index.html', context)
