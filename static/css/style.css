@@ -16,6 +16,10 @@ hr {
     margin-top: 3rem;
 }
 
+table.table-tri th {
+    cursor: pointer;
+}
+
 /* FORMLAIRES */
 /* ---------- */
 
@@ -31,6 +35,7 @@ hr {
 .chips-group {
     padding: .1563rem ;
 }
+
 
 /* PIED DE PAGE EN BAS */
 /* ------------------- */

@@ -31,10 +31,11 @@ def show_results(form):
     type_juridiction = form.cleaned_data['type_juridiction']
     juridiction = form.cleaned_data['juridiction']
     jugements = filtrerJugements(motsCles, dateMin, dateMax, type_juridiction, juridiction)
+    jugements = jugements.order_by('gain')
 
     if jugements:
         # statistiques
-        list_jugements = jugements.filter(gain__isnull=False).order_by('gain')
+        list_jugements = jugements.filter(gain__isnull=False)
         stats = {
             'moyenne': moyenneGains(list_jugements),
             'ecart_type': ecart_type_gains(list_jugements),

@@ -16,6 +16,8 @@
     <div class="tab-content">
         <!-- onglet stats -->
         <div class="tab-pane fade show active" id="statistics">
+            <br>
+            <div class="container">
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             <div class='row'>
                 <div class='col-12 col-md-6'>
@@ -106,25 +108,34 @@
                     </script>
                 </div>
             </div>
+            </div>
         </div>
 
         <!-- onglet fichiers -->
         <div class="tab-pane fade" id="files">
             <br>
-            <table class="table">
-                <tr><th>Nom</th><th>Gain</th></tr>
+            <h3>Liste des fichiers trouvés</h3>
+            <p>Cliquez sur l'en-tête d'une colonne pour trier les fichiers selon cette colonne !</p>
+            <table class="table table-hover table-tri">
+                <tbody>
+                <tr><th>Fichier</th><th>Gain</th></tr>
                 {% for jugement in jugements %}
-                    <tr>
-                        <td><a href="/media/{{ jugement.file }}" target="_blank">{{ jugement }}</td>
+                    <tr style="transform: rotate(0);">
+                        <td class="text-truncate"><a class="stretched-link" href="{{ jugement.get_absolute_url }}" target="_blank">{{ jugement }}</td>
                         <td>
-                            {% if jugement.gain >= 0 %}
-                            <b style="color:green">{{ jugement.gain }}</b>
+                            {% if jugement.gain > 0 %}
+                                <b class="text-green">{{ jugement.gain }} €</b>
+                            {% elif jugement.gain == 0 %}
+                                <b class="text-yellow">{{ jugement.gain }} €</b>
+                            {% elif jugement.gain < 0 %}
+                                <b class="text-red">{{ jugement.gain }} €</b>
                             {% else %}
-                            <b style="color:red">{{ jugement.gain }}</b>
+                                <b class="text-muted">-</b>
                             {% endif %}
                         </td>
                     </tr>
                 {% endfor %}
+                </tbody>
             </table>
             <script>
                 // fonction de tri du taleau
@@ -132,11 +143,12 @@
                 const comparer = (idx, asc) => (a, b) => ((v1, v2) => 
                     v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
                     )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
-                document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
+                document.querySelectorAll('.table-tri th').forEach(th => th.addEventListener('click', (() => {
                     const table = th.closest('table');
-                    Array.from(table.querySelectorAll('tr:nth-child(n+2)'))
+                    const tbody = table.querySelector('tbody');
+                    Array.from(tbody.querySelectorAll('tr:nth-child(n+2)'))
                         .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
-                        .forEach(tr => table.appendChild(tr) );
+                        .forEach(tr => tbody.appendChild(tr) );
                 })));
             </script>
         </div>
