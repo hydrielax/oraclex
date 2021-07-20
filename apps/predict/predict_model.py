@@ -37,3 +37,28 @@ def Get_training_data_somme():
 
 
 
+import tensorflow as tf
+
+from tensorflow.keras.callbacks import TensorBoard
+
+import random
+import time
+import numpy as np
+import pickle
+def model_ia(Xnew):
+    print(Xnew)
+    Xnew.extend([0,0,0])
+    
+    Xnew=np.array(Xnew)
+    
+    Xnew=np.asarray(Xnew).astype(np.int)
+    print(Xnew)
+    model = tf.keras.models.load_model(r"C:\Users\anass\Programmation\ML\predict.model")
+    #with open('./predict.model', 'r') as f:
+    #    model = tf.keras.models.load_model(f.read())
+    ynew = model.predict_proba(np.expand_dims(Xnew, axis=0)) 
+    return ynew[0]
+Xnew = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0]
+
+#ynew = model.predict_proba(np.expand_dims(Xnew, axis=0))
+#print(ynew)
