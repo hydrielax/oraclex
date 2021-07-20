@@ -4,7 +4,8 @@
 # init_database()
 
 import csv
-from apps.search.models import Juridiction, TypeJuridiction, MotCle, Categorie, Mot
+from apps.search.models import Juridiction, TypeJuridiction, MotCle, Mot
+import re
 
 
 def rangerMotCle():
@@ -72,7 +73,7 @@ def import_cp():
     for row in reader:
         juridiction = Juridiction(
             nom = row[0], 
-            ville = row[1],
+            ville = extract_ville(row[1]),
             type_juridiction = TypeJuridiction.objects.get(cle='CPH'),
             rattachement = None,
         )
@@ -95,7 +96,7 @@ def import_ca():
     for row in reader:
         juridiction = Juridiction(
             nom = row[0], 
-            ville = row[1],
+            ville = extract_ville(row[1]),
             type_juridiction = TypeJuridiction.objects.get(cle='CA'),
             rattachement = None,
         )
@@ -113,6 +114,12 @@ def import_cc():
         type_juridiction=TypeJuridiction.objects.get(cle='CC'),
         rattachement = None,
     ).save()
+
+
+def extract_ville(ville):
+    ville = re.sub(r'\d{5} ', '', ville)
+    ville = re.sub(r' CEDEX( \d+)?', '', ville)
+    return ville
 
 
 def delete_juridictions():

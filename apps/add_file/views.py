@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 from .forms import ChoixFichiers, Historique
 from .models import Jugement, JugementTemp
 from apps.account.models import Agent

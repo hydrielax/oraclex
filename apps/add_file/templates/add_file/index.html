@@ -4,13 +4,13 @@
 
 {% block content %}
     <style>
-        h2 {
-            text-transform: none;
-        }
         .btn-light-outline {
             background-color: var(--white);
             color: var(--dark);
             border-color: #d9d9d9;
+        }
+        .mw-20 {
+            max-width: 20vw
         }
     </style>
 
@@ -66,7 +66,7 @@
                 var html = "<thead><tr>";
                 for (const [field, name] of Object.entries(table[0])) {
                     html += `<th><a class="d-flex" href="javascript:display_table('${field}');">`;
-                    html += `<span class='text-truncate' style='max-width: 20vw;'>${name}&nbsp;</span>&nbsp;`
+                    html += `<span class='text-truncate mw-20'>${name}&nbsp;</span>&nbsp;`
                     html += `<i class="dropdown-toggle${s>0?'':' icons-flip-vertical'}${field==sort_field?'':' invisible'}">`;
                     html += "</i></a></th>";
                 } html += "</tr></thead>";
@@ -77,7 +77,7 @@
                 for(const row of table) {
                     html += "<tr>";
                     for (const value of Object.values(row)) {
-                        html += `<td class='text-truncate' style='max-width: 20vw;'>${value}</td>`;
+                        html += `<td class='text-truncate mw-20'>${value}</td>`;
                     } html += "</tr>";
                 } html += "</tbody>";
                 document.getElementById("tableau").innerHTML = html;
