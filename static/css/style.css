@@ -32,16 +32,6 @@ hr {
     padding: .1563rem ;
 }
 
-p.form-narrow .form-control-container {
-    height: max-content;
-    display: inline-block;
-}
-p.form-narrow .form-control {
-    width: 10.5em;
-    display: inline-block;
-}
-
-
 /* PIED DE PAGE EN BAS */
 /* ------------------- */
 

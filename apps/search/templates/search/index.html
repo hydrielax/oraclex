@@ -11,5 +11,5 @@
     <h1>Recherche</h1>
     {% include 'search/search.html' %}
     <br><br>
-    {% include 'search/results.html' %}
+    {% if form.is_valid%}{% include 'search/results.html' %}{%endif%}
 {% endblock %}
