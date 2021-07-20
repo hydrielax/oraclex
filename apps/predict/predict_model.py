@@ -6,7 +6,7 @@ from tensorflow.keras.layers import Dense, Dropout, Activation, Flatten
 import random
 import numpy as np
 
-model = tf.keras.models.load_model("predict.model")
+#model = tf.keras.models.load_model("predict.model")
 
 def machinelearning(a,b):
     
