@@ -2,7 +2,6 @@
 
 <h2>Résultats</h2>
 
-<!--img style="width:100%" src="https://support.minitab.com/fr-fr/minitab/19/media/generated-content/images/capahist_curves_cable.png"-->
 {% if jugements %}
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <div id="container" class="mx-auto" style="width: 25%;">
@@ -14,13 +13,22 @@
         data: {
             datasets: [{
                 data: {{ graph_pie.data|safe }},
-                backgroundColor: ["#6e1e78", "#a1006b"],
-                hoverOffset: 8
+                backgroundColor: ["#82BE00", "#FFB612", "#CD0037", "#707379"],
+                hoverOffset: 8,
             }],
             labels: {{ graph_pie.labels|safe }}
         },
         options: {
-            responsive: true
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                title: {
+                    text: "Résultats : Favorable, Mixte ou Défavorable",
+                    display: true
+                }
+            },
         }
         };
 
@@ -36,11 +44,9 @@
         type: 'bar',
         data: {
             datasets: [{
-            data: {{ graph_gain.data | safe }},
-            backgroundColor: [
-                '#6e1e78', '#a1006b', '#CD0037'
-            ],
-            label: 'Nombre de jugements'
+                data: {{ graph_gain.data | safe }},
+                backgroundColor: ['#6e1e78', '#a1006b', '#CD0037'],
+                label: 'Nombre de jugements ',
             }],
             labels: {{ graph_gain.labels | safe }}
         },
@@ -56,12 +62,6 @@
                 }
             },
             scales: {
-                x: {
-                    grid: {
-                        color: "rgba(0,0,0,0)"
-                    },
-                    type: "linear"
-                },
                 y: {
                     grid: {
                         color: "rgba(0,0,0,0)"

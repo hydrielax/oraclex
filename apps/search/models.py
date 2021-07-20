@@ -172,7 +172,7 @@ class BaseJugement(models.Model):
     )
     mots_cles= models.ManyToManyField(
         to=MotCle,
-        verbose_name='Mot-Clé',
+        verbose_name='Mots-Clés',
         help_text='Mots-clés présents dans le Jugement',
         blank=True
     )
