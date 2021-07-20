@@ -3,17 +3,6 @@
 {% block title %}Ajout de fichiers -{% endblock %}
 
 {% block content %}
-    <style>
-        .btn-light-outline {
-            background-color: var(--white);
-            color: var(--dark);
-            border-color: #d9d9d9;
-        }
-        .mw-20 {
-            max-width: 20vw
-        }
-    </style>
-
     <h1>
         Ajout de fichiers
     </h1>
@@ -41,9 +30,9 @@
         <span id="cancel-validate"></span>
         <p class="mt-1" id="file_count"></p>
         <script>
-        function updateInfo() {
-            let buttons = "<button class='btn btn-light btn-light-outline mb-1' type='button' onclick='location.reload();'>Annuler</button> ";
-            buttons += "<button class='btn btn-outline-success mb-1' type='submit'>Valider</button>";
+        function updateFileField() {
+            let buttons = "<button class='btn btn-danger mb-1' type='button' onclick='location.reload();'>Annuler</button> ";
+            buttons += "<button class='btn btn-primary mb-1' type='submit'>Envoyer</button>";
             document.getElementById("cancel-validate").innerHTML = buttons;
             const nb_file = document.getElementById("id_fichiers").files.length
             const nb_folder = document.getElementById("id_dossier").files.length
@@ -60,29 +49,39 @@
     {% if tableau %}
     <table class="table" id="tableau">
         <script>
-            var s = -1;
-            function display_table(sort_field) {
-                var table = {{ tableau }};
-                var html = "<thead><tr>";
+            let last_sort
+            let order = -1;
+            function display_table(table, sort_field, invert) {
+                last_sort = sort_field;
+                if (invert) order = -order;
+                let html = "<thead><tr>";
                 for (const [field, name] of Object.entries(table[0])) {
-                    html += `<th><a class="d-flex" href="javascript:display_table('${field}');">`;
-                    html += `<span class='text-truncate mw-20'>${name}&nbsp;</span>&nbsp;`
-                    html += `<i class="dropdown-toggle${s>0?'':' icons-flip-vertical'}${field==sort_field?'':' invisible'}">`;
+                    html += `<th><a class='d-flex' href='javascript:display_table(${JSON.stringify(table)}, "${field}", true);'>`;
+                    html += `<span class='text-truncate' style='max-width: 20vw;'>${name}&nbsp;</span>&nbsp;`
+                    html += `<i class="dropdown-toggle${order>0?'':' icons-flip-vertical'}${field==sort_field?'':' invisible'}">`;
                     html += "</i></a></th>";
                 } html += "</tr></thead>";
                 table.shift();
-                table.sort((r1, r2) => r1[sort_field].toLowerCase() > r2[sort_field].toLowerCase() ? s : -s);
-                s = -s;
+                table.sort((r1, r2) => r1[sort_field].toLowerCase() > r2[sort_field].toLowerCase() ? order : -order);
                 html += "<tbody>";
                 for(const row of table) {
                     html += "<tr>";
                     for (const value of Object.values(row)) {
-                        html += `<td class='text-truncate mw-20'>${value}</td>`;
+                        html += `<td class='text-truncate' style='max-width: 20vw;'>${value}</td>`;
                     } html += "</tr>";
                 } html += "</tbody>";
                 document.getElementById("tableau").innerHTML = html;
             }
-        display_table('date');
+            display_table({{ tableau }}, 'date', false);
+
+            function updateTable() {
+                let request = new XMLHttpRequest();
+                request.responseType = 'json';
+                request.onreadystatechange = function() { display_table(JSON.parse(request.response['tableau']), last_sort, false); }
+                request.open("GET", 'update')
+                request.send()
+            }
+            setInterval(updateTable, 5000)
         </script>
     </table>
     {% else %}

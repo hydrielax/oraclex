@@ -4897,15 +4897,15 @@ function hwb2rgb(hwb) {
   switch (i) {
     default:
     case 6:
-    case 0: s = v; g = n; b = wh; break;
-    case 1: s = n; g = v; b = wh; break;
-    case 2: s = wh; g = v; b = n; break;
-    case 3: s = wh; g = n; b = v; break;
-    case 4: s = n; g = wh; b = v; break;
-    case 5: s = v; g = wh; b = n; break;
+    case 0: order = v; g = n; b = wh; break;
+    case 1: order = n; g = v; b = wh; break;
+    case 2: order = wh; g = v; b = n; break;
+    case 3: order = wh; g = n; b = v; break;
+    case 4: order = n; g = wh; b = v; break;
+    case 5: order = v; g = wh; b = n; break;
   }
 
-  return [s * 255, g * 255, b * 255];
+  return [order * 255, g * 255, b * 255];
 }
 
 function hwb2hsl(args) {

@@ -25,10 +25,8 @@ def analyse(jugement):
         jugement.gain = extraction_somme(jugement.text)
         jugement.juridiction = find_juridiction(jugement.name, Juridiction.objects.all())
         jugement.mots_cles.set(find_keywords(jugement.text, MotCle.objects.all()))
-        if jugement.doublon:
-            jugement.save()
-        else:
-            jugement.register()
+        if jugement.doublon: jugement.save()
+        else: jugement.register()
         print('Ended analysing', jugement.name)
     except BaseException as exc:
         print('Error while analysing', jugement.name, ':', exc)
@@ -302,8 +300,8 @@ def extraction_somme(contenu):
 
 
                     if verif_somme(recherche_somme):
-                        somme += conv_euros_re(recherche_somme)*(multiplicateur_somme(somme,contenu,dernier_condamne,rs.end()+i + ss.end()))
-                        #print(multiplicateur_somme(somme,contenu,dernier_condamne,rs.end()+i + ss.end()))
+                        somme += conv_euros_re(recherche_somme)*(multiplicateur_somme(contenu,dernier_condamne,rs.end()+i + ss.end()))
+                        #print(multiplicateur_somme(contenu,dernier_condamne,rs.end()+i + ss.end()))
 
                     recherche_somme = re.search(somme_re,contenu[rang_somme:dernier_condamne + ss.end()])#borne superieure doit etre fixe
                 dernier_condamne += ss.end()
@@ -317,11 +315,11 @@ def extraction_somme(contenu):
 
                     if verif_somme(recherche_somme):
 
-                        somme +=  conv_euros_re(recherche_somme)*(multiplicateur_somme(somme,contenu,dernier_condamne,len(contenu)-1))
-                        #print(multiplicateur_somme(somme,contenu,dernier_condamne,len(contenu)-1))
+                        somme +=  conv_euros_re(recherche_somme)*(multiplicateur_somme(contenu,dernier_condamne,len(contenu)-1))
+                        #print(multiplicateur_somme(contenu,dernier_condamne,len(contenu)-1))
                     rang_somme = recherche_somme.end()+rang_somme
                     recherche_somme = re.search(somme_re,contenu[rang_somme:])
-            return somme
+            return round(somme, 2)
 
     return 0
 
@@ -329,7 +327,7 @@ def extraction_somme(contenu):
 
 """Pour savoir qui paye, on recherche les noms des deux partis et celui qui est trouvé en premier est celui qui paye"""
 
-def multiplicateur_somme(somme,contenu,i,j):#i et j sont les rangs de débuts et de fin entre lesquels regardé
+def multiplicateur_somme(contenu,i,j):#i et j sont les rangs de débuts et de fin entre lesquels regardé
 
     civil_re = re.compile('(M\.|Mme|Madame|Monsieur|Mr|CFDT|CGT)',re.IGNORECASE)
     civil = re.search(civil_re,contenu[i:j+1])
