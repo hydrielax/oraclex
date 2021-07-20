@@ -3,6 +3,7 @@ from django.db.models import Q
 from math import sqrt
 import datetime
 from dateutil.relativedelta import relativedelta
+import math
 import numpy as np
 
 
@@ -97,13 +98,19 @@ def regroup_gains(jugements, n=10):
     gains = list(jugements.values_list('gain', flat=True))
     minGain = min(gains)
     maxGain = max(gains)
-    bornes = list(np.linspace(minGain, maxGain, n-1))
-    if not 0 in bornes: 
-        bornes.append(0)
-        bornes.append(0.0001)
-        bornes.sort()
-    print(bornes)
-    labels = [f'{int(bornes[i])} à {int(bornes[i+1])} €' for i in range(n)]
+    if minGain < 0 and maxGain > 0:
+        l = (maxGain - minGain) / (n-2)
+        bornes_pre = list(np.arange(0, minGain-l, -l))
+        bornes_pre.reverse()
+        bornes_post = list(np.arange(0, maxGain+l, l))
+        bornes_post[0] = 0.01
+        bornes = bornes_pre + bornes_post
+        print(bornes)
+    else:
+        bornes = list(np.linspace(minGain, maxGain, n+1))
+    bornes = [math.floor(100*x)/100 for x in bornes]
+    bornes[-1] += 0.01
+    n = len(bornes)-1
+    labels = [f'{bornes[i]} à {bornes[i+1]} €' for i in range(n)]
     data = [jugements.filter(gain__gte=bornes[i], gain__lt=bornes[i+1]).count() for i in range(n)]
-    data[-1] += 1
     return labels, data

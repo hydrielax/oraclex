@@ -3,151 +3,147 @@
 <h2>Résultats</h2>
 
 {% if jugements %}
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <div id="container" class="mx-auto" style="width: 25%;">
-        <canvas id="pieChart"></canvas>
-    </div>
-    <script>
-        var config = {
-        type: 'pie',
-        data: {
-            datasets: [{
-                data: {{ graph_pie.data|safe }},
-                backgroundColor: ["#82BE00", "#FFB612", "#CD0037", "#707379"],
-                hoverOffset: 8,
-            }],
-            labels: {{ graph_pie.labels|safe }}
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    display: false
-                },
-                title: {
-                    text: "Résultats : Favorable, Mixte ou Défavorable",
-                    display: true
-                }
-            },
-        }
-        };
 
-        var ctx = document.getElementById('pieChart').getContext('2d');
-        var pieChart = new Chart(ctx, config);
-    </script>
-    <br>
-    <div id="container" style="width: 100%;">
-        <canvas id="barChart"></canvas>
-    </div>
-    <script>
-        var config = {
-        type: 'bar',
-        data: {
-            datasets: [{
-                data: {{ graph_gain.data | safe }},
-                backgroundColor: ['#6e1e78', '#a1006b', '#CD0037'],
-                label: 'Nombre de jugements ',
-            }],
-            labels: {{ graph_gain.labels | safe }}
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    display: false
-                },
-                title: {
-                    text: "Répartition des gains",
-                    display: true
-                }
-            },
-            scales: {
-                y: {
-                    grid: {
-                        color: "rgba(0,0,0,0)"
-                    }
-                }
-            }
-        }
-        };
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a href="#statistics" class="nav-link active" data-toggle="tab">Statistiques</a>
+        </li>
+        <li class="nav-item" style='padding:0'>
+            <a href="#files" class="nav-link" data-toggle="tab">Fichiers</a>
+        </li>
+    </ul>
 
-        var ctx = document.getElementById('barChart').getContext('2d');
-        var barChart = new Chart(ctx, config);
-    </script>
-    <br><br>
-    <div class="row">
-        <div id="accordion1" class="accordions col-4">
-            <div class="accordion">
-                <div class="accordion-head" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                    <h3 class="accordion-title mb-0">Statistiques avancées</h3>
-                    <button type="button" class="accordion-toggle">
-                        <i class="icons-arrow-down icons-size-x75" aria-hidden="true"></i>
-                    </button>
+    <div class="tab-content">
+        <!-- onglet stats -->
+        <div class="tab-pane fade show active" id="statistics">
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <div class='row'>
+                <div class='col-12 col-md-6'>
+                    <br>
+                    <h3>Statistiques avancées</h3>
+                    <table class="table">
+                        <tr><th>Moyenne : </th><td>{{ stats.moyenne | floatformat:2 }} €</td></tr>
+                        <tr><th>Médiane : </th><td>{{ stats.mediane | floatformat:2 }} €</td></tr>
+                        <tr><th>Ecart-type : </th><td>{{ stats.ecart_type | floatformat:2 }} €</td></tr>
+                        <tr><th>Minimum : </th><td>{{ stats.minimum | floatformat:2 }} €</td></tr>
+                        <tr><th>Maximum : </th><td>{{ stats.maximum | floatformat:2 }} €</td></tr>
+                    </table>
                 </div>
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion1">
-                    <div class="accordion-body">
-                        <table class="table">
-                            <tr><th>Moyenne : </th><td>{{ stats.moyenne | floatformat:2 }} €</td></tr>
-                            <tr><th>Médiane : </th><td>{{ stats.mediane | floatformat:2 }} €</td></tr>
-                            <tr><th>Ecart-type : </th><td>{{ stats.ecart_type | floatformat:2 }} €</td></tr>
-                            <tr><th>Minimum : </th><td>{{ stats.minimum | floatformat:2 }} €</td></tr>
-                            <tr><th>Maximum : </th><td>{{ stats.maximum | floatformat:2 }} €</td></tr>
-                        </table>
+                <div class='col-12 col-md-6 border-left'>
+                    <br>
+                    <h3>Favorable/Mixte/Défavorable</h3>
+                    <div id="container" class="mx-auto" style="width: 50%;">
+                        <canvas id="pieChart"></canvas>
                     </div>
+                    <script>
+                        var config = {
+                        type: 'pie',
+                        data: {
+                            datasets: [{
+                                data: {{ graph_pie.data|safe }},
+                                backgroundColor: ["#82BE00", "#FFB612", "#CD0037", "#707379"],
+                                hoverOffset: 8,
+                            }],
+                            labels: {{ graph_pie.labels|safe }}
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                                title: {
+                                    text: "Résultats : Favorable, Mixte ou Défavorable",
+                                    display: false
+                                }
+                            },
+                        }
+                        };
+                        var ctx = document.getElementById('pieChart').getContext('2d');
+                        var pieChart = new Chart(ctx, config);
+                    </script>
+                    <br>
+                </div>
+                <div class='col-12 mt-6 border-top'>
+                    <br>
+                    <h3>Répartitions des pertes et gains</h3>
+                    <div id="container" style="width: 100%;">
+                        <canvas id="barChart"></canvas>
+                    </div>
+                    <script>
+                        var config = {
+                        type: 'bar',
+                        data: {
+                            datasets: [{
+                                data: {{ graph_gain.data | safe }},
+                                backgroundColor: ['#6e1e78', '#a1006b', '#CD0037'],
+                                label: 'Nombre de jugements ',
+                            }],
+                            labels: {{ graph_gain.labels | safe }}
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                                title: {
+                                    text: "Répartition des gains",
+                                    display: false
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    grid: {
+                                        color: "rgba(0,0,0,0)"
+                                    }
+                                }
+                            }
+                        }
+                        };
+                        var ctx = document.getElementById('barChart').getContext('2d');
+                        var barChart = new Chart(ctx, config);
+                    </script>
                 </div>
             </div>
         </div>
-        <div id="accordion2" class="accordions col-8">
-            <div class="accordion">
-                <div class="accordion-head" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    <h3 class="accordion-title mb-0">Fichiers trouvés</h3>
-                    <button type="button" class="accordion-toggle">
-                        <i class="icons-arrow-down icons-size-x75" aria-hidden="true"></i>
-                    </button>
-                </div>
-                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion2">
-                    <div class="accordion-body">
-                        <table class="table">
-                            {% for jugement in jugements %}
-                                <tr>
-                                    <td><a href="/media/{{ jugement.file }}" target="_blank">{{ jugement }}</td>
-                                    <td>
-                                        {% if jugement.gain >= 0 %}
-                                        <b style="color:green">{{ jugement.gain }}</b>
-                                        {% else %}
-                                        <b style="color:red">{{ jugement.gain }}</b>
-                                        {% endif %}
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        </table>
-                    </div>
-                </div>
-            </div>
+
+        <!-- onglet fichiers -->
+        <div class="tab-pane fade" id="files">
+            <br>
+            <table class="table">
+                <tr><th>Nom</th><th>Gain</th></tr>
+                {% for jugement in jugements %}
+                    <tr>
+                        <td><a href="/media/{{ jugement.file }}" target="_blank">{{ jugement }}</td>
+                        <td>
+                            {% if jugement.gain >= 0 %}
+                            <b style="color:green">{{ jugement.gain }}</b>
+                            {% else %}
+                            <b style="color:red">{{ jugement.gain }}</b>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <script>
+                // fonction de tri du taleau
+                const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+                const comparer = (idx, asc) => (a, b) => ((v1, v2) => 
+                    v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
+                    )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+                document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
+                    const table = th.closest('table');
+                    Array.from(table.querySelectorAll('tr:nth-child(n+2)'))
+                        .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
+                        .forEach(tr => table.appendChild(tr) );
+                })));
+            </script>
         </div>
     </div>
-    <!--div>
-        <h2 class="text-info2">Statistiques</h2>
-        <ul class="list-group">
-            <li class="list-group-item"><b>Moyenne:</b> {{ moyenne }}€</li>
-        k      <li class="list-group-item"><b>Médiane:</b> {{ mediane }}€</li>
-            <li class="list-group-item"><b>Ecart-type:</b> {{ ecart_type }}€</li>
-            <li class="list-group-item"><b>Minimum:</b> {{ minimum }}€</li>
-            <li class="list-group-item"><b>Maximum:</b> {{ maximum }}€</li>
-        </ul>
-    </div>
-    <br>
-    <div>
-        <h2 class="text-info2">Résultats de la prédiction</h2>
-    </div>
-    <div>
-        <h2 class="text-info2">Fichier utilisés</h2>
-        <ul class="list-group">
-            {% for jugement in jugements %}
-                <li class="list-group-item"><a href="/media/{{ jugement.file }}" target="_blank">{{ jugement.file_name }}</a></li>
-            {% endfor %}
-        </ul>
-    </div-->
+    
 {% else %}
+
     <p class="text-danger">Aucun jugement ne correspond à votre recherche</p>
+
 {% endif %}
