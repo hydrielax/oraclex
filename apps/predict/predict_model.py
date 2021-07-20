@@ -89,6 +89,6 @@ def train_model():
     model.add(tf.keras.layers.Dense(2,activation=tf.nn.softmax))
     model.compile(optimizer='adam',loss='binary_crossentropy',metrics=['accuracy'])
     model.fit(X,y,epochs=50, batch_size=32,validation_split=0.25) #to  change
-    model.save("predict.model")
+    #model.save("predict.model")
     #print(model.summary())
     return model #Quoi ?????
