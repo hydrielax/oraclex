@@ -34,9 +34,9 @@ class JugementTemp(BaseJugement):
         while True:
             jugements = cls.objects.all()[:by]
             for jugement in jugements:
-                jugement.thread.start()
+                if not jugement.doublon: jugement.thread.start()
             for jugement in jugements:
-                jugement.thread.join()
+                if not jugement.doublon: jugement.thread.join()
 
 
 JugementTemp.thread = Thread(target=JugementTemp.run_threads, daemon=True)

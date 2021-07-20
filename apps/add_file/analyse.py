@@ -3,7 +3,7 @@ from apps.search.models import Jugement, Juridiction
 from django.utils.text import slugify
 from pdf2image import convert_from_bytes
 from pytesseract import image_to_data
-from datetime import datetime
+from datetime import date
 from dateparser.search import search_dates
 import re
 import nltk, string
@@ -16,18 +16,22 @@ sep = r"(?:^|\W|\_|$)+"  # Regular expression for separator
 
 def analyse(jugement):
     try:
-        print('Start', jugement.name)
+        print('Started analysing', jugement.name)
         jugement.text, jugement.quality = extract_text(jugement.file.file)
+        jugement.doublon = detect_doublon(jugement.text)
         jugement.lisible = jugement.quality > 0.6
         jugement.date_jugement = extract_date(jugement.name, jugement.text)
         jugement.decision = extraction_jugement(jugement.name, jugement.text)
         jugement.gain = extraction_somme(jugement.text)
         jugement.juridiction = find_juridiction(jugement.name, Juridiction.objects.all())
         jugement.mots_cles.set(find_keywords(jugement.text, MotCle.objects.all()))
-        jugement.register()
-        print('End')
+        if jugement.doublon:
+            jugement.save()
+        else:
+            jugement.register()
+        print('Ended analysing', jugement.name)
     except BaseException as exc:
-        raise exc
+        print('Error while analysing', jugement.name, ':', exc)
         jugement.delete()
 
 
@@ -78,17 +82,15 @@ def extract_from_pdf(file):
 def find_keywords(text, keywords):
     keywords_found = set()
     for keyword in keywords:
-        for word in keyword.variantes.values_list('name',flat=True):
-            if re.search(sep+word+sep, text, re.IGNORECASE):
+        for word in keyword.variantes.values_list('name', flat=True):
+            if re.search(sep+slugify(word)+sep, slugify(text), re.IGNORECASE):
                 keywords_found.add(keyword)
     return keywords_found
 
 
 def find_juridiction(filename, juridictions):
     for juridiction in juridictions:
-        ville = re.sub(r'\d{5} ', '', juridiction.ville)
-        ville = re.sub(r' CEDEX( \d+)?', '', ville)
-        if re.search(sep+juridiction.type_juridiction.cle+sep+ville+sep, slugify(filename), re.IGNORECASE):
+        if re.search(juridiction.type_juridiction.cle + sep + slugify(juridiction.ville), slugify(filename), re.IGNORECASE):
             return juridiction
 
 
@@ -110,42 +112,32 @@ def detect_doublon(text):
         tfidf = vectorizer.fit_transform([text1, text2])
         return ((tfidf * tfidf.T).A)[0,1]
 
-    L=[]
-    for textes in Jugement.objects.all().values_list('text',flat=True):
-        L.append(cosine_sim(text, textes))
-    
-    if max(L)>0.95 :
-        return True
-#Il faut préciser qui est le doublon    
-    return False
+    for jugement in Jugement.objects.all():
+        if cosine_sim(text, jugement.text) > 0.95:
+            return jugement
 
 
 def extract_date(filename,text):
-    #extraire la date du fichier texte
-    #Le try except c'est pour éviter un bug dans dateparser, il est possible que ce problème soit résolu avec les prochaines versions de dateparser.
-    try:
-        dates = search_dates(text, languages=['fr'], settings={'STRICT_PARSING': True,'PREFER_DATES_FROM': 'past'})
-        date_text = dates[0][1].date() if dates else None
-    except: pass
-    date_regex = re.search(sep+r"(\d{4}|\d{2})(?:"+sep+r"(\d{2}))?(?:"+sep+r"(\d{2}))?"+sep, filename)
+
+    date_regex = re.search(sep+r"(\d{4}|\d{2})(?:"+sep+r"(\d{2})(?:"+sep+r"(\d{2}))?)?"+sep, filename)
     if date_regex:
-        fields = date_regex.groups()
-        year = int('20' + fields[0]) if len(fields[0]) == 2 else int(fields[0])
-        month = int(fields[1]) if fields[1] else 1
-        day = int(fields[2]) if fields[2] else 1
-        date_name = datetime(year, month, day)
+        date_fields = date_regex.groups()
+        year = int('20' + date_fields[0]) if len(date_fields[0]) == 2 else int(date_fields[0])
+        month = int(date_fields[1]) if date_fields[1] else 1
+        day = int(date_fields[2]) if date_fields[2] else 1
+        date_name = date(year, month, day)
     else:
         date_name = None
-    #Comparaisons:
-    if not date_text:
-        return date_name
-    elif date_name:
-        if date_name.year == date_text.year and date_name.month == date_text.month:
-            return date_text
-        else:
-            return date_name
-    else:
-        return date_text
+
+    dates_text = search_dates(text, languages=['fr'], settings={'STRICT_PARSING': True, 'PREFER_DATES_FROM': 'past'})
+    for date_text in dates_text:
+        if date_name:
+            def same(attr): return getattr(date_name, attr) == getattr(date_text[1], attr)
+            if same('year') and (not date_fields[1] or same('month')) and (not date_fields[2] or same('day')):
+                return date_text[1]
+        elif date_text[1].year > 1900 and date_text[1] < date.today():
+            return date_text[1]
+    return date_name if date_name else date(1900, 1, 1)
 
 
 def extraction_jugement(filename,text):
