@@ -3,7 +3,7 @@ from .models import Juridiction, TypeJuridiction, Jugement, MotCle, Categorie, M
 from .fields import ListTextWidget, MySelectMultiple
 import datetime
 
-MONTHS = [('1','Janvier'), ('2','Février'), ('3','Mars'), ('4','Avril'), ('5','Mai'), ('6','Juin'), ('7','Juillet'), ('8','Août'), ('9','Septembre'), ('10','Octobre'), ('11','Novembre'), ('12','Décembre')]
+MONTHS = [(1, 'Janvier'), (2, 'Février'), (3, 'Mars'), (4, 'Avril'), (5, 'Mai'), (6, 'Juin'), (7, 'Juillet'), (8, 'Août'), (9, 'Septembre'), (10, 'Octobre'), (11, 'Novembre'), (12, 'Décembre')]
 
 class RequeteForm(forms.Form):
     '''Formulaire de recherche.'''
@@ -12,7 +12,7 @@ class RequeteForm(forms.Form):
         choices = MONTHS,
         label = "Date minimale - Mois",
         required=True,
-        initial="1",
+        initial=1,
         widget=forms.Select(attrs={'class': 'form-control'}),
     )
     dateyMin = forms.IntegerField(
@@ -21,13 +21,13 @@ class RequeteForm(forms.Form):
         initial=1900,
         widget=forms.NumberInput(attrs={'class': 'form-control', 'value':1900}),
         min_value=1900,
-        max_value=datetime.datetime.now().year,
+        max_value=datetime.date.today().year,
     )
     datemMax = forms.ChoiceField(
         choices = MONTHS,
         label = "Date maximale - Mois",
         required=True,
-        initial='12',
+        initial=12,
         widget=forms.Select(attrs={'class': 'form-control'}),
     )
     dateyMax = forms.IntegerField(
@@ -36,7 +36,7 @@ class RequeteForm(forms.Form):
         label = "Date maximale - Année",
         widget=forms.NumberInput(attrs={'class': 'form-control', 'value':datetime.datetime.now().year}),
         min_value=1900,
-        max_value=datetime.datetime.now().year,
+        max_value=datetime.date.today().year,
     )
     type_juridiction = forms.ModelChoiceField(
         queryset=TypeJuridiction.objects.all(),

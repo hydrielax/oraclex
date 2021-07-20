@@ -3,6 +3,7 @@ from django.db.models import Q
 from math import sqrt
 import datetime
 from dateutil.relativedelta import relativedelta
+import numpy as np
 
 
 # lecture des requêtes
@@ -17,11 +18,12 @@ def find_motsCles(mots):
     return MotCle.objects.filter(pk__in=motsCles)
 
 def firstDay(month, year):
+    if not month or not year: return None
     return datetime.date(int(year), int(month), 1)
 
 def lastDay(month, year):
     date = firstDay(month, year)
-    if not date: return date
+    if not date: return None
     return date + relativedelta(months=1, days=-1)
 
 
@@ -59,7 +61,7 @@ def moyenneGains(jugements):
     return s / n
 
 def medianeGains(jugements):
-    n = len(jugements)
+    n = jugements.count()
     if n % 2 == 1:
         return jugements[n//2].gain
     elif n > 0:
@@ -74,15 +76,34 @@ def ecart_type_gains(jugements):
     m = moyenneGains(jugements)
     for jugement in jugements:
         v += (jugement.gain - m) ** 2
-    v = v / len(jugements)
+    v = v / jugements.count()
     return sqrt(v)
 
 def minimumGain(jugements):
     if not jugements:
         return None
-    return min([jugement.gain for jugement in jugements])
+    return min(jugements.values_list('gain', flat=True))
 
 def maximumGain(jugements):
     if not jugements:
         return None
-    return max([jugement.gain for jugement in jugements])
+    return max(jugements.values_list('gain', flat=True))
+
+
+# Création des graphiques
+# -----------------------
+
+def regroup_gains(jugements, n=10):
+    gains = list(jugements.values_list('gain', flat=True))
+    minGain = min(gains)
+    maxGain = max(gains)
+    bornes = list(np.linspace(minGain, maxGain, n-1))
+    if not 0 in bornes: 
+        bornes.append(0)
+        bornes.append(0.0001)
+        bornes.sort()
+    print(bornes)
+    labels = [f'{int(bornes[i])} à {int(bornes[i+1])} €' for i in range(n)]
+    data = [jugements.filter(gain__gte=bornes[i], gain__lt=bornes[i+1]).count() for i in range(n)]
+    data[-1] += 1
+    return labels, data

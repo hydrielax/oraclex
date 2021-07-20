@@ -11,13 +11,10 @@ def searchview(request):
     context = {}
     if request.GET:
         form = RequeteForm(request.GET)
-        print(request.GET)
-        print(form.is_valid())
-        print(form.errors)
         if form.is_valid():
             context = show_results(form)
     else:
-        form = RequeteForm(initial={'datemMax': str(datetime.datetime.now().month)})
+        form = RequeteForm(initial={'datemMax': datetime.datetime.now().month})
 
     context['form'] = form
     return render(request, 'search/index.html', context)
@@ -35,25 +32,36 @@ def show_results(form):
     juridiction = form.cleaned_data['juridiction']
     jugements = filtrerJugements(motsCles, dateMin, dateMax, type_juridiction, juridiction)
 
-    # statistiques
-    stats = {
-        'moyenne': moyenneGains(jugements),
-        'ecart_type': ecart_type_gains(jugements),
-        'mediane': medianeGains(jugements),
-        'minimum': minimumGain(jugements),
-        'maximum': maximumGain(jugements),
-    }
+    if jugements:
+        # statistiques
+        list_jugements = jugements.filter(gain__isnull=False).order_by('gain')
+        stats = {
+            'moyenne': moyenneGains(list_jugements),
+            'ecart_type': ecart_type_gains(list_jugements),
+            'mediane': medianeGains(list_jugements),
+            'minimum': minimumGain(list_jugements),
+            'maximum': maximumGain(list_jugements),
+        }
 
-    # graphiques
-    graph_gain_labels = list(jugements.order_by('gain').values_list('gain', flat=True).distinct())
-    graph_gain = {
-        'labels': graph_gain_labels,
-        'data': [len(jugements.filter(gain=x)) for x in graph_gain_labels],
-    }
-    graph_pie = {
-       'labels' : ["favorable", "défavorable"],
-       'data': [len(jugements.filter(gain__gte=0)), len(jugements.filter(gain__lt=0))],
-    }
+        # graphiques
+        graph_pie = {
+        'labels' : ["Favorable ", "Mixte ", "Défavorable ", "Inconnu "],
+        'data': [
+                jugements.filter(decision='F').count(), 
+                jugements.filter(decision='M').count(), 
+                jugements.filter(decision='D').count(),
+                jugements.filter(decision__isnull=True).count(),
+            ],
+        }
+
+        labels, data = regroup_gains(list_jugements)
+        graph_gain = {
+            'labels': labels,
+            'data': data,
+        }
+
+    else:
+        stats, graph_gain, graph_pie = None, None, None
 
     # envoie au template
     context = {
