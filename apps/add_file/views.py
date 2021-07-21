@@ -6,7 +6,9 @@ from .models import Jugement, JugementTemp
 from apps.account.models import Agent
 from itertools import chain
 
+
 JugementTemp.thread.start()
+
 
 @login_required
 def ajout(request):
@@ -30,3 +32,7 @@ def send_history(request):
         else: state = '<span order="3" class="text-success">Analyse...</span>'
         tableau.append({"date": date, "name": name, "state": state})
     return JsonResponse(tableau, safe=False)
+
+
+def gestion_doublons(request):
+    return render(request, 'add_file/doublons.html')

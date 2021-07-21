@@ -4,5 +4,6 @@ from . import views
 app_name = 'add_file'
 urlpatterns = [
     path('', views.ajout, name='index'),
-    path('history', views.send_history, name='table')
+    path('history', views.send_history, name='table'),
+    path('doublons', views.gestion_doublons, name='doublons')
 ]
