@@ -1,0 +1,19 @@
+           
+<input 
+    data-role="typewriter" 
+    type="text" 
+    id="add{{ widget.name }}" 
+    list='{{ widget.name }}' 
+    {% include "django/forms/widgets/attrs.html" %}
+>
+
+<datalist id="{{ widget.name }}">
+    {% for group_name, group_choices, group_index in widget.optgroups %}
+        {% for option in group_choices %}
+            <option value="{{ widget.value|stringformat:'s' }}"{% include "django/forms/widgets/attrs.html" %}>{{ widget.label }}</option>
+        {% endfor %}
+    {% endfor %}
+</datalist>
+
+<select class="sr-only" data-role="input" tabindex="-1" aria-hidden="true" id="" multiple=""  name='{{ widget.name }}'>
+</select>

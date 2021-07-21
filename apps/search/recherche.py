@@ -31,7 +31,7 @@ def lastDay(month, year):
 # filtrage des jugements
 # ----------------------
 
-def filtrerJugements(motsCles, dateMin, dateMax, type_juridiction, juridiction):
+def filtrerJugements(motsCles, dateMin, dateMax, type_juridiction, juridiction, illisibles):
     jugements = Jugement.objects.all()
     if motsCles:
         for motcle in motsCles:
@@ -44,6 +44,8 @@ def filtrerJugements(motsCles, dateMin, dateMax, type_juridiction, juridiction):
         jugements = jugements.filter(juridiction__type_juridiction = type_juridiction)
     if juridiction:
         jugements = jugements.filter(juridiction = juridiction)
+    if not illisibles:
+        jugements = jugements.filter(lisible = True)
     
     return jugements
 
@@ -105,7 +107,6 @@ def regroup_gains(jugements, n=10):
         bornes_post = list(np.arange(0, maxGain+l, l))
         bornes_post[0] = 0.01
         bornes = bornes_pre + bornes_post
-        print(bornes)
     else:
         bornes = list(np.linspace(minGain, maxGain, n+1))
     bornes = [math.floor(100*x)/100 for x in bornes]

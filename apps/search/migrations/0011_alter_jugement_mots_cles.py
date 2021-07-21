@@ -6,13 +6,12 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('search', '0011_alter_jugement_mots_cles'),
-        ('add_file', '0006_auto_20210716_1615'),
+        ('search', '0010_alter_typejuridiction_cle'),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='jugementtemp',
+            model_name='jugement',
             name='mots_cles',
             field=models.ManyToManyField(blank=True, help_text='Mots-clés présents dans le Jugement', to='search.MotCle', verbose_name='Mots-Clés'),
         ),

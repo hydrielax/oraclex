@@ -1,5 +1,5 @@
-<input list="{{ widget.name }}"
-    {% if widget.value != None %} name="{{ widget.name }}" value="{{ widget.value|stringformat:'s' }}"{% endif %}
+<input list="{{ widget.name }}" name="{{ widget.name }}" 
+    {% if widget.value != None %} value="{{ widget.value|stringformat:'s' }}"{% endif %}
     {% include "django/forms/widgets/attrs.html" %}>
 
 <datalist id="{{ widget.name }}">
