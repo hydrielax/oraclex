@@ -139,14 +139,14 @@ def detect_doublon(text):
 
 def extract_date(filename,text):
 
-    date_regex = re.search(sep+r"(\d{4}|\d{2})(?: (\d{2})(?: (\d{2}))?)?"+sep, simplify(filename))
+    date_regex = re.search(sep+r"(\d{4}|\d{2})(?: (\d{2}))?(?: (\d{2}))?"+sep, simplify(filename))
     if date_regex:
         date_fields = date_regex.groups()
         year = int('20' + date_fields[0]) if len(date_fields[0]) == 2 else int(date_fields[0])
         month = int(date_fields[1]) if date_fields[1] else 1
         day = int(date_fields[2]) if date_fields[2] else 1
         date_name = datetime(year, month, day)
-    if not date_regex or date_name.year > 1900 and date_name < datetime.now():
+    if not date_regex or date_name.year < 1900 or date_name > datetime.now():
         date_name = None
 
     dates_text = search_dates(text, languages=['fr'], settings={'STRICT_PARSING': True, 'PREFER_DATES_FROM': 'past'})
