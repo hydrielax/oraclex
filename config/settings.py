@@ -148,7 +148,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+USE_THOUSAND_SEPARATOR = True
 
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url

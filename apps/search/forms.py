@@ -1,6 +1,6 @@
 from django import forms
 from .models import Juridiction, TypeJuridiction, Jugement, MotCle, Categorie, Mot
-from .fields import ListTextWidget, MySelectMultiple
+from .fields import ListTextWidget, MySelectMultiple, ChipsWidget
 import datetime
 
 MONTHS = [(1, 'Janvier'), (2, 'Février'), (3, 'Mars'), (4, 'Avril'), (5, 'Mai'), (6, 'Juin'), (7, 'Juillet'), (8, 'Août'), (9, 'Septembre'), (10, 'Octobre'), (11, 'Novembre'), (12, 'Décembre')]
@@ -55,9 +55,10 @@ class RequeteForm(forms.Form):
         queryset=Mot.objects.all(),
         label = "Mots-clés",
         required=False,
+        widget=ChipsWidget(attrs={'class': 'chips-input stretchy form-control', 'placeholder': 'Tapez le nom de la ville'}),
     )
     illisibles = forms.BooleanField(
-        label = "Inclure les fichiers illsibles (/!\\ peut fausser les résultats)",
+        label = "Inclure les fichiers illsibles",
         widget = forms.CheckboxInput(attrs={'class': 'custom-control-input'}),
         required = False,
     )

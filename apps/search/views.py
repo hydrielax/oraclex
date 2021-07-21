@@ -73,6 +73,7 @@ def show_results(form):
         'graph_pie': graph_pie,
         'nb_results': jugements.count(),
         'nb_illisibles': jugements.filter(lisible=False).count(),
+        'show_illisibles': illisibles,
     }
     return context
 

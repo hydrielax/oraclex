@@ -11,6 +11,17 @@ class ListTextWidget(forms.Select):
             return formats.localize_input(value)
         return str(value)
 
+class ChipsWidget(forms.Select):
+    template_name = 'forms/chips.html'
+
+    def format_value(self, value):
+        # Copied from forms.Input - makes sure value is rendered properly
+        if value == '' or value is None:
+            return ''
+        if self.is_localized:
+            return formats.localize_input(value)
+        return str(value)
+
 
 class ChoiceTxtField(forms.ModelChoiceField):
     widget=ListTextWidget()

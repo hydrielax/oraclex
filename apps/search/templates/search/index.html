@@ -1,15 +1,14 @@
 {% extends 'base.html' %}
 
-
 {% block title %}Recherche -{% endblock %}
-
-{% block head %} 
-    
-{% endblock %}
 
 {% block content %}
     <h1>Recherche</h1>
     {% include 'search/search.html' %}
     <br><br>
-    {% if form.is_valid%}{% include 'search/results.html' %}{%endif%}
+    {% if form.is_valid%}
+        {% include 'search/results.html' %}
+        <br><br><hr>
+        <p><i class="icons-bookmark icons-size-x75" style="transform: translateY(-0.1rem);" aria-hidden="true"></i> ASTUCE ! Vous pouvez copier l'URL de la page (tout en haut de votre navigateur) pour sauvegarder ou partager cette recherche.</p>
+    {%endif%}
 {% endblock %}

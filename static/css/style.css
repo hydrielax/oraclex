@@ -34,6 +34,9 @@ table.table-tri th {
     padding: .1563rem ;
 }
 
+input:focus-visible {
+    outline:none;
+}
 
 /* PIED DE PAGE EN BAS */
 /* ------------------- */

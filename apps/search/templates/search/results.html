@@ -3,7 +3,7 @@
 <h2 id="results">Résultats</h2>
 
 {% if jugements %}
-    <p>{{ nb_results }} résultats trouvés{% if nb_illisibles %}(dont {{ nb_illisibles }} illisibles){%endif%}.</p>
+    <p>{{ nb_results }} résultats trouvés{% if show_illisibles %} (dont {{ nb_illisibles }} illisibles){%endif%}.</p>
     <ul class="nav nav-tabs">
         <li class="nav-item">
             <a href="#statistics" class="nav-link active" data-toggle="tab">Statistiques</a>
@@ -118,11 +118,36 @@
             <p>Cliquez sur l'en-tête d'une colonne pour trier les fichiers selon cette colonne !</p>
             <table class="table table-hover table-tri">
                 <tbody>
-                <tr><th>Fichier</th><th>Gain</th></tr>
+                <tr>
+                    <th>Date</th>
+                    <th>Cour</th>
+                    <th>Ville</th>
+                    <th>Décision</th>
+                    <th>Gain</th>
+                    {% if show_illisibles %}<th>Lisible</th>{%endif%}
+                </tr>
                 {% for jugement in jugements %}
                     <tr style="transform: rotate(0);">
-                        <td class="text-truncate"><a class="stretched-link" href="{{ jugement.get_absolute_url }}" target="_blank">{{ jugement }}</td>
+                        <td>   
+                            <span class="d-none">{{ jugement.date_jugement|date:"Ymd"}}</span>
+                            {{ jugement.date_jugement|date:"j F Y" }}
+                            <a class="stretched-link" href="{{ jugement.get_absolute_url }}"></a>
+                        </td>
+                        <td>{{ jugement.juridiction.type_juridiction.cle }}</td>
+                        <td class="text-truncate">{{ jugement.juridiction.ville }}</td>
                         <td>
+                            {% if jugement.decision == 'F' %}
+                                <b order=1 class="text-green">F</b>
+                            {% elif jugement.decision == 'M' %}
+                                <b order=2 class="text-yellow">M</b>
+                            {% elif jugement.decision == 'D' %}
+                                <b order=3 class="text-red">D</b>
+                            {% else %}
+                                <b order=4 class="text-muted">-</b>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <span class="d-none">{{ jugement.gain|add:10e10|stringformat:"012d" }}</span>
                             {% if jugement.gain > 0 %}
                                 <b class="text-green">{{ jugement.gain }} €</b>
                             {% elif jugement.gain == 0 %}
@@ -133,13 +158,22 @@
                                 <b class="text-muted">-</b>
                             {% endif %}
                         </td>
+                        {% if show_illisibles %}
+                            <td>
+                                {% if jugement.lisible %}
+                                    <b class="text-green">Oui</b>
+                                {% else %}
+                                    <b class="text-red">Non</b>
+                                {% endif %}
+                            </td>
+                        {% endif %}
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
             <script>
                 // fonction de tri du taleau
-                const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+                const getCellValue = (tr, idx) => tr.children[idx].textContent;
                 const comparer = (idx, asc) => (a, b) => ((v1, v2) => 
                     v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
                     )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
