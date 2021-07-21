@@ -5,97 +5,114 @@
 {% block content %}
     <h1>Prédiction</h1>
     <h2>Paramètres de la prédiction</h2>
-    <form method="POST" action='#result'>{% csrf_token %}
-        {{ form }}
+    
+    <form method="GET" onkeydown="return event.key != 'Enter';" action="{% url 'predict:index' %}#results" autocomplete='off' class="needs-validation" novalidate>
+    
+        <div class="fieldWrapper form-group">
+            <label class="font-weight-medium mb-2" for="addreceivers1">Mots-clés :</label> {% for mot in motsCles%}{{ mot }}, {% endfor %}
+            <div class="form-control-container form-chips-container {% if form.motcle.errors %}is-invalid{% endif %}" data-component="chips">
+                {{ form.motcle }}
+                <span class="form-control-state"></span>
+            </div>
+            <small id="passwordHelpBlock" class="form-text text-muted">{{ form.motcle.help_text }}</small>
+            {% if form.motcle.errors %}
+                <div class="invalid-feedback"><ul>
+                {% for error in form.motcle.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+                </ul></div>
+            {% endif %}
+        </div>
         <br><br>
         <button type="submit" class="btn btn-primary"><span>Prédire</span> <img src= "{% static 'images/logo white.svg' %}" class='icon' alt ='Icon oeil'></button>
     </form>
+    
     <br>
     {% if form.is_valid %}
-        <h2 id='result'>Résultat de la prédiction</h2>
+        <h2 id='results'>Résultat de la prédiction</h2>
         <p>Probabilité : {{ proba }}</p>
-    {% endif %}
 
-    <!–– added ––> 
-    <script src="https://unpkg.com/chart.js@2.8.0/dist/Chart.bundle.js"></script>
-    <script src="https://unpkg.com/chartjs-gauge@0.3.0/dist/chartjs-gauge.js"></script>
-    <script src="https://unpkg.com/chartjs-plugin-datalabels@0.7.0/dist/chartjs-plugin-datalabels.js"></script>
+        <script src="https://unpkg.com/chart.js@2.8.0/dist/Chart.bundle.js"></script>
+        <script src="https://unpkg.com/chartjs-gauge@0.3.0/dist/chartjs-gauge.js"></script>
+        <script src="https://unpkg.com/chartjs-plugin-datalabels@0.7.0/dist/chartjs-plugin-datalabels.js"></script>
 
-    <canvas id="chart"></canvas>
+        <canvas id="chart"></canvas>
 
-    <script>
-    var randomScalingFactor = function() {
-        return Math.round(Math.random() * 100);
-    };
+        <script>
+        var randomScalingFactor = function() {
+            return Math.round(Math.random() * 100);
+        };
 
-    var randomData = function () {
-        return [
-        randomScalingFactor(),
-        randomScalingFactor(),
-        randomScalingFactor(),
-        randomScalingFactor()
-    ];
-    };
+        var randomData = function () {
+            return [
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor()
+        ];
+        };
 
-    var randomValue = function (data) {
-    return Math.max.apply(null, data) * Math.random();
-    };
+        var randomValue = function (data) {
+        return Math.max.apply(null, data) * Math.random();
+        };
 
-    var data = randomData();
-    var value = {{ proba }} * 100;
+        var data = randomData();
+        var value = {{ proba }} * 100;
 
-    var config = {
-    type: 'gauge',
-    data: {
-        labels: ['Défavorable', 'Mixte', 'Favorable'],
-        datasets: [{
-        data: [40, 60, 100],
-        value: value,
-        backgroundColor: ['#CD0037', '#FFB612', '#82BE00'],
-        borderWidth: 2
-        }]
-    },
-    options: {
-        responsive: true,
-        layout: {
-        padding: {
-            bottom: 30
-        }
+        var config = {
+        type: 'gauge',
+        data: {
+            labels: ['Défavorable', 'Mixte', 'Favorable'],
+            datasets: [{
+            data: [40, 60, 100],
+            value: value,
+            backgroundColor: ['#CD0037', '#FFB612', '#82BE00'],
+            borderWidth: 2
+            }]
         },
-        needle: {
-        // Needle circle radius as the percentage of the chart area width
-        radiusPercentage: 2,
-        // Needle width as the percentage of the chart area width
-        widthPercentage: 3.2,
-        // Needle length as the percentage of the interval between inner radius (0%) and outer radius (100%) of the arc
-        lengthPercentage: 80,
-        // The color of the needle
-        color: 'rgba(0, 0, 0, 1)'
-        },
-        valueLabel: {
-        display: false
-        },
-        plugins: {
-        datalabels: {
-            display: true,
-            formatter:  function (value, context) {
-            return context.chart.data.labels[context.dataIndex];},
-            color: 'rgba(0, 0, 0, 1.0)',
-            backgroundColor: null,
-            font: {
-            size: 20,
-            weight: 'bold'
+        options: {
+            responsive: true,
+            layout: {
+            padding: {
+                bottom: 30
+            }
+            },
+            needle: {
+            // Needle circle radius as the percentage of the chart area width
+            radiusPercentage: 2,
+            // Needle width as the percentage of the chart area width
+            widthPercentage: 3.2,
+            // Needle length as the percentage of the interval between inner radius (0%) and outer radius (100%) of the arc
+            lengthPercentage: 80,
+            // The color of the needle
+            color: 'rgba(0, 0, 0, 1)'
+            },
+            valueLabel: {
+            display: false
+            },
+            plugins: {
+            datalabels: {
+                display: true,
+                formatter:  function (value, context) {
+                return context.chart.data.labels[context.dataIndex];},
+                color: 'rgba(0, 0, 0, 1.0)',
+                backgroundColor: null,
+                font: {
+                size: 20,
+                weight: 'bold'
+                }
+            }
             }
         }
-        }
-    }
-    };
+        };
 
-    window.onload = function() {
-    var ctx = document.getElementById('chart').getContext('2d');
-    window.myGauge = new Chart(ctx, config);
-    };
+        window.onload = function() {
+        var ctx = document.getElementById('chart').getContext('2d');
+        window.myGauge = new Chart(ctx, config);
+        };
 
-    </script>
+        </script>
+    
+    {% endif %}
    
 {% endblock %}

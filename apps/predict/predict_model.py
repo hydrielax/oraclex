@@ -1,9 +1,8 @@
 from apps.search.models import MotCle
 from apps.search.models import Jugement
 import tensorflow as tf
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Dropout, Activation, Flatten
 from tensorflow.keras.models import load_model
+# import tensorflow.keras as tk
 import random
 import numpy as np
 
