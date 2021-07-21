@@ -54,16 +54,43 @@ def import_type_juridiction():
         type.delete()
 
     #on les intialise
-    TypeJuridiction(cle="CPH", nom="Conseil des Prud'Hommes", niveau="1").save()
-    TypeJuridiction(cle="CA", nom="Cour d'Appel",            niveau="2").save()
-    TypeJuridiction(cle="CC", nom="Cour de Cassation",       niveau="3").save()
+    TypeJuridiction(cle="TJ", nom="Tribunal judiciaire",     niveau="1", regex=r'(TJ|TI|TGI)').save()
+    TypeJuridiction(cle="CP", nom="Conseil des Prud'Hommes", niveau="1", regex=r'(CP|CPH)').save()
+    TypeJuridiction(cle="CA", nom="Cour d'Appel",            niveau="2", regex=r'CA').save()
+    TypeJuridiction(cle="CC", nom="Cour de Cassation",       niveau="3", regex=r'((C(our)?(.)?( )?)?CASS(ATION)?)').save()
+
+
+def extract_ville(ville):
+    ville = re.sub(r'\d{5} ', '', ville)
+    ville = re.sub(r' CEDEX( \d+)?', '', ville)
+    return ville
+
+
+def import_tj():
+
+    for tj in Juridiction.objects.filter(type_juridiction='TJ'):
+        tj.delete()
+
+    file = open('media/Tribunal_Judiciaire.csv', 'r', encoding='utf-8')
+    reader = csv.reader(file, delimiter=";")
+
+    for row in reader:
+        juridiction = Juridiction(
+            nom = row[0],
+            ville = extract_ville(row[1]),
+            type_juridiction = TypeJuridiction.objects.get(cle='TJ'),
+            rattachement = None,
+        )
+        juridiction.save()
+
+    file.close()
 
 
 def import_cp():
     '''Importe dans la base de données la liste des Conseils de Prud'Hommes.'''
 
     #on efface tous les cp
-    for cp in Juridiction.objects.filter(type_juridiction='CPH'):
+    for cp in Juridiction.objects.filter(type_juridiction='CP'):
         cp.delete()
 
     #on les réimporte depuis le fichier
@@ -74,7 +101,7 @@ def import_cp():
         juridiction = Juridiction(
             nom = row[0], 
             ville = extract_ville(row[1]),
-            type_juridiction = TypeJuridiction.objects.get(cle='CPH'),
+            type_juridiction = TypeJuridiction.objects.get(cle='CP'),
             rattachement = None,
         )
         juridiction.save()
@@ -109,17 +136,11 @@ def import_cc():
     '''Importe dans la bdd la cour de Cassation'''
 
     Juridiction(
-        nom="Cour de Cassation de Paris", 
-        ville="Paris",
+        nom="Cour de Cassation de Paris",
+        ville="PARIS",
         type_juridiction=TypeJuridiction.objects.get(cle='CC'),
         rattachement = None,
     ).save()
-
-
-def extract_ville(ville):
-    ville = re.sub(r'\d{5} ', '', ville)
-    ville = re.sub(r' CEDEX( \d+)?', '', ville)
-    return ville
 
 
 def delete_juridictions():
@@ -136,6 +157,7 @@ def init_database():
     print('Importation des juridictions...')
     #delete_juridictions()
     import_type_juridiction()
+    import_tj()
     import_cp()
     import_ca()
     import_cc()

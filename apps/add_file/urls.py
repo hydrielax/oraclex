@@ -4,5 +4,5 @@ from . import views
 app_name = 'add_file'
 urlpatterns = [
     path('', views.ajout, name='index'),
-    path('update', views.update, name='update')
+    path('history', views.send_history, name='table')
 ]

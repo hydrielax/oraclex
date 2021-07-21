@@ -8,9 +8,9 @@
     </h1>
 
 
-    <h2>
+    <h3>
         Envoyer des jugements à analyser
-    </h2>
+    </h3>
 
     <form class="mb-4" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
@@ -43,48 +43,49 @@
     </form>
 
 
-    <h2>
+    <h3>
         Historique des jugements envoyés
-    </h2>
-    {% if tableau %}
-    <table class="table" id="tableau">
+    </h3>
+
+    <div id="history">
         <script>
-            let last_sort
+            let last_sort = 'date';
             let order = -1;
-            function display_table(table, sort_field, invert) {
+            function displayHistory(table, sort_field, invert) {
                 last_sort = sort_field;
                 if (invert) order = -order;
-                let html = "<thead><tr>";
-                for (const [field, name] of Object.entries(table[0])) {
-                    html += `<th><a class='d-flex' href='javascript:display_table(${JSON.stringify(table)}, "${field}", true);'>`;
-                    html += `<span class='text-truncate' style='max-width: 20vw;'>${name}&nbsp;</span>&nbsp;`
-                    html += `<i class="dropdown-toggle${order>0?'':' icons-flip-vertical'}${field==sort_field?'':' invisible'}">`;
-                    html += "</i></a></th>";
-                } html += "</tr></thead>";
-                table.shift();
-                table.sort((r1, r2) => r1[sort_field].toLowerCase() > r2[sort_field].toLowerCase() ? order : -order);
-                html += "<tbody>";
-                for(const row of table) {
-                    html += "<tr>";
-                    for (const value of Object.values(row)) {
-                        html += `<td class='text-truncate' style='max-width: 20vw;'>${value}</td>`;
-                    } html += "</tr>";
-                } html += "</tbody>";
-                document.getElementById("tableau").innerHTML = html;
+                if (table.length <= 1) {
+                    document.getElementById("history").innerHTML = "Aucun jugement envoyé";
+                }
+                else {
+                    let html = "<table class='table'><thead><tr>";
+                    for (const [field, name] of Object.entries(table[0])) {
+                        html += `<th><a class='d-flex' href='javascript:displayHistory(${JSON.stringify(table)}, "${field}", true);'>`;
+                        html += `<span class='text-truncate' style='max-width: 20vw;'>${name}&nbsp;</span>&nbsp;`
+                        html += `<i class="dropdown-toggle${order > 0 ? '' : ' icons-flip-vertical'}${field == sort_field ? '' : ' invisible'}">`;
+                        html += "</i></a></th>";
+                    } html += "</tr></thead>";
+                    table.shift();
+                    table.sort((r1, r2) => r1[sort_field].toLowerCase() > r2[sort_field].toLowerCase() ? order : -order);
+                    html += "<tbody>";
+                    for (const row of table) {
+                        html += "<tr>";
+                        for (const value of Object.values(row)) {
+                            html += `<td class='text-truncate' style='max-width: 20vw;'>${value}</td>`;
+                        } html += "</tr>";
+                    } html += "</tbody></table>";
+                    document.getElementById("history").innerHTML = html;
+                }
             }
-            display_table({{ tableau }}, 'date', false);
-
-            function updateTable() {
+            function getHistory() {
                 let request = new XMLHttpRequest();
                 request.responseType = 'json';
-                request.onreadystatechange = function() { display_table(JSON.parse(request.response['tableau']), last_sort, false); }
-                request.open("GET", 'update')
-                request.send()
+                request.onreadystatechange = function() { displayHistory(request.response, last_sort, false); };
+                request.open("GET", 'history');
+                request.send();
             }
-            setInterval(updateTable, 5000)
+            getHistory();
+            setInterval(getHistory, 5000);
         </script>
-    </table>
-    {% else %}
-        Aucun jugement en attente de validation
-    {% endif %}
+    </div>
 {% endblock %}

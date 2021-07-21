@@ -14,3 +14,7 @@ fitz==0.0.1.dev2
 PyMuPDF==1.18.15
 tensorflow==2.5.0
 keras==2.4.3  
+numpy~=1.19.5
+python-dateutil~=2.8.1
+Unidecode~=1.2.0
+pathlib~=1.0.1
