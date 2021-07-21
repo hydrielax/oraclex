@@ -9,6 +9,7 @@ import re
 import nltk, string
 from sklearn.feature_extraction.text import TfidfVectorizer
 import fitz
+from difflib import SequenceMatcher
 nltk.download('punkt', quiet=True)
 
 sep = r"(?:^|\W|\_|$)+"  # Regular expression for separator
@@ -113,6 +114,12 @@ def find_juridiction_text(text, juridictions):
             if re.search(simplify(juridiction.nom), simplify(text), re.IGNORECASE):
                 return juridiction
 
+
+def detect_doublon(text):
+    "detection de doublons avec SequenceMatcher" #à tester #clean code
+    for jugement in Jugement.objects.all():
+        if SequenceMatcher(None, text, jugement.text).ratio() > 0.95:
+            return jugement
 
 def detect_doublon(text):
 
