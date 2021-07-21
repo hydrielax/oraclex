@@ -18,3 +18,4 @@ numpy~=1.19.5
 python-dateutil~=2.8.1
 Unidecode~=1.2.0
 pathlib~=1.0.1
+
