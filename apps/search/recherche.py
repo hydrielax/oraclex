@@ -11,12 +11,20 @@ import numpy as np
 # --------------------
 
 def find_motsCles(mots):
+    print(mots)
     motsCles = []
     for mot in mots:
         matching_mot = Mot.objects.filter(name = mot)
         if matching_mot:
             motsCles.append(matching_mot[0].motcle.pk)
     return MotCle.objects.filter(pk__in=motsCles)
+
+def find_juridiction(juridiction):
+    list = Juridiction.objects.filter(nom=juridiction)
+    if list:
+        return list[0]
+    else:
+        return None
 
 def firstDay(month, year):
     if not month or not year: return None

@@ -44,24 +44,38 @@ class RequeteForm(forms.Form):
         widget=forms.Select(attrs={'class': 'form-control'}),
         required=False,
     )
-    juridiction = forms.ModelChoiceField(
-        queryset=Juridiction.objects.all(),
+    juridiction = forms.ChoiceField(
+        choices=[],
         label="Juridiction",
         # widget=forms.Select(attrs={'class': 'sr-only', 'id': "select3", 'data-role': "input", 'tabindex': "-1", 'aria-hidden': "true"}),
-        widget=ListTextWidget(attrs={'class': 'form-control', 'placeholder': 'Tapez le nom de la ville'}),
+        widget=ListTextWidget(attrs={'class': 'form-control clear-option', 'placeholder': 'Tapez le nom de la ville', 'data-role':'input'}),
         required=False
     )
-    motcle = forms.ModelMultipleChoiceField(
-        queryset=Mot.objects.all(),
+    motcle = forms.MultipleChoiceField(
+        choices = [],
         label = "Mots-clés",
         required=False,
-        widget=ChipsWidget(attrs={'class': 'chips-input stretchy form-control', 'placeholder': 'Tapez le nom de la ville'}),
+        widget=ChipsWidget(attrs={'class': 'chips-input stretchy form-control', 'placeholder': 'Tapez un mot-clé'}),
+        help_text = "Commencez à taper un mot-clé, sélectionnez-le dans la liste, puis tapez ENTREE pour le valider.",
     )
+    # motcle2 = forms.ModelMultipleChoiceField(
+    #     queryset = Mot.objects.all(),
+    #     label = "Mots-clés",
+    #     required=False,
+    # )
     illisibles = forms.BooleanField(
         label = "Inclure les fichiers illsibles",
         widget = forms.CheckboxInput(attrs={'class': 'custom-control-input'}),
         required = False,
     )
+
+    def __init__(self, *args, **kwargs):
+        super(RequeteForm, self).__init__(*args, **kwargs)
+        # this is pseudo code but you should get all variants
+        # then get the product related to each variant
+        self.fields['motcle'].choices = [(mot.name, mot.name) for mot in Mot.objects.all()]
+        self.fields['juridiction'].choices = [(j.nom, j.nom) for j in Juridiction.objects.all()]
+
     # dateMin = forms.DateField(
     #     input_formats=["%Y %m"],
     #     label="Date Minimale",

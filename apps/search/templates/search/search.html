@@ -13,40 +13,28 @@
 {% endif %}
 
 <form method="GET" onkeydown="return event.key != 'Enter';" action="{% url 'search:index' %}#results" autocomplete='off' class="needs-validation" novalidate>
-
-    <!--Mots clés-->
-    <div class="bd-example">
-        <label class="font-weight-medium mb-2" for="addreceivers1">Mots-clés :</label>
-        <div class="form-control-container form-chips-container {% if form.motcle.errors %}is-invalid{% endif %}" data-component="chips">
-            {{ form.motcle }}
-            <!--
-            <input data-role="typewriter" type="text" class="chips-input stretchy form-control" id="addreceivers1" style="width: 84px;" list='receivers1' placeholder='Entrez ici vos mots-clés'>
-            
-            <datalist id="receivers1">
-                <option value='CDD'>CDD</option>
-                <option value='Sem Inceptos Tellus'></option>
-                <option value="Amet Porta"></option>
-                <option value="test"></option>
-                <option value="omnibus"></option>
-            </datalist>
-            <label class="font-weight-medium mb-2 sr-only" for="receivers1">Éléments</label>
-            <select class="sr-only" data-role="input" tabindex="-1" aria-hidden="true" id="" multiple=""  name='motcle'>
-            </select>-->
-            <span class="form-control-state"></span>
-        </div>
-        {% if form.motcle.errors %}
-            <div class="invalid-feedback"><ul>
-            {% for error in form.motcle.errors %}
-                <li>{{ error }}</li>
-            {% endfor %}
-            </ul></div>
-        {% endif %}
-    </div>
-    <br>
-
-    <!-- Autres champs -->
     
     <div class="row">
+
+        <!-- champ mots-clés -->
+        <div class="col-12">
+            <div class="fieldWrapper form-group">
+                <label class="font-weight-medium mb-2" for="addreceivers1">Mots-clés :</label> {% for mot in motsCles%}{{ mot }}, {% endfor %}
+                <div class="form-control-container form-chips-container {% if form.motcle.errors %}is-invalid{% endif %}" data-component="chips">
+                    {{ form.motcle }}
+                    <span class="form-control-state"></span>
+                </div>
+                <small id="passwordHelpBlock" class="form-text text-muted">{{ form.motcle.help_text }}</small>
+                {% if form.motcle.errors %}
+                    <div class="invalid-feedback"><ul>
+                    {% for error in form.motcle.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                    </ul></div>
+                {% endif %}
+            </div>
+        </div>
+
         <!-- champ date min -->
         <div class="col-12 col-md-6">
             <div class="fieldWrapper form-group">
@@ -76,6 +64,7 @@
                 {% endif %}
             </div>
         </div>
+
         <!-- champ date max -->
         <div class="col-12 col-md-6">
             <div class="fieldWrapper form-group">
@@ -105,6 +94,7 @@
                 {% endif %}
             </div>
         </div>
+
         <!-- champ type de juridiction -->
         <div class="col-12 col-sm-6">
             <div class="fieldWrapper form-group"> 
@@ -112,10 +102,12 @@
                 {{ form.type_juridiction }}
             </div>
         </div>
+
         <!-- champ ville -->
         <div class="col-12 col-sm-6">
-            {% include 'forms/field.html' with field=form.juridiction icon="icons-search" %}
+            {% include 'forms/field.html' with field=form.juridiction icon="icons-search" clear=True %}
         </div>
+
         <!-- champ illisibles -->
         <div class="col-12">
             <div class="custom-control custom-checkbox ">
@@ -126,6 +118,7 @@
                 </small>
             </div>
         </div>
+
     </div>
     <br>
     <button type="submit" class="btn btn-primary" onclick="#results"><span>Rechercher</span> <i class="icons-search" aria-hidden="true"></i></button>

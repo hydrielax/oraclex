@@ -20,7 +20,8 @@
             <div class="container">
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             <div class='row'>
-                <div class='col-12 col-md-6'>
+                {% if stats %}
+                <div class='col-12 col-md-6 border-right'>
                     <br>
                     <h3>Statistiques des pertes et gains</h3>
                     <table class="table">
@@ -31,7 +32,8 @@
                         <tr><th>Maximum : </th><td>{{ stats.maximum | floatformat:2 }} €</td></tr>
                     </table>
                 </div>
-                <div class='col-12 col-md-6 border-left'>
+                {% endif %}
+                <div class='col'>
                     <br>
                     <h3>Favorable/Mixte/Défavorable</h3>
                     <div id="container" class="mx-auto" style="width: 50%;">
@@ -66,6 +68,7 @@
                     </script>
                     <br>
                 </div>
+                {% if graph_gain %}
                 <div class='col-12 mt-6 border-top'>
                     <br>
                     <h3>Répartitions des pertes et gains</h3>
@@ -107,6 +110,7 @@
                         var barChart = new Chart(ctx, config);
                     </script>
                 </div>
+                {% endif %}
             </div>
             </div>
         </div>

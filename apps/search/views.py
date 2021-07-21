@@ -11,6 +11,10 @@ def searchview(request):
     context = {}
     if request.GET:
         form = RequeteForm(request.GET)
+        form.full_clean()
+        if request.GET.getlist('motcle'):
+            form.cleaned_data['motcle'] = request.GET.getlist('motcle')
+            del form._errors['motcle']
         if form.is_valid():
             context = show_results(form)
     else:
@@ -29,21 +33,24 @@ def show_results(form):
     dateMin = firstDay(form.cleaned_data['datemMin'], form.cleaned_data['dateyMin'])
     dateMax = lastDay(form.cleaned_data['datemMax'], form.cleaned_data['dateyMax'])
     type_juridiction = form.cleaned_data['type_juridiction']
-    juridiction = form.cleaned_data['juridiction']
+    juridiction = find_juridiction(form.cleaned_data['juridiction'])
     illisibles = form.cleaned_data['illisibles']
     jugements = filtrerJugements(motsCles, dateMin, dateMax, type_juridiction, juridiction,illisibles)
     jugements = jugements.order_by('gain')
 
+    stats, graph_gain, graph_pie = None, None, None
+
     if jugements:
         # statistiques
         list_jugements = jugements.filter(gain__isnull=False)
-        stats = {
-            'moyenne': moyenneGains(list_jugements),
-            'ecart_type': ecart_type_gains(list_jugements),
-            'mediane': medianeGains(list_jugements),
-            'minimum': minimumGain(list_jugements),
-            'maximum': maximumGain(list_jugements),
-        }
+        if list_jugements:
+            stats = {
+                'moyenne': moyenneGains(list_jugements),
+                'ecart_type': ecart_type_gains(list_jugements),
+                'mediane': medianeGains(list_jugements),
+                'minimum': minimumGain(list_jugements),
+                'maximum': maximumGain(list_jugements),
+            }
 
         # graphiques
         graph_pie = {
@@ -56,14 +63,12 @@ def show_results(form):
             ],
         }
 
-        labels, data = regroup_gains(list_jugements)
-        graph_gain = {
-            'labels': labels,
-            'data': data,
-        }
-
-    else:
-        stats, graph_gain, graph_pie = None, None, None
+        if list_jugements:
+            labels, data = regroup_gains(list_jugements)
+            graph_gain = {
+                'labels': labels,
+                'data': data,
+            }
 
     # envoie au template
     context = {
@@ -74,6 +79,7 @@ def show_results(form):
         'nb_results': jugements.count(),
         'nb_illisibles': jugements.filter(lisible=False).count(),
         'show_illisibles': illisibles,
+        'motsCles': motsCles,
     }
     return context
 

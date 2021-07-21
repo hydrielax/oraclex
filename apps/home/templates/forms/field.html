@@ -1,8 +1,15 @@
 <div class="fieldWrapper form-group">
     <label class="{% if field.field.required %}required{% endif %}" for="{{ field.auto_id }}">{{ field.label }}</label> :<br>
-    <div class="form-control-container {% if field.errors %}is-invalid{% endif %} {% if icon %}has-left-icon{%endif%}">
+    <div class="form-control-container {% if field.errors %}is-invalid{% endif %} {% if icon %}has-left-icon{%endif%}" 
+        {% if clear %}data-clear-option="true" data-component="control" {% endif %}>
         {{ field }}
         <span class="form-control-state"></span>
+        {% if clear %}
+            <button type="button" class="btn-clear btn-primary d-none" data-btn="clear">
+                <span class="sr-only">Clear text</span>
+                <i class="icons-close" aria-hidden="true"></i>
+            </button>
+        {% endif %}
         {% if icon %}
             <span class="form-control-icon">
                 <i class="{{ icon }}"></i>
