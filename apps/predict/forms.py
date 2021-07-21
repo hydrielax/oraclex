@@ -1,22 +1,21 @@
 from django import forms
-from apps.search.models import Juridiction, TypeJuridiction, Jugement, MotCle, Categorie
-from .fields import ListTextWidget, MySelectMultiple
+from apps.search.models import Mot
+from apps.search.fields import ChipsWidget
 
 
-def motscles_valide(chaine):
-    liste_motscles = [mot.nom.upper() for mot in MotCle.objects.all()]
-    for mot in chaine.split(","):
-        if (mot.strip().upper() not in liste_motscles):
-            raise forms.ValidationError('Vous avez saisi un mot-clé incorrect')
-
-
-
-class RequeteForm(forms.Form):
+class PredictForm(forms.Form):
     '''Formulaire de recherche.'''
-    
-    motsCles = forms.ModelMultipleChoiceField(
-        queryset=MotCle.objects.all(),
-        label="Mots-Clés",
-        widget=forms.SelectMultiple(),
+
+    motcle = forms.MultipleChoiceField(
+        choices = [],
+        label = "Mots-clés",
         required=False,
+        widget=ChipsWidget(attrs={'class': 'chips-input stretchy form-control', 'placeholder': 'Tapez un mot-clé'}),
+        help_text = "Commencez à taper un mot-clé, sélectionnez-le dans la liste, puis tapez ENTREE pour le valider.",
     )
+
+    def __init__(self, *args, **kwargs):
+        super(PredictForm, self).__init__(*args, **kwargs)
+        # this is pseudo code but you should get all variants
+        # then get the product related to each variant
+        self.fields['motcle'].choices = [(mot.name, mot.name) for mot in Mot.objects.all()]
