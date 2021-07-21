@@ -56,6 +56,11 @@ class RequeteForm(forms.Form):
         label = "Mots-clés",
         required=False,
     )
+    illisibles = forms.BooleanField(
+        label = "Inclure les fichiers illsibles (/!\\ peut fausser les résultats)",
+        widget = forms.CheckboxInput(attrs={'class': 'custom-control-input'}),
+        required = False,
+    )
     # dateMin = forms.DateField(
     #     input_formats=["%Y %m"],
     #     label="Date Minimale",

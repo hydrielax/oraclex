@@ -1,9 +1,9 @@
 {% load static %}
 
-<h2>Résultats</h2>
+<h2 id="results">Résultats</h2>
 
 {% if jugements %}
-
+    <p>{{ nb_results }} résultats trouvés{% if nb_illisibles %}(dont {{ nb_illisibles }} illisibles){%endif%}.</p>
     <ul class="nav nav-tabs">
         <li class="nav-item">
             <a href="#statistics" class="nav-link active" data-toggle="tab">Statistiques</a>
@@ -22,7 +22,7 @@
             <div class='row'>
                 <div class='col-12 col-md-6'>
                     <br>
-                    <h3>Statistiques avancées</h3>
+                    <h3>Statistiques des pertes et gains</h3>
                     <table class="table">
                         <tr><th>Moyenne : </th><td>{{ stats.moyenne | floatformat:2 }} €</td></tr>
                         <tr><th>Médiane : </th><td>{{ stats.mediane | floatformat:2 }} €</td></tr>

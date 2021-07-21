@@ -12,7 +12,7 @@
   </div>
 {% endif %}
 
-<form method="GET" onkeydown="return event.key != 'Enter';" action="{% url 'search:results' %}" autocomplete='off' class="needs-validation" novalidate>
+<form method="GET" onkeydown="return event.key != 'Enter';" action="{% url 'search:index' %}#results" autocomplete='off' class="needs-validation" novalidate>
 
     <!--Mots clés-->
     <div class="bd-example">
@@ -50,13 +50,13 @@
         <div class="col-12 col-md-6">
             <div class="fieldWrapper form-group">
                 <label for="{{ form.datemMin.auto_id }}">Date Minimale</label> :<br>
-                <div class="row no-gutters {% if form.datemMin.errors or form.dateyMin.errors %}is-invalid{%endif%}">
+                <div class="form-row {% if form.datemMin.errors or form.dateyMin.errors %}is-invalid{%endif%}">
                     <div class="col-6">
                         <div class="form-control-container {% if form.datemMin.errors %}is-invalid{% endif %}">
                             {{ form.datemMin }}
                         </div>
                     </div>
-                    <div class="col-6 pl-2">
+                    <div class="col-6">
                         <div class="form-control-container {% if form.dateyMin.errors %}is-invalid{% endif %}">
                             {{ form.dateyMin }}
                             <span class="form-control-state"></span>
@@ -79,13 +79,13 @@
         <div class="col-12 col-md-6">
             <div class="fieldWrapper form-group">
                 <label for="{{ form.datemMax.auto_id }}">Date Maximale</label> :<br>
-                <div class="row no-gutters {% if form.datemMax.errors or form.dateyMax.errors %}is-invalid{%endif%}">
+                <div class="form-row {% if form.datemMax.errors or form.dateyMax.errors %}is-invalid{%endif%}">
                     <div class="col-6">
                         <div class="form-control-container {% if form.datemMax.errors %}is-invalid{% endif %}">
                             {{ form.datemMax }}
                         </div>
                     </div>
-                    <div class="col-6 pl-2">
+                    <div class="col-6">
                         <div class="form-control-container {% if form.dateyMax.errors %}is-invalid{% endif %}">
                             {{ form.dateyMax }}
                             <span class="form-control-state"></span>
@@ -114,6 +114,13 @@
         <!-- champ ville -->
         <div class="col-12 col-sm-6">
             {% include 'forms/field.html' with field=form.juridiction icon="icons-search" %}
+        </div>
+        <!-- champ illisibles -->
+        <div class="col-12">
+            <div class="custom-control custom-checkbox ">
+                {{ form.illisibles }}
+                <label class="custom-control-label" for="id_illisibles">{{ form.illisibles.label }}</label>
+            </div>
         </div>
     </div>
     <!-- mot-clés: recherche en tapant les mots-clés -->
@@ -186,7 +193,7 @@
             </div>
         </div>
     </div--> <br>
-    <button type="submit" class="btn btn-primary"><span>Rechercher</span> <i class="icons-search" aria-hidden="true"></i></button>
+    <button type="submit" class="btn btn-primary" onclick="#results"><span>Rechercher</span> <i class="icons-search" aria-hidden="true"></i></button>
     <!--button type="submit" class="btn btn-outline-primary" disabled><span>Prévoir</span> <i class="icons-share" aria-hidden="true"></i></button-->
 </form>
 <!--script type='text/javascript' src="{% static 'js/chips.js' %}"></script-->

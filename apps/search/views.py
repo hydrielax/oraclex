@@ -30,7 +30,8 @@ def show_results(form):
     dateMax = lastDay(form.cleaned_data['datemMax'], form.cleaned_data['dateyMax'])
     type_juridiction = form.cleaned_data['type_juridiction']
     juridiction = form.cleaned_data['juridiction']
-    jugements = filtrerJugements(motsCles, dateMin, dateMax, type_juridiction, juridiction)
+    illisibles = form.cleaned_data['illisibles']
+    jugements = filtrerJugements(motsCles, dateMin, dateMax, type_juridiction, juridiction,illisibles)
     jugements = jugements.order_by('gain')
 
     if jugements:
@@ -70,6 +71,8 @@ def show_results(form):
         'stats': stats,
         'graph_gain': graph_gain,
         'graph_pie': graph_pie,
+        'nb_results': jugements.count(),
+        'nb_illisibles': jugements.filter(lisible=False).count(),
     }
     return context
 
