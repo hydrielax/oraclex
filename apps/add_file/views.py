@@ -22,8 +22,8 @@ def ajout(request):
 
 def send_history(request):
     agent = Agent.objects.get(user=request.user)
-    jugements = chain(JugementTemp.objects.filter(agent_import=agent), Jugement.objects.filter(agent_import=agent))
-    tableau = [{'date':'Importé', 'name':'Nom du fichier', 'state':'État'}]
+    jugements = chain(JugementTemp.objects.filter(agent_import=agent), Jugement.objects.filter(agent_import=agent)[:50])
+    tableau = [{'date': 'Importé', 'name': 'Nom du fichier', 'state': 'État'}]
     for jugement in jugements:
         date = '<span order="{0}">{1}</span>'.format(jugement.date_import, jugement.date_import.strftime("%d/%m/%Y"))
         name = '<a href="{0}">{1}</a>'.format(jugement.get_absolute_url(), jugement.name)
