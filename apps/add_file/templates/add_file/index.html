@@ -80,7 +80,10 @@
             function getHistory() {
                 let request = new XMLHttpRequest();
                 request.responseType = 'json';
-                request.onreadystatechange = function() { displayHistory(request.response, last_sort, false); };
+                request.onreadystatechange = function() {
+                    if (request.response != null)
+                        displayHistory(request.response, last_sort, false);
+                };
                 request.open("GET", 'history');
                 request.send();
             }

@@ -8,4 +8,3 @@ class ChoixFichiers(forms.Form):
     options = {'upload_to': 'jugements', 'autocomplete': 'off', 'class': 'd-none', 'oninput': 'updateFileField();', 'multiple': True}
     fichiers = forms.FileField(label='', widget=ClearableFileInput(attrs={**options, 'accept': 'application/pdf'}))
     dossier = forms.FileField(label='', widget=ClearableFileInput(attrs={**options, 'webkitdirectory': True}))
-
