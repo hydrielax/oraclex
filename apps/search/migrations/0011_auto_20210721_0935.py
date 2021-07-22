@@ -27,3 +27,4 @@ class Migration(migrations.Migration):
             field=models.CharField(max_length=2, primary_key=True, serialize=False, verbose_name='Abbréviation'),
         ),
     ]
+

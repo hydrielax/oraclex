@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('search', '0011_alter_jugement_mots_cles'),
+        ('search', '0011_auto_20210721_0935'),
         ('add_file', '0006_auto_20210716_1615'),
     ]
 
