@@ -8,20 +8,55 @@
         Gestion des doublons
     </h1>
 
-    <table><tbody>
-    {% for choix in choix_doublons %}
-        <tr>
-            {% csrf_token %}
-            <td>
-                {{ choix.new }}
-                <a href="{{ choix.jugement.get_absolute_url }}">{{ choix.jugement.name }}</a>
-            </td>
-            <td>
-                {{ choix.old }}
-                <a href="{{ choix.jugement.doublon.get_absolute_url }}">{{ choix.jugement.doublon.name }}</a>
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody></table>
+    {% if jugements %}
+        <div class="row no-gutters">
+            {% for jugement in jugements %}
+                <div class="col-12 mb-4">
+                    <div class="container editorial editorial-light">
+                        <div class="row">
+                            <div class="col-6">
+                                <h2>Ancien Fichier</h2>
+                                <table><tbody>
+                                    <tr><th>Fichier&nbsp:</th><td><a href='{{ jugement.doublon.file.url }}'>{{ jugement.doublon }}</a></td></tr>
+                                    <tr><th>Date&nbsp:</th><td>{{ jugement.doublon.date_jugement | date:'d/m/Y' }}</td></tr>
+                                    <tr><th>Tribunal&nbsp:</th><td>{{ jugement.doublon.juridiction }}</td></tr>
+                                    <tr><th>Décision&nbsp:</th><td>{{ jugement.doublon.get_decision_display }}</td></tr>
+                                    <tr><th>Gain&nbsp:</th><td>{{ jugement.doublon.gain }}&nbsp€</td></tr>
+                                    <tr><th>Mots-clés&nbsp:</th><td>{%for mot in jugement.doublon.mots_cles.all %}{{mot}}, {%endfor%}</td></tr>
+                                    <tr><th>Qualité du fichier&nbsp:&nbsp</th><td>{{ jugement.doublon.quality }}</td></tr>
+                                    <tr><th>Lisible&nbsp:</th><td>{% if jugement.doublon.lisible %}Oui{%else%}Non{%endif%}</td></tr>
+                                </tbody></table>
+                            </div>
+                            <div class="col-6 border-left">
+                                <h2>Nouveau Fichier Importé</h2>
+                                <table><tbody>
+                                    <tr><th>Fichier&nbsp:</th><td><a href='{{ jugement.file.url }}'>{{ jugement }}</a></td></tr>
+                                    <tr><th>Date&nbsp:</th><td>{{ jugement.date_jugement | date:'d/m/Y' }}</td></tr>
+                                    <tr><th>Tribunal&nbsp:</th><td>{{ jugement.juridiction }}</td></tr>
+                                    <tr><th>Décision&nbsp:</th><td>{{ jugement.get_decision_display }}</td></tr>
+                                    <tr><th>Gain&nbsp:</th><td>{{ jugement.gain }}&nbsp€</td></tr>
+                                    <tr><th>Mots-clés&nbsp:</th><td>{%for mot in jugement.mots_cles.all %}{{mot}}, {%endfor%}</td></tr>
+                                    <tr><th>Qualité du fichier&nbsp:&nbsp</th><td>{{ jugement.quality }}</td></tr>
+                                    <tr><th>Lisible&nbsp:</th><td>{% if jugement.lisible %}Oui{%else%}Non{%endif%}</td></tr>
+                                </tbody></table>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <span>
+                                    <a href="{% url 'add_file:keep_old' jugement.id %}" class="btn btn-primary">Conserver l'ancien</a>
+                                    <a href="{% url 'add_file:keep_new' jugement.id %}" class="btn btn-primary">Conserver le nouveau</a>
+                                    <a href="{% url 'add_file:keep_both' jugement.id %}" class="btn btn-primary">Conserver les deux</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Aucun doublon pour l'instant... Bien joué !</p>
+        
+        <p><a href="{% url 'home:home' %}">Revenir à l'accueil</a></p>
+    {% endif %}
+
 
 {% endblock %}
