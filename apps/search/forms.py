@@ -76,4 +76,9 @@ class RequeteForm(forms.Form):
 class UpdateJugementForm(forms.ModelForm):
     class Meta:
         model = Jugement
-        fields = ['quality', 'lisible', 'decision', 'date_jugement', 'juridiction', 'mots_cles', 'gain', ]
+        fields = ['date_jugement', 'juridiction', 'decision', 'gain', 'mots_cles', 'lisible']
+    
+    def __init__(self, *args, **kwargs):
+        super(UpdateJugementForm, self).__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.widget.attrs['class'] = 'form-control'

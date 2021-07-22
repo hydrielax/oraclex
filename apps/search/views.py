@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect 
+from django.shortcuts import render 
 from django.contrib.auth.decorators import login_required
-from .forms import RequeteForm
+from .forms import RequeteForm, UpdateJugementForm
 from .models import Jugement
 from .recherche import *
 from apps.add_file.models import JugementTemp
@@ -104,7 +104,18 @@ def detailsview(request, id, temp=False):
         jugement = JugementTemp.objects.get(id=id)
     else:
         jugement = Jugement.objects.get(id=id)
-    return render(request, 'search/details.html', {'jugement':jugement})
+    context = {'jugement': jugement}
+
+    if request.user.agent.responsable:
+        if request.method == 'POST':
+            form = UpdateJugementForm(request.POST, instance=jugement)
+            if form.is_valid():
+                form.save()
+        else:
+            form = UpdateJugementForm(instance=jugement)
+        context['form'] = form
+
+    return render(request, 'search/details.html', context)
 
 
 @login_required

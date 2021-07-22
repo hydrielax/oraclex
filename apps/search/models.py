@@ -149,7 +149,6 @@ class BaseJugement(models.Model):
     )
     lisible = models.BooleanField(
         verbose_name='Lisible',
-        help_text="Vrai si le fichier est lisible par l'ordinateur.",
         null=True
     )
     decision = models.CharField(
@@ -158,13 +157,11 @@ class BaseJugement(models.Model):
         choices=(('F', 'Favorable'), ('D', 'Défavorable'), ('M', 'Mixte')),
         null=True,
         blank=True,
-        help_text='Décision de justice'
     )
     date_jugement = models.DateField(
         verbose_name='Date du jugement',
         null=True,
         blank=True,
-        help_text='Date du jugement'
     )
     juridiction = models.ForeignKey(
         to=Juridiction,
@@ -172,7 +169,6 @@ class BaseJugement(models.Model):
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
-        help_text='Cour ou Conseil du jugement'
     )
     mots_cles= models.ManyToManyField(
         to=MotCle,

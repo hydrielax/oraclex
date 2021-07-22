@@ -5,6 +5,7 @@
 
 {% block content %}
     <h1>Décision de justice n°{{jugement.id}}</h1>
+    <h2>Informations enregistrées</h2>
     <table class='table'><tbody>
         <tr><th>Fichier&nbsp:</th><td><a href='{{ jugement.file.url }}'>{{ jugement }}</a></td></tr>
         <tr><th>Date&nbsp:</th><td>{{ jugement.date_jugement|date:'d/m/Y'|default_if_none:"?" }}</td></tr>
@@ -17,4 +18,45 @@
         <tr><th>Date d'import&nbsp:</th><td>{{ jugement.date_import|date:'d/m/Y'}}</td></tr>
         <tr><th>Importé par&nbsp:</th><td>{{jugement.agent_import }}</td></tr>
     </tbody></table>
+    <br>
+    <br>
+    
+    {% if form %}
+        <h3 class="text-danger">Attention, zone dangereuse !</h3>
+        <p class='text-danger'>Modifiez les données avec précaution.</p>
+        <div class="container" style='border-radius: 10px; border: 2px solid var(--red); padding: 2rem;'>
+            <h2>Modifier la décision</h2>
+            
+            {% if form.is_valid %}
+                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                    <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                    </symbol>
+                </svg>
+                <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                    <div>
+                        La décision a bien été mise à jour.
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="padding: 1rem 1rem;"></button>
+                </div>
+            {% endif %}
+
+            {% if form.errors %}
+            <div class="form-error mb-3 text-white">
+                <h2 class="text-white text-uppercase mb-0">Oouups ! Vous avez une erreur</h2>
+                {% for error in form.non_field_errors %}
+                    {{error}}
+                {% endfor %}
+            </div>
+            {% endif %}
+            <form method='POST' enctype="multipart/form-data" autocomplete='off' class="needs-validation" novalidate>
+                {% csrf_token %}
+                <div class="row">
+                    {% include 'forms/form.html' with form=form %}
+                </div>
+                <button type="submit" class="btn btn-primary">Valider</button>
+            </form>
+        </div>
+    {% endif %}
 {% endblock %}
