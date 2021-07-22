@@ -57,7 +57,7 @@ def import_type_juridiction():
     TypeJuridiction(cle="TJ", nom="Tribunal judiciaire",     niveau="1", regex=r'(TJ|TI|TGI)').save()
     TypeJuridiction(cle="CP", nom="Conseil des Prud'Hommes", niveau="1", regex=r'(CP|CPH)').save()
     TypeJuridiction(cle="CA", nom="Cour d'Appel",            niveau="2", regex=r'CA').save()
-    TypeJuridiction(cle="CC", nom="Cour de Cassation",       niveau="3", regex=r'((C(our)?(.)?( )?)?CASS(ATION)?)').save()
+    TypeJuridiction(cle="CC", nom="Cour de Cassation",       niveau="3", regex=r'CASS').save()
 
 
 def extract_ville(ville):

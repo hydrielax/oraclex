@@ -32,11 +32,11 @@ class JugementTemp(BaseJugement):
     @classmethod
     def run_threads(cls, by=4):
         while True:
-            jugements = cls.objects.all()[:by]
+            jugements = cls.objects.filter(doublon__isnull=True)[:by]
             for jugement in jugements:
-                if not jugement.doublon: jugement.thread.start()
+                jugement.thread.start()
             for jugement in jugements:
-                if not jugement.doublon: jugement.thread.join()
+                jugement.thread.join()
 
 
 JugementTemp.thread = Thread(target=JugementTemp.run_threads, daemon=True)

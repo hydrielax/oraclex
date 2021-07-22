@@ -18,17 +18,17 @@ def analyse(jugement):
         print('Started analysing', jugement.name)
         jugement.text, jugement.quality = extract_text(jugement.file.file)
         jugement.doublon = detect_doublon(jugement.text)
-        jugement.lisible = jugement.quality > 0.6
         jugement.date_jugement = extract_date(jugement.name, jugement.text)
         jugement.decision = extraction_jugement(jugement.name, jugement.text)
         jugement.gain = extraction_somme(jugement.text)
         jugement.juridiction = find_juridiction(jugement, Juridiction.objects.all())
         jugement.mots_cles.set(find_keywords(jugement.text, MotCle.objects.all()))
+        jugement.lisible = jugement.quality > 0.6 and jugement.date_jugement is not None and jugement.juridiction is not None
         if jugement.doublon: jugement.save()
         else: jugement.register()
         print('Ended analysing', jugement.name)
     except BaseException as exc:
-        print('Error while analysing', jugement.name, ':', exc)
+        print('Error analysing', jugement.name, ':', exc)
         jugement.delete()
 
 
@@ -114,26 +114,33 @@ def find_juridiction_text(text, juridictions):
 
 
 def detect_doublon(text):
-    "detection de doublons avec SequenceMatcher" #à tester #clean code
+    "detection de doublons avec SequenceMatcher"
     for jugement in Jugement.objects.all():
         if SequenceMatcher(None, text, jugement.text).ratio() > 0.7:
             return jugement
 
 
-
 def extract_date(filename,text):
 
-    date_regex = re.search(sep+r"(\d{4}|\d{2})(?: (\d{2}))?(?: (\d{2}))?"+sep, simplify(filename))
-    if date_regex:
-        date_fields = date_regex.groups()
-        year = int('20' + date_fields[0]) if len(date_fields[0]) == 2 else int(date_fields[0])
-        month = int(date_fields[1]) if date_fields[1] else 1
-        day = int(date_fields[2]) if date_fields[2] else 1
+    normal_date_regex = re.search(sep+r"(?:(\d{2}) )?(\d{2}) (\d{4})"+sep, simplify(filename))
+    if normal_date_regex:
+        date_fields = normal_date_regex.groups()
+        day = int(date_fields[0]) if date_fields[0] else 1
+        month = int(date_fields[1])
+        year = int(date_fields[2])
         date_name = datetime(year, month, day)
-    if not date_regex or date_name.year < 1900 or date_name > datetime.now():
-        date_name = None
+    if not normal_date_regex or date_name.year < 1900 or date_name > datetime.now():
+        inverse_date_regex = re.search(sep+r"(\d{4}|\d{2})(?: (\d{2}))?(?: (\d{2}))?"+sep, simplify(filename))
+        if inverse_date_regex:
+            date_fields = inverse_date_regex.groups()
+            year = int('20' + date_fields[0]) if len(date_fields[0]) == 2 else int(date_fields[0])
+            month = int(date_fields[1]) if date_fields[1] else 1
+            day = int(date_fields[2]) if date_fields[2] else 1
+            date_name = datetime(year, month, day)
+        if not inverse_date_regex or date_name.year < 1900 or date_name > datetime.now():
+            date_name = None
 
-    dates_text = search_dates(text, languages=['fr'], settings={'STRICT_PARSING': True, 'PREFER_DATES_FROM': 'past'})
+    dates_text = search_dates(text, languages=['fr'], settings={'STRICT_PARSING': True, 'DATE_ORDER': 'DMY'})
     for date_text in dates_text:
         if date_name:
             def same(attr): return getattr(date_name, attr) == getattr(date_text[1], attr)
@@ -141,7 +148,7 @@ def extract_date(filename,text):
                 return date_text[1]
         elif date_text[1].year > 1900 and date_text[1] < datetime.now():
             return date_text[1]
-    return date_name if date_name else datetime(1900, 1, 1)
+    return date_name if date_name else None
 
 
 def extraction_jugement(filename,text):
