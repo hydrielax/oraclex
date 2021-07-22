@@ -70,11 +70,14 @@ def keep_both(request, id):
 
 @login_required
 def add_keyword(request):
+    context = {}
     if request.method == 'POST':
         form = AjoutMotCleForm(request.POST)
         if form.is_valid():
             form.save()
             form = AjoutMotCleForm()
+            context['ok'] = True
     else:
         form = AjoutMotCleForm()
-    return render(request, 'add_file/add_keyword.html', {'form': form})
+    context['form'] = form
+    return render(request, 'add_file/add_keyword.html', context)

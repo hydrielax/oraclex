@@ -3,7 +3,7 @@ from django.forms.widgets import ClearableFileInput
 from django.shortcuts import redirect
 from unidecode import unidecode
 from .analyse import find_keywords
-from apps.search.models import Mot, MotCle
+from apps.search.models import Mot, MotCle, Jugement
 
 
 class ChoixFichiers(forms.Form):
@@ -59,4 +59,7 @@ class AjoutMotCleForm(forms.Form):
         for variante in variantes[1:]:
             mot = Mot(name = variante, motcle = motcle)
             mot.save()
-
+        motscles = MotCle.objects.filter(representant = mot_principal)
+        for jugement in Jugement.objects.all():
+            if find_keywords(jugement.text, motscles):
+                jugement.mots_cles.add(motscles[0])
