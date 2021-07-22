@@ -6,11 +6,9 @@ from pytesseract import image_to_data
 from datetime import datetime
 from dateparser.search import search_dates
 import re
-import nltk, string
-from sklearn.feature_extraction.text import TfidfVectorizer
 import fitz
 from difflib import SequenceMatcher
-nltk.download('punkt', quiet=True)
+
 
 sep = r"(?:^|\W|\_|$)+"  # Regular expression for separator
 
@@ -118,30 +116,9 @@ def find_juridiction_text(text, juridictions):
 def detect_doublon(text):
     "detection de doublons avec SequenceMatcher" #à tester #clean code
     for jugement in Jugement.objects.all():
-        if SequenceMatcher(None, text, jugement.text).ratio() > 0.95:
+        if SequenceMatcher(None, text, jugement.text).ratio() > 0.7:
             return jugement
 
-def detect_doublon(text):
-
-    stemmer = nltk.stem.porter.PorterStemmer()
-    remove_punctuation_map = dict((ord(char), None) for char in string.punctuation)
-    
-    def stem_tokens(tokens):
-        return [stemmer.stem(item) for item in tokens]
-
-    '''remove punctuation, lowercase, stem'''
-    def normalize(text):
-        return stem_tokens(nltk.word_tokenize(text.lower().translate(remove_punctuation_map) , language='french'))
-    
-    vectorizer = TfidfVectorizer(tokenizer=normalize, stop_words='english')
-    
-    def cosine_sim(text1, text2):
-        tfidf = vectorizer.fit_transform([text1, text2])
-        return ((tfidf * tfidf.T).A)[0,1]
-
-    for jugement in Jugement.objects.all():
-        if cosine_sim(text, jugement.text) > 0.95:
-            return jugement
 
 
 def extract_date(filename,text):
