@@ -116,7 +116,7 @@ def find_juridiction_text(text, juridictions):
 def detect_doublon(text):
     "detection de doublons avec SequenceMatcher"
     for jugement in Jugement.objects.all():
-        if SequenceMatcher(None, text, jugement.text).ratio() > 0.7:
+        if SequenceMatcher(None, text, jugement.text).ratio() > 0.85:
             return jugement
 
 

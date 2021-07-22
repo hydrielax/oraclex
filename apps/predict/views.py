@@ -22,7 +22,6 @@ def prediction(request):
             var_bool = [int(motCle in motsCles) for motCle in MotCle.objects.all()]
             proba = model_ia(var_bool)    #verify the form first
             context['proba'] = proba[0]
-            context['dec'] = 'Def' if proba[0]>proba[1] else 'Fav'
             context['motsCles'] = motsCles
     else:
         form = PredictForm()
