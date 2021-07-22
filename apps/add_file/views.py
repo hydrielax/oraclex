@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
-from .forms import ChoixFichiers
+from .forms import ChoixFichiers, ChoixDoublon
 from .models import Jugement, JugementTemp
 from apps.account.models import Agent
 from itertools import chain
@@ -35,4 +35,7 @@ def send_history(request):
 
 
 def gestion_doublons(request):
-    return render(request, 'add_file/doublons.html')
+
+    jugements = JugementTemp.objects.filter(doublon__isnull=False)
+    choix_doublons = [ChoixDoublon(jugement) for jugement in jugements]
+    return render(request, 'add_file/doublons.html', {'choix_doublons': choix_doublons})

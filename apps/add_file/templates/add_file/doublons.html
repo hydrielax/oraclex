@@ -1,3 +1,27 @@
 {% extends 'base.html' %}
 
 {% block title %}Gestion des doublons -{% endblock %}
+
+{% block content %}
+
+    <h1>
+        Gestion des doublons
+    </h1>
+
+    <table><tbody>
+    {% for choix in choix_doublons %}
+        <tr>
+            {% csrf_token %}
+            <td>
+                {{ choix.new }}
+                <a href="{{ choix.jugement.get_absolute_url }}">{{ choix.jugement.name }}</a>
+            </td>
+            <td>
+                {{ choix.old }}
+                <a href="{{ choix.jugement.doublon.get_absolute_url }}">{{ choix.jugement.doublon.name }}</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody></table>
+
+{% endblock %}
