@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
-from .forms import ChoixFichiers, ChoixDoublon
+from .forms import ChoixFichiers
 from .models import Jugement, JugementTemp
 from apps.account.models import Agent
 from itertools import chain
@@ -34,8 +34,29 @@ def send_history(request):
     return JsonResponse(tableau, safe=False)
 
 
-def gestion_doublons(request):
 
+def gestion_doublons(request):
+    '''Vue pour gérer les doublons'''
     jugements = JugementTemp.objects.filter(doublon__isnull=False)
-    choix_doublons = [ChoixDoublon(jugement) for jugement in jugements]
-    return render(request, 'add_file/doublons.html', {'choix_doublons': choix_doublons})
+    return render(request, 'add_file/doublons.html', {'jugements': jugements})
+
+
+def keep_old(request, id):
+    '''Action de doublon : conserver l'ancien'''
+    jugement = JugementTemp.objects.get(id=id)
+    jugement.delete()
+    return redirect('add_file:doublons')
+
+def keep_new(request, id):
+    '''Action de doublon : conserver le nouveau'''
+    jugement = JugementTemp.objects.get(id=id)
+    jugement.doublon.delete()
+    jugement.register()
+    return redirect('add_file:doublons')
+
+def keep_both(request, id):
+    '''Action de doublon : conserver les deux'''
+    jugement = JugementTemp.objects.get(id=id)
+    jugement.register()
+    return redirect('add_file:doublons')
+
