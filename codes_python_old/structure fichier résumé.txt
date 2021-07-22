@@ -1,8 +1,0 @@
-nom
-lisible/pas lisible (bool)
-fav/defav/mixte
-date
-Juridiction
-mots clés sur une ligne espacé
-somme perdue
-saut de ligne

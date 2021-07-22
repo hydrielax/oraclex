@@ -117,3 +117,5 @@ GitHub.sublime-settings
 # confidential
 fichiers_jugements/
 media/jugements/
+codes_python_old/
+logs/
