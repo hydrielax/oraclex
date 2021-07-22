@@ -9,7 +9,7 @@ psycopg2-binary==2.8.6
 whitenoise==5.2.0
 dateparser==1.0.0
 PyMuPDF==1.18.15
-tensorflow==2.5.0
+tensorflow-cpu==2.5.0
 keras==2.4.3  
 numpy~=1.19.5
 python-dateutil~=2.8.1
