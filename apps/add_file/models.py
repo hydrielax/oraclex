@@ -1,5 +1,6 @@
 from django.db import models
-from apps.search.models import BaseJugement, Jugement, MotCle
+from django.urls import reverse
+from apps.search.models import BaseJugement, Jugement
 from threading import Thread
 from .analyse import analyse
 
@@ -37,6 +38,9 @@ class JugementTemp(BaseJugement):
                 jugement.thread.start()
             for jugement in jugements:
                 jugement.thread.join()
+
+    def get_absolute_url(self):
+        return reverse('search:details_temp', args=[self.id])
 
 
 JugementTemp.thread = Thread(target=JugementTemp.run_threads, daemon=True)

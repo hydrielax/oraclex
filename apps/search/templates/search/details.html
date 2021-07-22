@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load percentage %}
+
+{% block title %}Décision n°{{jugement.id}} -{% endblock %}
+
+{% block content %}
+    <h1>Décision de justice n°{{jugement.id}}</h1>
+    <table class='table'><tbody>
+        <tr><th>Fichier&nbsp:</th><td><a href='{{ jugement.file.url }}'>{{ jugement }}</a></td></tr>
+        <tr><th>Date&nbsp:</th><td>{{ jugement.date_jugement|date:'d/m/Y'|default_if_none:"?" }}</td></tr>
+        <tr><th>Tribunal&nbsp:</th><td>{{ jugement.juridiction|default_if_none:"?" }}</td></tr>
+        <tr><th>Décision&nbsp:</th><td>{{ jugement.get_decision_display|default_if_none:"?" }}</td></tr>
+        <tr><th>Gain&nbsp:</th><td>{{ jugement.gain|default_if_none:"?" }}&nbsp€</td></tr>
+        <tr><th>Mots-clés&nbsp:</th><td>{%for mot in jugement.mots_cles.all %}{{mot}}, {%endfor%}</td></tr>
+        <tr><th>Qualité du fichier&nbsp:&nbsp</th><td>{{ jugement.quality|percentage|default_if_none:"?" }}</td></tr>
+        <tr><th>Lisible&nbsp:</th><td>{% if jugement.lisible %}Oui{%else%}Non{%endif%}</td></tr>
+        <tr><th>Date d'import&nbsp:</th><td>{{ jugement.date_import|date:'d/m/Y'}}</td></tr>
+        <tr><th>Importé par&nbsp:</th><td>{{jugement.agent_import }}</td></tr>
+    </tbody></table>
+{% endblock %}
