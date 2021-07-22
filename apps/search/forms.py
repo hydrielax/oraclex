@@ -58,11 +58,6 @@ class RequeteForm(forms.Form):
         widget=ChipsWidget(attrs={'class': 'chips-input stretchy form-control', 'placeholder': 'Tapez un mot-clé'}),
         help_text = "Commencez à taper un mot-clé, sélectionnez-le dans la liste, puis tapez ENTREE pour le valider.",
     )
-    # motcle2 = forms.ModelMultipleChoiceField(
-    #     queryset = Mot.objects.all(),
-    #     label = "Mots-clés",
-    #     required=False,
-    # )
     illisibles = forms.BooleanField(
         label = "Inclure les fichiers illsibles",
         widget = forms.CheckboxInput(attrs={'class': 'custom-control-input'}),
@@ -76,29 +71,9 @@ class RequeteForm(forms.Form):
         self.fields['motcle'].choices = [(mot.name, mot.name) for mot in Mot.objects.all()]
         self.fields['juridiction'].choices = [(j.nom, j.nom) for j in Juridiction.objects.all()]
 
-    # dateMin = forms.DateField(
-    #     input_formats=["%Y %m"],
-    #     label="Date Minimale",
-    #     widget=forms.TextInput(attrs={'placeholder': 'AAAA MM', 'class': 'form-control'}),
-    #     required=False
-    # )
-    # dateMax = forms.DateField(
-    #     input_formats=["%Y %m"],
-    #     label="Date Maximale",
-    #     widget=forms.TextInput(attrs={'placeholder': 'AAAA MM', 'class': 'form-control'}),
-    #     required=False
-    # )
-    # motsCles_textInput = forms.CharField(
-    #     label="Mots-Clés",
-    #     widget=forms.TextInput(attrs={'placeholder': 'Tapez les mots-clés séparés par une virgule', 'class': 'form-control'}),
-    #     validators=[motscles_valide],
-    #     required=False,
-    # )
-    # motsCles = forms.ModelMultipleChoiceField(
-    #     queryset=MotCle.objects.all(),
-    #     label="Mots-Clés (non-fonctionnel)",
-    #     widget=MySelectMultiple(attrs={'class':"sr-only", 'id':"exampleFormControlMultiSelect3", 'data-role':"input", 'tabindex':"-1", 'aria-hidden':"true", 'multiple':'' }),
-    #     # widget=forms.CheckboxSelectMultiple(),
-    #     required=False,
-    # )
 
+
+class UpdateJugementForm(forms.ModelForm):
+    class Meta:
+        model = Jugement
+        fields = ['quality', 'lisible', 'decision', 'date_jugement', 'juridiction', 'mots_cles', 'gain', ]

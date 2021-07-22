@@ -209,8 +209,7 @@ class BaseJugement(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return self.file.url
-        # return reverse('jugement', args=[self.id])
+        return reverse('search:details', args=[self.id])
 
 
 class Jugement(BaseJugement):

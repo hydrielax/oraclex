@@ -19,7 +19,7 @@ def ajout(request):
             jugement.save()
     return render(request, 'add_file/index.html', {'selection': ChoixFichiers()})
 
-
+@login_required
 def send_history(request):
     agent = Agent.objects.get(user=request.user)
     jugements = chain(JugementTemp.objects.filter(agent_import=agent), Jugement.objects.filter(agent_import=agent)[:50])
@@ -34,19 +34,20 @@ def send_history(request):
     return JsonResponse(tableau, safe=False)
 
 
-
+@login_required
 def gestion_doublons(request):
     '''Vue pour gérer les doublons'''
     jugements = JugementTemp.objects.filter(doublon__isnull=False)
     return render(request, 'add_file/doublons.html', {'jugements': jugements})
 
-
+@login_required
 def keep_old(request, id):
     '''Action de doublon : conserver l'ancien'''
     jugement = JugementTemp.objects.get(id=id)
     jugement.delete()
     return redirect('add_file:doublons')
 
+@login_required
 def keep_new(request, id):
     '''Action de doublon : conserver le nouveau'''
     jugement = JugementTemp.objects.get(id=id)
@@ -54,6 +55,7 @@ def keep_new(request, id):
     jugement.register()
     return redirect('add_file:doublons')
 
+@login_required
 def keep_both(request, id):
     '''Action de doublon : conserver les deux'''
     jugement = JugementTemp.objects.get(id=id)

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load percentage %}
 {% block title %}Gestion des doublons -{% endblock %}
 
 {% block content %}
@@ -17,26 +17,26 @@
                             <div class="col-6">
                                 <h2>Ancien Fichier</h2>
                                 <table><tbody>
-                                    <tr><th>Fichier&nbsp:</th><td><a href='{{ jugement.doublon.file.url }}'>{{ jugement.doublon }}</a></td></tr>
-                                    <tr><th>Date&nbsp:</th><td>{{ jugement.doublon.date_jugement | date:'d/m/Y' }}</td></tr>
-                                    <tr><th>Tribunal&nbsp:</th><td>{{ jugement.doublon.juridiction }}</td></tr>
-                                    <tr><th>Décision&nbsp:</th><td>{{ jugement.doublon.get_decision_display }}</td></tr>
-                                    <tr><th>Gain&nbsp:</th><td>{{ jugement.doublon.gain }}&nbsp€</td></tr>
+                                    <tr><th>Fichier&nbsp:</th><td><a href='{{ jugement.doublon.get_absolute_url }}'>{{ jugement.doublon }}</a></td></tr>
+                                    <tr><th>Date&nbsp:</th><td>{{ jugement.doublon.date_jugement|date:'d/m/Y'|default_if_none:"?" }}</td></tr>
+                                    <tr><th>Tribunal&nbsp:</th><td>{{ jugement.doublon.juridiction|default_if_none:"?" }}</td></tr>
+                                    <tr><th>Décision&nbsp:</th><td>{{ jugement.doublon.get_decision_display|default_if_none:"?" }}</td></tr>
+                                    <tr><th>Gain&nbsp:</th><td>{{ jugement.doublon.gain|default_if_none:"?" }}&nbsp€</td></tr>
                                     <tr><th>Mots-clés&nbsp:</th><td>{%for mot in jugement.doublon.mots_cles.all %}{{mot}}, {%endfor%}</td></tr>
-                                    <tr><th>Qualité du fichier&nbsp:&nbsp</th><td>{{ jugement.doublon.quality }}</td></tr>
+                                    <tr><th>Qualité du fichier&nbsp:&nbsp</th><td>{{ jugement.doublon.quality|percentage|default_if_none:"?" }}</td></tr>
                                     <tr><th>Lisible&nbsp:</th><td>{% if jugement.doublon.lisible %}Oui{%else%}Non{%endif%}</td></tr>
                                 </tbody></table>
                             </div>
                             <div class="col-6 border-left">
                                 <h2>Nouveau Fichier Importé</h2>
                                 <table><tbody>
-                                    <tr><th>Fichier&nbsp:</th><td><a href='{{ jugement.file.url }}'>{{ jugement }}</a></td></tr>
-                                    <tr><th>Date&nbsp:</th><td>{{ jugement.date_jugement | date:'d/m/Y' }}</td></tr>
-                                    <tr><th>Tribunal&nbsp:</th><td>{{ jugement.juridiction }}</td></tr>
-                                    <tr><th>Décision&nbsp:</th><td>{{ jugement.get_decision_display }}</td></tr>
-                                    <tr><th>Gain&nbsp:</th><td>{{ jugement.gain }}&nbsp€</td></tr>
+                                    <tr><th>Fichier&nbsp:</th><td><a href='{{ jugement.get_absolute_url }}'>{{ jugement }}</a></td></tr>
+                                    <tr><th>Date&nbsp:</th><td>{{ jugement.date_jugement|date:'d/m/Y'|default_if_none:"?" }}</td></tr>
+                                    <tr><th>Tribunal&nbsp:</th><td>{{ jugement.juridiction|default_if_none:"?" }}</td></tr>
+                                    <tr><th>Décision&nbsp:</th><td>{{ jugement.get_decision_display|default_if_none:"?" }}</td></tr>
+                                    <tr><th>Gain&nbsp:</th><td>{{ jugement.gain|default_if_none:"?" }}&nbsp€</td></tr>
                                     <tr><th>Mots-clés&nbsp:</th><td>{%for mot in jugement.mots_cles.all %}{{mot}}, {%endfor%}</td></tr>
-                                    <tr><th>Qualité du fichier&nbsp:&nbsp</th><td>{{ jugement.quality }}</td></tr>
+                                    <tr><th>Qualité du fichier&nbsp:&nbsp</th><td>{{ jugement.quality|percentage|default_if_none:"?" }}</td></tr>
                                     <tr><th>Lisible&nbsp:</th><td>{% if jugement.lisible %}Oui{%else%}Non{%endif%}</td></tr>
                                 </tbody></table>
                             </div>
