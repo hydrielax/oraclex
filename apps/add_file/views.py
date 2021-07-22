@@ -1,14 +1,15 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
-from .forms import ChoixFichiers
+from .forms import ChoixFichiers, AjoutMotCleForm
 from .models import Jugement, JugementTemp
 from apps.account.models import Agent
 from itertools import chain
 
+# AJOUT JUGEMENT
+# --------------
 
 JugementTemp.thread.start()
-
 
 @login_required
 def ajout(request):
@@ -33,6 +34,8 @@ def send_history(request):
         tableau.append({"date": date, "name": name, "state": state})
     return JsonResponse(tableau, safe=False)
 
+# DOUBLONS
+# --------
 
 @login_required
 def gestion_doublons(request):
@@ -62,3 +65,16 @@ def keep_both(request, id):
     jugement.register()
     return redirect('add_file:doublons')
 
+# AJOUT MOT-CLE
+# -------------
+
+@login_required
+def add_keyword(request):
+    if request.method == 'POST':
+        form = AjoutMotCleForm(request.POST)
+        if form.is_valid():
+            form.save()
+            form = AjoutMotCleForm()
+    else:
+        form = AjoutMotCleForm()
+    return render(request, 'add_file/add_keyword.html', {'form': form})

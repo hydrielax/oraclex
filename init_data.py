@@ -35,14 +35,14 @@ def import_mot_cle():
     file = open('media/mots_cles.txt', 'r', encoding='utf-8')
     for row in file.read().splitlines():
         variantes = row.split(',')
-        mot_principal = Mot(name = variantes[0])
+        mot_principal = Mot(name = variantes[0].strip())
         mot_principal.save()
         motcle = MotCle(representant = mot_principal)
         motcle.save()
         mot_principal.motcle = motcle
         mot_principal.save()
         for variante in variantes[1:]:
-            mot = Mot(name = variante, motcle = motcle)
+            mot = Mot(name = variante.strip(), motcle = motcle)
             mot.save()
 
 
