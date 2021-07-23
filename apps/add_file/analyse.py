@@ -5,6 +5,7 @@ from pdf2image import convert_from_bytes
 from pytesseract import image_to_data
 from datetime import datetime
 from dateparser.search import search_dates
+from dateparser_data.settings import default_parsers
 import re
 import fitz
 from difflib import SequenceMatcher
@@ -17,13 +18,13 @@ def analyse(jugement):
     try:
         print('Started analysing', jugement.name)
         jugement.text, jugement.quality = extract_text(jugement.file.file)
-        jugement.doublon = detect_doublon(jugement.text)
         jugement.date_jugement = extract_date(jugement.name, jugement.text)
         jugement.decision = extraction_jugement(jugement.name, jugement.text)
         jugement.gain = extraction_somme(jugement.text)
         jugement.juridiction = find_juridiction(jugement, Juridiction.objects.all())
         jugement.mots_cles.set(find_keywords(jugement.text, MotCle.objects.all()))
         jugement.lisible = jugement.quality > 0.6 and jugement.date_jugement is not None and jugement.juridiction is not None
+        jugement.doublon = detect_doublon(jugement.text)
         if jugement.doublon: jugement.save()
         else: jugement.register()
         print('Ended analysing', jugement.name)
@@ -140,7 +141,8 @@ def extract_date(filename,text):
         if not inverse_date_regex or date_name.year < 1900 or date_name > datetime.now():
             date_name = None
 
-    dates_text = search_dates(text, languages=['fr'], settings={'STRICT_PARSING': True, 'DATE_ORDER': 'DMY'})
+    parsers = [parser for parser in default_parsers if parser != 'relative-time']
+    dates_text = search_dates(text, settings={'STRICT_PARSING': True, 'DATE_ORDER': 'DMY', 'PARSERS': parsers})
     for date_text in dates_text:
         if date_name:
             def same(attr): return getattr(date_name, attr) == getattr(date_text[1], attr)
@@ -371,3 +373,34 @@ def multiplicateur_somme(contenu,i,j):#i et j sont les rangs de débuts et de fi
     if rang_sncf <= rang_civil:
         multiplicateur = -1
     return multiplicateur
+
+
+
+# ~ Extrait du Site de Pierre Corneille ~
+# - Don Diègue à l'issue de son P2E -
+
+
+# Ô rage ! Ô désespoir ! P2E ennemi !
+# N’ai-je donc tant vécu que pour cette infamie ?
+# Et ne suis-je blanchi dans les tutos Django
+# Que pour voir qu'Oraclex ne fonctionne pas trop ?
+# Django, qu'avec orgueil tous les devs ont à cœur,
+# Django, qui tant de fois a pourri mon serveur,
+# Serveur qu’SNCF jamais ne déploiera
+# Car Franck trahit sa cause et ne fait rien pour ça.
+# Ô cruel souvenir du P2E passé !
+# Œuvre de tant de jours à ce jour effacée !
+# Florilège de scripts, tous éperdument vides !
+# Leur boycott a laissé Oraclex invalide.
+# Faudra-t-il, dans mon stage, faire fonctionner le site
+# Et mourir de colère en attendant Repl.it ?
+# Et, en ces jours, Sarah ma collègue sera,
+# Mais son nom, pour autant, qui donc le connaîtra ?
+# Quant au fier Olivier, brillant par son absence,
+# Qu'il soit là ou pas là, quelle est la différence ?
+# Et toi, unique exploit, interface si belle,
+# Aux fonctionnalités toutes non fonctionnelles,
+# Je t'ai si bien vendue, au fil de ces rapport
+# Servant de couverture à l'absence d'effort.
+# La vérité, pourtant, est cachée en annexe,
+# Au fin fond des archives de l’équipe Branlex.

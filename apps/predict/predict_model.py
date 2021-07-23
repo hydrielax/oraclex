@@ -42,7 +42,7 @@ def model_ia(Xnew):
     given_input=np.shape(X_input)[0]
     X_input=np.asarray(X_input).astype(np.int)
     global model_file
-    if model_file :
+    if model_file:
         shape_input=model_file.layers[0].input_shape
         model_input=shape_input[1]
         if given_input == model_input :
@@ -51,12 +51,12 @@ def model_ia(Xnew):
         else:
             model_file=train_model()
             return model_ia(Xnew)
-    else :
-        try :
+    else:
+        try:
             if not os.path.isdir('media/predict/prediction_model'):
                 copytree('media/predict/prediction_model_saved/prediction_model', 'media/predict/prediction_model') 
             model_file = load_model('media/predict/prediction_model')
-        except :
+        except:
             model_file=train_model()
         finally:
             return model_ia(Xnew)
