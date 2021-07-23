@@ -8,7 +8,7 @@ from threading import Timer, Thread
 import random
 import numpy as np
 from shutil import copytree
-
+import os
 
 
 model_file = None
@@ -53,7 +53,8 @@ def model_ia(Xnew):
             return model_ia(Xnew)
     else :
         try :
-            copytree('media/predict/prediction_model_saved/prediction_model', 'media/predict/prediction_model') 
+            if not os.path.isdir('media/predict/prediction_model'):
+                copytree('media/predict/prediction_model_saved/prediction_model', 'media/predict/prediction_model') 
             model_file = load_model('media/predict/prediction_model')
         except :
             model_file=train_model()
