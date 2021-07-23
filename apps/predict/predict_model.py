@@ -94,7 +94,9 @@ def retraining():
         delta = (6 - now.weekday()) % 7
         week = timedelta(days=7) if delta==0 else timedelta(days=delta)
         def retrain():
-            if last_file_count < Jugement.objects.all().count(): train_model()
+            new_file_count=Jugement.objects.all().count()
+            if (last_file_count < new_file_count) and (new_file_count>500):
+                train_model()
         thread = Timer(week.total_seconds(), retrain)
         thread.start()
         thread.join()
