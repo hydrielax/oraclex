@@ -1,4 +1,4 @@
-from django.shortcuts import render 
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import RequeteForm, UpdateJugementForm
 from .models import Jugement
@@ -111,6 +111,9 @@ def detailsview(request, id, temp=False):
             form = UpdateJugementForm(request.POST, instance=jugement)
             if form.is_valid():
                 form.save()
+                if form.cleaned_data['delete']=='D':
+                    jugement.delete()
+                    return redirect('home:home')
         else:
             form = UpdateJugementForm(instance=jugement)
         context['form'] = form

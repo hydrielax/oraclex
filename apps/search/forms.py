@@ -74,6 +74,12 @@ class RequeteForm(forms.Form):
 
 
 class UpdateJugementForm(forms.ModelForm):
+    delete = forms.ChoiceField(
+        choices = (('-', '---------'), ('D', 'Supprimer')),
+        required=False,
+        label = "Supprimer la décision",
+        help_text = "Cela supprimera cette décision de la base de données du site.",
+    )
     class Meta:
         model = Jugement
         fields = ['date_jugement', 'juridiction', 'decision', 'gain', 'mots_cles', 'lisible']
