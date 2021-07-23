@@ -118,14 +118,5 @@ Oraclex est un projet de gestion, d'analyse, et de prédiction de décisions de 
 
 ## Documentation
 
-### Gestion des utilisateurs
-
-Pour l'instant les utilisateurs se gèrent uniquement depuis l'interface admin. Il y a 2 groupes d'utilisateurs : les *Développeurs* et les *Membres du Service Juridique SNCF*.
-Seules les *Développeurs* ont accès à l'interface admin.
-
-### La base de données
-Les tables créées corespondent aux `class` dans le fichier `app/forms.py`. Quelques précisions :
-* La table `Jugement` représente un fichier de jugement : elle contient le fichier du jugement, les données extraites de ce fichier, ainsi que la date d'import du fichier et l'utilisateur qui l'a importé
-* La table `Juridiction` représente le tribunal qui a jugé un certain jugement. Les différents tribunaux ont été importés à partir de l'[annuaire officiel](http://www.annuaires.justice.gouv.fr/annuaires-12162/annuaire-des-conseils-de-prudhommes-21779.html), via la [base de données de la justice](http://petitpois.justice.comarquage.fr/poi/search)
-* Pour les différents types de juridiction, nous avons choisi de les importer sous forme d'une table `TypeJuridiction` pour prévoir l'ajout d'autres types facilement (notamment pour d'autres services juridiques de la SNCF qui s'appuient sur d'autres juridictions)
-* Les `MotCle` associés à un `Jugement` sont aussi répartis dans des groupes `Categorie`
+Pour voir la documentation relative au projet, des schémas expliquant le fonctionnement des principales parties sont disponibles dans le dossier `doc`. Des commentaires sont aussi ajoutés dans le code afin de mieux suivre les différents choix faits.
+Attention, avant de vous plonger dans le code, il est fortement conseillé de faire le tuto Django (mentionné en haut de cette page) auparavant.
