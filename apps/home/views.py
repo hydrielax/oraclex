@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from apps.search.models import Jugement
 from apps.account.models import Agent
+from apps.add_file.models import JugementTemp
 
 @login_required
 def home(request):
@@ -15,10 +16,12 @@ def home(request):
     num_total = Jugement.objects.count()
     num_lisibles = Jugement.objects.filter(lisible = True).count()
     num_illisibles = Jugement.objects.filter(lisible = False).count()
+    num_doublons = JugementTemp.objects.filter(doublon__isnull=False).count()
     stats_bdd = {
         'total': num_total,
         'lisible': num_lisibles,
         'illisible': num_illisibles,
+        'doublons': num_doublons,
     }
 
     #envoi au template

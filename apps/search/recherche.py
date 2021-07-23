@@ -14,7 +14,7 @@ def find_motsCles(mots):
     print(mots)
     motsCles = []
     for mot in mots:
-        matching_mot = Mot.objects.filter(name = mot)
+        matching_mot = Mot.objects.filter(name__iexact = mot)
         if matching_mot:
             motsCles.append(matching_mot[0].motcle.pk)
     return MotCle.objects.filter(pk__in=motsCles)

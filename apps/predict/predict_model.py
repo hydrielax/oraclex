@@ -14,6 +14,7 @@ import os
 model_file = None
 
 def Get_training_data_decision():
+    """get training data for the prediction"""
     Data=[] 
     for jugement in  Jugement.objects.all() :
         MotsCles_jugement = jugement.mots_cles.all()
@@ -24,6 +25,7 @@ def Get_training_data_decision():
             out_data[0]=1
         elif decision == 'M':
             continue
+            #le mixte n'est pas pris en compte
             out_data[0]=0.5
             out_data[1]=0.5
         elif decision =='F':
@@ -112,7 +114,33 @@ def Get_training_data_somme():
     for jugement in  Jugement.objects.all() :
         MotsCles_jugement = jugement.mots_cles()
         jugement.decision = 'F'|'M'|'D'
-        in_data = [int(motCle in MotsCles_jugement) for motCle in MotCle.objects.all()] #in_data = [motCle in MotsCles_jugement for motCle in MotCle.objects.all()]
+        in_data = [int(motCle in MotsCles_jugement) for motCle in MotCle.objects.all()] 
         out_data=jugement.gain
         Data.append([in_data,out_data])
     return Data
+
+
+def train_model_somme():
+    #Bring data:
+    training_data = Get_training_data_somme()
+    #randomize the order
+    random.shuffle(training_data)
+    X=[]
+    y=[]
+    for file_data, categ in training_data :
+        X.append(file_data)
+        y.append(categ)
+    X=np.array(X)
+    y=np.array(y)
+    N=np.shape(X)[1]
+    #create and train the model
+    model_somme = tf.keras.models.Sequential()
+    model_somme.add(tf.keras.layers.Dense(input_shape=(N,), units=N, activation=tf.nn.relu))
+    model_somme.add(tf.keras.layers.Dense(1, activation='linear'))
+    model_somme.compile(loss='mse', optimizer='adam')
+    model_somme.fit(X, y, epochs=1000)
+    #print(model_somme.summary())
+    return model_somme 
+
+
+
